@@ -2,7 +2,7 @@ input
     width: 100%
     outline: none
     font-size: 16px
-    padding: 7px 8px
+    padding: 7px 8px 7px 7px
     font-weight: 500
     border-radius: 7px
     text-decoration: none
@@ -17,16 +17,22 @@ input:focus
 input:hover
     box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
 
+input:focus:hover::placeholder
+    color: #616161
+
+input:hover::placeholder
+    color: #080808
+
 input::placeholder
-    color: #212121
+    color: #616161
     font-weight: 500
 
 input:-ms-input-placeholder
-    color: #212121
+    color: #616161
     font-weight: 500
 
 input::-ms-input-placeholder
-    color: #212121
+    color: #616161
     font-weight: 500
 
 // Seek input
@@ -85,6 +91,9 @@ input::-ms-input-placeholder
 .raise-input:hover
     transform: translate(0, -6px)
     box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
+
+.raise-input:hover::placeholder
+    color: #080808
 
 // Round input
 .round-input
