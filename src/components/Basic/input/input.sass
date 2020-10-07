@@ -1,0 +1,92 @@
+input
+    width: 100%
+    outline: none
+    font-size: 16px
+    padding: 7px 8px
+    font-weight: 500
+    border-radius: 7px
+    text-decoration: none
+    border: 2px solid #fff
+    transition: all .25s ease
+    font-family: 'Roboto', sans-serif
+    box-shadow: -8px 10px 16px 0px rgba(0,0,0,.08)
+
+input:focus
+    box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
+
+input:hover
+    box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
+
+input::placeholder
+    color: #212121
+    font-weight: 500
+
+input:-ms-input-placeholder
+    color: #212121
+    font-weight: 500
+
+input::-ms-input-placeholder
+    color: #212121
+    font-weight: 500
+
+// Seek input
+.s-input
+    width: 280px
+    height: 50px
+    @media only screen and (min-width: 1251px)
+        width: 240px
+
+// Border
+.border-input
+    border: 2px solid #080808
+
+.border-input:focus
+    box-shadow: 0px 10px 20px 1px rgba(0,0,0,.12)
+
+.border-input:hover
+    box-shadow: 0px 10px 20px 1px rgba(0,0,0,.12)
+
+// Error input
+.error-input
+    font-weight: 500
+    color: #ed1c46e3
+    border: 2px solid rgba(237, 28, 70, 0.9)
+
+.error-input::placeholder
+    font-weight: 500
+    color: #ed1c46e3
+
+.error-input:-ms-input-placeholder
+    font-weight: 500
+    color: #ed1c46e3
+
+.error-input::-ms-input-placeholder
+    font-weight: 500
+    color: #ed1c46e3
+
+.error-message
+    font-size: 11px
+    overflow: hidden
+    color: #ed1c46
+    font-weight: bold
+    white-space: nowrap
+    padding: 2px 0 0 4px
+    text-overflow: ellipsis
+
+// Valid input
+.valid-input
+    border: 2px solid rgba(30, 211, 93, 0.9)
+
+// Animations
+.raise-input:focus
+    transform: translate(0, -6px)
+    box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
+
+.raise-input:hover
+    transform: translate(0, -6px)
+    box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
+
+// Round input
+.round-input
+    padding: 7px 9px
+    border-radius: 16px

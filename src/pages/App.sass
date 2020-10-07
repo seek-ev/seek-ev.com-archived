@@ -1,14 +1,33 @@
 .app
     display: flex
-    padding: 12px
+    flex-direction: column
+    @media only screen and (max-width: 1251px)
+        padding: 12px 0
+
+.title
+    font-size: 22px
+    padding: 0 0 12px 20px
+    font-weight: 600
+
+.buttons
+    display: flex
     flex-direction: row
     flex-wrap: wrap
+    @media only screen and (max-width: 1251px)
+        justify-content: center
+
+.inputs
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    @media only screen and (max-width: 1251px)
+        justify-content: center
 
 .example
     display: flex
     flex-direction: column
     justify-content: space-between
-    margin: 0 20px
+    margin: 4px 16px
 
 .example_text
     margin: 0 0 8px

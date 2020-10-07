@@ -8,13 +8,13 @@ const Button = (props) => {
     <button
       className={
         'button ' +
-        (props.primary ? 'primary ' : '') +
-        (props.error ? 'error ' : '') +
-        (props.raise ? 'raise ' : '') +
-        (props.blue ? 'blue ' : '') +
-        (props.dark ? 'dark ' : '') +
-        (props.clean ? 'clean ' : '') +
-        (props.round ? 'round ' : '')
+        (props.primary ? 'primary-button ' : '') +
+        (props.error ? 'error-button ' : '') +
+        (props.raise ? 'raise-button ' : '') +
+        (props.blue ? 'blue-button ' : '') +
+        (props.dark ? 'dark-button ' : '') +
+        (props.clean ? 'clean-button ' : '') +
+        (props.round ? 'round-button ' : '')
       }
       onClick={props.click}
     >
