@@ -40,31 +40,31 @@ class App extends React.Component {
       <div className='app'>
         <div className='title'>Buttons</div>
         <div className='buttons'>
-          <div className='example'>
+          <div className='example example-buttons'>
             <div className='example_text'>Primary</div>
             <Button text='Log in' />
           </div>
-          <div className='example'>
+          <div className='example example-buttons'>
             <div className='example_text'>Clean</div>
             <Button text='Log in' clean />
           </div>
-          <div className='example'>
+          <div className='example example-buttons'>
             <div className='example_text'>Raise</div>
             <Button text='Log in' raise />
           </div>
-          <div className='example'>
+          <div className='example example-buttons'>
             <div className='example_text'>Error</div>
             <Button text='Log in' error />
           </div>
-          <div className='example'>
+          <div className='example example-buttons'>
             <div className='example_text'>Dark</div>
             <Button text='Log in' dark />
           </div>
-          <div className='example'>
+          <div className='example example-buttons'>
             <div className='example_text'>Blue</div>
             <Button text='Log in' blue />
           </div>
-          <div className='example'>
+          <div className='example example-buttons'>
             <div className='example_text'>Round</div>
             <Button text='Log in' round />
           </div>
