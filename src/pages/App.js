@@ -6,12 +6,15 @@ import './App.sass'
 // Components
 import Input from '../components/basic/input'
 import Button from '../components/basic/button'
+import Select from '../components/basic/select'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
 
     this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleSelectChange = this.handleSelectChange.bind(this)
+
     this.state = {
       exampleError: '',
       exampleValid: false
@@ -33,6 +36,12 @@ class App extends React.Component {
     }
 
     this.setState({ [e.name]: e.value })
+  }
+
+  handleSelectChange(e) {
+    this.setState({
+      [e.name]: e.value
+    })
   }
 
   render() {
@@ -129,6 +138,37 @@ class App extends React.Component {
               placeholder='Round'
               onChange={this.handleInputChange}
               round
+            />
+          </div>
+        </div>
+
+        <div className='title'>Selects</div>
+
+        <div className='selects'>
+          <div className='example example-select'>
+            <div className='example_text'>Basic</div>
+
+            <Select
+              name='test-select'
+              onChange={this.handleSelectChange}
+              options={[
+                { id: 1, name: 'ddd' },
+                { id: 2, name: 'test' }
+              ]}
+            />
+          </div>
+
+          <div className='example example-select'>
+            <div className='example_text'>Raise</div>
+
+            <Select
+              name='test-select-2'
+              onChange={this.handleSelectChange}
+              options={[
+                { id: 1, name: 'ddd' },
+                { id: 2, name: 'test' }
+              ]}
+              raise
             />
           </div>
         </div>
