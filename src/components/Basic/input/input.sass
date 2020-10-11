@@ -16,9 +16,13 @@ input
 
 input:focus
     box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
+    -moz-box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
+    -webkit-box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
 
 input:hover
     box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
+    -moz-box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
+    -webkit-box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
 
 input:focus:hover::placeholder
     color: #616161
@@ -38,6 +42,24 @@ input::-ms-input-placeholder
     color: #616161
     font-weight: 500
 
+// Disabled
+input:disabled
+    color: #616161
+
+input:hover:disabled
+    color: #616161
+
+input:disabled:hover::placeholder
+    color: #616161
+
+input::placeholder:disabled
+    color: #616161
+    font-weight: 500
+
+input:disabled:hover
+    color: #616161
+    box-shadow: -8px 10px 16px 0px rgba(0,0,0,.08)
+
 // Seek input
 .s-input
     width: 100%
@@ -49,9 +71,13 @@ input::-ms-input-placeholder
 
 .border-input:focus
     box-shadow: 0px 10px 20px 1px rgba(0,0,0,.12)
+    -moz-box-shadow: 0px 10px 20px 1px rgba(0,0,0,.12)
+    -webkit-box-shadow: 0px 10px 20px 1px rgba(0,0,0,.12)
 
 .border-input:hover
     box-shadow: 0px 10px 20px 1px rgba(0,0,0,.12)
+    -moz-box-shadow: 0px 10px 20px 1px rgba(0,0,0,.12)
+    -webkit-box-shadow: 0px 10px 20px 1px rgba(0,0,0,.12)
 
 // Error input
 .error-input
@@ -89,10 +115,14 @@ input::-ms-input-placeholder
 .raise-input:focus
     transform: translate(0, -6px)
     box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
+    -moz-box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
+    -webkit-box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
 
 .raise-input:hover
     transform: translate(0, -6px)
     box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
+    -moz-box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
+    -webkit-box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
 
 .raise-input:hover::placeholder
     color: #080808

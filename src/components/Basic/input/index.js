@@ -5,7 +5,6 @@ import './input.sass'
 
 const Input = (props) => {
   function handleChange(e) {
-    // onChange prop is required
     props.onChange(e.target)
   }
 
@@ -25,6 +24,8 @@ const Input = (props) => {
         type={props.type}
         placeholder={props.placeholder}
         required={props.required}
+        disabled={props.disabled}
+        autoComplete={props.autoComplete}
       />
 
       <div className='error-message'>{props.error}</div>

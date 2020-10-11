@@ -7,7 +7,7 @@ const Button = (props) => {
   return (
     <button
       className={
-        'button ' +
+        'btn ' +
         (props.primary ? 'primary-button ' : '') +
         (props.error ? 'error-button ' : '') +
         (props.raise ? 'raise-button ' : '') +
@@ -17,6 +17,7 @@ const Button = (props) => {
         (props.round ? 'round-button ' : '')
       }
       onClick={props.click}
+      disabled={props.disabled}
     >
       {props.text}
     </button>
