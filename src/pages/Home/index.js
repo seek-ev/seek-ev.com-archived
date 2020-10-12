@@ -7,6 +7,7 @@ import './home.sass'
 import Input from '../../components/basic/input'
 import Button from '../../components/basic/button'
 import Select from '../../components/basic/select'
+import Snackbar from '../../components/notifications/snackbar'
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -14,8 +15,11 @@ export default class Home extends React.Component {
 
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSelectChange = this.handleSelectChange.bind(this)
+    this.showSnack = this.showSnack.bind(this)
 
     this.state = {
+      snackType: '',
+      showSnack: false,
       exampleError: '',
       exampleValid: false
     }
@@ -42,6 +46,12 @@ export default class Home extends React.Component {
     await this.setState({
       [e.name]: e.value
     })
+  }
+
+  async showSnack(type) {
+    await this.setState({ snackType: type })
+    await this.setState({ showSnack: true })
+    setTimeout(() => this.setState({ showSnack: false }), 4000)
   }
 
   render() {
@@ -173,6 +183,27 @@ export default class Home extends React.Component {
             />
           </div>
         </div>
+
+        <div className="title">Snackbars</div>
+
+        <div className='buttons'>
+          <div className='example example-buttons'>
+            <div className='example-text'>Basic</div>
+            <Button text='Show' onClick={this.showSnack} />
+          </div>
+
+          <div className='example example-buttons'>
+            <div className='example-text'>Success</div>
+            <Button text='Show' onClick={() => this.showSnack('success')} />
+          </div>
+
+          <div className='example example-buttons'>
+            <div className='example-text'>Error</div>
+            <Button text='Show' onClick={() => this.showSnack('error')} />
+          </div>
+        </div>
+
+           <Snackbar text="Incorret password/email" type={this.state.snackType} show={this.state.showSnack}  />
       </div>
     )
   }
