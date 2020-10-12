@@ -4,6 +4,7 @@ import React from 'react'
 import './button.sass'
 
 const Button = (props) => {
+
   return (
     <button
       className={
@@ -16,7 +17,7 @@ const Button = (props) => {
         (props.clean ? 'clean-button ' : '') +
         (props.round ? 'round-button ' : '')
       }
-      onClick={props.click}
+      onClick={props.onClick}
       disabled={props.disabled}
     >
       {props.text}
