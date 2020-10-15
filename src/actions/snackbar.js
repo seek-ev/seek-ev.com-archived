@@ -1,12 +1,21 @@
-import { SHOW_SNACKBAR, HIDE_SNACKBAR } from "./types"
+let timeout
 
-export const showSnackbar = (type) => {
-    return {
-        type: SHOW_SNACKBAR,
-        payload: type
+export const showSnackbar = (text, type) => {
+    return (dispatch) => {
+        dispatch({ type: 'SHOW_SNACKBAR', payload: { text: text, type: type } })
+
+        if (timeout) clearTimeout(timeout)
+    
+        timeout = setTimeout(() => {
+          dispatch({ type: 'HIDE_SNACKBAR' })
+        }, 6000)
+        
     }
 }
 
-export const hideSnackbar = {
-    type: HIDE_SNACKBAR
+export const hideSnackbar = () => {
+    return (dispatch) => {
+        dispatch({ type: 'HIDE_SNACKBAR' })
+        if (timeout) clearTimeout(timeout)
+    }
 }

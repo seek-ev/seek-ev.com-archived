@@ -1,13 +1,14 @@
 @import 'src/assets/variables.sass'
 
+$snack-mb: 10px
+
 .snackbar
     left: 50%
     z-index: 1
     color: #fff
-    bottom: 20px
+    bottom: $snack-mb
     display: flex
-    padding: 16px
-    transition: 1s
+    transition: 0.5s
     position: fixed
     text-align: left
     min-width: 250px
@@ -16,7 +17,7 @@
     visibility: hidden
     margin-left: -125px
     flex-direction: row
-    padding: 16px 7px 16px 12px
+    padding: 14px 7px 14px 12px
     justify-content: space-between
     font-family: 'Roboto', sans-serif
 
@@ -28,8 +29,8 @@
     -webkit-animation: fadein 0.5s
 
 .hide-snack
-    animation: fadeout 0.5s 2.5s
-    -webkit-animation: fadeout 0.5s 2.5s
+    animation: fadeout 0.5s
+    -webkit-animation: fadeout 0.5s
 
 .snack-text
     max-width: 300px
@@ -62,9 +63,8 @@
     0%
     bottom: 0
     opacity: 0
-
     100%
-    bottom: 20px
+    bottom: $snack-mb
     opacity: 1
 
 @keyframes fadein
@@ -72,20 +72,20 @@
         bottom: 0
         opacity: 0
     100%
-        bottom: 20px
+        bottom: $snack-mb
         opacity: 1
 
 @-webkit-keyframes fadeout
-  0% 
-    bottom: 20px
+    0% 
+    bottom: $snack-mb
     opacity: 1
-  100% 
+    100%
     bottom: 0
     opacity: 0
 
 @keyframes fadeout
     0%
-        bottom: 20px
+        bottom: $snack-mb
         opacity: 1
     100%
         bottom: 0

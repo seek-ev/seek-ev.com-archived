@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 // Styles
 import './home.sass'
@@ -7,15 +8,17 @@ import './home.sass'
 import Input from '../../components/basic/input'
 import Button from '../../components/basic/button'
 import Select from '../../components/basic/select'
-import Snackbar from '../../components/notifications/snackbar'
 
-export default class Home extends React.Component {
+
+// Actions
+import { showSnackbar } from '../../actions/snackbar'
+
+class Home extends React.Component {
   constructor(props) {
     super(props)
 
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSelectChange = this.handleSelectChange.bind(this)
-    this.showSnack = this.showSnack.bind(this)
 
     this.state = {
       snackType: '',
@@ -46,12 +49,6 @@ export default class Home extends React.Component {
     await this.setState({
       [e.name]: e.value
     })
-  }
-
-  async showSnack(type) {
-    await this.setState({ snackType: type })
-    await this.setState({ showSnack: true })
-    setTimeout(() => this.setState({ showSnack: false }), 4000)
   }
 
   render() {
@@ -189,24 +186,26 @@ export default class Home extends React.Component {
         <div className='buttons'>
           <div className='example example-buttons'>
             <div className='example-text'>Basic</div>
-            <Button text='Show' onClick={this.showSnack} />
+            <Button text='Show' onClick={() => this.props.showSnackbar('Basic snack')} />
           </div>
 
           <div className='example example-buttons'>
             <div className='example-text'>Success</div>
-            <Button text='Show' onClick={() => this.showSnack('success')} />
+            <Button text='Show' onClick={() => this.props.showSnackbar('Success snack', 'success')} />
           </div>
 
           <div className='example example-buttons'>
             <div className='example-text'>Error</div>
-            <Button text='Show' onClick={() => this.showSnack('error')} />
+            <Button text='Show' onClick={() => this.props.showSnackbar('Error snack', 'error')} />
           </div>
         </div>
-
-           <Snackbar text="Incorret password/email" type={this.state.snackType} show={this.state.showSnack}  />
       </div>
     )
   }
 }
 
+export default connect(
+  null,
+  { showSnackbar }
+)(Home)
 
