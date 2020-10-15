@@ -6,15 +6,17 @@ import {
 
 // Components
 import Home from '../pages/Home'
+import Snackbar from '../components/notifications/snackbar'
 
 class App extends React.Component {
   render() {
     return (
-      <main >
+      <main>
          <Switch>
           <Route exact path="/" component={Home} />
-   
         </Switch>
+        
+        <Snackbar />
       </main>
     )
   }

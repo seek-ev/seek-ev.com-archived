@@ -2,6 +2,7 @@ import { SHOW_SNACKBAR, HIDE_SNACKBAR } from '../actions/types'
 
 const initialState = {
     show: false,
+    text: '',
     type: 'basic'
 }
 
@@ -11,13 +12,13 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 show: true,
-                type: action.payload
+                text: action.payload.text,
+                type: action.payload.type
             }
         case HIDE_SNACKBAR:
             return {
                 ...state,
                 show: false,
-                type: 'basic'
             }
         default:
             return state

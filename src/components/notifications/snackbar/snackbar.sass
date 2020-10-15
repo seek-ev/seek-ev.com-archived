@@ -1,0 +1,92 @@
+@import 'src/assets/variables.sass'
+
+$snack-mb: 10px
+
+.snackbar
+    left: 50%
+    z-index: 1
+    color: #fff
+    bottom: $snack-mb
+    display: flex
+    transition: 0.5s
+    position: fixed
+    text-align: left
+    min-width: 250px
+    max-width: 360px
+    border-radius: 7px
+    visibility: hidden
+    margin-left: -125px
+    flex-direction: row
+    padding: 14px 7px 14px 12px
+    justify-content: space-between
+    font-family: 'Roboto', sans-serif
+
+.show-snack
+    z-index: 1
+    position: fixed
+    visibility: visible
+    animation: fadein 0.5s
+    -webkit-animation: fadein 0.5s
+
+.hide-snack
+    animation: fadeout 0.5s
+    -webkit-animation: fadeout 0.5s
+
+.snack-text
+    max-width: 300px
+    overflow: hidden
+    text-overflow: ellipsis
+
+.snack-button
+    width: 60px
+    border: none
+    outline: none
+    color: #e9d520
+    font-size: 14px
+    background: none
+    font-weight: 500
+    margin: 0 0 0 10px
+    letter-spacing: 1px
+    text-transform: uppercase
+    font-family: 'Roboto', sans-serif
+
+.snack-success
+    background-color: $primary
+
+.snack-error
+    background-color: $error
+
+.snack-basic
+    background-color: #333
+
+@-webkit-keyframes fadein
+    0%
+    bottom: 0
+    opacity: 0
+    100%
+    bottom: $snack-mb
+    opacity: 1
+
+@keyframes fadein
+    0%
+        bottom: 0
+        opacity: 0
+    100%
+        bottom: $snack-mb
+        opacity: 1
+
+@-webkit-keyframes fadeout
+    0% 
+    bottom: $snack-mb
+    opacity: 1
+    100%
+    bottom: 0
+    opacity: 0
+
+@keyframes fadeout
+    0%
+        bottom: $snack-mb
+        opacity: 1
+    100%
+        bottom: 0
+        opacity: 0
