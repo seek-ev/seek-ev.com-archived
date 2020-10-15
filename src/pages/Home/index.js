@@ -1,7 +1,4 @@
 import React from 'react'
-import {
-    Link
-  } from "react-router-dom";
 
 // Styles
 import './home.sass'
@@ -175,15 +172,6 @@ export default class Home extends React.Component {
               raise
             />
           </div>
-        </div>
-
-        <div className="title">Pages</div>
-        <div className="pages">
-            <div className='example example-buttons'>
-                <Link to="/login" >
-                    <Button text="Login"  raise />
-                </Link>
-            </div>
         </div>
       </div>
     )
