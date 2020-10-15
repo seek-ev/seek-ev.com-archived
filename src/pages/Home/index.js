@@ -21,8 +21,6 @@ class Home extends React.Component {
     this.handleSelectChange = this.handleSelectChange.bind(this)
 
     this.state = {
-      snackType: '',
-      showSnack: false,
       exampleError: '',
       exampleValid: false
     }
