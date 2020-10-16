@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 // Styles
 import './home.sass'
@@ -196,6 +197,16 @@ class Home extends React.Component {
             <div className='example-text'>Error</div>
             <Button text='Show' onClick={() => this.props.showSnackbar('Error snack', 'error')} />
           </div>
+        </div>
+
+        <div className="title">Pages</div>
+
+        <div className="pages">
+            <div className='example example-buttons'>
+                <Link to="/login" >
+                    <Button text="Login"  raise />
+                </Link>
+            </div>
         </div>
       </div>
     )

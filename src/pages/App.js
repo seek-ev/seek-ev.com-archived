@@ -4,8 +4,11 @@ import {
   Route,
 } from "react-router-dom";
 
-// Components
+// Pages
 import Home from '../pages/Home'
+import Login from '../pages/Login'
+
+// Components
 import Snackbar from '../components/notifications/snackbar'
 
 class App extends React.Component {
@@ -14,6 +17,7 @@ class App extends React.Component {
       <main>
          <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
         </Switch>
         
         <Snackbar />
