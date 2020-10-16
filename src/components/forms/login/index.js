@@ -7,7 +7,6 @@ import './login_form.sass'
 import Input from '../../basic/input'
 import Button from '../../basic/button'
 
-
 const LoginForm = (props) => {    
     const handleSubmit = (e) => {
         props.onSubmit(e.target)
@@ -20,15 +19,15 @@ const LoginForm = (props) => {
 
     const handlePasswordInputChange = (e) => {
         props.onPasswordChange(e.value)
-    } 
+    }
 
     return (
     <form onSubmit={props.onSubmit}>
         <div className="login-input">
-            <Input name="email"  disabled={props.disabled} onChange={handleEmailInputChange} placeholder="Email" autoComplete="email" />
+            <Input name="email"  disabled={props.disabled} error={props.emailError} onChange={handleEmailInputChange} placeholder="Email" autoComplete="email" />
         </div>
         <div className="login-input">
-            <Input name="password"  disabled={props.disabled} onChange={handlePasswordInputChange} placeholder="Password" type="password" autoComplete="current-password" />
+            <Input name="password"  disabled={props.disabled} error={props.passwordError} onChange={handlePasswordInputChange} placeholder="Password" type="password" autoComplete="current-password" />
         </div>
         <div className="form-buttons">
             <div className="form-button">
