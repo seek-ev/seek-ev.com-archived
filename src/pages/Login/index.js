@@ -39,7 +39,7 @@ class Login extends React.Component {
                 this.setState({ redirect: '/' })
             }).catch(err => { 
                 this.setState({ disabled: false })
-                this.props.showSnackbar(err.response ? err.response.data.message ? err.response.data.message : err.response.data : err.toString(), 'error')
+                this.props.showSnackbar(err, 'error')
             })
         }
     }

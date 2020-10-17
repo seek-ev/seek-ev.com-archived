@@ -37,9 +37,9 @@ class ResetPassword extends React.Component {
         }
     }
 
-    onEmaiLChange = (e) => {
-        this.handleEmailValidation()
-        this.setState({ email: e })
+    onEmaiLChange = async (e) => {
+        await this.setState({ email: e })
+        await this.handleEmailValidation()
     }
 
     handleEmailValidation() {

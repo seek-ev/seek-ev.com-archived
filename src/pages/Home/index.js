@@ -213,6 +213,12 @@ class Home extends React.Component {
                     <Button text="Reset Password" raise />
                 </Link>
             </div>
+
+            <div className='example example-buttons'>
+                <Link to="/reset" >
+                    <Button text="Confirm Reset" raise />
+                </Link>
+            </div>
         </div>
       </div>
     )

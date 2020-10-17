@@ -16,7 +16,10 @@ const Snackbar = () => {
             }
         >
             <div className="snack-text">
-                {snackState.text}
+                {snackState.text.response ? 
+                    snackState.text.response.status === 401 ? 'Unauthorized' : snackState.text.response.status === 429 ?
+                    'Too many requests, please try again later.' : snackState.text.response.data ?
+                    snackState.text.response.data : snackState.text.toString() : snackState.text}
             </div>
      
             <button className="snack-button" onClick={() => dispatch(hideSnackbar())}>
