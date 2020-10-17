@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 
 // Pages
+import NotFound from '../pages/404'
 import Home from '../pages/Home'
 import Login from '../pages/Login'
 
@@ -18,6 +19,7 @@ class App extends React.Component {
          <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
+          <Route path='*' component={NotFound} />
         </Switch>
         
         <Snackbar />
