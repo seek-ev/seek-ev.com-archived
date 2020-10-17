@@ -80,12 +80,14 @@ class Login extends React.Component {
 
         return (
             <div className="login-container">
-                <img className="login-logo" src="se_dark.png" alt="dark-logo" />
+                <Link to="/">
+                    <img className="login-logo" src="se_dark.png" alt="dark-logo" />
+                </Link>
                 <div className="login-title">
                   Sign in
                 </div>
                 <div className="login-form">
-                    <LoginForm disabled={this.state.disabled} emailError={this.state.emailError} passwordError={this.state.passwordError} onEmailChange={this.onEmaiLChange} onPasswordChange={this.onPasswordChange} onSubmit={this.onSubmit} user={this.state.user}></LoginForm>
+                    <LoginForm disabled={this.state.disabled} emailError={this.state.emailError} passwordError={this.state.passwordError} onEmailChange={this.onEmaiLChange} onPasswordChange={this.onPasswordChange} onSubmit={this.onSubmit} />
                 </div>
                 <div className="login-forgot-password">
                     <Link disabled={true} to={this.state.disabled ? '#' : 'reset-password'} className="login-forgot-password-btn">Forgot password?</Link>
