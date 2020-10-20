@@ -219,6 +219,12 @@ class Home extends React.Component {
               <Button text="Confirm Reset" raise />
             </Link>
           </div>
+
+          <div className='example example-buttons'>
+            <Link to="/register" >
+              <Button text="Register" raise />
+            </Link>
+          </div>
         </div>
       </div>
     )
