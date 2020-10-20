@@ -17,15 +17,15 @@ const Select = (props) => {
     >
       {props.options
         ? props.options.map((option, index) => (
-            <option
-              key={option.id ? option.id : index}
-              value={
-                option.value ? option.value : option.id ? option.id : option
-              }
-            >
-              {option.name || option}
-            </option>
-          ))
+          <option
+            key={option.id ? option.id : index}
+            value={
+              option.value ? option.value : option.id ? option.id : option
+            }
+          >
+            {option.name || option}
+          </option>
+        ))
         : ''}
     </select>
   )

@@ -2,7 +2,7 @@ import React from 'react'
 import {
     Link,
     Redirect
-  } from "react-router-dom";
+} from "react-router-dom";
 import axios from 'axios'
 import { connect } from 'react-redux'
 
@@ -23,7 +23,7 @@ class Login extends React.Component {
 
     onSubmit = async (e) => {
         e.preventDefault()
-        
+
         // Validate before submitting
         await this.handleEmailValidation()
         await this.handlePasswordValidation()
@@ -31,13 +31,13 @@ class Login extends React.Component {
         if (!this.state.emailError && !this.state.passwordError) {
             this.setState({ disabled: true })
             const expires = new Date()
-        
+
             await axios.post('/auth/login', { email: this.state.email, password: this.state.password }).then(res => {
                 localStorage.setItem('s_user', JSON.stringify(res.data.data))
                 localStorage.setItem('a_token', res.data.access_token)
                 document.cookie = 'r_token=' + res.data.refresh_token + '; expires=' + new Date(expires.setFullYear(expires.getFullYear() + 1)).toString() + ';'
                 this.setState({ redirect: '/' })
-            }).catch(err => { 
+            }).catch(err => {
                 this.setState({ disabled: false })
                 this.props.showSnackbar(err, 'error')
             })
@@ -47,7 +47,7 @@ class Login extends React.Component {
     onEmaiLChange = (e) => {
         this.handleEmailValidation()
         this.setState({ email: e })
-    } 
+    }
 
     onPasswordChange = (e) => {
         this.handlePasswordValidation()
@@ -62,11 +62,11 @@ class Login extends React.Component {
             this.setState({ emailError: false })
         }
 
-        if (this.state.email.length < 6) this.setState({ emailError: 'Email is required' }) 
+        if (this.state.email.length < 6) this.setState({ emailError: 'Email is required' })
     }
 
     handlePasswordValidation() {
-        if (this.state.password.length < 6) { 
+        if (this.state.password.length < 6) {
             this.setState({ passwordError: 'Password is required' })
         } else {
             this.setState({ passwordError: false })
@@ -84,7 +84,7 @@ class Login extends React.Component {
                     <img className="login-logo" src="se_dark.png" alt="dark-logo" />
                 </Link>
                 <div className="login-title">
-                  Sign in
+                    Sign in
                 </div>
                 <div className="login-form">
                     <LoginForm disabled={this.state.disabled} emailError={this.state.emailError} passwordError={this.state.passwordError} onEmailChange={this.onEmaiLChange} onPasswordChange={this.onPasswordChange} onSubmit={this.onSubmit} />
@@ -100,6 +100,5 @@ class Login extends React.Component {
 export default connect(
     null,
     { showSnackbar }
-  )(Login)
-  
-  
+)(Login)
+

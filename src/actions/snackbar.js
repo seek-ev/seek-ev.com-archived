@@ -5,11 +5,11 @@ export const showSnackbar = (text, type) => {
         dispatch({ type: 'SHOW_SNACKBAR', payload: { text: text, type: type } })
 
         if (timeout) clearTimeout(timeout)
-    
+
         timeout = setTimeout(() => {
-          dispatch({ type: 'HIDE_SNACKBAR' })
+            dispatch({ type: 'HIDE_SNACKBAR' })
         }, 6000)
-        
+
     }
 }
 

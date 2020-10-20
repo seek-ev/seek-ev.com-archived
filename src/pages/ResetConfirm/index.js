@@ -20,33 +20,33 @@ class Reset extends React.Component {
     }
 
     componentDidMount() {
-       if (this.props.location.hash) this.setState({ token: this.props.location.hash.replace('#token=', '') })
+        if (this.props.location.hash) this.setState({ token: this.props.location.hash.replace('#token=', '') })
     }
 
     onSubmit = async (e) => {
         e.preventDefault()
-        
+
         // Validate before submitting
         await this.handlePasswordValidation()
         await this.handleRepeatPasswordValidation()
 
         if (!this.state.passwordError && !this.state.passwordRepeatError) {
             this.setState({ disabled: true })
-        
-             await axios.post(`/auth/reset-confirm`, {
+
+            await axios.post(`/auth/reset-confirm`, {
                 password: this.state.password
-                },
+            },
                 {
-                 headers: {
-                    'Authorization': this.state.token
-                }
-             }).then(res => {
-                this.props.showSnackbar('Email successfully sent', 'success')
-                this.setState({ redirect: '/reset/success' })
-            }).catch(err => { 
-                this.setState({ disabled: false })
-                this.props.showSnackbar(err.response.status === 401 ? 'Token expired' : err, 'error')
-            })
+                    headers: {
+                        'Authorization': this.state.token
+                    }
+                }).then(res => {
+                    this.props.showSnackbar('Email successfully sent', 'success')
+                    this.setState({ redirect: '/reset/success' })
+                }).catch(err => {
+                    this.setState({ disabled: false })
+                    this.props.showSnackbar(err.response.status === 401 ? 'Token expired' : err, 'error')
+                })
         }
     }
 
@@ -68,7 +68,7 @@ class Reset extends React.Component {
         } else {
             this.setState({ passwordError: false })
             if (!reg.test(this.state.password)) {
-                this.setState({ passwordError: 'Missing at least one capital letter'})
+                this.setState({ passwordError: 'Missing at least one capital letter' })
             } else {
                 this.setState({ passwordError: false })
             }
@@ -76,12 +76,12 @@ class Reset extends React.Component {
     }
 
     handleRepeatPasswordValidation() {
-        if (this.state.repeatPassword !== this.state.password) { 
+        if (this.state.repeatPassword !== this.state.password) {
             this.setState({ repeatPasswordError: "Passwords doesn't match" })
         } else {
             this.setState({ repeatPasswordError: false })
         }
-    }  
+    }
 
     render() {
         if (this.state.redirect) {
@@ -89,17 +89,17 @@ class Reset extends React.Component {
         }
 
         return (
-        <div className="reset-confirm-container">  
-            <Link to="/">
-                <img className="reset-confirm-logo" src="se_dark.png" alt="dark-logo" />
-            </Link>
-            <div className="reset-confirm-title">
-                Set your new password
+            <div className="reset-confirm-container">
+                <Link to="/">
+                    <img className="reset-confirm-logo" src="se_dark.png" alt="dark-logo" />
+                </Link>
+                <div className="reset-confirm-title">
+                    Set your new password
             </div>
-            <div className="reset-form">
-                <ResetConfirmForm disabled={this.state.disabled} passwordError={this.state.passwordError} passwordRepeatError={this.state.repeatPasswordError} onPasswordChange={this.onPasswordChange} onRepeatPasswordChange={this.onPasswordRepeatChange}  onSubmit={this.onSubmit} />
+                <div className="reset-form">
+                    <ResetConfirmForm disabled={this.state.disabled} passwordError={this.state.passwordError} passwordRepeatError={this.state.repeatPasswordError} onPasswordChange={this.onPasswordChange} onRepeatPasswordChange={this.onPasswordRepeatChange} onSubmit={this.onSubmit} />
+                </div>
             </div>
-        </div>
         )
     }
 }
@@ -107,6 +107,5 @@ class Reset extends React.Component {
 export default connect(
     null,
     { showSnackbar }
-  )(Reset)
-  
-  
+)(Reset)
+

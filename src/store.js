@@ -6,11 +6,11 @@ import thunk from 'redux-thunk';
 import logger from './middleware/logger'
 
 export default createStore(
-    rootReducer, 
+    rootReducer,
     compose(
-        applyMiddleware(thunk, logger), 
+        applyMiddleware(thunk, logger),
         window.__REDUX_DEVTOOLS_EXTENSION__
-        ? window.__REDUX_DEVTOOLS_EXTENSION__()
-        : f => f
+            ? window.__REDUX_DEVTOOLS_EXTENSION__()
+            : f => f
     )
 )

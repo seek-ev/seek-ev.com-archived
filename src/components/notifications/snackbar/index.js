@@ -10,18 +10,18 @@ const Snackbar = () => {
     const dispatch = useDispatch()
 
     return (
-        <div className={'snackbar ' + 
+        <div className={'snackbar ' +
             (snackState.show ? 'show-snack ' : 'hide-snack ') +
-            (snackState.type === 'success' ? 'snack-success ' : snackState.type === 'error' ? 'snack-error ' : 'snack-basic ') 
-            }
+            (snackState.type === 'success' ? 'snack-success ' : snackState.type === 'error' ? 'snack-error ' : 'snack-basic ')
+        }
         >
             <div className="snack-text">
-                {snackState.text.response ? 
+                {snackState.text.response ?
                     snackState.text.response.status === 401 ? 'Unauthorized' : snackState.text.response.status === 429 ?
-                    'Too many requests, please try again later.' : snackState.text.response.data ?
-                    snackState.text.response.data : snackState.text.toString() : snackState.text}
+                        'Too many requests, please try again later.' : snackState.text.response.data ?
+                            snackState.text.response.data : snackState.text.toString() : snackState.text}
             </div>
-     
+
             <button className="snack-button" onClick={() => dispatch(hideSnackbar())}>
                 Close
             </button>

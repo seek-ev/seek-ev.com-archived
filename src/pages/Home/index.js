@@ -202,23 +202,23 @@ class Home extends React.Component {
         <div className="title">Pages</div>
 
         <div className="pages">
-            <div className='example example-buttons'>
-                <Link to="/login" >
-                    <Button text="Login" raise />
-                </Link>
-            </div>
+          <div className='example example-buttons'>
+            <Link to="/login" >
+              <Button text="Login" raise />
+            </Link>
+          </div>
 
-            <div className='example example-buttons'>
-                <Link to="/reset-password" >
-                    <Button text="Reset Password" raise />
-                </Link>
-            </div>
+          <div className='example example-buttons'>
+            <Link to="/reset-password" >
+              <Button text="Reset Password" raise />
+            </Link>
+          </div>
 
-            <div className='example example-buttons'>
-                <Link to="/reset" >
-                    <Button text="Confirm Reset" raise />
-                </Link>
-            </div>
+          <div className='example example-buttons'>
+            <Link to="/reset" >
+              <Button text="Confirm Reset" raise />
+            </Link>
+          </div>
         </div>
       </div>
     )

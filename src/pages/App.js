@@ -20,16 +20,16 @@ class App extends React.Component {
   render() {
     return (
       <main>
-         <Switch>
+        <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/reset-password" component={ResetPassword} />
-          <Route exact path="/reset-password/success"  component={ResetSuccess} />
+          <Route exact path="/reset-password/success" component={ResetSuccess} />
           <Route exact path="/reset/success" component={ResetConfirmSuccess} />
-          <Route path="/reset"  component={ResetConfirm} />
+          <Route path="/reset" component={ResetConfirm} />
           <Route path='*' component={NotFound} />
         </Switch>
-        
+
         <Snackbar />
       </main>
     )
