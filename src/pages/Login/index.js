@@ -35,7 +35,7 @@ class Login extends React.Component {
             await axios.post('/auth/login', { email: this.state.email, password: this.state.password }).then(res => {
                 localStorage.setItem('s_user', JSON.stringify(res.data.data))
                 localStorage.setItem('a_token', res.data.access_token)
-                document.cookie = 'r_token=' + res.data.refresh_token + '; expires=' + new Date(expires.setFullYear(expires.getFullYear() + 1)).toString() + ';'
+                document.cookie = 'r_token=' + res.data.refresh_token + '; expires=' + new Date(expires.setFullYear(expires.getFullYear() + 1)).toString() + '; SameSite=Strict;'
                 this.setState({ redirect: '/' })
             }).catch(err => {
                 this.setState({ disabled: false })
@@ -44,20 +44,20 @@ class Login extends React.Component {
         }
     }
 
-    onEmaiLChange = (e) => {
-        this.handleEmailValidation()
-        this.setState({ email: e })
+    onEmaiLChange = async (e) => {
+        await this.setState({ email: e })
+        await this.handleEmailValidation()
     }
 
-    onPasswordChange = (e) => {
-        this.handlePasswordValidation()
-        this.setState({ password: e })
+    onPasswordChange = async (e) => {
+        await this.setState({ password: e })
+        await this.handlePasswordValidation()
     }
 
     handleEmailValidation() {
         const reg = new RegExp((/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/))
         if (!reg.test(this.state.email)) {
-            this.setState({ emailError: 'Icorrect email' })
+            this.setState({ emailError: 'Incorrect email' })
         } else {
             this.setState({ emailError: false })
         }

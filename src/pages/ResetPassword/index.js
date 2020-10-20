@@ -45,7 +45,7 @@ class ResetPassword extends React.Component {
     handleEmailValidation() {
         const reg = new RegExp((/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/))
         if (!reg.test(this.state.email)) {
-            this.setState({ emailError: 'Icorrect email' })
+            this.setState({ emailError: 'Incorrect email' })
         } else {
             this.setState({ emailError: false })
         }

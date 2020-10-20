@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 // Styles
 import './login_form.sass'
@@ -31,7 +32,9 @@ const LoginForm = (props) => {
             </div>
             <div className="form-buttons">
                 <div className="form-button">
-                    <Button text="register" disabled={props.disabled} clean />
+                    <Link to="/register">
+                        <Button text="register" disabled={props.disabled} clean />
+                    </Link>
                 </div>
                 <div className="form-button">
                     <Button text="login" disabled={props.disabled} primary type="submit" handleClick={handleSubmit} />
