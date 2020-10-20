@@ -33,7 +33,7 @@ const RegisterForm = (props) => {
     return (
         <form onSubmit={props.onSubmit}>
             <div className="register-input">
-                <Input name="username" disabled={props.disabled} error={props.usernameError} onChange={handleUsernameInputChange} placeholder="Username" autoComplete="username" />
+                <Input name="username" disabled={props.disabled} error={props.usernameError} onChange={handleUsernameInputChange} placeholder="Username" autoComplete="none" />
             </div>
             <div className="register-input">
                 <Input name="email" disabled={props.disabled} error={props.emailError} onChange={handleEmailInputChange} placeholder="Email" autoComplete="email" />
