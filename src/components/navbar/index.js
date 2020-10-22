@@ -43,7 +43,7 @@ const Navbar = (props) => {
             </div>
 
             <div className={username ? 'nav-hidden' : 'nav-right'}>
-                <Link to="/register">
+                <Link to="/register" className="nav-hidden-medium">
                     <Button text="Register" clean />
                 </Link>
 
