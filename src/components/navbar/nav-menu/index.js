@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { Link, Redirect } from 'react-router-dom'
-import { MdArrowDropDownCircle, MdPowerSettingsNew } from "react-icons/md";
+import { MdArrowDropDownCircle } from "react-icons/md";
 
 // Styles
 import './nav_menu.sass'
