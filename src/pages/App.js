@@ -15,7 +15,7 @@ import ResetSuccess from '../pages/ResetPassword/Success'
 import ResetConfirmSuccess from '../pages/ResetConfirm/Success'
 
 // Components
-import Snackbar from '../components/notifications/snackbar'
+import { Snackbar } from '../components/notifications/snackbar'
 
 class App extends React.Component {
   render() {

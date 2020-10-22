@@ -32,7 +32,7 @@ class Login extends React.Component {
             this.setState({ disabled: true })
             const expires = new Date()
 
-            await axios.post('/auth/login', { email: this.state.email, password: this.state.password }).then(res => {
+            await axios.post('/auth/login/tester', { email: this.state.email, password: this.state.password }).then(res => {
                 localStorage.setItem('s_user', JSON.stringify(res.data.data))
                 localStorage.setItem('a_token', res.data.access_token)
                 document.cookie = 'r_token=' + res.data.refresh_token + '; expires=' + new Date(expires.setFullYear(expires.getFullYear() + 1)).toString() + '; SameSite=Strict;'
