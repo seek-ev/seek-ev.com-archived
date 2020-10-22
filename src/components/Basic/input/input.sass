@@ -1,6 +1,6 @@
 @import "src/assets/variables"
 
-input
+.seek-input
     width: 100%
     outline: none
     font-size: 16px
@@ -13,56 +13,58 @@ input
     transition: all .25s ease
     font-family: 'Roboto', sans-serif
     box-shadow: -8px 10px 16px 0px rgba(0,0,0,.08)
+    -moz-box-shadow: -8px 10px 16px 0px rgba(0,0,0,.08)
+    -webkit-box-shadow: -8px 10px 16px 0px rgba(0,0,0,.08)
 
-input:focus
+.seek-input:focus
     box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
     -moz-box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
     -webkit-box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
 
-input:hover
+.seek-input:hover
     box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
     -moz-box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
     -webkit-box-shadow: 0px 10px 20px 0px rgba(0,0,0,.12)
 
-input:focus:hover::placeholder
+.seek-input:focus:hover::placeholder
     color: #616161
 
-input:hover::placeholder
+.seek-input:hover::placeholder
     color: #080808
 
-input::placeholder
+.seek-input::placeholder
     color: #616161
     font-weight: 500
 
-input:-ms-input-placeholder
+.seek-input:-ms-input-placeholder
     color: #616161
     font-weight: 500
 
-input::-ms-input-placeholder
+.seek-input::-ms-input-placeholder
     color: #616161
     font-weight: 500
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active
+.seek-input:-webkit-autofill,
+.seek-input:-webkit-autofill:hover,
+.seek-input:-webkit-autofill:focus,
+.seek-input:-webkit-autofill:active
     -webkit-box-shadow: 0 0 0 30px white inset !important
 
 // Disabled
-input:disabled
+.seek-input:disabled
     color: #616161
 
-input:hover:disabled
+.seek-input:hover:disabled
     color: #616161
 
-input:disabled:hover::placeholder
+.seek-input:disabled:hover::placeholder
     color: #616161
 
-input::placeholder:disabled
+.seek-input::placeholder:disabled
     color: #616161
     font-weight: 500
 
-input:disabled:hover
+.seek-input:disabled:hover
     color: #616161
     box-shadow: -8px 10px 16px 0px rgba(0,0,0,.08)
 
@@ -145,3 +147,4 @@ input:disabled:hover
 .round-input
     padding: 7px 9px
     border-radius: 16px
+    color: red
