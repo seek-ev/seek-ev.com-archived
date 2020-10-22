@@ -1,0 +1,46 @@
+@import "src/assets/variables"
+
+.nav-profile
+    height: 60%
+    display: flex
+    flex-direction: row
+    padding: 4px 8px 2px
+    border-radius: 20px
+    align-items: center
+    color: #080808
+    text-decoration: none
+    transition: all .25s ease
+    font-family: 'Roboto', sans-serif
+    @media only screen and (max-width: $max-medium)
+        height: auto
+        padding: 2px
+
+.nav-profile:hover
+    background-color: #f3f1f1
+
+.nav-profile-nohover:hover
+    background-color: #fff
+
+.nav-profile-avatar
+    width: 32px
+    align-self: flex-start
+    img
+        width: 100%
+        border-radius: 50%
+    @media only screen and (max-width: $max-medium)
+        width: 38px
+        align-self: flex-start
+
+.nav-profile-username
+    margin: 0 6px 4px
+    height: auto
+    font-weight: 500
+    text-decoration: none
+    @media only screen and (max-width: $max-medium)
+        display: none
+
+.hide-logout
+    display: none
+
+.hide-logout:hover
+    background-color: #fff !important

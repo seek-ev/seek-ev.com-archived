@@ -9,6 +9,7 @@ import Home from '../pages/Home'
 import Login from '../pages/Login'
 import NotFound from '../pages/404'
 import Register from '../pages/Register'
+import TestHome from '../pages/TestHome'
 import ResetConfirm from '../pages/ResetConfirm'
 import ResetPassword from '../pages/ResetPassword'
 import ResetSuccess from '../pages/ResetPassword/Success'
@@ -22,7 +23,8 @@ class App extends React.Component {
     return (
       <main>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={TestHome} />
+          <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/reset-password" component={ResetPassword} />

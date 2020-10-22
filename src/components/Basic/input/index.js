@@ -14,11 +14,12 @@ const Input = (props) => {
         value={props.value}
         onChange={handleChange}
         className={
-          (props.raise ? 'raise-input ' : '') +
-          (props.border ? 'border-input ' : '') +
-          (props.error ? 'error-input ' : '') +
-          (props.valid ? 'valid-input ' : '') +
-          (props.round ? 'round-input ' : '')
+          'seek-input' +
+          (props.raise ? ' raise-input' : '') +
+          (props.border ? ' border-input' : '') +
+          (props.error ? ' error-input' : '') +
+          (props.valid ? ' valid-input' : '') +
+          (props.round ? ' round-input' : '')
         }
         name={props.name}
         type={props.type}
