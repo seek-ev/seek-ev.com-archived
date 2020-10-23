@@ -25,14 +25,15 @@ class App extends React.Component {
       <main>
         <Switch>
           <Route exact path="/" component={TestHome} />
+
           <Route exact path="/home" component={Home} />
-          <Route exact path="/:model" component={Car} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/reset-password" component={ResetPassword} />
           <Route exact path="/reset-password/success" component={ResetSuccess} />
           <Route exact path="/reset/success" component={ResetConfirmSuccess} />
           <Route path="/reset" component={ResetConfirm} />
+          <Route exact path="/:model" component={Car} />
           <Route path='*' component={NotFound} />
         </Switch>
 

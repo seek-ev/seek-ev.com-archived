@@ -1,1 +1,29 @@
+@import "src/assets/variables"
 
+.cars-header
+    padding: 24px 5% 0px
+    min-height: 100px
+    display: flex
+    flex-direction: row
+    @media only screen and (max-width: $max-medium)
+        flex-direction: column
+
+.cars-filters
+    display: flex
+    flex-direction: row
+    margin: 0 16px 0
+    .cars-filter
+        margin: 0 16px 0 0
+    @media only screen and (max-width: $max-medium)
+        flex-direction: column
+        margin: 0
+
+.cars
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    padding: 12px 4% 18px
+    justify-content: flex-start
+    @media only screen and (max-width: $max-medium)
+        flex-direction: column
+        align-content: center
