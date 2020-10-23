@@ -38,7 +38,7 @@
     position: absolute
     border-radius: 7px
     background-color: #fff
-    max-height: 250px
+    max-height: 280px
     overflow: auto
     overflow-x: hidden
     padding: 4px 6px
@@ -64,7 +64,11 @@
     z-index: 1
     width: 100%
     transition: all .25s ease
-    display: block
+    display: flex
+    flex-direction: row
+    align-content: center
+    align-items: center
+    justify-content: space-between
     padding: 12px 8px
     color: #444444
     margin: 4px 0
@@ -79,9 +83,17 @@
     box-shadow: 0px 4px 8px 0px rgba(0,0,0,.12)
     -moz-box-shadow: 0px 4px 8px 0px rgba(0,0,0,.12)
     -webkit-box-shadow: 0px 4px 8px 0px rgba(0,0,0,.12)
+    .search-desc
+        color: #eeeeee
 
 .search-dropdown-hidden
     display: none
+
+.search-info
+    width: 80%
+    display: flex
+    flex-direction: row
+    align-items: center
 
 .search-disabled
     color: #747474 !important
@@ -93,3 +105,24 @@
     box-shadow: none
     -moz-box-shadow: none
     -webkit-box-shadow: none
+
+.search-avatar
+    height: 24px
+    width: 24px
+    margin: 0 6px 0
+
+.search-text
+    max-width: 100%
+    overflow: hidden
+    text-overflow: ellipsis
+
+.search-avatar-hidden
+    display: none
+
+.search-desc
+    color: #8d8d8d
+    font-size: 14px
+    margin: 0 0 0 4px
+
+.search-desc-hidden
+    display: none
