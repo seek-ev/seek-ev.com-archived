@@ -68,30 +68,51 @@ const SearchBar = () => {
         if (e.currentTarget.children[1] && e.currentTarget.children[1].className === 'search-desc') {
             const type = e.currentTarget.children[1].innerText
             const path = e.currentTarget.pathname
-            const id = path.replace(('/b'), '').replace('/', '')
+            const id = path.replace(('/b'), '').replace('/u', '').replace('/', '')
             const name = e.currentTarget.children[0].children[1].innerText
             const history = JSON.parse(localStorage.getItem('s_history'))
             let avatar
 
             if (e.currentTarget.children[0].children[0].className === 'search-avatar' && e.currentTarget.children[0].children[0].currentSrc) avatar = e.currentTarget.children[0].children[0].currentSrc
+            else if (e.currentTarget.children[0].children[0].className.split(' ')) avatar = e.currentTarget.children[0].children[0].currentSrc
             else avatar = 'se_dark.png'
+
 
             if (history) {
                 if (history.length >= 5) history.pop()
-                if (type === 'Brand') {
-                    const found = history.findIndex(h => h.id === id && h.name === name)
-                    if (found !== -1) history.splice(found, 1)
-                    history.unshift({ id: id, name: name, avatar: { url: avatar } })
-                } else if (type === 'Car') {
-                    const found = history.findIndex(h => h.id === id && h.model === name)
-                    if (found !== -1) history.splice(found, 1)
-                    history.unshift({ id: id, model: name, brand: { avatar: { url: avatar } } })
+                switch (type) {
+                    case 'Brand':
+                        const foundBrand = history.findIndex(h => h.id === id && h.name === name)
+                        if (foundBrand !== -1) history.splice(foundBrand, 1)
+                        history.unshift({ id: id, name: name, avatar: { url: avatar } })
+                        break
+                    case 'Car':
+                        const foundCar = history.findIndex(h => h.id === id && h.model === name)
+                        if (foundCar !== -1) history.splice(foundCar, 1)
+                        history.unshift({ id: id, model: name, brand: { avatar: { url: avatar } } })
+                        break
+                    case 'User':
+                        const foundUser = history.findIndex(h => h.id === id && h.username === name)
+                        if (foundUser !== -1) history.splice(foundUser, 1)
+                        history.unshift({ id: id, username: name, avatar: { url: avatar } })
+                        break
+                    default:
+                        break
                 }
                 localStorage.setItem('s_history', JSON.stringify(history))
             }
             else {
-                if (type === 'Brand') localStorage.setItem('s_history', JSON.stringify([{ id: id, name: name, avatar: { url: avatar } }]))
-                else if (type === 'Car') localStorage.setItem('s_history', JSON.stringify([{ id: id, model: name, brand: { avatar: { url: avatar } } }]))
+                switch (type) {
+                    case 'Brand':
+                        localStorage.setItem('s_history', JSON.stringify([{ id: id, name: name, avatar: { url: avatar } }]))
+                        break
+                    case 'Car':
+                        localStorage.setItem('s_history', JSON.stringify([{ id: id, model: name, brand: { avatar: { url: avatar } } }]))
+                        break
+                    case 'User':
+                        localStorage.setItem('s_history', JSON.stringify([{ id: id, username: name, avatar: { url: avatar } }]))
+                        break
+                }
             }
         }
         e.persist()
@@ -105,13 +126,13 @@ const SearchBar = () => {
 
             <div className={results.length > 0 && show ? 'search-dropdown' : 'search-dropdown-hidden'}>
                 {results.map((value) => {
-                    return <Link className={'search-dropdown-item' + (value.disabled ? ' search-disabled ' : '') + (value.history ? ' search-history' : '')} onClick={saveHistory} to={`/${value.model ? value.model : value.name ? 'b/' + value.name : ''}`} key={(value.id ? value.id : 0) + (value.name ? value.name : value.model ? value.model : value.text)} >
+                    return <Link className={'search-dropdown-item' + (value.disabled ? ' search-disabled ' : '') + (value.history ? ' search-history' : '')} onClick={saveHistory} to={`/${value.model ? value.model : value.name ? 'b/' + value.name : value.username ? 'u/' + value.username : ''}`} key={(value.id ? value.id : 0) + (value.name ? value.name : value.model ? value.model : value.username ? value.username : value.text)} >
                         <div className="search-info">
-                            <img className={!value.disabled ? 'search-avatar' : 'search-avatar-hidden'} src={value.brand ? value.brand.avatar ? value.brand.avatar.url : 'se_dark.png' : value.avatar ? value.avatar.url : 'se_dark.png'} onError={(e) => { e.target.onerror = null; e.target.src = 'se_dark.png' }} alt={value.name} />
-                            <span className="search-text">{value.model ? value.model : value.name ? value.name : value.text}</span>
+                            <img className={(!value.disabled ? 'search-avatar' : 'search-avatar-hidden') + (value.username ? ' search-avatar-round' : '')} src={value.brand ? value.brand.avatar ? value.brand.avatar.url : 'se_dark.png' : value.avatar ? value.avatar.url : 'se_dark.png'} onError={(e) => { e.target.onerror = null; e.target.src = 'se_dark.png' }} alt={value.name} />
+                            <span className="search-text">{value.model ? value.model : value.name ? value.name : value.username ? value.username : value.text}</span>
                         </div>
 
-                        <span className={(value.disabled ? 'search-desc-hidden' : 'search-desc')}>{value.model ? 'Car' : 'Brand'}</span>
+                        <span className={(value.disabled ? 'search-desc-hidden' : 'search-desc')}>{value.model ? 'Car' : value.username ? 'User' : 'Brand'}</span>
                         <div className={(value.history ? 'search-icon' : 'search-desc-hidden')} onClick={clearHistory}>
                             <MdClose />
                         </div>
