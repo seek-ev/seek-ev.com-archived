@@ -69,7 +69,6 @@ const SearchBar = () => {
             const type = e.currentTarget.children[1].innerText
             const path = e.currentTarget.pathname
             const id = path.replace(('/b'), '').replace('/', '')
-            console.log('Id ', id)
             const name = e.currentTarget.children[0].children[1].innerText
             const history = JSON.parse(localStorage.getItem('s_history'))
             let avatar
