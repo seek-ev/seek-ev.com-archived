@@ -10,21 +10,21 @@ import { showSnackbar } from '../../../actions/snackbar'
 import './searchbar.sass'
 
 const SearchBar = () => {
-    const [cars, setCars] = useState([{ text: 'No cars found in your history', disabled: true }])
+    const [results, setResults] = useState([{ text: 'Nothing here yet', disabled: true }])
     const history = JSON.parse(localStorage.getItem('s_history'))
     const dispatch = useDispatch()
     const show = false
 
-    const wrapperRef = useRef(null);
+    const wrapperRef = useRef(null)
     useOutsideAlerter(wrapperRef)
 
     const onSearchChange = async (e) => {
-        if (e.target.value.length <= 0 && history) return setCars(history)
-        await axios.get(`/cars/search/${e.target.value}`).then(res => {
-            if (res.data.length > 0) setCars(res.data)
-            else setCars([{ text: 'No cars found' }])
+        if (e.target.value.length <= 0 && history) return setResults(history)
+        await axios.get(`/search/${e.target.value}`).then(res => {
+            if (res.data.length > 0) setResults(res.data)
+            else setResults([{ text: 'No results found', disabled: true }])
         }).catch(err => {
-            if (err.response.status === 404) setCars([{ text: 'No cars found', disabled: true }])
+            if (err.response.status === 404) setResults([{ text: 'No results found', disabled: true }])
             else dispatch(showSnackbar(err, 'error'))
         })
     }
@@ -45,7 +45,7 @@ const SearchBar = () => {
                 }
             }
 
-            if (history) setCars(history)
+            if (history) setResults(history)
 
             document.addEventListener("mousedown", handleClickOutside);
             return () => {
@@ -55,28 +55,55 @@ const SearchBar = () => {
     }
 
     const saveHistory = (e) => {
+        if (e.currentTarget.children[1] && e.currentTarget.children[1].className === 'search-desc') {
+            const type = e.currentTarget.children[1].innerText
+            const path = e.currentTarget.pathname
+            const id = path.replace('/', '')
+            const name = e.currentTarget.children[0].children[1].innerText
+            const history = JSON.parse(localStorage.getItem('s_history'))
+            let avatar
 
-        const id = e.target.pathname.replace('/', '')
-        const history = JSON.parse(localStorage.getItem('s_history'))
-        if (history) {
-            if (history.length >= 5) history.pop()
-            const found = history.findIndex(h => h.id === id)
-            if (found !== -1) history.splice(found, 1)
-            history.unshift({ id: id, model: e.target.innerHTML })
-            localStorage.setItem('s_history', JSON.stringify(history))
+            if (e.currentTarget.children[0].children[0].className === 'search-avatar' && e.currentTarget.children[0].children[0].currentSrc) avatar = e.currentTarget.children[0].children[0].currentSrc
+            else avatar = 'se_dark.png'
+
+            if (history) {
+                if (history.length >= 5) history.pop()
+                if (type === 'Brand') {
+                    const found = history.findIndex(h => h.id === id && h.name === name)
+                    if (found !== -1) history.splice(found, 1)
+                    history.unshift({ id: id, name: name, avatar: { url: avatar } })
+                } else if (type === 'Car') {
+                    const found = history.findIndex(h => h.id === id && h.model === name)
+                    if (found !== -1) history.splice(found, 1)
+                    history.unshift({ id: id, model: name, brand: { avatar: { url: avatar } } })
+                }
+                localStorage.setItem('s_history', JSON.stringify(history))
+            }
+            else {
+                if (type === 'Brand') localStorage.setItem('s_history', JSON.stringify([{ id: id, name: name, avatar: { url: avatar } }]))
+                else if (type === 'Car') localStorage.setItem('s_history', JSON.stringify([{ id: id, model: name, brand: { avatar: { url: avatar } } }]))
+            }
         }
-        else localStorage.setItem('s_history', JSON.stringify([{ id: id, model: e.target.innerHTML }]))
         e.persist()
     }
+
 
     return (
         <div className="search-bar" ref={wrapperRef}>
             <input className="search-input" placeholder="Search" onChange={onSearchChange} />
 
-            <div className={cars.length > 0 && show ? 'search-dropdown' : 'search-dropdown-hidden'}>
-                {cars.map((value) => {
-                    return <Link className={'search-dropdown-item ' + (value.disabled ? ' search-disabled ' : '')} onClick={saveHistory} to={`/${value.id ? value.id : ''}`} key={value.id ? value.id : 0}>{value.model ? value.model : value.text}</Link>
+            <div className={results.length > 0 && show ? 'search-dropdown' : 'search-dropdown-hidden'}>
+                {results.map((value) => {
+                    return <Link className={'search-dropdown-item' + (value.disabled ? ' search-disabled ' : '')} onClick={saveHistory} to={`/${value.name ? 'b/' + value.id : value.id}`} key={(value.id ? value.id : 0) + (value.name ? value.name : value.model ? value.model : value.text)} >
+                        <div className="search-info">
+                            <img className={!value.disabled ? 'search-avatar' : 'search-avatar-hidden'} src={value.brand ? value.brand.avatar ? value.brand.avatar.url : 'se_dark.png' : value.avatar ? value.avatar.url : 'se_dark.png'} onError={(e) => { e.target.onerror = null; e.target.src = 'se_dark.png' }} alt={value.name} />
+                            <span className="search-text">{value.model ? value.model : value.name ? value.name : value.text}</span>
+                        </div>
+
+                        <span className={(value.disabled ? 'search-desc-hidden' : 'search-desc')}>{value.model ? 'Car' : 'Brand'}</span>
+                    </Link>
                 })}
+
             </div>
         </div>
     )
