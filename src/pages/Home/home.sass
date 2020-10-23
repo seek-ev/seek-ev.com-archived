@@ -2,21 +2,34 @@
 
 .cars-header
     padding: 24px 5% 0px
-    min-height: 100px
+    height: 70px
     display: flex
     flex-direction: row
     @media only screen and (max-width: $max-medium)
+        height: auto
+        width: 100%
         flex-direction: column
+        align-items: center
 
 .cars-filters
     display: flex
     flex-direction: row
     margin: 0 16px 0
-    .cars-filter
-        margin: 0 16px 0 0
     @media only screen and (max-width: $max-medium)
         flex-direction: column
         margin: 0
+        width: 95%
+    .cars-filter
+        margin: 0 16px 0 0
+        @media only screen and (max-width: $max-medium)
+            margin: 6px 0 0
+
+.cars-searchbar
+    width: 20%
+    @media only screen and (max-width: $max-desktop)
+        width: 30%
+    @media only screen and (max-width: $max-medium)
+        width: 95%
 
 .cars
     display: flex
@@ -24,6 +37,25 @@
     flex-wrap: wrap
     padding: 12px 4% 18px
     justify-content: flex-start
+    @media only screen and (max-width: $max-large) and (orientation: landscape)
+        flex-direction: row !important
+        flex-wrap: wrap
     @media only screen and (max-width: $max-medium)
         flex-direction: column
         align-content: center
+
+.cars-hidden
+    display: none
+
+.cars-not-found
+    width: 100%
+    font-size: 24px
+    font-weight: 600
+    text-align: center
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 22px 0
+.not-found-icon
+    color: #1DB954
+    margin: 2px 0 0

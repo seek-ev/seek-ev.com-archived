@@ -4,17 +4,27 @@
     min-height: 200px
     max-height: 210px
     width: 18%
-    margin: 12px 1% 6px
+    margin: 8px 1%
     background: #fff
     border-radius: 7px
     transition: all .5s ease
     box-shadow: 0 6px 14px 0px rgba(0,0,0,.08)
     -moz-box-shadow: 0 6px 14px 0px rgba(0,0,0,.08)
     -webkit-box-shadow: 0 6px 14px 0px rgba(0,0,0,.08)
-    @media only screen and (max-width: $max-medium)
-        width: 75%
-    @media only screen and (max-width: 400px)
+    @media only screen and (max-width: 1550px)
+        width: 30%
+        margin: 8px 1.5%
+    @media only screen and (max-width: $max-desktop)
+        width: 30%
+        margin: 8px 1.5%
+    @media only screen and (max-width: $max-large) and (orientation: landscape)
+        width: 44%
+        margin: 8px 3%
+    @media only screen and (max-width: $max-small)
         width: 90%
+    @media only screen and (max-width: 300px)
+        width: 80%
+        margin: 0 1% 0
 
 .car-card:hover
     color: #1DB954
