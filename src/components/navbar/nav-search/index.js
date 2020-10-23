@@ -105,7 +105,7 @@ const SearchBar = () => {
 
             <div className={results.length > 0 && show ? 'search-dropdown' : 'search-dropdown-hidden'}>
                 {results.map((value) => {
-                    return <Link className={'search-dropdown-item' + (value.disabled ? ' search-disabled ' : '') + (value.history ? ' search-history' : '')} onClick={saveHistory} to={`/${value.model ? value.name ? 'b/' + value.name : value.model : ''}`} key={(value.id ? value.id : 0) + (value.name ? value.name : value.model ? value.model : value.text)} >
+                    return <Link className={'search-dropdown-item' + (value.disabled ? ' search-disabled ' : '') + (value.history ? ' search-history' : '')} onClick={saveHistory} to={`/${value.model ? value.model : value.name ? 'b/' + value.name : ''}`} key={(value.id ? value.id : 0) + (value.name ? value.name : value.model ? value.model : value.text)} >
                         <div className="search-info">
                             <img className={!value.disabled ? 'search-avatar' : 'search-avatar-hidden'} src={value.brand ? value.brand.avatar ? value.brand.avatar.url : 'se_dark.png' : value.avatar ? value.avatar.url : 'se_dark.png'} onError={(e) => { e.target.onerror = null; e.target.src = 'se_dark.png' }} alt={value.name} />
                             <span className="search-text">{value.model ? value.model : value.name ? value.name : value.text}</span>
