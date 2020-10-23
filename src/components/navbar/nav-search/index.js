@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
 
+// Icons
+import { MdClose } from 'react-icons/md'
+
 // Actions
 import { showSnackbar } from '../../../actions/snackbar'
 
@@ -19,7 +22,7 @@ const SearchBar = () => {
     useOutsideAlerter(wrapperRef)
 
     const onSearchChange = async (e) => {
-        if (e.target.value.length <= 0 && history) return setResults(history)
+        if (e.target.value.length <= 0 && history) return setResults([{ text: 'Search history', disabled: true, history: true }, ...history])
         await axios.get(`/search/${e.target.value}`).then(res => {
             if (res.data.length > 0) setResults(res.data)
             else setResults([{ text: 'No results found', disabled: true }])
@@ -45,7 +48,7 @@ const SearchBar = () => {
                 }
             }
 
-            if (history) setResults(history)
+            if (history) setResults([{ text: 'Search history', disabled: true, history: true }, ...history])
 
             document.addEventListener("mousedown", handleClickOutside);
             return () => {
@@ -54,11 +57,19 @@ const SearchBar = () => {
         }, [ref]);
     }
 
+
+    const clearHistory = (e) => {
+        e.preventDefault()
+        setResults([{ text: 'Nothing here yet', disabled: true }])
+        localStorage.removeItem('s_history')
+    }
+
     const saveHistory = (e) => {
         if (e.currentTarget.children[1] && e.currentTarget.children[1].className === 'search-desc') {
             const type = e.currentTarget.children[1].innerText
             const path = e.currentTarget.pathname
-            const id = path.replace('/', '')
+            const id = path.replace(('/b'), '').replace('/', '')
+            console.log('Id ', id)
             const name = e.currentTarget.children[0].children[1].innerText
             const history = JSON.parse(localStorage.getItem('s_history'))
             let avatar
@@ -88,19 +99,24 @@ const SearchBar = () => {
     }
 
 
+
     return (
         <div className="search-bar" ref={wrapperRef}>
             <input className="search-input" placeholder="Search" onChange={onSearchChange} />
 
             <div className={results.length > 0 && show ? 'search-dropdown' : 'search-dropdown-hidden'}>
                 {results.map((value) => {
-                    return <Link className={'search-dropdown-item' + (value.disabled ? ' search-disabled ' : '')} onClick={saveHistory} to={`/${value.name ? 'b/' + value.id : value.id}`} key={(value.id ? value.id : 0) + (value.name ? value.name : value.model ? value.model : value.text)} >
+                    console.log(value.id)
+                    return <Link className={'search-dropdown-item' + (value.disabled ? ' search-disabled ' : '') + (value.history ? ' search-history' : '')} onClick={saveHistory} to={`/${value.id ? value.name ? 'b/' + value.id : value.id : ''}`} key={(value.id ? value.id : 0) + (value.name ? value.name : value.model ? value.model : value.text)} >
                         <div className="search-info">
                             <img className={!value.disabled ? 'search-avatar' : 'search-avatar-hidden'} src={value.brand ? value.brand.avatar ? value.brand.avatar.url : 'se_dark.png' : value.avatar ? value.avatar.url : 'se_dark.png'} onError={(e) => { e.target.onerror = null; e.target.src = 'se_dark.png' }} alt={value.name} />
                             <span className="search-text">{value.model ? value.model : value.name ? value.name : value.text}</span>
                         </div>
 
                         <span className={(value.disabled ? 'search-desc-hidden' : 'search-desc')}>{value.model ? 'Car' : 'Brand'}</span>
+                        <div className={(value.history ? 'search-icon' : 'search-desc-hidden')} onClick={clearHistory}>
+                            <MdClose />
+                        </div>
                     </Link>
                 })}
 
