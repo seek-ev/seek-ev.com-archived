@@ -11,20 +11,6 @@ import { Navbar } from '../../components/navbar'
 import { showSnackbar } from '../../actions/snackbar'
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.handleSearchInputChange = this.handleSearchInputChange.bind(this)
-
-    this.state = {
-      search: '',
-    }
-  }
-
-  async handleSearchInputChange(e) {
-  }
-
-
   render() {
     return (
       <div className='landing'>
