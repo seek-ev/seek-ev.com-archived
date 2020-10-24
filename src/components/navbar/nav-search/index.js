@@ -112,6 +112,8 @@ const SearchBar = () => {
                     case 'User':
                         localStorage.setItem('s_history', JSON.stringify([{ id: id, username: name, avatar: { url: avatar } }]))
                         break
+                    default:
+                        break
                 }
             }
         }

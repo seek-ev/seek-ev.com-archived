@@ -13,6 +13,7 @@ const Select = (props) => {
     <select
       name={props.name}
       onChange={handleChange}
+      disabled={props.disabled}
       className={props.raise ? 'raise-select ' : ''}
     >
       {props.options
@@ -20,7 +21,7 @@ const Select = (props) => {
           <option
             key={option.id ? option.id : index}
             value={
-              option.value ? option.value : option.id ? option.id : option
+              props.value ? option[props.value] : option.value ? option.value : option.id ? option.id : option
             }
           >
             {option.name || option}
