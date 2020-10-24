@@ -1,8 +1,8 @@
 @import "src/assets/variables"
 
 .cars-header
-    padding: 24px 5% 0px
-    height: 70px
+    padding: 32px 5% 0px
+    height: 80px
     display: flex
     flex-direction: row
     @media only screen and (max-width: $max-medium)
@@ -10,6 +10,7 @@
         width: 100%
         flex-direction: column
         align-items: center
+        padding: 16px 5% 0px
 
 .cars-filters
     display: flex
@@ -23,6 +24,12 @@
         margin: 0 16px 0 0
         @media only screen and (max-width: $max-medium)
             margin: 6px 0 0
+
+.cars-filter-title
+    font-size: 13px
+    padding: 0 0 0 4px
+    font-family: 'Roboto', sans-serif
+    color: $primary
 
 .cars-searchbar
     width: 20%
@@ -44,6 +51,58 @@
         flex-direction: column
         align-content: center
 
+.cars-loading,
+.cars-loading:before,
+.cars-loading:after
+    background: $primary
+    -webkit-animation: load1 1s infinite ease-in-out
+    animation: load1 1s infinite ease-in-out
+    width: 7px
+    height: 20px
+
+.cars-loading
+    color: $primary
+    text-indent: -9999em
+    margin: 88px auto
+    position: relative
+    font-size: 8px
+    -webkit-transform: translateZ(0)
+    -ms-transform: translateZ(0)
+    transform: translateZ(0)
+    -webkit-animation-delay: -0.16s
+    animation-delay: -0.16s
+    &:before,
+    &:after
+        position: absolute
+        top: 0
+        content: ''
+    &:before
+        left: -1.5em
+        -webkit-animation-delay: -0.32s
+        animation-delay: -0.32s
+    &:after
+        left: 1.5em
+
+@-webkit-keyframes load1
+  0%,
+  80%,
+  100%
+    box-shadow: 0 0
+    height: 4em
+  40%
+    box-shadow: 0 -2em
+    height: 5em
+
+@keyframes load1
+    0%,
+    80%,
+    100%
+        box-shadow: 0 0
+        height: 4em
+    40%
+        box-shadow: 0 -2em
+        height: 5em
+
 .cars-hidden
     display: none
 
@@ -56,6 +115,7 @@
     align-items: center
     justify-content: center
     padding: 22px 0
+
 .not-found-icon
     color: #1DB954
     margin: 2px 0 0

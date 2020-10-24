@@ -13,6 +13,7 @@ const Select = (props) => {
     <select
       name={props.name}
       onChange={handleChange}
+      disabled={props.disabled}
       className={props.raise ? 'raise-select ' : ''}
     >
       {props.options

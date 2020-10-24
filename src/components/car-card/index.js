@@ -22,7 +22,7 @@ const CarCard = (props) => {
             </div>
             <div className="card-details">
                 <div className="card-title">{props.car.model}</div>
-                <div className="card-subtitle">{props.car.brand.name}</div>
+                <div className="card-subtitle">{props.car.brand.shortName}</div>
             </div>
         </div>
     )
