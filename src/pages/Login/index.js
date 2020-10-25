@@ -13,6 +13,7 @@ import './login.sass'
 import LoginForm from '../../components/forms/login'
 
 // Actions
+import { loginUser } from '../../actions/auth'
 import { showSnackbar } from '../../actions/snackbar'
 
 class Login extends React.Component {
@@ -30,12 +31,9 @@ class Login extends React.Component {
 
         if (!this.state.emailError && !this.state.passwordError) {
             this.setState({ disabled: true })
-            const expires = new Date()
 
             await axios.post('/auth/login/tester', { email: this.state.email, password: this.state.password }).then(res => {
-                localStorage.setItem('s_user', JSON.stringify(res.data.data))
-                localStorage.setItem('a_token', res.data.access_token)
-                document.cookie = 'r_token=' + res.data.refresh_token + '; expires=' + new Date(expires.setFullYear(expires.getFullYear() + 1)).toString() + '; SameSite=Strict;'
+                this.props.loginUser(res.data.data, res.data.access_token, res.data.refresh_token)
                 this.setState({ redirect: '/' })
             }).catch(err => {
                 this.setState({ disabled: false })
@@ -99,6 +97,6 @@ class Login extends React.Component {
 
 export default connect(
     null,
-    { showSnackbar }
+    { loginUser, showSnackbar }
 )(Login)
 

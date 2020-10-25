@@ -1,2 +1,6 @@
 export const SHOW_SNACKBAR = 'SHOW_SNACKBAR'
 export const HIDE_SNACKBAR = 'HIDE_SNACKBAR'
+export const REFRESH_TOKEN = 'REFRESH_TOKEN'
+export const READ_AUTH = 'READ_AUTH'
+export const LOG_OUT = 'LOG_OUT'
+export const LOG_IN = 'LOG_IN'

@@ -78,4 +78,3 @@ export default connect(
     null,
     { showSnackbar }
 )(ResetPassword)
-

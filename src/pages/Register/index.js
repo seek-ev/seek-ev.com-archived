@@ -166,7 +166,6 @@ class Register extends React.Component {
     }
 }
 
-
 export default connect(
     null,
     { showSnackbar }

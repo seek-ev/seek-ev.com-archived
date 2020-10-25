@@ -12,7 +12,7 @@ const CarCard = (props) => {
     }
 
     if (redirect) {
-        return <Redirect to={redirect} />
+        return <Redirect push to={redirect} />
     }
 
     return (

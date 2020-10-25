@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
-import axios from 'axios'
+
+// Import axios
+import './plugins/axios'
 
 // Redux
 import { Provider } from 'react-redux'
@@ -13,7 +15,10 @@ import './index.sass'
 // APP
 import App from './pages/App'
 
-axios.defaults.baseURL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/v1' : 'https://api.seek-ev.com/v1'
+// Actions
+import { readAuth } from './actions/auth'
+
+store.dispatch(readAuth())
 
 ReactDOM.render(
   <React.StrictMode>
