@@ -1,12 +1,19 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import { MdArrowDropDownCircle } from "react-icons/md";
+import { useDispatch } from 'react-redux'
 
 // Styles
 import './nav_menu.sass'
 
+// Actions
+import { logoutUser } from '../../../actions/auth'
+
+
 const NavMenu = () => {
     const [redirect, setRedirect] = useState(null)
+    const dispatch = useDispatch()
+
     const showDrop = (e) => {
         if (document.getElementsByClassName('nav-dropmenu')[0] && document.getElementsByClassName('nav-dropmenu')[0].style.display !== 'block') document.getElementsByClassName('nav-dropmenu')[0].style.display = 'block'
         else if (document.getElementsByClassName('nav-dropmenu')[0]) document.getElementsByClassName('nav-dropmenu')[0].style.display = 'none'
@@ -33,9 +40,7 @@ const NavMenu = () => {
     }
 
     const logout = () => {
-        localStorage.removeItem('s_user')
-        localStorage.removeItem('a_token')
-        document.cookie = 'r_token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT'
+        dispatch(logoutUser())
         setRedirect('/login')
     }
 

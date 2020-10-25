@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 // Styles
 import './navbar.sass'
@@ -12,18 +13,8 @@ import { SearchBar } from './nav-search'
 import { NavProfile } from './nav-profile'
 
 
-const Navbar = (props) => {
-    // This will be replaced by redux
-    const [username, setUsername] = useState(null)
-
-    useEffect(() => {
-        const storage = JSON.parse(localStorage.getItem('s_user'))
-
-        if (storage) setUsername(storage.username)
-
-        return
-    }, [])
-
+const Navbar = () => {
+    const auth = useSelector(state => state.auth)
 
     return (
         <div className="navbar">
@@ -37,12 +28,12 @@ const Navbar = (props) => {
                 <SearchBar />
             </div>
 
-            <div className={username ? 'nav-right' : 'nav-hidden'}>
-                <NavProfile username={username} />
+            <div className={auth && auth.isLogged === true ? 'nav-right' : 'nav-hidden'}>
+                <NavProfile avatar={auth.user ? auth.user.avatar : null} username={auth.user ? auth.user.username : null} />
                 <NavMenu />
             </div>
 
-            <div className={username ? 'nav-hidden' : 'nav-right'}>
+            <div className={auth && auth.isLogged === true ? 'nav-hidden' : 'nav-right'}>
                 <Link to="/register" className="nav-hidden-medium">
                     <Button text="Register" clean />
                 </Link>

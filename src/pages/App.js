@@ -1,10 +1,11 @@
 import React from 'react'
 import {
   Switch,
-  Route,
+  Route
 } from "react-router-dom";
 
 // Pages
+import Me from '../pages/Me'
 import Car from '../pages/Car'
 import Home from '../pages/Home'
 import Login from '../pages/Login'
@@ -18,6 +19,8 @@ import ResetConfirmSuccess from '../pages/ResetConfirm/Success'
 
 // Components
 import { Snackbar } from '../components/notifications/snackbar'
+import { PublicRoute } from '../Routes/Public'
+import { PrivateRoute } from '../Routes/Private'
 
 class App extends React.Component {
   render() {
@@ -25,18 +28,17 @@ class App extends React.Component {
       <main>
         <Switch>
           <Route exact path="/" component={TestHome} />
-
           <Route exact path="/home" component={Home} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/reset-password" component={ResetPassword} />
-          <Route exact path="/reset-password/success" component={ResetSuccess} />
-          <Route exact path="/reset/success" component={ResetConfirmSuccess} />
-          <Route path="/reset" component={ResetConfirm} />
+          <PrivateRoute exact path="/me" component={Me} />
+          <PublicRoute exact path="/login" component={Login} />
+          <PublicRoute exact path="/register" component={Register} />
+          <PublicRoute exact path="/reset-password" component={ResetPassword} />
+          <PublicRoute exact path="/reset-password/success" component={ResetSuccess} />
+          <PublicRoute exact path="/reset/success" component={ResetConfirmSuccess} />
+          <PublicRoute path="/reset" component={ResetConfirm} />
           <Route exact path="/:model" component={Car} />
           <Route path='*' component={NotFound} />
         </Switch>
-
         <Snackbar />
       </main>
     )

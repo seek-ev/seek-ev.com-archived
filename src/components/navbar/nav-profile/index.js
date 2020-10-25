@@ -8,7 +8,7 @@ const NavProfile = (props) => {
     return (
         <Link to='/me' className='nav-profile'>
             <div className="nav-profile-avatar">
-                <img src="cat.png" alt="avatar" />
+                <img src={props.avatar ? props.avatar.url : 'se_dark.png'} alt="avatar" />
             </div>
 
             <div className='nav-profile-username'>
