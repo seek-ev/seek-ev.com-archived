@@ -19,6 +19,8 @@ axios.interceptors.response.use(
     (error) => {
         const originalRequest = error.config
 
+        if (!error.response) return Promise.reject('Check your network connection')
+
         if (
             error.response.status === 401 &&
             originalRequest.url === ('/auth/login' || '/auth/login/tester')
