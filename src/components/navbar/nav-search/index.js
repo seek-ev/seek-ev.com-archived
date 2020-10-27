@@ -27,7 +27,7 @@ const SearchBar = () => {
             if (res.data.length > 0) setResults(res.data)
             else setResults([{ text: 'No results found', disabled: true }])
         }).catch(err => {
-            if (err.response.status === 404) setResults([{ text: 'No results found', disabled: true }])
+            if (err.response && err.response.status === 404) setResults([{ text: 'No results found', disabled: true }])
             else dispatch(showSnackbar(err, 'error'))
         })
     }

@@ -1,4 +1,4 @@
-import { REFRESH_TOKEN, READ_AUTH, LOG_IN, LOG_OUT } from '../actions/types'
+import { REFRESH_TOKEN, READ_AUTH, LOG_IN, LOG_OUT, SET_USERNAME } from '../actions/types'
 
 const initialState = {
     user: {},
@@ -38,6 +38,14 @@ export default function (state = initialState, action) {
                 isLogged: false,
                 token: null,
                 r_token: null
+            }
+        case SET_USERNAME:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    username: action.payload.username
+                }
             }
         default:
             return state

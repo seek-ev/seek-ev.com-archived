@@ -45,7 +45,7 @@ class Reset extends React.Component {
                     this.setState({ redirect: '/reset/success' })
                 }).catch(err => {
                     this.setState({ disabled: false })
-                    this.props.showSnackbar(err.response.status === 401 ? 'Token expired' : err, 'error')
+                    this.props.showSnackbar((err.response && err.response.status === 401) ? 'Token expired' : err, 'error')
                 })
         }
     }

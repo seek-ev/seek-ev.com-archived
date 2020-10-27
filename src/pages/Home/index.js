@@ -8,8 +8,8 @@ import './home.sass'
 // Components
 import { CarCard } from '../../components/car-card'
 import { Navbar } from '../../components/navbar'
-import Input from '../../components/basic/input'
-import Select from '../../components/basic/select'
+import { Input } from '../../components/basic/input'
+import { Select } from '../../components/basic/select'
 
 // Actions
 import { showSnackbar } from '../../actions/snackbar'

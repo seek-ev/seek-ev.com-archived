@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom'
 import './test_home.sass'
 
 // Components
-import Input from '../../components/basic/input'
-import Button from '../../components/basic/button'
-import Select from '../../components/basic/select'
+import { Input } from '../../components/basic/input'
+import { Button } from '../../components/basic/button'
+import { Select } from '../../components/basic/select'
 
 
 // Actions

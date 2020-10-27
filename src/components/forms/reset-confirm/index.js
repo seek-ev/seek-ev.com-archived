@@ -4,8 +4,8 @@ import React from 'react'
 import './reset_form.sass'
 
 // Components
-import Input from '../../basic/input'
-import Button from '../../basic/button'
+import { Input } from '../../basic/input'
+import { Button } from '../../basic/button'
 
 const ResetConfirmForm = (props) => {
     const handleSubmit = (e) => {

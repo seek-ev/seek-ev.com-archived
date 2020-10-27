@@ -40,3 +40,12 @@ export const logoutUser = () => {
         dispatch({ type: 'LOG_OUT' })
     }
 }
+
+export const setStateUsername = (username) => {
+    return async (dispatch) => {
+        const user = JSON.parse(localStorage.getItem('s_user'))
+        user.username = username
+        localStorage.setItem('s_user', JSON.stringify(user))
+        dispatch({ type: 'SET_USERNAME', payload: { username } })
+    }
+}

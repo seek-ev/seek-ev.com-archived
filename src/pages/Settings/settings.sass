@@ -1,0 +1,62 @@
+@import "src/assets/variables"
+
+.settings
+    display: flex
+    flex-direction: row
+    padding: 8vh 10% 0px
+    @media only screen and (max-width: $max-medium)
+        flex-direction: column
+        padding: 16px 5% 0px
+
+.settings-menu
+    display: flex
+    flex-direction: column
+
+.settings-menu-item
+    font-size: 18px
+    font-weight: 500
+    padding: 6px 72px 6px 12px
+    margin: 1px 0
+    cursor: pointer
+    border-radius: 7px
+    transition: all 0.5s ease 0s
+    font-family: 'Roboto', sans-serif
+    @media only screen and (max-width: $max-medium)
+        text-align: center
+        padding: 6px 0px
+        width: 40%
+        align-self: center
+
+.settings-menu-item:hover
+    box-shadow: 0 2px 6px 0px rgba(0,0,0,.08)
+    -moz-box-shadow: 0 2px 6px 0px rgba(0,0,0,.08)
+    -webkit-box-shadow: 0 2px 6px 0px rgba(0,0,0,.08)
+
+.settings-menu-item-choosed
+    color: #fff
+    background-color: $primary
+    box-shadow: 0 2px 6px 0px rgba(0,0,0,.08)
+    -moz-box-shadow: 0 2px 6px 0px rgba(0,0,0,.08)
+    -webkit-box-shadow: 0 2px 6px 0px rgba(0,0,0,.08)
+
+.settings-menu-item-disabled
+    color: #616161
+
+.settings-menu-item-disabled:hover
+    box-shadow: none
+    -moz-box-shadow: none
+    -webkit-box-shadow: none
+
+.settings-item
+    padding: 0px 64px
+    @media only screen and (max-width: $max-medium)
+        padding: 0
+
+.settings-header
+    height: auto
+    display: flex
+    flex-direction: row
+    align-items: center
+    @media only screen and (max-width: $max-medium)
+        margin: 12px 0 0
+        flex-direction: column
