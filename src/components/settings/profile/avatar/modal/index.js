@@ -48,9 +48,8 @@ const AvatarModal = ({ handleClose, show, avatar }) => {
             headers: { 'Content-Type': 'multipart/form-data' },
         }).then(res => {
             dispatch(setAvatar(res.data.url))
-            dispatch(showSnackbar('Avatar changed successfully', 'success'))
+            dispatch(showSnackbar('Avatar changed', 'success'))
         }).catch(err => {
-            console.log(err.response)
             dispatch(showSnackbar(err, 'error'))
         })
 

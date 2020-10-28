@@ -83,7 +83,7 @@ class Home extends React.Component {
         })
       }
 
-      filteredCars = filteredCars.filter(val => current.includes(val));
+      filteredCars = filteredCars.filter(val => current.includes(val))
     }
 
     if (filters.every(f => f.text === 'all')) filteredCars = this.state.allCars

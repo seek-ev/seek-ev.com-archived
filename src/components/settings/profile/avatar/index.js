@@ -34,7 +34,7 @@ const ProfileAvatar = (props) => {
                 </div>
             </label>
 
-            <input id="file-input" type="file" accept="image/*" onChange={onAvatarChange} ref={avatarInput} />
+            <input id="file-input" name="new-avatar" type="file" accept="image/png, image/jpeg, image/gif" onChange={onAvatarChange} ref={avatarInput} />
 
             <AvatarModal show={show} handleClose={hideModal} avatar={avatar} />
         </div>

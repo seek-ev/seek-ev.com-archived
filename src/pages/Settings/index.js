@@ -13,6 +13,7 @@ import { setUser } from '../../actions/user'
 import { Navbar } from '../../components/navbar'
 import { SettingsMenu } from '../../components/settings/menu'
 import { ProfileAvatar } from '../../components/settings/profile/avatar'
+import { SettingsPassword } from '../../components/settings/profile/password'
 import { SettingsProfileUsername } from '../../components/settings/profile/username'
 
 class Settings extends React.Component {
@@ -34,7 +35,6 @@ class Settings extends React.Component {
             this.setState({ user: me })
             this.props.showSnackbar(err, 'error')
         })
-        console.log(this.props)
     }
 
     render() {
@@ -49,6 +49,21 @@ class Settings extends React.Component {
                             <ProfileAvatar avatar={this.props.user.avatar} />
 
                             <SettingsProfileUsername username={this.props.user.username} />
+                        </div>
+
+                        <div className="settings-item-details">
+                            <div className="settings-item-details-item">
+                                <div className="settings-item-title">
+                                    Your email:
+                                </div>
+                                <div className="settings-email">
+                                    {this.props.user.email}
+                                </div>
+                            </div>
+
+                            <div className="settings-item-details-item">
+                                <SettingsPassword />
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,10 +1,12 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { Link, Redirect } from 'react-router-dom'
-import { MdArrowDropDownCircle } from "react-icons/md";
 import { useDispatch } from 'react-redux'
 
 // Styles
 import './nav_menu.sass'
+
+// Icons
+import { MdArrowDropDownCircle } from "react-icons/md"
 
 // Actions
 import { logoutUser } from '../../../actions/auth'
@@ -19,7 +21,7 @@ const NavMenu = () => {
         else if (document.getElementsByClassName('nav-dropmenu')[0]) document.getElementsByClassName('nav-dropmenu')[0].style.display = 'none'
     }
 
-    const wrapperRef = useRef(null);
+    const wrapperRef = useRef(null)
     useOutsideAlerter(wrapperRef)
 
     function useOutsideAlerter(ref) {
@@ -32,11 +34,11 @@ const NavMenu = () => {
                 }
             }
 
-            document.addEventListener("mousedown", handleClickOutside);
+            document.addEventListener("mousedown", handleClickOutside)
             return () => {
-                document.removeEventListener("mousedown", handleClickOutside);
-            };
-        }, [ref]);
+                document.removeEventListener("mousedown", handleClickOutside)
+            }
+        }, [ref])
     }
 
     const logout = () => {
