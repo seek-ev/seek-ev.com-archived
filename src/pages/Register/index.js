@@ -2,7 +2,7 @@ import React from 'react'
 import {
     Link,
     Redirect
-} from "react-router-dom";
+} from "react-router-dom"
 import axios from 'axios'
 import { connect } from 'react-redux'
 
@@ -46,7 +46,6 @@ class Register extends React.Component {
                     this.setState({ redirect: '/' })
                     this.props.showSnackbar('Welcome to Seek EV!', 'success')
                 }).catch(err => {
-
                     this.props.showSnackbar(err, 'error')
                 })
             }).catch(err => {

@@ -12,7 +12,7 @@ import { Input } from '../../../basic/input'
 import { MdModeEdit, MdClose, MdSave } from 'react-icons/md'
 
 // Actions
-import { setStateUsername } from '../../../../actions/auth'
+import { setStateUsername } from '../../../../actions/user'
 import { showSnackbar } from '../../../../actions/snackbar'
 
 const SettingsProfileUsername = (props) => {
@@ -57,7 +57,7 @@ const SettingsProfileUsername = (props) => {
         <div className="settings-username-container">
             <div className="settings-username">
                 <div className="settings-username-input">
-                    <Input name='username' type="text" placeholder="Username" autoComplete='off' value={username || ''} onChange={onUsernameChange} disabled={!editing} error={error} />
+                    <Input className="settings-input" name='username' type="text" placeholder="Username" autoComplete='off' value={username || ''} onChange={onUsernameChange} disabled={!editing} error={error} />
                 </div>
 
                 <div className="settings-username-icon">

@@ -7,7 +7,7 @@ import './plugins/axios'
 
 // Redux
 import { Provider } from 'react-redux'
-import store from "./store";
+import store from "./store"
 
 // Styles
 import './index.sass'
@@ -16,9 +16,13 @@ import './index.sass'
 import App from './pages/App'
 
 // Actions
+import { readUser } from './actions/user'
 import { readAuth } from './actions/auth'
 
+// Dispatch actions to read user and check if user is logged
+
 store.dispatch(readAuth())
+store.dispatch(readUser())
 
 ReactDOM.render(
   <React.StrictMode>

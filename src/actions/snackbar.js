@@ -9,7 +9,6 @@ export const showSnackbar = (text, type) => {
         timeout = setTimeout(() => {
             dispatch({ type: 'HIDE_SNACKBAR' })
         }, 6000)
-
     }
 }
 

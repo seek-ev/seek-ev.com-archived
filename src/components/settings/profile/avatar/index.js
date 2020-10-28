@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 
 // Icons
 import { MdModeEdit } from 'react-icons/md'
@@ -6,7 +6,25 @@ import { MdModeEdit } from 'react-icons/md'
 // Styles
 import './avatar.sass'
 
+// Components
+import { AvatarModal } from './modal'
+
 const ProfileAvatar = (props) => {
+    const [show, setShow] = useState(false)
+    const [avatar, setAvatar] = useState(null)
+    const avatarInput = useRef(null)
+
+    const onAvatarChange = async (e) => {
+        setAvatar(e.target.files[0])
+        setShow(true)
+    }
+
+    const hideModal = () => {
+        setAvatar(null)
+        setShow(false)
+        avatarInput.current.value = ''
+    }
+
     return (
         <div className="profile-avatar">
             <label htmlFor="file-input">
@@ -16,7 +34,9 @@ const ProfileAvatar = (props) => {
                 </div>
             </label>
 
-            <input id="file-input" type="file" accept="image/*" />
+            <input id="file-input" type="file" accept="image/*" onChange={onAvatarChange} ref={avatarInput} />
+
+            <AvatarModal show={show} handleClose={hideModal} avatar={avatar} />
         </div>
     )
 }

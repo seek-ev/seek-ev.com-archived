@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import { connect } from 'react-redux'
 
 // Styles
@@ -6,9 +7,11 @@ import './settings.sass'
 
 // Actions
 import { showSnackbar } from '../../actions/snackbar'
+import { setUser } from '../../actions/user'
 
 // Components
 import { Navbar } from '../../components/navbar'
+import { SettingsMenu } from '../../components/settings/menu'
 import { ProfileAvatar } from '../../components/settings/profile/avatar'
 import { SettingsProfileUsername } from '../../components/settings/profile/username'
 
@@ -21,9 +24,17 @@ class Settings extends React.Component {
         }
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         const me = JSON.parse(localStorage.getItem('s_user'))
-        if (me) this.setState({ user: me })
+
+        await axios.get('/users/@me').then(res => {
+            this.setState({ user: res.data })
+            this.props.setUser(res.data)
+        }).catch(err => {
+            this.setState({ user: me })
+            this.props.showSnackbar(err, 'error')
+        })
+        console.log(this.props)
     }
 
     render() {
@@ -31,20 +42,13 @@ class Settings extends React.Component {
             <div className="landing">
                 <Navbar />
                 <div className="settings">
-                    <div className="settings-menu">
-                        <div id="focus" className="settings-menu-item settings-menu-item-choosed">
-                            Profile
-                        </div>
+                    <SettingsMenu />
 
-                        <div className="settings-menu-item settings-menu-item-disabled">
-                            Other
-                        </div>
-                    </div>
                     <div className="settings-item">
                         <div className="settings-header">
-                            <ProfileAvatar avatar={this.state.user.avatar} />
+                            <ProfileAvatar avatar={this.props.user.avatar} />
 
-                            <SettingsProfileUsername username={this.state.user.username} />
+                            <SettingsProfileUsername username={this.props.user.username} />
                         </div>
                     </div>
                 </div>
@@ -53,8 +57,12 @@ class Settings extends React.Component {
     }
 }
 
+const mapStateToProps = state => ({
+    user: state.user
+})
+
 export default connect(
-    null,
-    { showSnackbar }
+    mapStateToProps,
+    { setUser, showSnackbar }
 )(Settings)
 
