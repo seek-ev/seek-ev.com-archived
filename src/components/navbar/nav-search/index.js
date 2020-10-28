@@ -27,7 +27,7 @@ const SearchBar = () => {
             if (res.data.length > 0) setResults(res.data)
             else setResults([{ text: 'No results found', disabled: true }])
         }).catch(err => {
-            if (err.response.status === 404) setResults([{ text: 'No results found', disabled: true }])
+            if (err.response && err.response.status === 404) setResults([{ text: 'No results found', disabled: true }])
             else dispatch(showSnackbar(err, 'error'))
         })
     }
@@ -50,11 +50,11 @@ const SearchBar = () => {
 
             if (history) setResults([{ text: 'Search history', disabled: true, history: true }, ...history])
 
-            document.addEventListener("mousedown", handleClickOutside);
+            document.addEventListener("mousedown", handleClickOutside)
             return () => {
-                document.removeEventListener("mousedown", handleClickOutside);
-            };
-        }, [ref]);
+                document.removeEventListener("mousedown", handleClickOutside)
+            }
+        }, [ref])
     }
 
 
@@ -124,7 +124,7 @@ const SearchBar = () => {
 
     return (
         <div className="search-bar" ref={wrapperRef}>
-            <input className="search-input" placeholder="Search" onChange={onSearchChange} />
+            <input className="search-input" placeholder="Search" onChange={onSearchChange} autoComplete="off" />
 
             <div className={results.length > 0 && show ? 'search-dropdown' : 'search-dropdown-hidden'}>
                 {results.map((value) => {

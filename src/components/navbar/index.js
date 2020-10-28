@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 import './navbar.sass'
 
 // Components
-import Button from '../basic/button'
+import { Button } from '../basic/button'
 import { NavMenu } from './nav-menu'
 import { NavLogo } from './nav-logo'
 import { SearchBar } from './nav-search'
@@ -15,6 +15,7 @@ import { NavProfile } from './nav-profile'
 
 const Navbar = () => {
     const auth = useSelector(state => state.auth)
+    const user = useSelector(state => state.user)
 
     return (
         <div className="navbar">
@@ -29,7 +30,7 @@ const Navbar = () => {
             </div>
 
             <div className={auth && auth.isLogged === true ? 'nav-right' : 'nav-hidden'}>
-                <NavProfile avatar={auth.user ? auth.user.avatar : null} username={auth.user ? auth.user.username : null} />
+                <NavProfile avatar={user ? user.avatar : null} username={user ? user.username : null} />
                 <NavMenu />
             </div>
 

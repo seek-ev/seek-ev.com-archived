@@ -11,6 +11,7 @@ import Home from '../pages/Home'
 import Login from '../pages/Login'
 import NotFound from '../pages/404'
 import Register from '../pages/Register'
+import Settings from '../pages/Settings'
 import TestHome from '../pages/TestHome'
 import ResetConfirm from '../pages/ResetConfirm'
 import ResetPassword from '../pages/ResetPassword'
@@ -32,6 +33,7 @@ class App extends React.Component {
           <PrivateRoute exact path="/me" component={Me} />
           <PublicRoute exact path="/login" component={Login} />
           <PublicRoute exact path="/register" component={Register} />
+          <PrivateRoute exact path="/settings" component={Settings} />
           <PublicRoute exact path="/reset-password" component={ResetPassword} />
           <PublicRoute exact path="/reset-password/success" component={ResetSuccess} />
           <PublicRoute exact path="/reset/success" component={ResetConfirmSuccess} />

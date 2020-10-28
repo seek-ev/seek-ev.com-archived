@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 import './login_form.sass'
 
 // Components
-import Input from '../../basic/input'
-import Button from '../../basic/button'
+import { Input } from '../../basic/input'
+import { Button } from '../../basic/button'
 
 const LoginForm = (props) => {
     const handleSubmit = (e) => {

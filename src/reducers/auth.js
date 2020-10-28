@@ -1,7 +1,6 @@
 import { REFRESH_TOKEN, READ_AUTH, LOG_IN, LOG_OUT } from '../actions/types'
 
 const initialState = {
-    user: {},
     isLogged: false,
     token: null,
     r_token: null
@@ -12,7 +11,6 @@ export default function (state = initialState, action) {
         case READ_AUTH:
             return {
                 ...state,
-                user: action.payload.user,
                 isLogged: action.payload.isLogged,
                 token: action.payload.token,
                 r_token: action.payload.r_token
@@ -26,7 +24,6 @@ export default function (state = initialState, action) {
         case LOG_IN:
             return {
                 ...state,
-                user: action.payload.user,
                 isLogged: action.payload.isLogged,
                 token: action.payload.token,
                 r_token: action.payload.r_token
@@ -34,7 +31,6 @@ export default function (state = initialState, action) {
         case LOG_OUT:
             return {
                 ...state,
-                user: {},
                 isLogged: false,
                 token: null,
                 r_token: null

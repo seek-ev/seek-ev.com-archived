@@ -32,4 +32,4 @@ const Select = (props) => {
   )
 }
 
-export default Select
+export { Select }
