@@ -1,26 +1,48 @@
 @import "src/assets/variables"
 
-.me-page
+.user-landing
     display: flex
-    padding: 32px 0px 24px
+    flex-direction: column
+    justify-content: center
+    align-items: flex-start
+    width: 100%
+    padding: 48px 20% 0
+    @media only screen and (max-width: $max-medium)
+        align-items: center
+        padding: 48px 10% 0
 
-.me-hidden
+.user-hidden
     display: none
+    font-family: 'Roboto', sans-serif
 
-.me-loading,
-.me-loading:before,
-.me-loading:after
+.user-header
+    display: flex
+    flex-direction: row
+
+.user-header-details
+    display: flex
+    margin: 0 0 0 12px
+    flex-direction: column
+    justify-content: center
+
+.user-loading,
+.user-loading:before,
+.user-loading:after
     background: $primary
     -webkit-animation: load1 1s infinite ease-in-out
     animation: load1 1s infinite ease-in-out
     width: 7px
     height: 20px
 
-.me-loading
+.user-loading
+    z-index: 2
     color: $primary
     text-indent: -9999em
-    margin: 44px auto
-    position: relative
+    margin: 0 auto
+    position: absolute
+    left: 50%
+    bottom: 0
+    top: 45%
     font-size: 8px
     -webkit-transform: translateZ(0)
     -ms-transform: translateZ(0)
@@ -39,7 +61,16 @@
     &:after
         left: 1.5em
 
-    @-webkit-keyframes load1
+@-webkit-keyframes load1
+    0%,
+    80%,
+    100%
+    box-shadow: 0 0
+    height: 4em
+    40%
+    box-shadow: 0 -2em
+    height: 5em
+@keyframes load1
     0%,
     80%,
     100%
@@ -48,13 +79,3 @@
     40%
         box-shadow: 0 -2em
         height: 5em
-
-    @keyframes load1
-        0%,
-        80%,
-        100%
-            box-shadow: 0 0
-            height: 4em
-        40%
-            box-shadow: 0 -2em
-            height: 5em
