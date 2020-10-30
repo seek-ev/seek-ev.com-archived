@@ -39,7 +39,7 @@ const SettingsProfileUsername = (props) => {
     }
 
     const saveUsername = async () => {
-        if (username === currentUsername) return setError('dd')
+        if (username === currentUsername) return setError('Mate, that\'s already your username')
 
         await axios.patch('/users', { username }).then(res => {
             setCurrentUsername(username)

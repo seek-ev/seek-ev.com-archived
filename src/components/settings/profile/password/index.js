@@ -118,7 +118,7 @@ const SettingsPassword = (props) => {
                     </div>
                 </form>
             </div>
-            <div className={loading ? 'password-loading' : ''}>
+            <div className={loading ? 'loading' : ''}>
                 <div className={loading ? 'loader' : ''}></div>
             </div>
         </div>
