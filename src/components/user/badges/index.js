@@ -26,16 +26,20 @@ const UserBadges = (props) => {
                 <span className="user-badge-tooltip">Partner</span>
             </div>
             <div className={badges.includes('patreon') ? 'user-badge' : 'user-badge-hidden'} >
-                <img src="/badges/patreon.svg" alt="patreon-badge" />
-                <span className="user-badge-tooltip">Patreon</span>
+                <a href="https://www.patreon.com/seekev">
+                    <img src="/badges/patreon.svg" alt="patreon-badge" />
+                    <span className="user-badge-tooltip">Patreon</span>
+                </a>
             </div>
             <div className={badges.includes('cc') ? 'user-badge' : 'user-badge-hidden'}>
                 <img src="/badges/content.svg" alt="content-badge" />
                 <span className="user-badge-tooltip">Content creator</span>
             </div>
             <div className={badges.includes('discord') ? 'user-badge' : 'user-badge-hidden'}>
-                <img src="/badges/discord.svg" alt="discord-badge" />
-                <span className="user-badge-tooltip">Discord member</span>
+                <a href="https://discord.gg/GQ4ddQM">
+                    <img src="/badges/discord.svg" alt="discord-badge" />
+                    <span className="user-badge-tooltip">Discord member</span>
+                </a>
             </div>
             <div className={badges.includes('tester') ? 'user-badge' : 'user-badge-hidden'} >
                 <img src="/badges/tester.svg" alt="tester-badge" />
