@@ -23,7 +23,7 @@ class Settings extends React.Component {
 
         this.state = {
             user: {},
-            item: 'connections' // default item
+            item: 'profile' // default item
         }
 
         this.onItemChange = this.onItemChange.bind(this)
