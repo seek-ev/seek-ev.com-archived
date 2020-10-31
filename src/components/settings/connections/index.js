@@ -75,7 +75,7 @@ const SettingsConnections = (props) => {
                 <div className="connect-title">
                     Connect:
             </div>
-                <a className={connections.some(c => c.type === 'discord') ? 'settings-connections-hidden' : 'connect-button discord'} href="https://discord.com/oauth2/authorize?client_id=745299401160786010&redirect_uri=https%3A%2F%2Fseek-ev.com%2Fsettings%3Ftype%3Ddiscord&response_type=code&scope=identify">
+                <a className={connections.some(c => c.type === 'discord') ? 'settings-connections-hidden' : 'connect-button discord'} href="https://discord.com/api/oauth2/authorize?client_id=745299401160786010&redirect_uri=https%3A%2F%2Fseek-ev.com%2Fsettings%3Ftype%3Ddiscord&response_type=code&scope=identify%20guilds">
                     Discord <div className="connect-icon"><FaDiscord /></div>
                 </a>
                 <a className={connections.some(c => c.type === 'patreon') ? 'settings-connections-hidden' : 'connect-button patreon'} href="https://www.patreon.com/oauth2/authorize?response_type=code&client_id=gJy5qU6eqaMwRCvtrPW882W9DeGsYSraXkRKWsWDyYsQo38Lu3TmAcHXU-6lFhKi&redirect_uri=https://seek-ev.com/settings?type=patreon&scope=identity">

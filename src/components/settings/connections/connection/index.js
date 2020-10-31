@@ -33,7 +33,7 @@ const SettingsConnection = (props) => {
                 <div className={props.connection.revoked ? 'settings-connection-hidden' : 'settings-connection-button'} onClick={() => revoke()}>
                     Revoke
                 </div>
-                <a href={props.connection.type === 'discord' ? 'https://discord.com/oauth2/authorize?client_id=745299401160786010&redirect_uri=https%3A%2F%2Fseek-ev.com%2Fsettings%3Ftype%3Ddiscord&response_type=code&scope=identify' : 'https://www.patreon.com/oauth2/authorize?response_type=code&client_id=gJy5qU6eqaMwRCvtrPW882W9DeGsYSraXkRKWsWDyYsQo38Lu3TmAcHXU-6lFhKi&redirect_uri=https://seek-ev.com/settings?type=patreon&scope=identity'} className={props.connection.revoked ? 'settings-connection-button renew' : 'settings-connection-hidden'} >
+                <a href={props.connection.type === 'discord' ? 'https://discord.com/api/oauth2/authorize?client_id=745299401160786010&redirect_uri=https%3A%2F%2Fseek-ev.com%2Fsettings%3Ftype%3Ddiscord&response_type=code&scope=identify%20guilds' : 'https://www.patreon.com/oauth2/authorize?response_type=code&client_id=gJy5qU6eqaMwRCvtrPW882W9DeGsYSraXkRKWsWDyYsQo38Lu3TmAcHXU-6lFhKi&redirect_uri=https://seek-ev.com/settings?type=patreon&scope=identity'} className={props.connection.revoked ? 'settings-connection-button renew' : 'settings-connection-hidden'} >
                     Renew
                 </a>
             </div>
