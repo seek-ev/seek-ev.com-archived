@@ -10,6 +10,8 @@ import { Navbar } from '../../components/navbar'
 import { UserAvatar } from '../../components/user/avatar'
 import { UserBadges } from '../../components/user/badges'
 import { UserUsername } from '../../components/user/username'
+import { DetailsMenu } from '../../components/user/details/menu'
+import { DetailsCars } from '../../components/user/details/cars'
 
 // Actions
 import { showSnackbar } from '../../actions/snackbar'
@@ -21,8 +23,11 @@ class User extends React.Component {
         this.state = {
             loading: true,
             previousUsername: '',
-            user: {}
+            user: {},
+            item: 'cars' // default item displayed
         }
+
+        this.onItemChange = this.onItemChange.bind(this)
     }
 
     async componentDidMount() {
@@ -50,6 +55,10 @@ class User extends React.Component {
         }
     }
 
+    onItemChange(item) {
+        this.setState({ item })
+    }
+
     render() {
         return (
             <div className="landing">
@@ -62,9 +71,14 @@ class User extends React.Component {
                             <UserBadges flags={this.state.user.flags} />
                         </div>
                     </div>
+                    <div className="user-details">
+                        <DetailsMenu itemChange={this.onItemChange} />
+                        <div className={'user-details-item'}>
+                            <DetailsCars cars={this.state.user.cars} />
+                        </div>
+                    </div>
                 </div>
                 <div className={this.state.loading ? 'user-loading' : 'user-hidden'}></div>
-                {this.state.loading}
             </div>
         )
     }

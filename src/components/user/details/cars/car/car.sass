@@ -1,0 +1,55 @@
+@import "src/assets/variables"
+
+.details-car-link
+    color: #080808
+    text-decoration: none
+
+.details-car
+    width: 100%
+    height: 120px
+    display: flex
+    margin: 8px 0
+    flex-direction: row
+    border-radius: 7px
+    box-shadow: 0px 1px 6px 2px rgba(0,0,0,0.07)
+    -moz-box-shadow: 0px 1px 6px 2px rgba(0,0,0,0.07)
+    -webkit-box-shadow: 0px 1px 6px 2px rgba(0,0,0,0.07)
+    @media only screen and (max-width: $max-medium)
+        height: 110px
+        margin: 6px 0
+
+.details-car:hover
+    box-shadow: 0px 1px 6px 2px rgba(0,0,0, 0.12)
+    -moz-box-shadow: 0px 1px 6px 2px rgba(0,0,0, 0.12)
+    -webkit-box-shadow: 0px 1px 6px 2px rgba(0,0,0, 0.12)
+
+.details-car-picture
+    width: 150px
+    height: 100%
+    img
+        width: 100%
+        height: 100%
+        border-top-left-radius: 7px
+        border-bottom-left-radius: 7px
+        object-fit: cover
+    @media only screen and (max-width: $max-medium)
+        width: 130px
+
+.details-car-info
+    display: flex
+    padding: 14px 16px
+    flex-direction: column
+    justify-content: space-between
+    font-family: 'Roboto', sans-serif
+
+.details-car-info-detail
+    font-size: 18px
+
+.car-bold
+    font-weight: 500
+
+.car-verified
+    color: $primary
+
+.car-unverified
+    color: $error

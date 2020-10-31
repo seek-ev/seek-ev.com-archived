@@ -6,18 +6,25 @@
     justify-content: center
     align-items: flex-start
     width: 100%
-    padding: 48px 20% 0
+    padding: 48px 20% 24px
     @media only screen and (max-width: $max-medium)
         align-items: center
-        padding: 48px 10% 0
+        padding: 48px 10% 24px
+    @media only screen and (min-width: 2300px)
+        padding: 48px 30% 24px
 
 .user-hidden
     display: none
-    font-family: 'Roboto', sans-serif
 
 .user-header
+    width: 100%
     display: flex
     flex-direction: row
+
+.user-details
+    width: 100%
+    display: flex
+    flex-direction: column
 
 .user-header-details
     display: flex
