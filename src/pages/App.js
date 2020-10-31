@@ -2,12 +2,12 @@ import React from 'react'
 import {
   Switch,
   Route
-} from "react-router-dom";
+} from "react-router-dom"
 
 // Pages
-import Me from '../pages/Me'
 import Car from '../pages/Car'
 import Home from '../pages/Home'
+import User from '../pages/User'
 import Login from '../pages/Login'
 import NotFound from '../pages/404'
 import Register from '../pages/Register'
@@ -30,7 +30,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={TestHome} />
           <Route exact path="/home" component={Home} />
-          <PrivateRoute exact path="/me" component={Me} />
+          <Route exact path="/u/:username" component={User} />
           <PublicRoute exact path="/login" component={Login} />
           <PublicRoute exact path="/register" component={Register} />
           <PrivateRoute exact path="/settings" component={Settings} />

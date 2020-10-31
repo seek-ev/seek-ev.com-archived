@@ -130,7 +130,7 @@ const SearchBar = () => {
                 {results.map((value) => {
                     return <Link className={'search-dropdown-item' + (value.disabled ? ' search-disabled ' : '') + (value.history ? ' search-history' : '')} onClick={saveHistory} to={`/${value.model ? value.model : value.name ? 'b/' + value.name : value.username ? 'u/' + value.username : ''}`} key={(value.id ? value.id : 0) + (value.name ? value.name : value.model ? value.model : value.username ? value.username : value.text)} >
                         <div className="search-info">
-                            <img className={(!value.disabled ? 'search-avatar' : 'search-avatar-hidden') + (value.username ? ' search-avatar-round' : '')} src={value.brand ? value.brand.avatar ? value.brand.avatar.url : 'se_dark.png' : value.avatar ? value.avatar.url : 'se_dark.png'} onError={(e) => { e.target.onerror = null; e.target.src = 'se_dark.png' }} alt={value.name} />
+                            <img className={(!value.disabled ? 'search-avatar' : 'search-avatar-hidden') + (value.username ? ' search-avatar-round' : '')} src={value.brand ? value.brand.avatar ? value.brand.avatar.url : 'se_dark.png' : value.avatar ? value.avatar.url : '/se_dark.png'} onError={(e) => { e.target.onerror = null; e.target.src = '/se_dark.png' }} alt={value.name} />
                             <span className="search-text">{value.model ? value.model : value.name ? value.name : value.username ? value.username : value.text}</span>
                         </div>
 

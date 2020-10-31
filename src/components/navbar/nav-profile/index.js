@@ -6,7 +6,7 @@ import './nav_profile.sass'
 
 const NavProfile = (props) => {
     return (
-        <Link to='/me' className='nav-profile'>
+        <Link to={'/u/' + props.username} className='nav-profile'>
             <div className="nav-profile-avatar">
                 <img src={props.avatar ? props.avatar.url : 'se_dark.png'} alt="avatar" />
             </div>
