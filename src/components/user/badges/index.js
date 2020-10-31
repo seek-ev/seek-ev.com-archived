@@ -7,6 +7,7 @@ const UserBadges = (props) => {
     const [badges, setBadges] = useState([])
 
     useEffect(() => {
+        setBadges([])
         if (props.flags & (1 << 1)) setBadges(b => [...b, 'staff'])
         if (props.flags & (1 << 2)) setBadges(b => [...b, 'partner'])
         if (props.flags & (1 << 3)) setBadges(b => [...b, 'patreon'])
