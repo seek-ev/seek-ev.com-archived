@@ -5,6 +5,9 @@ import { useDispatch } from 'react-redux'
 // Styles
 import './connection.sass'
 
+// Icons
+import { FaDiscord, FaPatreon } from 'react-icons/fa'
+
 // Actions
 import { showSnackbar } from '../../../../actions/snackbar'
 
@@ -21,13 +24,25 @@ const SettingsConnection = (props) => {
     }
 
     return (
-        <div className={`settings-connection ${props.connection.type}`}>
-            <div className="settings-conneciton-title">{props.connection.type.charAt(0).toUpperCase() + props.connection.type.slice(1)}</div>
-            <div className="settings-connection-details">
-                <div><span>Account ID:</span> {props.connection.accountId}</div>
-                <div className="settings-connection-name"><span>Account name:</span> {props.connection.name}</div>
-                <div><span>Revoked:</span> {props.connection.revoked ? 'Yes' : 'No'}</div>
-                <div><span>Created:</span> {new Date(props.connection.createdAt).toLocaleDateString()}</div>
+        <div className={`settings-connection ${props.connection.revoked ? 'settings-connection-revoked' : ''}`}>
+            <div className="settings-connection-row">
+                <div>
+                    <div className={`settings-connection-header ${props.connection.type}-text`}>
+                        <div className="settings-conneciton-title">
+                            {props.connection.type.charAt(0).toUpperCase() + props.connection.type.slice(1)}
+                        </div>
+                    </div>
+                    <div className="settings-connection-details">
+                        <div><span>Account ID:</span> {props.connection.accountId}</div>
+                        <div className="settings-connection-name"><span>Account name:</span> {props.connection.name}</div>
+                        <div><span>Revoked:</span> {props.connection.revoked ? 'Yes' : 'No'}</div>
+                        <div><span>Updated:</span> {new Date(props.connection.updatedAt).toLocaleDateString()}</div>
+                        <div><span>Connected:</span> {new Date(props.connection.createdAt).toLocaleDateString()}</div>
+                    </div>
+                </div>
+                <div className={`settings-connection-icon ${props.connection.type}-text`}>
+                    {props.connection.type === 'discord' ? <FaDiscord /> : <FaPatreon />}
+                </div>
             </div>
             <div className="settings-connection-footer">
                 <div className={props.connection.revoked ? 'settings-connection-hidden' : 'settings-connection-button'} onClick={() => revoke()}>
