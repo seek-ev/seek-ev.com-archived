@@ -32,6 +32,8 @@ const SettingsConnections = (props) => {
             setLoading(true)
             const params = props.params.replace('?', '').split('&')
 
+            if (!params[1]) return setLoading(false)
+
             if (params[0].includes('type=') && params[1].includes('code=')) {
                 await axios.post(`/users/@me/connection/${params[0].split('=')[1]}`, {
                     code: params[1].split('=')[1]
@@ -40,6 +42,9 @@ const SettingsConnections = (props) => {
                     fetchConnections()
                 }).catch(err => dispatch(showSnackbar(err, 'error')))
             }
+
+            if (params[1].includes('error=')) dispatch(showSnackbar('Connection declined', 'error'))
+
             setLoading(false)
         }
 

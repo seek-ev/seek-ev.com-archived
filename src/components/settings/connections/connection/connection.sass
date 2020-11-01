@@ -1,23 +1,43 @@
 @import "src/assets/variables"
 
 .settings-connection
-    width: 300px
+    width: 330px
     display: flex
     margin: 6px 0
-    padding: 6px 8px
+    padding: 6px 8px 6px 12px
     border-radius: 7px
     flex-direction: column
     font-family: 'Roboto', sans-serif
+    box-shadow: 1px 2px 4px 2px rgba(0,0,0, 0.12)
+    -moz-box-shadow: 1px 2px 4px 2px rgba(0,0,0, 0.12)
+    -webkit-box-shadow: 1px 2px 4px 2px rgba(0,0,0, 0.12)
     @media only screen and (max-width: $max-medium)
         width: 90%
 
+.settings-connection-revoked
+    color: #818181
+
+.settings-connection-row
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+
+.settings-connection-header
+    width: 100%
+    display: flex
+    justify-content: space-between
+
 .settings-conneciton-title
-    color: #fff
     font-size: 18px
     font-weight: 500
 
+.settings-connection-icon
+    width: 28px
+    padding: 2px 0 0
+    font-size: 28px
+
 .settings-connection-details
-    margin: 6px 0 0
+    margin: 4px 0 0
     overflow: hidden
     text-overflow: ellipsis
     white-space: nowrap
@@ -26,6 +46,7 @@
 
 .settings-connection-footer
     display: flex
+    padding: 0 2px
     justify-content: flex-end
 
 .settings-connection-button
@@ -39,3 +60,9 @@
 .renew
     text-decoration: none
     color: $primary
+
+.discord-text
+    color: #7289DA
+
+.patreon-text
+    color: #F96854
