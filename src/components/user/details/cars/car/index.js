@@ -9,7 +9,7 @@ const DetailsCar = (props) => {
         <Link to={`/${props.car.model}`} className="details-car-link">
             <div className="details-car">
                 <div className="details-car-picture">
-                    <img src={props.car.pictures.length > 0 ? props.car.pictures[0].url : '/se_dark.png'} alt={`car-${props.car.id}`} />
+                    <img src={props.car.pictures.length > 0 ? props.car.pictures[0].url : '/se_dark.png'} onError={(e) => { e.target.onerror = null; e.target.src = '/se_dark.png' }} alt={`car-${props.car.id}`} />
                 </div>
                 <div className="details-car-info">
                     <div className="details-car-info-detail">

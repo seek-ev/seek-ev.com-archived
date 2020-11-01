@@ -18,7 +18,7 @@ const CarCard = (props) => {
     return (
         <div className="car-card" onClick={redirectToCar}>
             <div className="card-image">
-                <img src={props.car.pictures.length > 0 ? props.car.pictures[0].url : ''} onError={(e) => { e.target.onerror = null; e.target.src = 'se_dark.png' }} alt={props.car.model} />
+                <img src={props.car.pictures.length > 0 ? props.car.pictures[0].url : ''} onError={(e) => { e.target.onerror = null; e.target.src = '/se_dark.png' }} alt={props.car.model} />
             </div>
             <div className="card-details">
                 <div className="card-title">{props.car.model}</div>
