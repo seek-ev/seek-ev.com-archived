@@ -13,7 +13,7 @@ const DetailsCar = (props) => {
                 </div>
                 <div className="details-car-info">
                     <div className="details-car-info-detail">
-                        Model: <span class="car-bold">{props.car.model}</span>
+                        Model: <span className="car-bold">{props.car.model}</span>
                     </div>
                     <div className="details-car-info-detail">
                         Verified: <span className={`car-bold ${props.car.verified ? 'car-verified' : 'car-unverified'}`} >{props.car.verified ? 'Yes' : 'No'}</span>
