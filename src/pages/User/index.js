@@ -40,6 +40,7 @@ class User extends React.Component {
         }).catch(err => this.props.showSnackbar(err, 'error'))
 
         this._ismounted = true
+
         this.setState({ loading: false })
     }
 
@@ -64,7 +65,7 @@ class User extends React.Component {
         return (
             <div className="landing">
                 <Navbar />
-                <div className={this.state.loading ? 'user-hidden' : 'user-landing'}>
+                <div className={(this.state.loading || Object.keys(this.state.user).length === 0) ? 'user-hidden' : 'user-landing'}>
                     <div className="user-header">
                         <UserAvatar avatar={this.state.user.avatar} />
                         <div className="user-header-details">
@@ -74,9 +75,14 @@ class User extends React.Component {
                     </div>
                     <div className="user-details">
                         <DetailsMenu itemChange={this.onItemChange} />
-                        <div className={'user-details-item'}>
+                        <div className="user-details-item">
                             <DetailsCars cars={this.state.user.cars} />
                         </div>
+                    </div>
+                </div>
+                <div className={!this.state.loading && Object.keys(this.state.user).length <= 0 ? 'user-not-found' : 'user-hidden'}>
+                    <div className="user-not-found-title">
+                        User <span>{this.props.match.params.username}</span> was not found :(
                     </div>
                 </div>
                 <div className={this.state.loading ? 'user-loading' : 'user-hidden'}></div>
