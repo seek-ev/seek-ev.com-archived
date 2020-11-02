@@ -28,8 +28,7 @@ class App extends React.Component {
     return (
       <main>
         <Switch>
-          <Route exact path="/" component={TestHome} />
-          <Route exact path="/home" component={Home} />
+          <Route exact path="/" component={Home} />
           <Route exact path="/u/:username" component={User} />
           <PublicRoute exact path="/login" component={Login} />
           <PublicRoute exact path="/register" component={Register} />
