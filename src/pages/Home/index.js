@@ -144,7 +144,7 @@ class Home extends React.Component {
           </div>
         </div>
 
-        <div className={this.state.cars.length > 0 ? 'cars' : 'cars-hidden'}>
+        <div className={(this.state.cars.length > 0) && !this.state.loading ? 'cars' : 'cars-hidden'}>
           {this.state.cars.map((car) => {
             return <CarCard car={car} key={car.id} className='cars-car' />
           })}
