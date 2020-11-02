@@ -44,8 +44,9 @@ class User extends React.Component {
     }
 
     async componentDidUpdate() {
-        if ((this._ismounted && !this.state.loading) && (this.props.match.params.username !== this.state.previousUsername)) {
+        if ((this._ismounted && !this.state.loading) && (this.props.match.params.username.toLowerCase() !== this.state.previousUsername.toLowerCase())) {
             this.setState({ loading: true })
+
             this.setState({ previousUsername: this.props.match.params.username })
             await axios.get(`/users/username/${this.props.match.params.username}`).then(res => {
                 this.setState({ user: res.data, previousUsername: res.data.username })
