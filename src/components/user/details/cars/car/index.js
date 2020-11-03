@@ -12,14 +12,22 @@ const DetailsCar = (props) => {
                     <img src={props.car.pictures.length > 0 ? props.car.pictures[0].url : '/se_dark.png'} onError={(e) => { e.target.onerror = null; e.target.src = '/se_dark.png' }} alt={`car-${props.car.id}`} />
                 </div>
                 <div className="details-car-info">
-                    <div className="details-car-info-detail">
-                        Model: <span className="car-bold">{props.car.model}</span>
+                    <div className="details-car-info-left">
+                        <div>
+                            <div className="details-car-info-detail-model">
+                                {props.car.model}
+                            </div>
+                            <div className="details-car-info-detail">
+                                {props.car.productionYears}
+                            </div>
+                        </div>
+                        <div className="details-car-info-detail">
+                            {props.car.category ? props.car.category.name : ''}
+                        </div>
                     </div>
                     <div className="details-car-info-detail">
-                        Verified: <span className={`car-bold ${props.car.verified ? 'car-verified' : 'car-unverified'}`} >{props.car.verified ? 'Yes' : 'No'}</span>
+                        {props.car.brand ? props.car.brand.shortName : ''}
                     </div>
-                    <div className="details-car-info-detail">
-                        Added: <span className="car-bold">{new Date(props.car.createdAt).toLocaleDateString()}</span> </div>
                 </div>
             </div>
         </Link>

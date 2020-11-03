@@ -7,6 +7,8 @@ import './car.sass'
 
 // Components
 import { Navbar } from '../../components/navbar'
+import { CarInfo } from '../../components/car/car-info'
+import { CarDetails } from '../../components/car/car-details'
 import { CarPictures } from '../../components/car/car-pictures'
 
 // Actions
@@ -26,7 +28,6 @@ class Car extends React.Component {
     async componentDidMount() {
         await axios.get(`/cars/model/${this.props.location.pathname.replace('/', '')}`).then(res => this.setState({ car: res.data }))
             .catch(err => this.props.showSnackbar(err, 'error'))
-        console.log(this.state.car)
         this.setState({ loading: false })
     }
 
@@ -37,11 +38,10 @@ class Car extends React.Component {
                 <div className={this.state.car && !this.state.loading ? 'car-landing' : 'car-hidden'}>
                     <div className="car-header">
                         <CarPictures pictures={this.state.car.pictures} />
-                        <div className="car-info">
-                            <div className="car-model">
-                                {this.state.car.model}
-                            </div>
-                        </div>
+                        <CarInfo model={this.state.car.model} productionYears={this.state.car.productionYears} category={this.state.car.category} brand={this.state.car.brand} createdBy={this.state.car.admin ? this.state.car.admin : this.state.car.user} />
+                    </div>
+                    <div className="car-details-container">
+                        <CarDetails />
                     </div>
                 </div>
 

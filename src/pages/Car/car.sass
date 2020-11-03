@@ -1,7 +1,11 @@
 @import "src/assets/variables"
 
 .car-landing
-    padding: 32px 48px 24px
+    padding: 32px 5% 24px
+    @media only screen and (max-width: $max-medium)
+        padding: 18px 5% 24px
+    @media only screen and (min-width: 2300px)
+        padding: 32px 25% 24px
 
 .car-hidden
     display: none
@@ -9,6 +13,5 @@
 .car-header
     display: flex
     flex-direction: row
-
-.car-info
-    width: 60%
+    @media only screen and (max-width: $max-medium)
+        flex-direction: column
