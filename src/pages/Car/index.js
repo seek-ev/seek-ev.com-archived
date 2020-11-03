@@ -28,14 +28,21 @@ class Car extends React.Component {
     async componentDidMount() {
         await axios.get(`/cars/model/${this.props.location.pathname.replace('/', '')}`).then(res => this.setState({ car: res.data }))
             .catch(err => this.props.showSnackbar(err, 'error'))
+
+        if (this.state.car) document.title = this.state.car.model
+
         this.setState({ loading: false })
+    }
+
+    componentWillUnmount() {
+        document.title = 'Seek EV'
     }
 
     render() {
         return (
             <div>
                 <Navbar />
-                <div className={this.state.car && !this.state.loading ? 'car-landing' : 'car-hidden'}>
+                <div className={Object.keys(this.state.car).length > 0 && !this.state.loading ? 'car-landing' : 'car-hidden'}>
                     <div className="car-header">
                         <CarPictures pictures={this.state.car.pictures} />
                         <CarInfo model={this.state.car.model} productionYears={this.state.car.productionYears} category={this.state.car.category} brand={this.state.car.brand} createdBy={this.state.car.admin ? this.state.car.admin : this.state.car.user} />

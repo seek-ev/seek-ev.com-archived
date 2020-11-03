@@ -41,6 +41,8 @@ class User extends React.Component {
 
         this._ismounted = true
 
+        if (this.state.user) document.title = this.state.user.username
+
         this.setState({ loading: false })
     }
 
@@ -53,8 +55,14 @@ class User extends React.Component {
                 this.setState({ user: res.data, previousUsername: res.data.username })
             }).catch(err => this.props.showSnackbar(err, 'error'))
 
+            if (this.state.user) document.title = this.state.user.username
+
             this.setState({ loading: false })
         }
+    }
+
+    componentWillUnmount() {
+        document.title = 'Seek EV'
     }
 
     onItemChange(item) {

@@ -21,7 +21,7 @@ const DetailsCar = (props) => {
                                 {props.car.productionYears}
                             </div>
                         </div>
-                        <div className="details-car-info-detail">
+                        <div className="details-car-info-detail primary-color">
                             {props.car.category ? props.car.category.name : ''}
                         </div>
                     </div>
