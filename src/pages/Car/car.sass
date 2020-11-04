@@ -11,7 +11,18 @@
     display: none
 
 .car-header
+    width: 100%
     display: flex
     flex-direction: row
+    flex-wrap: wrap
+    justify-content: space-between
+    @media only screen and (max-width: $max-large)
+        flex-direction: column
+
+.car-header-info
+    display: flex
+    flex-direction: row
+    @media only screen and (max-width: $max-desktop)
+        margin: 0 0 12px
     @media only screen and (max-width: $max-medium)
         flex-direction: column
