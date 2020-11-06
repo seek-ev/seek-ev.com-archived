@@ -28,10 +28,12 @@ class Car extends React.Component {
     }
 
     async componentDidMount() {
-        await axios.get(`/cars/model/${this.props.match.params.model}`).then(res => this.setState({ car: res.data, currentCar: res.data.model }))
+        this.setState({ currentCar: this.props.match.params.model })
+
+        await axios.get(`/cars/model/${this.props.match.params.model}`).then(res => this.setState({ car: res.data }))
             .catch(err => this.props.showSnackbar(err, 'error'))
 
-        if (this.state.car) document.title = this.state.car.brand.shortName + ' ' + this.state.car.model
+        if (this.state.car) document.title = `${this.state.car.brand ? this.state.car.brand.shortName : ''} ${this.state.car.model ? this.state.car.model : this.props.match.params.model}`
 
         this._ismounted = true
 
@@ -40,12 +42,12 @@ class Car extends React.Component {
 
     async componentDidUpdate() {
         if ((this._ismounted && !this.state.loading) && (this.props.match.params.model.toLowerCase() !== this.state.currentCar.toLowerCase())) {
-            this.setState({ loading: true })
+            this.setState({ loading: true, currentCar: this.props.match.params.model })
 
-            await axios.get(`/cars/model/${this.props.match.params.model}`).then(res => this.setState({ car: res.data, currentCar: res.data.model }))
+            await axios.get(`/cars/model/${this.props.match.params.model}`).then(res => this.setState({ car: res.data }))
                 .catch(err => this.props.showSnackbar(err, 'error'))
 
-            if (this.state.car) document.title = this.state.car.model
+            if (this.state.car) document.title = `${this.state.car.brand ? this.state.car.brand.shortName : ''} ${this.state.car.model ? this.state.car.model : this.props.match.params.model}`
 
             this.setState({ loading: false })
         }

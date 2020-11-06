@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Redirect } from 'react-router-dom'
 
 // Styles
@@ -6,6 +6,10 @@ import './car_card.sass'
 
 const CarCard = (props) => {
     const [redirect, setRedirect] = useState(null)
+
+    useEffect(() => {
+        if (props.car.pictures.length > 0) props.car.pictures.reverse()
+    }, [props])
 
     const redirectToCar = () => {
         setRedirect(`/${props.car.model}`)
