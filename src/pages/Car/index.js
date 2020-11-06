@@ -31,7 +31,7 @@ class Car extends React.Component {
         await axios.get(`/cars/model/${this.props.match.params.model}`).then(res => this.setState({ car: res.data, currentCar: res.data.model }))
             .catch(err => this.props.showSnackbar(err, 'error'))
 
-        if (this.state.car) document.title = this.state.car.model
+        if (this.state.car) document.title = this.state.car.brand.shortName + ' ' + this.state.car.model
 
         this._ismounted = true
 

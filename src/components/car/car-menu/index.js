@@ -15,7 +15,7 @@ const CarMenu = (props) => {
                 <div className="car-menu-item-column">
                     <div className="car-menu-item-title">Versions</div>
                     <div className="car-menu-item-description">
-                        Different versions of the car
+                        Versions of the car like long range, performance
                 </div>
                 </div>
                 <div className="car-menu-item-icon">
@@ -34,11 +34,12 @@ const CarMenu = (props) => {
                     <MdPeople />
                 </div>
             </div>
+
             <div className={`car-menu-item ${item === 'reviews' ? 'car-menu-item-chose ' : ''}car-menu-item car-menu-item-disabled`}>
                 <div className="car-menu-item-column">
                     <div className="car-menu-item-title">Reviews <span>(Soon)</span></div>
                     <div className="car-menu-item-description">
-                        Reviews left by users.
+                        Reviews left by users
                     </div>
                 </div>
                 <div className="car-menu-item-icon">
