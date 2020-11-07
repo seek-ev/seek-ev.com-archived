@@ -9,7 +9,7 @@ import './car.sass'
 import { Navbar } from '../../components/navbar'
 import { CarInfo } from '../../components/car/car-info'
 import { CarMenu } from '../../components/car/car-menu'
-import { CarDetails } from '../../components/car/car-details'
+import { CarVersions } from '../../components/car/car-versions'
 import { CarPictures } from '../../components/car/car-pictures'
 
 // Actions
@@ -69,8 +69,8 @@ class Car extends React.Component {
                         </div>
                         <CarMenu versions={this.state.car.versions} />
                     </div>
-                    <div className="car-details-container">
-                        <CarDetails />
+                    <div className="car-details">
+                        <CarVersions versions={this.state.car.versions} />
                     </div>
                 </div>
 
