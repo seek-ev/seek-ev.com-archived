@@ -1,0 +1,36 @@
+@import 'src/assets/variables'
+
+.brand-details
+    display: flex
+    flex-direction: row
+    padding: 14px 0
+    @media only screen and (max-width: $max-desktop)
+        flex-direction: column
+
+.brand-details-description
+    margin: 2px 6px 0 0
+    max-width: 60%
+    font-size: 18px
+    @media only screen and (max-width: $max-desktop)
+        margin: 2px 0 0
+        max-width: 100%
+
+.brand-details-footer
+    display: flex
+    flex-direction: column
+    @media only screen and (max-width: $max-desktop)
+        margin: 6px 0 0
+
+.brand-details-footer-item
+    font-weight: 500
+    font-size: 18px
+    margin: 0 12px 4px 0
+    a
+        color: #080808
+        font-weight: 400
+        text-decoration: none
+    a:hover
+        text-decoration: underline
+        color: $primary
+    span
+        font-weight: 400
