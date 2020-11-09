@@ -77,21 +77,23 @@ const SearchBar = () => {
             else avatar = 'se_dark.png'
 
             if (history) {
-                if (history.length >= 5) history.pop()
                 switch (type) {
                     case 'Brand':
                         const foundBrand = history.findIndex(h => h.id === id && h.shortName === name)
                         if (foundBrand !== -1) history.splice(foundBrand, 1)
+                        else if (history.length >= 5) history.pop()
                         history.unshift({ id: id, shortName: name, avatar: { url: avatar } })
                         break
                     case 'Car':
                         const foundCar = history.findIndex(h => h.id === id && h.model === name)
                         if (foundCar !== -1) history.splice(foundCar, 1)
+                        else if (history.length >= 5) history.pop()
                         history.unshift({ id: id, model: name, brand: { avatar: { url: avatar } } })
                         break
                     case 'User':
                         const foundUser = history.findIndex(h => h.id === id && h.username === name)
                         if (foundUser !== -1) history.splice(foundUser, 1)
+                        else if (history.length >= 5) history.pop()
                         history.unshift({ id: id, username: name, avatar: { url: avatar } })
                         break
                     default:
