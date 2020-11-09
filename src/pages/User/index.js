@@ -71,7 +71,7 @@ class User extends React.Component {
 
     render() {
         return (
-            <div className="landing">
+            <div className="container">
                 <Navbar />
                 <div className={(this.state.loading || Object.keys(this.state.user).length === 0) ? 'user-hidden' : 'user-landing'}>
                     <div className="user-header">

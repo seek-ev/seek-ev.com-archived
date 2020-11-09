@@ -59,7 +59,7 @@ class Car extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <Navbar />
                 <div className={Object.keys(this.state.car).length > 0 && !this.state.loading ? 'car-landing' : 'car-hidden'}>
                     <div className="car-header">

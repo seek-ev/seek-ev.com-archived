@@ -48,7 +48,7 @@ class Settings extends React.Component {
 
     componentWillUnmount() {
         document.title = 'Seek EV'
-    }   
+    }
 
     onItemChange(item) {
         document.title = `Settings - ${item.charAt(0).toUpperCase() + item.slice(1)}`
@@ -57,7 +57,7 @@ class Settings extends React.Component {
 
     render() {
         return (
-            <div className="landing">
+            <div className="container">
                 <Navbar />
                 <div className="settings">
                     <SettingsMenu onChange={this.onItemChange} item={this.state.item} />

@@ -52,7 +52,7 @@ class Brand extends React.Component {
 
     render() {
         return (
-            <div className="landing">
+            <div className="container">
                 <Navbar />
                 <div className="brand-landing">
                     <BrandHeader

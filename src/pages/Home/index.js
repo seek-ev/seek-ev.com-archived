@@ -125,7 +125,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className='landing'>
+      <div className='container'>
         <Navbar />
         <div className="cars-header">
           <div className="cars-searchbar">
