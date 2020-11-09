@@ -9,6 +9,7 @@ import Car from '../pages/Car'
 import Home from '../pages/Home'
 import User from '../pages/User'
 import Login from '../pages/Login'
+import Brand from '../pages/Brand'
 import NotFound from '../pages/404'
 import Register from '../pages/Register'
 import Settings from '../pages/Settings'
@@ -28,6 +29,7 @@ class App extends React.Component {
       <main>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/b/:name" component={Brand} />
           <Route exact path="/u/:username" component={User} />
           <PublicRoute exact path="/login" component={Login} />
           <PublicRoute exact path="/register" component={Register} />
