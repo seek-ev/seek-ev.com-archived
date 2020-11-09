@@ -97,17 +97,21 @@ const SearchBar = () => {
                     default:
                         break
                 }
+                setResults([{ text: 'Search history', disabled: true, history: true }, ...history])
                 localStorage.setItem('s_history', JSON.stringify(history))
             }
             else {
                 switch (type) {
                     case 'Brand':
+                        setResults([{ text: 'Search history', disabled: true, history: true }, { id: id, shortName: name, avatar: { url: avatar } }])
                         localStorage.setItem('s_history', JSON.stringify([{ id: id, shortName: name, avatar: { url: avatar } }]))
                         break
                     case 'Car':
+                        setResults([{ text: 'Search history', disabled: true, history: true }, { id: id, model: name, brand: { avatar: { url: avatar } } }])
                         localStorage.setItem('s_history', JSON.stringify([{ id: id, model: name, brand: { avatar: { url: avatar } } }]))
                         break
                     case 'User':
+                        setResults([{ text: 'Search history', disabled: true, history: true }, { id: id, username: name, avatar: { url: avatar } }])
                         localStorage.setItem('s_history', JSON.stringify([{ id: id, username: name, avatar: { url: avatar } }]))
                         break
                     default:
@@ -115,6 +119,8 @@ const SearchBar = () => {
                 }
             }
         }
+
+        document.getElementsByClassName('search-input')[0].value = ''
         e.persist()
     }
 
