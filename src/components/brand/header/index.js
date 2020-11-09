@@ -4,12 +4,18 @@ import React from 'react'
 import './header.sass'
 
 // Components
+import { BrandTitle } from './title'
 import { BrandAvatar } from './avatar'
+import { BrandDetails } from './details'
 
 const BrandHeader = (props) => {
     return (
         <div className="brand-header">
-            <BrandAvatar avatar={props.avatar} />
+            <div className="brand-header-row">
+                <BrandAvatar avatar={props.avatar} />
+                <BrandTitle name={props.name} founded={props.founded} />
+            </div>
+            <BrandDetails description={props.description} website={props.website} areaServed={props.areaServed} headquarters={props.headquarters} />
         </div>
     )
 }

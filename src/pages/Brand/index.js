@@ -55,7 +55,14 @@ class Brand extends React.Component {
             <div className="landing">
                 <Navbar />
                 <div className="brand-landing">
-                    <BrandHeader avatar={this.state.brand.avatar} />
+                    <BrandHeader
+                        avatar={this.state.brand.avatar}
+                        name={this.state.brand.name}
+                        description={this.state.brand.description}
+                        founded={this.state.brand.founded}
+                        website={this.state.brand.website}
+                        areaServed={this.state.brand.areaServed}
+                        headquarters={this.state.brand.headquarters} />
                 </div>
             </div>
         )

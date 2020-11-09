@@ -1,5 +1,8 @@
 import React from 'react'
 
+// Styles
+import './avatar.sass'
+
 const BrandAvatar = (props) => {
     return (
         <div className="brand-avatar">
