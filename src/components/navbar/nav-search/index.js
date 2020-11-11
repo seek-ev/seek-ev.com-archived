@@ -22,7 +22,7 @@ const SearchBar = () => {
     useOutsideAlerter(wrapperRef)
 
     const onSearchChange = async (e) => {
-        if (e.target.value.length <= 0 && history) return setResults([{ text: 'Search history', disabled: true, history: true }, ...history])
+        if (e.target.value.length <= 0 && history) return setResults([{ text: 'Browse history', disabled: true, history: true }, ...history])
         await axios.get(`/search/${e.target.value}`).then(res => {
             if (res.data.length > 0) setResults(res.data)
             else setResults([{ text: 'No results found', disabled: true }])
@@ -48,7 +48,7 @@ const SearchBar = () => {
                 }
             }
 
-            if (history) setResults([{ text: 'Search history', disabled: true, history: true }, ...history])
+            if (history) setResults([{ text: 'Browse history', disabled: true, history: true }, ...history])
 
             document.addEventListener("mousedown", handleClickOutside)
             return () => {
@@ -99,21 +99,21 @@ const SearchBar = () => {
                     default:
                         break
                 }
-                setResults([{ text: 'Search history', disabled: true, history: true }, ...history])
+                setResults([{ text: 'Browse history', disabled: true, history: true }, ...history])
                 localStorage.setItem('s_history', JSON.stringify(history))
             }
             else {
                 switch (type) {
                     case 'Brand':
-                        setResults([{ text: 'Search history', disabled: true, history: true }, { id: id, shortName: name, avatar: { url: avatar } }])
+                        setResults([{ text: 'Browse history', disabled: true, history: true }, { id: id, shortName: name, avatar: { url: avatar } }])
                         localStorage.setItem('s_history', JSON.stringify([{ id: id, shortName: name, avatar: { url: avatar } }]))
                         break
                     case 'Car':
-                        setResults([{ text: 'Search history', disabled: true, history: true }, { id: id, model: name, brand: { avatar: { url: avatar } } }])
+                        setResults([{ text: 'Browse history', disabled: true, history: true }, { id: id, model: name, brand: { avatar: { url: avatar } } }])
                         localStorage.setItem('s_history', JSON.stringify([{ id: id, model: name, brand: { avatar: { url: avatar } } }]))
                         break
                     case 'User':
-                        setResults([{ text: 'Search history', disabled: true, history: true }, { id: id, username: name, avatar: { url: avatar } }])
+                        setResults([{ text: 'Browse history', disabled: true, history: true }, { id: id, username: name, avatar: { url: avatar } }])
                         localStorage.setItem('s_history', JSON.stringify([{ id: id, username: name, avatar: { url: avatar } }]))
                         break
                     default:

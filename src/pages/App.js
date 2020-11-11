@@ -8,6 +8,7 @@ import {
 import Car from '../pages/Car'
 import Home from '../pages/Home'
 import User from '../pages/User'
+import ToS from '../pages/ToS'
 import Login from '../pages/Login'
 import Brand from '../pages/Brand'
 import NotFound from '../pages/404'
@@ -29,6 +30,7 @@ class App extends React.Component {
       <main>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/terms" component={ToS} />
           <Route exact path="/b/:name" component={Brand} />
           <Route exact path="/u/:username" component={User} />
           <PublicRoute exact path="/login" component={Login} />
@@ -39,6 +41,7 @@ class App extends React.Component {
           <PublicRoute exact path="/reset/success" component={ResetConfirmSuccess} />
           <PublicRoute path="/reset" component={ResetConfirm} />
           <Route exact path="/:model" component={Car} />
+
           <Route path='*' component={NotFound} />
         </Switch>
         <Snackbar />

@@ -45,7 +45,7 @@ const RegisterForm = (props) => {
                 <Input name="repeatPassword" disabled={props.disabled} error={props.repeatPasswordError} onChange={handlePasswordRepeatInputChange} placeholder="Repeat password" type="password" autoComplete="new-password" />
             </div>
             <div className="register-text">
-                By creating account on this website you accept our <Link to="/terms-of-service">Terms of Service</Link>.
+                By creating account on this website you accept our <Link to="/terms">Terms of Service</Link>.
             </div>
             <div className="form-buttons">
                 <div className="form-button">
