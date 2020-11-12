@@ -65,7 +65,7 @@ class Car extends React.Component {
                     <div className="car-header">
                         <div className="car-header-info">
                             <CarPictures pictures={this.state.car.pictures} />
-                            <CarInfo model={this.state.car.model} productionYears={this.state.car.productionYears} category={this.state.car.category} brand={this.state.car.brand} createdBy={this.state.car.admin ? this.state.car.admin : this.state.car.user} />
+                            <CarInfo model={this.state.car.model} concept={this.state.car.concept} productionYears={this.state.car.productionYears} category={this.state.car.category} brand={this.state.car.brand} createdBy={this.state.car.admin ? this.state.car.admin : this.state.car.user} />
                         </div>
                         <CarMenu versions={this.state.car.versions} />
                     </div>

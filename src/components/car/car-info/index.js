@@ -7,8 +7,13 @@ const CarInfo = (props) => {
     return (
         <div className="car-info">
             <div>
-                <div className="car-model">
-                    {props.brand ? props.brand.shortName : ''} {props.model}
+                <div className="car-info-head">
+                    <div className="car-model">
+                        {props.brand ? props.brand.shortName : ''} {props.model}
+                    </div>
+                    <div className={`${props.concept ? 'car-concept' : 'car-hidden'}`}>
+                        {props.concept ? 'Concept car' : ''}
+                    </div>
                 </div>
 
                 <div className="car-production-years">
