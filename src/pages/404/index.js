@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 
 // Styles
 import './404.sass'
@@ -13,6 +13,7 @@ const NotFound = () => {
             <div>
                 Page <code>{location.pathname}</code> not found
             </div>
+            <Link to="/">Return to home</Link>
         </div>
     )
 }
