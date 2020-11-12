@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 // Styles
 import './car.sass'
@@ -72,6 +73,12 @@ class Car extends React.Component {
                     <div className="car-details">
                         <CarVersions versions={this.state.car.versions} />
                     </div>
+                </div>
+
+                <div className={Object.keys(this.state.car).length === 0 && !this.state.loading ? 'car-not-found' : 'car-hidden'}>
+                    <div className="car-not-found-title">404</div>
+                    <div>We couldn't find <code>{this.props.history.location.pathname.replace('/', '')}</code></div>
+                    <div className="car-not-found-link">Come back to <Link to="/">Home page</Link></div>
                 </div>
 
                 <div className={this.state.loading ? 'loading' : ''}>
