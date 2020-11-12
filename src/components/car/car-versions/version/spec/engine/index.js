@@ -12,8 +12,8 @@ const SpecEngine = (props) => {
             <div className="car-version-spec-item-title">
                 Engine
             </div>
-            <div className="car-version-spec-item-content-row">
-                <div>
+            <div className="car-version-spec-item-content-row ">
+                <div className="version-mr-12">
                     <div className="car-version-spec-item-content-item">
                         <span>Power in kw:</span> {engine.kw}
                     </div>
