@@ -12,6 +12,7 @@ import { CarInfo } from '../../components/car/car-info'
 import { CarMenu } from '../../components/car/car-menu'
 import { CarVersions } from '../../components/car/car-versions'
 import { CarPictures } from '../../components/car/car-pictures'
+import { CarPatchIcon } from '../../components/car/car-patch-icon'
 
 // Actions
 import { showSnackbar } from '../../actions/snackbar'
@@ -73,6 +74,7 @@ class Car extends React.Component {
                     <div className="car-details">
                         <CarVersions versions={this.state.car.versions} />
                     </div>
+                    <CarPatchIcon />
                 </div>
 
                 <div className={Object.keys(this.state.car).length === 0 && !this.state.loading ? 'car-not-found' : 'car-hidden'}>
@@ -88,6 +90,8 @@ class Car extends React.Component {
         )
     }
 }
+
+
 
 export default connect(
     null,
