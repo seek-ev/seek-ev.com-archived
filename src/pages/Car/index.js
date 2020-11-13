@@ -10,9 +10,10 @@ import './car.sass'
 import { Navbar } from '../../components/navbar'
 import { CarInfo } from '../../components/car/car-info'
 import { CarMenu } from '../../components/car/car-menu'
+import { CarPatch } from '../../components/car/car-patch'
 import { CarVersions } from '../../components/car/car-versions'
 import { CarPictures } from '../../components/car/car-pictures'
-import { CarPatchIcon } from '../../components/car/car-patch-icon'
+
 
 // Actions
 import { showSnackbar } from '../../actions/snackbar'
@@ -74,7 +75,7 @@ class Car extends React.Component {
                     <div className="car-details">
                         <CarVersions versions={this.state.car.versions} />
                     </div>
-                    <CarPatchIcon />
+                    <CarPatch carId={this.state.car.id} />
                 </div>
 
                 <div className={Object.keys(this.state.car).length === 0 && !this.state.loading ? 'car-not-found' : 'car-hidden'}>

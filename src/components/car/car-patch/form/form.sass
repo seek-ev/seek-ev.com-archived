@@ -1,0 +1,120 @@
+@import 'src/assets/variables'
+
+.car-patch-form
+    width: 400px
+    height: 500px
+    background-color: #fff
+    position: fixed
+    bottom: 9%
+    right: 1.2%
+    z-index: 10
+    border-radius: 7px
+    padding: 12px 14px
+    box-shadow: 0px 1px 6px 2px rgba(0,0,0,0.07)
+    -moz-box-shadow: 0px 1px 6px 2px rgba(0,0,0,0.07)
+    -webkit-box-shadow: 0px 1px 6px 2px rgba(0,0,0,0.07)
+    @media only screen and (max-width: 400px)
+        bottom: 13%
+        right: 4%
+        width: 90%
+        height: 450px
+    @media only screen and (max-width: 1250px) and (orientation: landscape)
+        width: 60%
+        height: 300px
+        bottom: 15%
+        right: 2%
+    @media only screen and (max-width: 600px) and (orientation: landscape)
+        width: 80%
+        height: 200px
+        bottom: 22%
+        right: 3%
+
+.car-patch-form-head
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
+
+.car-patch-form-close
+    color: $error
+    font-size: 28px
+    height: 28px
+
+.car-patch-form-title
+    font-size: 22px
+    font-weight: 500
+
+.car-patch-form-textbox
+    width: 370px
+    height: 410px
+    margin: 2px 0 0
+    padding: 6px 0
+    textarea
+        width: 100%
+        height: 100%
+        resize: none
+        padding: 12px
+        border: none
+        outline: none
+        font-size: 16px
+        font-weight: 500
+        border-radius: 7px
+        font-family: 'Roboto', sans-serif
+        box-shadow: inset 0px 0px 6px 2px rgba(0,0,0,0.07)
+        -moz-box-shadow: inset 0px 0px 6px 2px rgba(0,0,0,0.07)
+        -webkit-box-shadow: inset 0px 0px 6px 2px rgba(0,0,0,0.07)
+    @media only screen and (max-width: 400px)
+        height: 330px
+    @media only screen and (max-width: 1250px) and (orientation: landscape)
+        height: 210px
+        width: 100%
+    @media only screen and (max-width: 600px) and (orientation: landscape)
+        height: 110px
+
+.car-patch-form-footer
+    display: flex
+    flex-direction: row
+    margin: 4px 0
+    justify-content: flex-end
+
+.car-patch-loading
+    width: 100%
+    height: 100%
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    font-family: 'Roboto', sans-serif
+    font-weight: 300
+    font-size: 18px
+
+.loading-ring
+    display: inline-block
+    position: relative
+    width: 80px
+    height: 80px
+    margin: 0 0 6px
+
+.loading-ring div
+    box-sizing: border-box
+    display: block
+    position: absolute
+    width: 64px
+    height: 64px
+    margin: 8px
+    border: 4px solid $primary
+    border-radius: 50%
+    animation: loading-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite
+    border-color: $primary transparent transparent transparent
+    &:nth-child(1)
+        animation-delay: -0.45s
+    &:nth-child(2)
+        animation-delay: -0.3s
+    &:nth-child(3)
+        animation-delay: -0.15s
+
+@keyframes loading-ring
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)
