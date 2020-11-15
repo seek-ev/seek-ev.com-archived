@@ -29,14 +29,11 @@ const CarPatchForm = (props) => {
 
     const sendRequest = async () => {
         setLoading(true)
-
         if (!props.carId) return
         await axios.patch(`/cars/${props.carId}`, { description }).then(res => {
-            setDescription('')
             dispatch(showSnackbar('Request sent', 'success'))
             props.onClick()
         }).catch(err => dispatch(showSnackbar(err, 'error')))
-
         setLoading(false)
     }
 

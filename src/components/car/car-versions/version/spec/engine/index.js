@@ -23,7 +23,7 @@ const SpecEngine = (props) => {
                 </div>
                 <div>
                     <div className={`${engine.torque ? 'car-version-spec-item-content-item' : 'car-version-item-hidden'}`}>
-                        <span>Torque:</span> {engine.torque}
+                        <span>Torque:</span> {engine.torque}Nm
                     </div>
                 </div>
             </div>
