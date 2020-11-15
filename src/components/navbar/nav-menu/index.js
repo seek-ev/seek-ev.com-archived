@@ -57,6 +57,10 @@ const NavMenu = () => {
             </div>
 
             <div className="nav-dropmenu">
+                <Link to="/requests">
+                    <div className="nav-menu-item">Your Requests</div>
+                </Link>
+
                 <Link to="/settings">
                     <div className="nav-menu-item">Settings</div>
                 </Link>

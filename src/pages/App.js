@@ -14,6 +14,7 @@ import Brand from '../pages/Brand'
 import NotFound from '../pages/404'
 import Register from '../pages/Register'
 import Settings from '../pages/Settings'
+import UserRequests from '../pages/Requests'
 import ResetConfirm from '../pages/ResetConfirm'
 import ResetPassword from '../pages/ResetPassword'
 import ResetSuccess from '../pages/ResetPassword/Success'
@@ -36,12 +37,12 @@ class App extends React.Component {
           <PublicRoute exact path="/login" component={Login} />
           <PublicRoute exact path="/register" component={Register} />
           <PrivateRoute exact path="/settings" component={Settings} />
+          <PrivateRoute exact path="/requests" component={UserRequests} />
           <PublicRoute exact path="/reset-password" component={ResetPassword} />
           <PublicRoute exact path="/reset-password/success" component={ResetSuccess} />
           <PublicRoute exact path="/reset/success" component={ResetConfirmSuccess} />
           <PublicRoute path="/reset" component={ResetConfirm} />
           <Route exact path="/:model" component={Car} />
-
           <Route path='*' component={NotFound} />
         </Switch>
         <Snackbar />
