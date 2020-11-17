@@ -6,12 +6,13 @@ import {
 
 // Pages
 import Car from '../pages/Car'
+import ToS from '../pages/ToS'
 import Home from '../pages/Home'
 import User from '../pages/User'
-import ToS from '../pages/ToS'
 import Login from '../pages/Login'
 import Brand from '../pages/Brand'
 import NotFound from '../pages/404'
+import UserCars from '../pages/Cars'
 import Register from '../pages/Register'
 import Settings from '../pages/Settings'
 import UserRequests from '../pages/Requests'
@@ -35,6 +36,7 @@ class App extends React.Component {
           <Route exact path="/b/:name" component={Brand} />
           <Route exact path="/u/:username" component={User} />
           <PublicRoute exact path="/login" component={Login} />
+          <PrivateRoute exact path="/cars" component={UserCars} />
           <PublicRoute exact path="/register" component={Register} />
           <PrivateRoute exact path="/settings" component={Settings} />
           <PrivateRoute exact path="/requests" component={UserRequests} />
