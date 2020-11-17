@@ -13,7 +13,7 @@ const Cars = (props) => {
         <div style={style}>
             <div className={`${props.cars.length > 0 ? 'cars-list' : 'cars-hidden'}`}>
                 {props.cars.map((car) => {
-                    return <Link to={`/cars/${car.id}`} className="user-car">
+                    return <Link to={`/cars/${car.id}`} className="user-car" key={car.id}>
                         <div className="user-car-left">
                             <div className="user-car-number">{car.id}</div>
                             <div className="user-car-spacer">|</div>
