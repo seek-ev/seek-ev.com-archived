@@ -1,28 +1,28 @@
 import React from 'react'
 
 // Styles
-import './car_info.sass'
+import './car-info.sass'
 
-const CarInfo = (props) => {
+const UserCarInfo = (props) => {
     return (
-        <div className="car-info">
-            <div className="car-model">
+        <div className="user-car-info">
+            <div className="user-car-model">
                 {props.brand ? props.brand.shortName : ''} {props.model}
             </div>
 
-            <div className="car-production-years">
+            <div className="user-car-production-years">
                 {props.productionYears}
             </div>
 
-            <div className="car-production-years">
+            <div className="user-car-production-years">
                 {props.category ? props.category.name : ''}
             </div>
 
-            <div className={`${props.concept ? 'car-concept' : 'car-hidden'}`}>
+            <div className={`${props.concept ? 'user-car-concept' : 'user-car-hidden'}`}>
                 {props.concept ? 'Concept car' : ''}
             </div>
         </div>
     )
 }
 
-export { CarInfo }
+export { UserCarInfo }

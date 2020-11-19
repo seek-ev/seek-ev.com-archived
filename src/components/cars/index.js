@@ -14,12 +14,12 @@ const Cars = (props) => {
             <div className={`${props.cars.length > 0 ? 'cars-list' : 'cars-hidden'}`}>
                 {props.cars.map((car) => {
                     return <Link to={`/cars/${car.id}`} className="user-car" key={car.id}>
-                        <div className="user-car-left">
-                            <div className="user-car-number">{car.id}</div>
-                            <div className="user-car-spacer">|</div>
-                            <div className="user-car-model">
+                        <div className="user-cars-left">
+                            <div className="user-cars-number">{car.id}</div>
+                            <div className="user-cars-spacer">|</div>
+                            <div className="user-cars-model">
                                 {car.model}
-                                <div className={`user-car-verified ${car.verified ? 'verified' : 'unverified'}`}>{car.verified ? 'Verified' : 'Unverified'}</div></div>
+                                <div className={`user-cars-verified ${car.verified ? 'verified' : 'unverified'}`}>{car.verified ? 'Verified' : 'Unverified'}</div></div>
                         </div>
                         <div>{new Date(car.createdAt).toLocaleDateString()}</div>
                     </Link>

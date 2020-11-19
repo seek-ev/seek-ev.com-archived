@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React from 'react'
+import { connect } from 'react-redux'
 
 // Styles
 import './cars.sass'
@@ -8,6 +9,9 @@ import './cars.sass'
 import { Cars } from '../../components/cars'
 import { Navbar } from '../../components/navbar'
 import { Button } from '../../components/basic/button'
+
+// Actions
+import { showSnackbar } from '../../actions/snackbar'
 
 class UserCars extends React.Component {
     constructor(props) {
@@ -46,4 +50,7 @@ class UserCars extends React.Component {
     }
 }
 
-export default UserCars 
+export default connect(
+    null,
+    { showSnackbar }
+)(UserCars)
