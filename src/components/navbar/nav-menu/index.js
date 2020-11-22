@@ -61,6 +61,10 @@ const NavMenu = () => {
                     <div className="nav-menu-item">Your Requests</div>
                 </Link>
 
+                <Link to="/cars">
+                    <div className="nav-menu-item">Your Cars</div>
+                </Link>
+
                 <Link to="/settings">
                     <div className="nav-menu-item">Settings</div>
                 </Link>

@@ -1,31 +1,66 @@
 @import 'src/assets/variables'
 
-.requests
+.user-car-container
+    padding: 32px 5% 24px
+    @media only screen and (max-width: $max-medium)
+        padding: 18px 5% 24px
+    @media only screen and (min-width: 2300px)
+        padding: 32px 25% 24px
+
+.user-car-unauthorized
+    width: 100%
+    height: 60vh
     display: flex
     flex-direction: column
-    padding: 8vh 10% 0px
-    @media only screen and (max-width: $max-medium)
-        padding: 32px 5% 0px
-    @media only screen and (min-width: 2300px)
-        padding: 32px 20% 0px
+    justify-content: center
+    align-items: center
+    font-family: 'Roboto', sans-serif
+    font-size: 18px
+    a
+        color: #1DB954
+        font-weight: 500
+        margin: 6px 0
+        text-decoration: none
 
-.requests-title
-    font-size: 28px
+.user-car-unauthorized-title
+    font-size: 32px
     font-weight: 500
+    margin: 0 0 6px
 
-.requests-hidden
+code
+    color: #1DB954
+    margin: 0px 1px
+
+.user-car-hidden
     display: none
 
-.requests-loading,
-.requests-loading:before,
-.requests-loading:after
+.user-car-header
+    width: 100%
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: space-between
+    @media only screen and (max-width: $max-large)
+        flex-direction: column
+
+.user-car-header-info
+    display: flex
+    flex-direction: row
+    @media only screen and (max-width: $max-desktop)
+        margin: 0 0 12px
+    @media only screen and (max-width: $max-medium)
+        flex-direction: column
+
+.user-car-loading,
+.user-car-loading:before,
+.user-car-loading:after
     background: $primary
     -webkit-animation: load1 1s infinite ease-in-out
     animation: load1 1s infinite ease-in-out
     width: 7px
     height: 20px
 
-.requests-loading
+.user-car-loading
     color: $primary
     text-indent: -9999em
     margin: 88px auto

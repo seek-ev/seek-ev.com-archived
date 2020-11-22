@@ -1,31 +1,46 @@
 @import 'src/assets/variables'
 
-.requests
+.cars-content
     display: flex
     flex-direction: column
+    align-items: flex-start
     padding: 8vh 10% 0px
     @media only screen and (max-width: $max-medium)
         padding: 32px 5% 0px
     @media only screen and (min-width: 2300px)
         padding: 32px 20% 0px
 
-.requests-title
+.user-cars-header
+    width: 100%
+    display: flex
+    margin: 0 0 6px
+    flex-direction: row
+    justify-content: space-between
+
+.cars-title
     font-size: 28px
     font-weight: 500
 
-.requests-hidden
+.cars-add
+    font-size: 30px
+    transition: 0.3s all ease
+
+.cars-add:hover
+    color: $primary
+
+.cars-hidden
     display: none
 
-.requests-loading,
-.requests-loading:before,
-.requests-loading:after
+.cars-loading,
+.cars-loading:before,
+.cars-loading:after
     background: $primary
     -webkit-animation: load1 1s infinite ease-in-out
     animation: load1 1s infinite ease-in-out
     width: 7px
     height: 20px
 
-.requests-loading
+.cars-loading
     color: $primary
     text-indent: -9999em
     margin: 88px auto
