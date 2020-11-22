@@ -20,6 +20,7 @@ const Select = (props) => {
         ? props.options.map((option, index) => (
           <option
             key={option.id ? option.id : index}
+            hidden={option.hidden}
             value={
               props.value ? option[props.value] : option.value ? option.value : option.id ? option.id : option
             }

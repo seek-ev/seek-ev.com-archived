@@ -13,9 +13,10 @@ import Login from '../pages/Login'
 import Brand from '../pages/Brand'
 import NotFound from '../pages/404'
 import UserCars from '../pages/Cars'
+import NewCar from '../pages/Cars/New'
+import UserCar from '../pages/Cars/_id'
 import Register from '../pages/Register'
 import Settings from '../pages/Settings'
-import UserCar from '../pages/Cars/_id'
 import UserRequests from '../pages/Requests'
 import ResetConfirm from '../pages/ResetConfirm'
 import ResetPassword from '../pages/ResetPassword'
@@ -38,6 +39,7 @@ class App extends React.Component {
           <Route exact path="/u/:username" component={User} />
           <PublicRoute exact path="/login" component={Login} />
           <PrivateRoute exact path="/cars" component={UserCars} />
+          <PrivateRoute exact path="/cars/new" component={NewCar} />
           <PrivateRoute exact path="/cars/:id" component={UserCar} />
           <PublicRoute exact path="/register" component={Register} />
           <PrivateRoute exact path="/settings" component={Settings} />

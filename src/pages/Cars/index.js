@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
 // Styles
 import './cars.sass'
@@ -32,6 +33,10 @@ class UserCars extends React.Component {
     }
 
     render() {
+        if (this.state.redirect) {
+            return <Redirect to={this.state.redirect} />
+        }
+
         return (
             <div className="container">
                 <Navbar />
@@ -39,7 +44,7 @@ class UserCars extends React.Component {
                     <div className="user-cars-header">
                         <div className="cars-title">Your cars</div>
                         <div className="cars-add">
-                            <Button text="Add new" />
+                            <Button text="Add new" onClick={() => this.setState({ redirect: '/cars/new' })} />
                         </div>
                     </div>
                     <Cars cars={this.state.cars} />
