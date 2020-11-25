@@ -7,16 +7,16 @@ import './car_menu.sass'
 import { MdLibraryBooks, MdPeople, MdForum } from 'react-icons/md'
 
 const CarMenu = (props) => {
-    const [item, setItem] = useState('versions')
+    const [item, setItem] = useState('timeline')
 
     return (
         <div className="car-menu">
-            <div className={`car-menu-item ${item === 'versions' ? 'car-menu-item-chose ' : ''} ${props.versions && props.versions.length > 0 ? '' : 'car-menu-item-disabled'}`} onClick={() => setItem('versions')}>
+            <div className={`car-menu-item ${item === 'timeline' ? 'car-menu-item-chose ' : ''} ${props.versions && props.versions.length > 0 ? '' : 'car-menu-item-disabled'}`} onClick={() => setItem('versions')}>
                 <div className="car-menu-item-column">
-                    <div className="car-menu-item-title">Versions</div>
+                    <div className="car-menu-item-title">Timeline</div>
                     <div className="car-menu-item-description">
-                        Versions of the car like long range, performance
-                </div>
+                        Timeline of the car that includes its versions
+                    </div>
                 </div>
                 <div className="car-menu-item-icon">
                     <MdLibraryBooks />

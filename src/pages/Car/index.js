@@ -11,7 +11,7 @@ import { Navbar } from '../../components/navbar'
 import { CarInfo } from '../../components/car/car-info'
 import { CarMenu } from '../../components/car/car-menu'
 import { CarPatch } from '../../components/car/car-patch'
-import { CarVersions } from '../../components/car/car-versions'
+import { CarTimeline } from '../../components/car/car-timeline'
 import { CarPictures } from '../../components/car/car-pictures'
 
 
@@ -73,7 +73,7 @@ class Car extends React.Component {
                         <CarMenu versions={this.state.car.versions} />
                     </div>
                     <div className="car-details">
-                        <CarVersions versions={this.state.car.versions} />
+                        <CarTimeline timeline={this.state.car.timeline} />
                     </div>
                     <CarPatch carId={this.state.car.id} />
                 </div>

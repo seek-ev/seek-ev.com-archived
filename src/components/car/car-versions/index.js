@@ -12,6 +12,7 @@ const CarVersions = (props) => {
 
     useEffect(() => {
         if (props.versions && props.versions.length > 0) setVersions(props.versions)
+        else if (props.versions) setVersions([])
     }, [props.versions])
 
     return (
@@ -29,7 +30,7 @@ const CarVersions = (props) => {
             </div>
 
             <div className={versions.length === 0 ? 'car-versions-none' : 'car-versions-hidden'}>
-                We don't have any details about this car
+                This car doesn't have any versions {props.year ? `from ${props.year}` : ''}
             </div>
         </div >
     )
