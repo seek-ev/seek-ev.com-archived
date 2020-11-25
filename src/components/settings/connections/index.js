@@ -20,14 +20,13 @@ const SettingsConnections = (props) => {
     const [loadingConnections, setLoadingConnections] = useState(false)
     const dispatch = useDispatch()
 
-
-    const fetchConnections = async () => {
-        setLoadingConnections(true)
-        await axios.get('/users/@me/connections').then(res => setConnections(res.data)).catch(err => dispatch(showSnackbar(err, 'error')))
-        setLoadingConnections(false)
-    }
-
     useEffect(() => {
+        const fetchConnections = async () => {
+            setLoadingConnections(true)
+            await axios.get('/users/@me/connections').then(res => setConnections(res.data)).catch(err => dispatch(showSnackbar(err, 'error')))
+            setLoadingConnections(false)
+        }
+
         async function saveConnection() {
             setLoading(true)
             const params = props.params.replace('?', '').split('&')
@@ -56,8 +55,14 @@ const SettingsConnections = (props) => {
     }, [props.params, dispatch])
 
     const onLoading = (loading, revoked) => {
+        const fetchConnectionsRevoked = async () => {
+            setLoadingConnections(true)
+            await axios.get('/users/@me/connections').then(res => setConnections(res.data)).catch(err => dispatch(showSnackbar(err, 'error')))
+            setLoadingConnections(false)
+        }
+
         setLoading(loading)
-        if (revoked) fetchConnections()
+        if (revoked) fetchConnectionsRevoked()
     }
 
     return (
