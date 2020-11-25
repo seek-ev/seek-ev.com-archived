@@ -23,7 +23,7 @@ const SettingsConnections = (props) => {
 
     const fetchConnections = async () => {
         setLoadingConnections(true)
-        await axios.get('/users/@me/connections').then(res => setConnections(res.data))
+        await axios.get('/users/@me/connections').then(res => setConnections(res.data)).catch(err => dispatch(showSnackbar(err, 'error')))
         setLoadingConnections(false)
     }
 
@@ -51,7 +51,6 @@ const SettingsConnections = (props) => {
         if (props.params) {
             saveConnection()
         }
-
 
         fetchConnections()
     }, [props.params, dispatch])
@@ -91,7 +90,6 @@ const SettingsConnections = (props) => {
             <div className={loading ? 'loading' : ''}>
                 <div className={loading ? 'loader' : ''}></div>
             </div>
-
 
             <div className={loadingConnections ? 'loader' : ''}></div>
 
