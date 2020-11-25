@@ -2,7 +2,7 @@ import React from 'react'
 import {
     Link,
     Redirect
-} from "react-router-dom";
+} from "react-router-dom"
 import axios from 'axios'
 import { connect } from 'react-redux'
 

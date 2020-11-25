@@ -1,7 +1,7 @@
 export const readAuth = () => {
     return (dispatch) => {
-        const token = localStorage.getItem('a_token')
-        const r_token = localStorage.getItem('r_token')
+        const token = JSON.parse(localStorage.getItem('a_token'))
+        const r_token = JSON.parse(localStorage.getItem('r_token'))
         localStorage.removeItem('a_token')
         localStorage.removeItem('r_token')
         let isLogged = false
@@ -28,7 +28,6 @@ export const logoutUser = () => {
     return (dispatch) => {
         localStorage.removeItem('s_user')
         localStorage.removeItem('a_token')
-        document.cookie = 'r_token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT'
         dispatch({ type: 'CLEAR_USER' })
         dispatch({ type: 'LOG_OUT' })
     }
