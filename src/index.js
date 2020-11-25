@@ -19,10 +19,17 @@ import App from './pages/App'
 import { readUser } from './actions/user'
 import { readAuth } from './actions/auth'
 
+
 // Dispatch actions to read user and check if user is logged
 
 store.dispatch(readAuth())
 store.dispatch(readUser())
+
+window.addEventListener('beforeunload', function (e) {
+  const state = store.getState().auth
+  window.localStorage.setItem('a_token', state.token)
+  window.localStorage.setItem('r_token', state.r_token)
+})
 
 ReactDOM.render(
   <React.StrictMode>

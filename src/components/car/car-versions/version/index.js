@@ -17,9 +17,6 @@ const CarVersion = (props) => {
         <div className="car-version">
             <div className="car-version-title">
                 {version.name}
-                <span className="car-version-title-production-years">
-                    {version.productionYears}
-                </span>
             </div>
             <div className="car-version-description">{version.description}</div>
             <div className='car-version-details'>

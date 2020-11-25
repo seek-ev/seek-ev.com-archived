@@ -92,8 +92,6 @@ class Car extends React.Component {
     }
 }
 
-
-
 export default connect(
     null,
     { showSnackbar }
