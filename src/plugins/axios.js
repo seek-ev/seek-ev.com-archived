@@ -20,6 +20,7 @@ axios.interceptors.response.use(
         const originalRequest = error.config
 
         if (!error.response) return Promise.reject('Check your network connection')
+
         if (
             error.response.status === 401 &&
             (originalRequest.url === '/auth/login' || originalRequest.url === '/auth/login/tester')
@@ -38,12 +39,9 @@ axios.interceptors.response.use(
         if (error.response.status === 401 && !originalRequest._retry) {
             originalRequest._retry = true
             return axios
-                .post('/auth/refresh', {
-                    refresh_token: store.getState().auth.r_token,
-                })
+                .post('/auth/refresh', {}, { withCredentials: true })
                 .then((res) => {
                     store.dispatch(setNewToken(res.data.access_token))
-
                     originalRequest.headers['Authorization'] = res.data.access_token
                     return axios(originalRequest)
                 })

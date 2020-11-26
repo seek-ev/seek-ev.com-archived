@@ -13,6 +13,7 @@ import './register.sass'
 import RegisterForm from '../../components/forms/register'
 
 // Actions
+import { loginUser } from '../../actions/auth'
 import { showSnackbar } from '../../actions/snackbar'
 
 class Register extends React.Component {
@@ -32,17 +33,14 @@ class Register extends React.Component {
 
         if (!this.state.usernameError && !this.state.emailError && !this.state.passwordError && !this.state.repeatPasswordError) {
             this.setState({ disabled: true })
-            const expires = new Date()
 
             await axios.post('/users', {
                 username: this.state.username,
                 email: this.state.email,
                 password: this.state.password
             }).then(async () => {
-                await axios.post('/auth/login/tester', { email: this.state.email, password: this.state.password }).then(res => {
-                    localStorage.setItem('s_user', JSON.stringify(res.data.data))
-                    localStorage.setItem('a_token', res.data.access_token)
-                    document.cookie = 'r_token=' + res.data.refresh_token + '; expires=' + new Date(expires.setFullYear(expires.getFullYear() + 1)).toString() + '; SameSite=Strict;'
+                await axios.post('/auth/login/tester', { email: this.state.email, password: this.state.password }, { withCredentials: true }).then(res => {
+                    this.props.loginUser(res.data.data, res.data.access_token)
                     this.setState({ redirect: '/' })
                     this.props.showSnackbar('Welcome to Seek EV!', 'success')
                 }).catch(err => {
@@ -167,6 +165,6 @@ class Register extends React.Component {
 
 export default connect(
     null,
-    { showSnackbar }
+    { showSnackbar, loginUser }
 )(Register)
 

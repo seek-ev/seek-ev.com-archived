@@ -1,8 +1,8 @@
 export const readUser = () => {
     return (dispatch) => {
-        let user = JSON.parse(localStorage.getItem('s_user'))
-        if (!user) user = {}
-        dispatch({ type: 'READ_USER', payload: { user } })
+        const user = JSON.parse(localStorage.getItem('s_user'))
+        if (!user) dispatch({ type: 'LOG_OUT' })
+        else dispatch({ type: 'READ_USER', payload: { user } })
     }
 }
 
