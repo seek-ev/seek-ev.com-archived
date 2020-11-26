@@ -32,9 +32,9 @@ class Login extends React.Component {
         if (!this.state.emailError && !this.state.passwordError) {
             this.setState({ disabled: true })
 
-            await axios.post('/auth/login/tester', { email: this.state.email, password: this.state.password }, { withCredentials: true }).then(res => {
-                this.props.loginUser(res.data.data, res.data.access_token)
+            await axios.post('/auth/login/tester', { email: this.state.email, password: this.state.password }, { withCredentials: true }).then(async res => {
                 this.setState({ redirect: '/' })
+                this.props.loginUser(res.data.data, res.data.access_token)
             }).catch(err => {
                 this.setState({ disabled: false })
                 this.props.showSnackbar(err, 'error')

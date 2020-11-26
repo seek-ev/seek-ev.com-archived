@@ -40,14 +40,13 @@ class Register extends React.Component {
                 password: this.state.password
             }).then(async () => {
                 await axios.post('/auth/login/tester', { email: this.state.email, password: this.state.password }, { withCredentials: true }).then(res => {
-                    this.props.loginUser(res.data.data, res.data.access_token)
                     this.setState({ redirect: '/' })
+                    this.props.loginUser(res.data.data, res.data.access_token)
                     this.props.showSnackbar('Welcome to Seek EV!', 'success')
                 }).catch(err => {
                     this.props.showSnackbar(err, 'error')
                 })
             }).catch(err => {
-
                 // Check if error includes username/email
                 if (err.response) {
                     if (err.response.data.error.includes('Username')) {
@@ -58,12 +57,10 @@ class Register extends React.Component {
                         this.setState({ emailError: 'Email already taken' })
                     }
                 }
-
                 this.setState({ disabled: false })
                 this.props.showSnackbar(err, 'error')
             })
         }
-
     }
 
     onUsernameChange = async (e) => {

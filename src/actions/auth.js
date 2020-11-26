@@ -30,7 +30,7 @@ export const logoutUser = () => {
     return (dispatch) => {
         localStorage.removeItem('a_token')
         localStorage.removeItem('s_user')
-        axios.post('/auth/logout', {}, { withCredentials: true })
+        axios.post('/auth/logout', {}, { withCredentials: true }).catch(err => { return err })
         dispatch({ type: 'CLEAR_USER' })
         dispatch({ type: 'LOG_OUT' })
     }
