@@ -1,33 +1,36 @@
-export const readAuth = () => {
+import axios from 'axios'
+
+export const authUser = () => {
     return (dispatch) => {
-        const token = JSON.parse(localStorage.getItem('a_token'))
-        const r_token = JSON.parse(localStorage.getItem('r_token'))
-        localStorage.removeItem('a_token')
-        localStorage.removeItem('r_token')
         let isLogged = false
-        if (token && r_token) isLogged = true
-        dispatch({ type: 'READ_AUTH', payload: { isLogged, token, r_token } })
+        const token = localStorage.getItem('a_token')
+        if (token) isLogged = true
+        else dispatch(logoutUser())
+        dispatch({ type: 'READ_AUTH', payload: { isLogged, token } })
     }
 }
 
-export const setNewToken = (newToken) => {
+export const setNewToken = (token) => {
     return (dispatch) => {
-        dispatch({ type: 'REFRESH_TOKEN', payload: { token: newToken } })
+        localStorage.setItem('a_token', JSON.stringify(token))
+        dispatch({ type: 'REFRESH_TOKEN', payload: { token } })
     }
 }
 
-export const loginUser = (user, token, r_token) => {
+export const loginUser = (user, token) => {
     return (dispatch) => {
         localStorage.setItem('s_user', JSON.stringify(user))
+        localStorage.setItem('a_token', token)
         dispatch({ type: 'SET_USER', payload: { user } })
-        dispatch({ type: 'LOG_IN', payload: { isLogged: true, token, r_token } })
+        dispatch({ type: 'LOG_IN', payload: { isLogged: true, token } })
     }
 }
 
 export const logoutUser = () => {
     return (dispatch) => {
-        localStorage.removeItem('s_user')
         localStorage.removeItem('a_token')
+        localStorage.removeItem('s_user')
+        axios.post('/auth/logout', {}, { withCredentials: true }).catch(err => { return err })
         dispatch({ type: 'CLEAR_USER' })
         dispatch({ type: 'LOG_OUT' })
     }

@@ -1,8 +1,10 @@
 import React from 'react'
 import {
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom"
+
 
 // Pages
 import Car from '../pages/Car'
@@ -23,13 +25,21 @@ import ResetPassword from '../pages/ResetPassword'
 import ResetSuccess from '../pages/ResetPassword/Success'
 import ResetConfirmSuccess from '../pages/ResetConfirm/Success'
 
+// Import store
+import store from '../store'
+
 // Components
 import { Snackbar } from '../components/notifications/snackbar'
 import { PublicRoute } from '../Routes/Public'
 import { PrivateRoute } from '../Routes/Private'
 
+const auth = store.getState().auth
+
 class App extends React.Component {
   render() {
+    if (auth.logout) {
+      return <Redirect to='/login' />
+    }
     return (
       <main>
         <Switch>

@@ -2,8 +2,8 @@ import { REFRESH_TOKEN, READ_AUTH, LOG_IN, LOG_OUT } from '../actions/types'
 
 const initialState = {
     isLogged: false,
+    logout: false,
     token: null,
-    r_token: null
 }
 
 export default function (state = initialState, action) {
@@ -13,9 +13,7 @@ export default function (state = initialState, action) {
                 ...state,
                 isLogged: action.payload.isLogged,
                 token: action.payload.token,
-                r_token: action.payload.r_token
             }
-
         case REFRESH_TOKEN:
             return {
                 ...state,
@@ -25,15 +23,15 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 isLogged: action.payload.isLogged,
+                logout: false,
                 token: action.payload.token,
-                r_token: action.payload.r_token
             }
         case LOG_OUT:
             return {
                 ...state,
                 isLogged: false,
+                logout: true,
                 token: null,
-                r_token: null
             }
         default:
             return state
