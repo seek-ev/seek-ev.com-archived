@@ -5,6 +5,7 @@ export const authUser = () => {
         let isLogged = false
         const token = localStorage.getItem('a_token')
         if (token) isLogged = true
+        else dispatch(logoutUser())
         dispatch({ type: 'READ_AUTH', payload: { isLogged, token } })
     }
 }

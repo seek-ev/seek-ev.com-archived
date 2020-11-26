@@ -1,7 +1,9 @@
+import { logoutUser } from './auth'
+
 export const readUser = () => {
     return (dispatch) => {
         const user = JSON.parse(localStorage.getItem('s_user'))
-        if (!user) dispatch({ type: 'LOG_OUT' })
+        if (!user) dispatch(logoutUser())
         else dispatch({ type: 'READ_USER', payload: { user } })
     }
 }
