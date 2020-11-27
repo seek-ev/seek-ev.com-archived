@@ -20,7 +20,7 @@ export const setNewToken = (token) => {
 export const loginUser = (user, token) => {
     return (dispatch) => {
         localStorage.setItem('s_user', JSON.stringify(user))
-        localStorage.setItem('a_token', token)
+        localStorage.setItem('a_token', JSON.stringify(token))
         dispatch({ type: 'SET_USER', payload: { user } })
         dispatch({ type: 'LOG_IN', payload: { isLogged: true, token } })
     }
