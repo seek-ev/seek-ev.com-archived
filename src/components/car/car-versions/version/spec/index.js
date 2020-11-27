@@ -28,7 +28,7 @@ const VersionSpec = (props) => {
                     <span>Drive train:</span> {spec.driveTrain}
                 </div>
                 <div className={`${spec.engines ? 'car-version-spec-header-item' : 'car-version-item-hidden'}`}>
-                    <span>Number of Engines:</span> {spec.engines ? spec.engines : ''}
+                    <span>Motors:</span> {spec.engines ? spec.engines : ''}
                 </div>
                 <div className='car-version-spec-header-item'>
                     <span>0-60 mph:</span> {spec.acceleration}s
