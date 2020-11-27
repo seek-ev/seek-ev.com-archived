@@ -12,7 +12,7 @@ export const authUser = () => {
 
 export const setNewToken = (token) => {
     return (dispatch) => {
-        localStorage.setItem('a_token', JSON.stringify(token))
+        localStorage.setItem('a_token', token)
         dispatch({ type: 'REFRESH_TOKEN', payload: { token } })
     }
 }
@@ -20,7 +20,7 @@ export const setNewToken = (token) => {
 export const loginUser = (user, token) => {
     return (dispatch) => {
         localStorage.setItem('s_user', JSON.stringify(user))
-        localStorage.setItem('a_token', JSON.stringify(token))
+        localStorage.setItem('a_token', token)
         dispatch({ type: 'SET_USER', payload: { user } })
         dispatch({ type: 'LOG_IN', payload: { isLogged: true, token } })
     }
