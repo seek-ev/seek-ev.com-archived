@@ -24,9 +24,11 @@ class NewCar extends React.Component {
             categories: [],
             brands: [],
             loading: false,
+            disabled: true,
             processing: false
         }
 
+        this.disabled = this.disabled.bind(this)
         this.createCar = this.createCar.bind(this)
         this.picChanged = this.picChanged.bind(this)
         this.modelChanged = this.modelChanged.bind(this)
@@ -44,22 +46,35 @@ class NewCar extends React.Component {
 
     async modelChanged(e) {
         await this.setState({ car: { ...this.state.car, model: e.value } })
+        await this.disabled()
     }
 
     async yearsChanged(e) {
         await this.setState({ car: { ...this.state.car, productionYears: e.value } })
+        await this.disabled()
     }
 
     async categoryChanged(e) {
         await this.setState({ car: { ...this.state.car, category: parseInt(e.value) } })
+        await this.disabled()
     }
 
     async brandChanged(e) {
         await this.setState({ car: { ...this.state.car, brand: parseInt(e.value) } })
+        await this.disabled()
     }
 
     async picChanged(pic) {
         this.setState({ picture: pic })
+    }
+
+    // Disabled until all fields are satisfied
+    disabled() {
+        if (!this.state.car.model || (this.state.car.model && this.state.car.model.length) <= 0) return this.setState({ disabled: true })
+        if (!this.state.car.productionYears || (this.state.car.productionYears && this.state.car.productionYears.length < 4)) return this.setState({ disabled: true })
+        if (!this.state.car.category) return this.setState({ disabled: true })
+        if (!this.state.car.brand) return this.setState({ disabled: true })
+        return this.setState({ disabled: false })
     }
 
     async createCar() {
@@ -99,7 +114,7 @@ class NewCar extends React.Component {
                 <div className={`${this.state.loading ? 'new-car-hidden' : 'new-car-container'}`}>
                     <NewHeader categories={this.state.categories} brands={this.state.brands} modelChanged={this.modelChanged} yearsChanged={this.yearsChanged} categoryChanged={this.categoryChanged} brandChanged={this.brandChanged} picChanged={this.picChanged} />
                     <div className="new-car-submit">
-                        <Button text="Create" raise primary onClick={() => this.createCar()} />
+                        <Button text="Create" raise primary onClick={() => this.createCar()} disabled={this.state.disabled} />
                     </div>
                 </div>
 
