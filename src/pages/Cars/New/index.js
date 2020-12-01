@@ -65,6 +65,14 @@ class NewCar extends React.Component {
     async createCar() {
         this.setState({ processing: true })
 
+        if (
+            (this.state.picture.type !== 'image/jpeg' &&
+                this.state.picture.type !== 'image/png')
+        ) {
+            this.props.showSnackbar('Ops, we can\'t accept this file type!', 'error')
+            return this.setState({ processing: false })
+        }
+
         await axios.post('/cars', this.state.car).then(async res => {
             if (!this.state.picture) return this.setState({ redirect: `/cars/${res.data.id}` })
 
@@ -77,7 +85,7 @@ class NewCar extends React.Component {
             return this.setState({ redirect: `/cars/${res.data.id}` })
         }).catch(async err => await this.props.showSnackbar(err, 'error'))
 
-        if (!this.state.redirect) this.setState({ processing: false })
+        if (!this.state.redirect) return this.setState({ processing: false })
     }
 
     render() {
