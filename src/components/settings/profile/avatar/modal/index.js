@@ -39,7 +39,10 @@ const AvatarModal = ({ handleClose, show, avatar }) => {
             (avatar.type !== 'image/jpeg' &&
                 avatar.type !== 'image/png') && avatar.type !== 'image/gif'
         ) {
-            dispatch(showSnackbar('Wrong file type', 'error'))
+            dispatch(showSnackbar('Ops, we can\'t accept this file type!', 'error'))
+            setLoading(false)
+            handleClose()
+            return
         }
 
         fd.append('image', avatar)
