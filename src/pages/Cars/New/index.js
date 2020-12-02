@@ -81,7 +81,7 @@ class NewCar extends React.Component {
         this.setState({ processing: true })
 
         if (
-            (this.state.picture.type !== 'image/jpeg' &&
+            this.state.picture && (this.state.picture.type !== 'image/jpeg' &&
                 this.state.picture.type !== 'image/png')
         ) {
             this.props.showSnackbar('Ops, we can\'t accept this file type!', 'error')

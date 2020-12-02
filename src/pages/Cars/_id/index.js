@@ -19,9 +19,12 @@ class UserCar extends React.Component {
 
         this.state = {
             loading: false,
+            processing: false,
             car: {},
             currentCar: 0
         }
+
+        this.handleProcessing = this.handleProcessing.bind(this)
     }
 
     async componentDidMount() {
@@ -47,13 +50,17 @@ class UserCar extends React.Component {
         }
     }
 
+    async handleProcessing(e) {
+        await this.setState({ processing: e })
+    }
+
     render() {
         return (
             <div className="container">
                 <Navbar />
                 <div className={`${!this.state.loading && this.state.car.user && this.state.car.user.username === this.props.username ? 'user-car-container' : 'user-car-hidden'}`}>
                     <div className="user-car-header">
-                        <UserCarComponent car={this.state.car} />
+                        <UserCarComponent car={this.state.car} onCarProcessing={this.handleProcessing} />
                     </div>
                 </div>
                 <div className={`${!this.state.loading && (!this.state.car.user || this.state.car.user.username !== this.props.username) && Object.keys(this.state.car).length > 0 ? 'user-car-unauthorized' : 'user-car-hidden'}`}>
@@ -67,6 +74,9 @@ class UserCar extends React.Component {
                     <Link to="/cars">Go back</Link>
                 </div>
                 <div className={`${this.state.loading ? 'user-car-loading' : 'user-car-hidden'}`}></div>
+                <div className={`${this.state.processing ? 'user-car-processing' : 'user-car-hidden'}`}>
+                    <div className="user-car-processing-loading"></div>
+                </div>
             </div>
         )
     }
