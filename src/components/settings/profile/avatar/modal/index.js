@@ -82,7 +82,6 @@ const AvatarModal = ({ handleClose, show, avatar }) => {
                         <Button text="Save" primary raise onClick={uploadAvatar} disabled={loading} />
                     </div>
                 </div>
-
             </section>
         </div>
     )

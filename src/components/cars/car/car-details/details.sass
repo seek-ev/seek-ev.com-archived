@@ -1,5 +1,14 @@
 @import 'src/assets/variables'
 
+.user-car-details
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: flex-end
+    @media only screen and (max-width: $max-medium)
+        align-items: center
+        justify-content: center
+
 .user-car-details-verified
     display: flex
     flex-direction: row
@@ -9,4 +18,46 @@
         justify-content: center
 
 .user-car-details-verified-icon
-    margin: 4px 0 0 6px
+    margin: 2px 0 0 4px
+
+.user-car-details-remove-button
+    margin: 6px 0 0
+
+.user-car-details-modal
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 11
+    background: rgba(0, 0, 0, 0.6)
+    font-family: 'Roboto', sans-serif
+
+.user-car-details-modal-content
+    position: fixed
+    background: #fff
+    width: 300px
+    padding: 12px 12px 6px 10px
+    height: auto
+    top: 50%
+    left: 50%
+    border-radius: 7px
+    transform: translate(-50%,-50%)
+    box-shadow: 0 8px 24px 0px rgba(0,0,0, .14)
+    -moz-box-shadow: 0 8px 24px 0px rgba(0,0,0, .14)
+    -webkit-box-shadow: 0 8px 24px 0px rgba(0,0,0, .14)
+
+.user-car-details-modal-block
+    display: block
+
+.user-car-details-modal-text
+    font-size: 18px
+    font-weight: 500
+
+.user-car-details-modal-buttons
+    width: 100%
+    display: flex
+    flex-direction: row
+    justify-content: flex-end
+    button
+        margin: 6px 0 6px 8px
