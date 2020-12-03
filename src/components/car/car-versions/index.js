@@ -30,7 +30,7 @@ const CarVersions = (props) => {
             </div>
 
             <div className={versions.length === 0 ? 'car-versions-none' : 'car-versions-hidden'}>
-                This car doesn't have any versions {props.year ? `from ${props.year}` : ''}
+                We don't have any details about this car {props.year ? `from ${props.year}` : ''}
             </div>
         </div >
     )
