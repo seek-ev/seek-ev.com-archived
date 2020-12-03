@@ -2,11 +2,9 @@ import axios from 'axios'
 
 export const authUser = () => {
     return (dispatch) => {
-        let isLogged = false
         const token = localStorage.getItem('a_token')
-        if (token) isLogged = true
-        else dispatch(logoutUser())
-        dispatch({ type: 'READ_AUTH', payload: { isLogged, token } })
+        if (!token) return dispatch(logoutUser())
+        dispatch({ type: 'READ_AUTH', payload: { isLogged: true, token } })
     }
 }
 

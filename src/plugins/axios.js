@@ -32,8 +32,8 @@ axios.interceptors.response.use(
             error.response.status === 401 &&
             originalRequest.url === '/auth/refresh'
         ) {
-            store.dispatch(logoutUser())
-            return Promise.reject(error)
+            setTimeout(() => store.dispatch(logoutUser()), 250)
+            return Promise.reject('Ops, you were logged for too long!')
         }
 
         if (error.response.status === 401 && !originalRequest._retry) {
