@@ -19,8 +19,8 @@ const Button = (props) => {
       onClick={props.onClick}
       disabled={props.disabled}
     >
-      {props.text}
-    </button>
+      { props.text}
+    </button >
   )
 }
 

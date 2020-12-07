@@ -144,7 +144,6 @@ const SearchBar = () => {
                         </div>
                     </Link>
                 })}
-
             </div>
         </div>
     )
