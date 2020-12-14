@@ -52,10 +52,11 @@ class Brand extends React.Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="container container-brand">
                 <Navbar />
-                <div className="brand-landing">
+                <div className={`brand-landing ${this.state.brand.background ? 'brand-background' : 'brand-no-background'}`}>
                     <BrandHeader
+                        back={this.state.brand.background}
                         avatar={this.state.brand.avatar}
                         name={this.state.brand.name}
                         description={this.state.brand.description}
