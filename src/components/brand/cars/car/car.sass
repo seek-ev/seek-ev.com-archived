@@ -1,0 +1,49 @@
+@import 'src/assets/variables'
+
+.brand-car
+    max-width: 250px
+    display: flex
+    flex-direction: row
+    margin: 12px 0
+    color: #000
+    text-decoration: none
+    .brand-car-picture
+        min-width: 150px
+        width: 150px
+        height: 100%
+        img
+            width: 100%
+            height: 100%
+            border-top-left-radius: 7px
+            border-bottom-left-radius: 7px
+            object-fit: cover
+            @media only screen and (max-width: 400px)
+                border-top-right-radius: 7px
+                border-bottom-left-radius: 0px
+        @media only screen and (max-width: $max-medium)
+            width: 130px
+        @media only screen and (max-width: 400px)
+            width: 100%
+            height: 150px
+    .brand-car-info
+        height: 100%
+        width: 100%
+        display: flex
+        padding: 10px 10px 10px 16px
+        flex-direction: row
+        justify-content: space-between
+        font-family: 'Roboto', sans-serif
+        @media only screen and (max-width: 400px)
+            flex-direction: column
+    .brand-car-info-detail
+        font-size: 18px
+        opacity: 0.7
+
+    .brand-car-info-detail-model
+        font-size: 18px
+        font-weight: 500
+
+    .brand-car-info-left
+        display: flex
+        flex-direction: column
+        justify-content: space-between

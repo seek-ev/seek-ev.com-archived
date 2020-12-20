@@ -7,6 +7,7 @@ import './brand.sass'
 
 // Components
 import { Navbar } from '../../components/navbar'
+import { BrandCars } from '../../components/brand/cars'
 import { BrandHeader } from '../../components/brand/header'
 
 // Actions
@@ -64,6 +65,8 @@ class Brand extends React.Component {
                         website={this.state.brand.website}
                         areaServed={this.state.brand.areaServed}
                         headquarters={this.state.brand.headquarters} />
+
+                    {this.state.brand.cars && this.state.brand.cars.length > 0 ? <BrandCars cars={this.state.brand.cars} /> : ''}
                 </div>
             </div>
         )

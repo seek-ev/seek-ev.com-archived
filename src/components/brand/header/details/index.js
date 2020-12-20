@@ -7,7 +7,7 @@ const BrandDetails = (props) => {
     return (
         <div className="brand-details">
             <div className="brand-details-description">
-                {props.description ? props.description : 'We don\'t have any information about this brand.'}
+                {props.description ? props.description : 'We don\'t have any details about this brand.'}
             </div>
             <div className="brand-details-footer">
                 <div className={`${props.website ? 'brand-details-footer-item' : 'brand-hidden'}`}>
