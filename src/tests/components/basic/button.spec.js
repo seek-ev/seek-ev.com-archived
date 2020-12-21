@@ -5,6 +5,11 @@ import { shallow } from 'enzyme'
 import { Button } from '../../../components/basic/button'
 
 describe('Button Component', () => {
+    it('Set button class correctly', () => {
+        const button = shallow(<Button />)
+        expect(button.find('.btn')).toHaveLength(1)
+    })
+
     it('Displays text correctly', () => {
         const button = shallow(<Button text="text" />)
         expect(button.text()).toEqual('text')
