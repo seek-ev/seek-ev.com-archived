@@ -6,7 +6,7 @@ const initialState = {
     type: 'basic'
 }
 
-export default function (state = initialState, action) {
+export default function snackbarReducer(state = initialState, action) {
     switch (action.type) {
         case SHOW_SNACKBAR:
             return {

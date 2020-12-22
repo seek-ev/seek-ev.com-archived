@@ -12,10 +12,8 @@ import { setUser } from '../../actions/user'
 // Components
 import { Navbar } from '../../components/navbar'
 import { SettingsMenu } from '../../components/settings/menu'
-import { ProfileAvatar } from '../../components/settings/profile/avatar'
-import { SettingsPassword } from '../../components/settings/profile/password'
+import { SettingsProfile } from '../../components/settings/profile'
 import { SettingsConnections } from '../../components/settings/connections/index'
-import { SettingsProfileUsername } from '../../components/settings/profile/username'
 
 class Settings extends React.Component {
     constructor(props) {
@@ -63,28 +61,8 @@ class Settings extends React.Component {
                     <SettingsMenu onChange={this.onItemChange} item={this.state.item} />
 
                     <div className={this.state.item === 'profile' ? 'settings-item' : 'settings-item-hidden'}>
-                        <div className="settings-header">
-                            <ProfileAvatar avatar={this.props.user.avatar} />
-
-                            <SettingsProfileUsername username={this.props.user.username} />
-                        </div>
-
-                        <div className="settings-item-details">
-                            <div className="settings-item-details-item">
-                                <div className="settings-item-title">
-                                    Your email:
-                                </div>
-                                <div className="settings-email">
-                                    {this.props.user.email}
-                                </div>
-                            </div>
-
-                            <div className="settings-item-details-item">
-                                <SettingsPassword />
-                            </div>
-                        </div>
+                        <SettingsProfile user={this.props.user} />
                     </div>
-
 
                     <div className={this.state.item === 'connections' ? 'settings-item' : 'settings-item-hidden'}>
                         <SettingsConnections params={this.props.location.search} />
