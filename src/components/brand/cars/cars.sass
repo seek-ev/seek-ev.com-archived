@@ -1,6 +1,14 @@
+@import 'src/assets/variables'
+
 .brand-cars
     display: flex
     flex-direction: column
     .brand-cars-title
         font-size: 24px
         font-weight: 500
+    .brand-cars-list
+        display: flex
+        flex-wrap: wrap
+        flex-direction: row
+    @media only screen and (max-width: $max-medium)
+        padding: 0 5%

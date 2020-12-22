@@ -64,12 +64,13 @@ class Brand extends React.Component {
             <div className="container container-brand">
                 <Navbar />
                 {Object.keys(this.state.brand).length > 0 && !this.state.loading ? <BrandContainer brand={this.state.brand} />
-                    :
-                    <div className="brand-not-found">
-                        <div className="brand-not-found-code">404</div>
-                        <div>Oops!</div>
-                        <div> <span>{this.props.match.params.name}</span> brand was not found</div>
-                    </div>}
+                    : !this.state.loading ?
+                        <div className="brand-not-found">
+                            <div className="brand-not-found-code">404</div>
+                            <div>Oops!</div>
+                            <div> <span>{this.props.match.params.name}</span> brand was not found</div>
+                        </div>
+                        : <div className={this.state.loading ? 'brand-loading' : 'brand-hidden'}></div>}
             </div>
         )
     }
