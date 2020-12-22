@@ -19,7 +19,7 @@ const BrandHeader = (props) => {
             }}>
                 <div className="brand-header-row">
                     <BrandAvatar avatar={props.avatar} />
-                    <BrandTitle name={props.name} founded={props.founded} dark={props.back} />
+                    <BrandTitle name={props.name} founded={props.founded} back={props.back} />
                 </div>
             </div>
             <BrandDetails description={props.description} website={props.website} areaServed={props.areaServed} headquarters={props.headquarters} />

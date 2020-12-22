@@ -3,14 +3,14 @@ import React from 'react'
 // Styles
 import './title.sass'
 
-const BrandTitle = (props) => {
+const BrandTitle = ({ name, founded, back }) => {
     return (
-        <div className={`brand-title ${props.founded ? '' : 'brand-title-no-founded'}`}>
-            <div className="brand-title-text">
-                {props.name}
+        <div className={`brand-title ${founded ? '' : 'brand-title-no-founded'}`}>
+            <div className={`brand-title-text ${back ? 'brand-title-light' : ''}`}>
+                {name}
             </div>
-            <div className={`${props.founded ? 'brand-title-founded' : 'brand-hidden'}`}>
-                {props.founded}
+            <div className={`${founded ? 'brand-title-founded' : 'brand-hidden'}`}>
+                {founded}
             </div>
         </div>
     )
