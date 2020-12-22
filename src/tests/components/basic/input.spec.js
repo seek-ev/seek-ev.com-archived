@@ -43,10 +43,8 @@ describe('Input Component', () => {
     })
 
     it('Disabled props', () => {
-        const mockCallback = jest.fn()
-        const input = shallow(<Input onClick={mockCallback} />)
-        input.setProps({ disabled: true })
-        expect(mockCallback.mock.calls.length).toEqual(0)
+        const input = shallow(<Input disabled />)
+        expect(input.find('input').is('[disabled]')).toBeTruthy()
     })
 
     it('Raise props', () => {
