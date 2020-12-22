@@ -7,12 +7,10 @@ import './brand.sass'
 
 // Components
 import { Navbar } from '../../components/navbar'
-import { BrandCars } from '../../components/brand/cars'
-import { BrandHeader } from '../../components/brand/header'
+import { BrandContainer } from '../../components/brand'
 
 // Actions
 import { showSnackbar } from '../../actions/snackbar'
-
 
 class Brand extends React.Component {
     constructor(props) {
@@ -29,9 +27,12 @@ class Brand extends React.Component {
         this.setState({ currentBrand: this.props.match.params.name })
 
         await axios.get(`/brands/name/${this.props.match.params.name}`).then(res => this.setState({ brand: res.data }))
-            .catch(err => this.props.showSnackbar(err, 'error'))
+            .catch(err => {
+                if (err.response && err.response.status === 404) return
+                this.props.showSnackbar(err, 'error')
+            })
 
-        if (this.state.brand) document.title = this.state.brand.name
+        if (this.state.brand.name) document.title = this.state.brand.name
 
         this._ismounted = true
 
@@ -43,9 +44,12 @@ class Brand extends React.Component {
             this.setState({ loading: true, currentBrand: this.props.match.params.name })
 
             await axios.get(`/brands/name/${this.props.match.params.name}`).then(res => this.setState({ brand: res.data }))
-                .catch(err => this.props.showSnackbar(err, 'error'))
+                .catch(err => {
+                    if (err.response && err.response.status === 404) return
+                    this.props.showSnackbar(err, 'error')
+                })
 
-            if (this.state.brand) document.title = this.state.brand.name
+            if (this.state.brand.name) document.title = this.state.brand.name
 
             this.setState({ loading: false })
         }
@@ -59,19 +63,13 @@ class Brand extends React.Component {
         return (
             <div className="container container-brand">
                 <Navbar />
-                <div className={`brand-landing ${this.state.brand.background ? 'brand-background' : 'brand-no-background'}`}>
-                    <BrandHeader
-                        back={this.state.brand.background}
-                        avatar={this.state.brand.avatar}
-                        name={this.state.brand.name}
-                        description={this.state.brand.description}
-                        founded={this.state.brand.founded}
-                        website={this.state.brand.website}
-                        areaServed={this.state.brand.areaServed}
-                        headquarters={this.state.brand.headquarters} />
-
-                    {this.state.brand.cars && this.state.brand.cars.length > 0 ? <BrandCars cars={this.state.brand.cars} /> : ''}
-                </div>
+                {Object.keys(this.state.brand).length > 0 && !this.state.loading ? <BrandContainer brand={this.state.brand} />
+                    :
+                    <div className="brand-not-found">
+                        <div className="brand-not-found-code">404</div>
+                        <div>Oops!</div>
+                        <div> <span>{this.props.match.params.name}</span> brand was not found</div>
+                    </div>}
             </div>
         )
     }

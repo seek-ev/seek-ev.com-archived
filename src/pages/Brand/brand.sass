@@ -3,36 +3,19 @@
 .container-brand
     padding: 0
 
-.brand-landing
-    margin: 0px 20% 24px
-    font-family: 'Roboto', sans-serif
-    @media only screen and (max-width: $max-desktop)
-        margin: 0px 12% 24px
-    @media only screen and (max-width: $max-medium)
-        align-items: center
-        margin: 0px 0 24px
-    @media only screen and (min-width: 2300px)
-        margin: 0px 30% 24px
-
-.brand-background
-    margin: 60px 20% 24px
-    @media only screen and (max-width: $max-desktop)
-        margin: 60px 12% 24px
-    @media only screen and (max-width: $max-medium)
-        align-items: center
-        margin: 60px 0 24px
-    @media only screen and (min-width: 2300px)
-        margin: 60px 30% 24px
-
-.brand-no-background
-    margin: 126px 20% 24px
-    @media only screen and (max-width: $max-desktop)
-        margin: 126px 12% 24px
-    @media only screen and (max-width: $max-medium)
-        align-items: center
-        margin: 78px 0 24px
-    @media only screen and (min-width: 2300px)
-        margin: 126px 30% 24px
-
 .brand-hidden
     display: none
+
+.brand-not-found
+    height: 100vh
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    font-size: 22px
+    span
+        color: $primary
+    .brand-not-found-code
+        font-size: 34px
+        font-weight: 500
+        margin: 0 0 2px
