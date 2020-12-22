@@ -51,6 +51,10 @@ class Brand extends React.Component {
         }
     }
 
+    componentWillUnmount() {
+        document.title = 'Seek EV'
+    }
+
     render() {
         return (
             <div className="container container-brand">
