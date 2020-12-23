@@ -34,7 +34,10 @@ class Car extends React.Component {
         this.setState({ currentCar: this.props.match.params.model })
 
         await axios.get(`/cars/model/${this.props.match.params.model}`).then(res => this.setState({ car: res.data }))
-            .catch(err => this.props.showSnackbar(err, 'error'))
+            .catch(err => {
+                if (err.response && err.response.status === 404) return
+                this.props.showSnackbar(err, 'error')
+            })
 
         if (this.state.car) document.title = `${this.state.car.brand ? this.state.car.brand.shortName : ''} ${this.state.car.model ? this.state.car.model : this.props.match.params.model}`
 
@@ -48,7 +51,10 @@ class Car extends React.Component {
             this.setState({ loading: true, currentCar: this.props.match.params.model })
 
             await axios.get(`/cars/model/${this.props.match.params.model}`).then(res => this.setState({ car: res.data }))
-                .catch(err => this.props.showSnackbar(err, 'error'))
+                .catch(err => {
+                    if (err.response && err.response.status === 404) return
+                    this.props.showSnackbar(err, 'error')
+                })
 
             if (this.state.car) document.title = `${this.state.car.brand ? this.state.car.brand.shortName : ''} ${this.state.car.model ? this.state.car.model : this.props.match.params.model}`
 

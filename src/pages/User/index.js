@@ -37,7 +37,10 @@ class User extends React.Component {
 
         await axios.get(`/users/username/${this.props.match.params.username}`).then(res => {
             this.setState({ user: res.data, previousUsername: res.data.username })
-        }).catch(err => this.props.showSnackbar(err, 'error'))
+        }).catch(err => {
+            if (err.response && err.response.status === 404) return
+            this.props.showSnackbar(err, 'error')
+        })
 
         this._ismounted = true
 
@@ -53,7 +56,10 @@ class User extends React.Component {
             this.setState({ previousUsername: this.props.match.params.username })
             await axios.get(`/users/username/${this.props.match.params.username}`).then(res => {
                 this.setState({ user: res.data, previousUsername: res.data.username })
-            }).catch(err => this.props.showSnackbar(err, 'error'))
+            }).catch(err => {
+                if (err.response && err.response.status === 404) return
+                this.props.showSnackbar(err, 'error')
+            })
 
             if (this.state.user) document.title = this.state.user.username
 
