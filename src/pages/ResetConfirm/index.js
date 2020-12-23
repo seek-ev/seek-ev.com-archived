@@ -7,10 +7,10 @@ import { connect } from 'react-redux'
 import './reset.sass'
 
 // Actions
-import { showSnackbar } from '../../actions/snackbar'
+import { showSnackbar } from 'actions/snackbar'
 
 // Components
-import ResetConfirmForm from '../../components/forms/reset-confirm'
+import ResetConfirmForm from 'components/forms/reset-confirm'
 
 class Reset extends React.Component {
     constructor(props) {

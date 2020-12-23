@@ -7,11 +7,11 @@ import { Link } from 'react-router-dom'
 import './car.sass'
 
 // Components
-import { Navbar } from '../../../components/navbar'
-import { UserCarComponent } from '../../../components/cars/car'
+import { Navbar } from 'components/navbar'
+import { UserCarComponent } from 'components/pages/cars/car'
 
 // Actions
-import { showSnackbar } from '../../../actions/snackbar'
+import { showSnackbar } from 'actions/snackbar'
 
 class UserCar extends React.Component {
     constructor(props) {

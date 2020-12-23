@@ -7,12 +7,12 @@ import { Redirect } from 'react-router-dom'
 import './new.sass'
 
 // Components
-import { Navbar } from '../../../components/navbar'
-import { Button } from '../../../components/basic/button'
-import { NewHeader } from '../../../components/cars/new/header'
+import { Navbar } from 'components/navbar'
+import { Button } from 'components/basic/button'
+import { NewHeader } from 'components/pages/cars/new/header'
 
 // Actions
-import { showSnackbar } from '../../../actions/snackbar'
+import { showSnackbar } from 'actions/snackbar'
 
 class NewCar extends React.Component {
     constructor(props) {

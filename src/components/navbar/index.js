@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 import './navbar.sass'
 
 // Components
-import { Button } from '../basic/button'
+import { Button } from 'components/basic/button'
 import { NavMenu } from './nav-menu'
 import { NavLogo } from './nav-logo'
 import { SearchBar } from './nav-search'

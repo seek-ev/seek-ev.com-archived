@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 // Component
-import { Select } from '../../../components/basic/select'
+import { Select } from 'components/basic/select'
 
 describe('Select component', () => {
     it('onChange event', () => {

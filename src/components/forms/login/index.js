@@ -5,39 +5,39 @@ import { Link } from 'react-router-dom'
 import './login_form.sass'
 
 // Components
-import { Input } from '../../basic/input'
-import { Button } from '../../basic/button'
+import { Input } from 'components/basic/input'
+import { Button } from 'components/basic/button'
 
-const LoginForm = (props) => {
+const LoginForm = ({ disabled, emailError, passwordError, onEmailChange, onPasswordChange, onSubmit }) => {
     const handleSubmit = (e) => {
-        props.onSubmit(e.target)
-        e.preventDefault();
+        onSubmit(e.target)
+        e.preventDefault()
     }
 
     const handleEmailInputChange = (e) => {
-        props.onEmailChange(e.value)
+        onEmailChange(e.value)
     }
 
     const handlePasswordInputChange = (e) => {
-        props.onPasswordChange(e.value)
+        onPasswordChange(e.value)
     }
 
     return (
-        <form onSubmit={props.onSubmit}>
+        <form onSubmit={onSubmit}>
             <div className="login-input">
-                <Input name="email" disabled={props.disabled} error={props.emailError} onChange={handleEmailInputChange} placeholder="Email" autoComplete="email" />
+                <Input name="email" disabled={disabled} error={emailError} onChange={handleEmailInputChange} placeholder="Email" autoComplete="email" />
             </div>
             <div className="login-input">
-                <Input name="password" disabled={props.disabled} error={props.passwordError} onChange={handlePasswordInputChange} placeholder="Password" type="password" autoComplete="current-password" />
+                <Input name="password" disabled={disabled} error={passwordError} onChange={handlePasswordInputChange} placeholder="Password" type="password" autoComplete="current-password" />
             </div>
             <div className="form-buttons">
                 <div className="form-button">
                     <Link to="/register">
-                        <Button text="register" disabled={props.disabled} clean />
+                        <Button text="register" disabled={disabled} clean />
                     </Link>
                 </div>
                 <div className="form-button">
-                    <Button text="login" disabled={props.disabled} primary type="submit" handleClick={handleSubmit} />
+                    <Button text="login" disabled={disabled} primary type="submit" handleClick={handleSubmit} />
                 </div>
             </div>
         </form>

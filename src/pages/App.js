@@ -1,38 +1,39 @@
 import React from 'react'
 import {
+  BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom"
 
 
 // Pages
-import Car from '../pages/Car'
-import ToS from '../pages/ToS'
-import Home from '../pages/Home'
-import User from '../pages/User'
-import Login from '../pages/Login'
-import Brand from '../pages/Brand'
-import NotFound from '../pages/404'
-import UserCars from '../pages/Cars'
-import NewCar from '../pages/Cars/New'
-import UserCar from '../pages/Cars/_id'
-import Register from '../pages/Register'
-import Settings from '../pages/Settings'
-import UserRequests from '../pages/Requests'
-import ResetConfirm from '../pages/ResetConfirm'
-import ResetPassword from '../pages/ResetPassword'
-import ResetSuccess from '../pages/ResetPassword/Success'
-import ResetConfirmSuccess from '../pages/ResetConfirm/Success'
+import Car from 'pages/Car'
+import ToS from 'pages/ToS'
+import Home from 'pages/Home'
+import User from 'pages/User'
+import Login from 'pages/Login'
+import Brand from 'pages/Brand'
+import NotFound from 'pages/404'
+import UserCars from 'pages/Cars'
+import NewCar from 'pages/Cars/New'
+import UserCar from 'pages/Cars/_id'
+import Register from 'pages/Register'
+import Settings from 'pages/Settings'
+import UserRequests from 'pages/Requests'
+import ResetConfirm from 'pages/ResetConfirm'
+import ResetPassword from 'pages/ResetPassword'
+import ResetSuccess from 'pages/ResetPassword/Success'
+import ResetConfirmSuccess from 'pages/ResetConfirm/Success'
 
 // Components
-import { Snackbar } from '../components/notifications/snackbar'
-import { PublicRoute } from '../Routes/Public'
-import { PrivateRoute } from '../Routes/Private'
+import { Snackbar } from 'components/notifications/snackbar'
+import { PublicRoute } from 'Routes/Public'
+import { PrivateRoute } from 'Routes/Private'
 
 class App extends React.Component {
   render() {
     return (
-      <main>
+      <Router>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/terms" component={ToS} />
@@ -53,7 +54,7 @@ class App extends React.Component {
           <Route path='*' component={NotFound} />
         </Switch>
         <Snackbar />
-      </main>
+      </Router>
     )
   }
 }

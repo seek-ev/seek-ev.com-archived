@@ -6,11 +6,11 @@ import { connect } from 'react-redux'
 import './brand.sass'
 
 // Components
-import { Navbar } from '../../components/navbar'
-import { BrandContainer } from '../../components/brand'
+import { Navbar } from 'components/navbar'
+import { BrandContainer } from 'components/pages/brand'
 
 // Actions
-import { showSnackbar } from '../../actions/snackbar'
+import { showSnackbar } from 'actions/snackbar'
 
 class Brand extends React.Component {
     constructor(props) {

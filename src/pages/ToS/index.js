@@ -4,16 +4,16 @@ import React from 'react'
 import './tos.sass'
 
 // Components
-import { TOSNavbar } from '../../components/tos/navbar'
-import { TOSHeader } from '../../components/tos/header'
+import { TermsNavbar } from 'components/pages/terms/navbar'
+import { TermsHeader } from 'components/pages/terms/header'
 
 export default class ToS extends React.Component {
     render() {
         return (
             <div className="tos-container">
-                <TOSNavbar />
+                <TermsNavbar />
                 <div className="tos">
-                    <TOSHeader />
+                    <TermsHeader />
                     <div className="tos-note">
                         Terms under preparation
                     </div>

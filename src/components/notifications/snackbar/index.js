@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { hideSnackbar } from '../../../actions/snackbar'
+import { hideSnackbar } from 'actions/snackbar'
 
 // Styles
 import './snackbar.sass'
