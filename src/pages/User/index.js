@@ -7,11 +7,11 @@ import './user.sass'
 
 // Components
 import { Navbar } from 'components/navbar'
-import { UserAvatar } from 'components/user/avatar'
-import { UserBadges } from 'components/user/badges'
-import { UserUsername } from 'components/user/username'
-import { DetailsMenu } from 'components/user/details/menu'
-import { DetailsCars } from 'components/user/details/cars'
+import { UserAvatar } from 'components/pages/user/avatar'
+import { UserBadges } from 'components/pages/user/badges'
+import { UserUsername } from 'components/pages/user/username'
+import { DetailsMenu } from 'components/pages/user/details/menu'
+import { DetailsCars } from 'components/pages/user/details/cars'
 
 // Actions
 import { showSnackbar } from 'actions/snackbar'

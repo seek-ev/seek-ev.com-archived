@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import './home.sass'
 
 // Components
-import { CarCard } from 'components/car-card'
+import { CarCard } from 'components/pages/home/car-card'
 import { Navbar } from 'components/navbar'
 import { Input } from 'components/basic/input'
 import { Select } from 'components/basic/select'

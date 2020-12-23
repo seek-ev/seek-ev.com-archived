@@ -8,11 +8,11 @@ import './car.sass'
 
 // Components
 import { Navbar } from 'components/navbar'
-import { CarInfo } from 'components/car/car-info'
-import { CarMenu } from 'components/car/car-menu'
-import { CarPatch } from 'components/car/car-patch'
-import { CarTimeline } from 'components/car/car-timeline'
-import { CarPictures } from 'components/car/car-pictures'
+import { CarInfo } from 'components/pages/car/car-info'
+import { CarMenu } from 'components/pages/car/car-menu'
+import { CarPatch } from 'components/pages/car/car-patch'
+import { CarTimeline } from 'components/pages/car/car-timeline'
+import { CarPictures } from 'components/pages/car/car-pictures'
 
 
 // Actions

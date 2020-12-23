@@ -8,7 +8,7 @@ import './car.sass'
 
 // Components
 import { Navbar } from 'components/navbar'
-import { UserCarComponent } from 'components/cars/car'
+import { UserCarComponent } from 'components/pages/cars/car'
 
 // Actions
 import { showSnackbar } from 'actions/snackbar'

@@ -11,9 +11,9 @@ import { setUser } from 'actions/user'
 
 // Components
 import { Navbar } from 'components/navbar'
-import { SettingsMenu } from 'components/settings/menu'
-import { SettingsProfile } from 'components/settings/profile'
-import { SettingsConnections } from 'components/settings/connections/index'
+import { SettingsMenu } from 'components/pages/settings/menu'
+import { SettingsProfile } from 'components/pages/settings/profile'
+import { SettingsConnections } from 'components/pages/settings/connections/index'
 
 class Settings extends React.Component {
     constructor(props) {

@@ -7,7 +7,7 @@ import './requests.sass'
 
 // Components
 import { Navbar } from 'components/navbar'
-import { Requests } from 'components/requests'
+import { Requests } from 'components/pages/requests'
 
 // Actions
 import { showSnackbar } from 'actions/snackbar'

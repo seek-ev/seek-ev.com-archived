@@ -7,9 +7,9 @@ import { Redirect } from 'react-router-dom'
 import './cars.sass'
 
 // Components
-import { Cars } from 'components/cars'
+import { Cars } from 'components/pages/cars'
 import { Navbar } from 'components/navbar'
-import { OwnedCars } from 'components/cars/owned'
+import { OwnedCars } from 'components/pages/cars/owned'
 
 // Actions
 import { showSnackbar } from 'actions/snackbar'
