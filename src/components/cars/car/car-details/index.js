@@ -7,13 +7,13 @@ import { useParams, Redirect } from 'react-router-dom'
 import './details.sass'
 
 // Components
-import { Button } from '../../../basic/button'
+import { Button } from 'components/basic/button'
 
 // Icons
 import { MdDone, MdClear } from 'react-icons/md'
 
 // Actions
-import { showSnackbar } from '../../../../actions/snackbar'
+import { showSnackbar } from 'actions/snackbar'
 
 const UserCarDetails = (props) => {
     const [redirect, setRedirect] = useState(null)

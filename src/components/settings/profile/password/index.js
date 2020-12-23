@@ -9,11 +9,11 @@ import './password.sass'
 import { MdModeEdit } from 'react-icons/md'
 
 // Components
-import { Input } from '../../../basic/input'
-import { Button } from '../../../basic/button'
+import { Input } from 'components/basic/input'
+import { Button } from 'components/basic/button'
 
 // Actions
-import { showSnackbar } from '../../../../actions/snackbar'
+import { showSnackbar } from 'actions/snackbar'
 
 const SettingsPassword = (props) => {
     const dispatch = useDispatch()

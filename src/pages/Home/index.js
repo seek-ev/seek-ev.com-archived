@@ -6,13 +6,13 @@ import { connect } from 'react-redux'
 import './home.sass'
 
 // Components
-import { CarCard } from '../../components/car-card'
-import { Navbar } from '../../components/navbar'
-import { Input } from '../../components/basic/input'
-import { Select } from '../../components/basic/select'
+import { CarCard } from 'components/car-card'
+import { Navbar } from 'components/navbar'
+import { Input } from 'components/basic/input'
+import { Select } from 'components/basic/select'
 
 // Actions
-import { showSnackbar } from '../../actions/snackbar'
+import { showSnackbar } from 'actions/snackbar'
 
 // Icons
 import { MdBatteryCharging60 } from 'react-icons/md'

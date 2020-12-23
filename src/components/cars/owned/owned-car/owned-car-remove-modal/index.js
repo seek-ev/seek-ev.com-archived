@@ -6,10 +6,10 @@ import axios from 'axios'
 import './modal.sass'
 
 // Components
-import { Button } from '../../../../basic/button'
+import { Button } from 'components/basic/button'
 
 // Actions
-import { showSnackbar } from '../../../../../actions/snackbar'
+import { showSnackbar } from 'actions/snackbar'
 
 const OwnedCarRemoveModal = ({ show, version, close, remove }) => {
     const showHideClassName = show ? "owned-car-remove-modal display-block" : "owned-car-remove-modal display-none"

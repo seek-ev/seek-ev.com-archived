@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import './timeline.sass'
 
 // Components
-import { Select } from '../../basic/select'
+import { Select } from 'components/basic/select'
 import { CarVersions } from '../car-versions'
 
 const CarTimeline = (props) => {

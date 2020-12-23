@@ -4,8 +4,8 @@ import React from 'react'
 import './tos.sass'
 
 // Components
-import { TOSNavbar } from '../../components/tos/navbar'
-import { TOSHeader } from '../../components/tos/header'
+import { TOSNavbar } from 'components/tos/navbar'
+import { TOSHeader } from 'components/tos/header'
 
 export default class ToS extends React.Component {
     render() {

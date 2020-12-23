@@ -4,8 +4,8 @@ import React from 'react'
 import './basic.sass'
 
 // Components
-import { Input } from '../../../../basic/input'
-import { Select } from '../../../../basic/select'
+import { Input } from 'components/basic/input'
+import { Select } from 'components/basic/select'
 
 const NewBasic = (props) => {
 

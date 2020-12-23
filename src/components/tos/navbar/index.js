@@ -7,7 +7,7 @@ import './navbar.sass'
 
 // Components
 import { TOSLogo } from './logo'
-import { Button } from '../../basic/button'
+import { Button } from 'components/basic/button'
 
 const TOSNavbar = (props) => {
     const auth = useSelector(state => state.auth)

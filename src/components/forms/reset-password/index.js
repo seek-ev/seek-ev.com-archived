@@ -4,13 +4,13 @@ import React from 'react'
 import './reset_form.sass'
 
 // Components
-import { Input } from '../../basic/input'
-import { Button } from '../../basic/button'
+import { Input } from 'components/basic/input'
+import { Button } from 'components/basic/button'
 
 const ResetForm = (props) => {
     const handleSubmit = (e) => {
         props.onSubmit(e.target)
-        e.preventDefault();
+        e.preventDefault()
     }
 
     const handleEmailInputChange = (e) => {

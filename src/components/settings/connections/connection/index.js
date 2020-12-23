@@ -9,7 +9,7 @@ import './connection.sass'
 import { FaDiscord, FaPatreon } from 'react-icons/fa'
 
 // Actions
-import { showSnackbar } from '../../../../actions/snackbar'
+import { showSnackbar } from 'actions/snackbar'
 
 const SettingsConnection = (props) => {
     const dispatch = useDispatch()

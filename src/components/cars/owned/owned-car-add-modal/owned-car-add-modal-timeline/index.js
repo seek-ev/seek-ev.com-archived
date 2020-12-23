@@ -6,11 +6,11 @@ import axios from 'axios'
 import './timeline.sass'
 
 // Components
-import { Select } from '../../../../basic/select'
-import { Button } from '../../../../basic/button'
+import { Select } from 'components/basic/select'
+import { Button } from 'components/basic/button'
 
 // Actions
-import { showSnackbar } from '../../../../../actions/snackbar'
+import { showSnackbar } from 'actions/snackbar'
 
 const OwnedCarAddModalTimeline = (props) => {
     const [loading, setLoading] = useState(false)

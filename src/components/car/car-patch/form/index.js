@@ -8,11 +8,11 @@ import './form.sass'
 // Icons
 import { MdClose } from 'react-icons/md'
 
-// Actions
-import { showSnackbar } from '../../../../actions/snackbar'
-
 // Components
-import { Button } from '../../../basic/button'
+import { Button } from 'components/basic/button'
+
+// Actions
+import { showSnackbar } from 'actions/snackbar'
 
 const CarPatchForm = (props) => {
     const [description, setDescription] = useState('')

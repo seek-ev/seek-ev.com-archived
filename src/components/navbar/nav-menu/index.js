@@ -9,7 +9,7 @@ import './nav_menu.sass'
 import { MdArrowDropDownCircle } from "react-icons/md"
 
 // Actions
-import { logoutUser } from '../../../actions/auth'
+import { logoutUser } from 'actions/auth'
 
 
 const NavMenu = () => {

@@ -7,7 +7,7 @@ import axios from 'axios'
 import { MdClose } from 'react-icons/md'
 
 // Actions
-import { showSnackbar } from '../../../actions/snackbar'
+import { showSnackbar } from 'actions/snackbar'
 
 // Styles
 import './searchbar.sass'

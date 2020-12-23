@@ -7,16 +7,16 @@ import { Link } from 'react-router-dom'
 import './car.sass'
 
 // Components
-import { Navbar } from '../../components/navbar'
-import { CarInfo } from '../../components/car/car-info'
-import { CarMenu } from '../../components/car/car-menu'
-import { CarPatch } from '../../components/car/car-patch'
-import { CarTimeline } from '../../components/car/car-timeline'
-import { CarPictures } from '../../components/car/car-pictures'
+import { Navbar } from 'components/navbar'
+import { CarInfo } from 'components/car/car-info'
+import { CarMenu } from 'components/car/car-menu'
+import { CarPatch } from 'components/car/car-patch'
+import { CarTimeline } from 'components/car/car-timeline'
+import { CarPictures } from 'components/car/car-pictures'
 
 
 // Actions
-import { showSnackbar } from '../../actions/snackbar'
+import { showSnackbar } from 'actions/snackbar'
 
 
 class Car extends React.Component {

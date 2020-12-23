@@ -14,7 +14,7 @@ import { OwnedCarAddModalVersion } from './owned-car-add-modal-version'
 import { OwnedCarAddModalTimeline } from './owned-car-add-modal-timeline'
 
 // Actions
-import { showSnackbar } from '../../../../actions/snackbar'
+import { showSnackbar } from 'actions/snackbar'
 
 const OwnedCarAddModal = ({ show, close, add }) => {
     const showHideClassName = show ? "owned-car-add-modal display-block" : "owned-car-add-modal display-none"

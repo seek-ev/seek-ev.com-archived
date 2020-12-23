@@ -9,11 +9,11 @@ import './modal.sass'
 import { MdClose } from 'react-icons/md'
 
 // Components
-import { Button } from '../../../../basic/button'
+import { Button } from 'components/basic/button'
 
 // Actions
-import { setAvatar } from '../../../../../actions/user'
-import { showSnackbar } from '../../../../../actions/snackbar'
+import { setAvatar } from 'actions/user'
+import { showSnackbar } from 'actions/snackbar'
 
 const AvatarModal = ({ handleClose, show, avatar }) => {
     const showHideClassName = show ? "avatar-modal display-block" : "avatar-modal display-none"

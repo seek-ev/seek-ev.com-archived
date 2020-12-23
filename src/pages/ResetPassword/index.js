@@ -6,11 +6,11 @@ import { connect } from 'react-redux'
 // Styles
 import './reset.sass'
 
-// Actions
-import { showSnackbar } from '../../actions/snackbar'
-
 // Components
-import ResetForm from '../../components/forms/reset-password'
+import ResetForm from 'components/forms/reset-password'
+
+// Actions
+import { showSnackbar } from 'actions/snackbar'
 
 class ResetPassword extends React.Component {
     constructor(props) {

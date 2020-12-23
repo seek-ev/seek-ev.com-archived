@@ -12,7 +12,7 @@ import { FaDiscord, FaPatreon } from 'react-icons/fa'
 import { SettingsConnection } from './connection/index'
 
 // Actions
-import { showSnackbar } from '../../../actions/snackbar'
+import { showSnackbar } from 'actions/snackbar'
 
 const SettingsConnections = (props) => {
     const [connections, setConnections] = useState([])

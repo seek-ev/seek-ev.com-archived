@@ -10,11 +10,11 @@ import { connect } from 'react-redux'
 import './login.sass'
 
 // Components
-import LoginForm from '../../components/forms/login'
+import LoginForm from 'components/forms/login'
 
 // Actions
-import { loginUser } from '../../actions/auth'
-import { showSnackbar } from '../../actions/snackbar'
+import { loginUser } from 'actions/auth'
+import { showSnackbar } from 'actions/snackbar'
 
 class Login extends React.Component {
     constructor(props) {

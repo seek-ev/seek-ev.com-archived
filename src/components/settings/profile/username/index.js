@@ -6,14 +6,14 @@ import axios from 'axios'
 import './username.sass'
 
 // Components
-import { Input } from '../../../basic/input'
+import { Input } from 'components/basic/input'
 
 // Icons
 import { MdModeEdit, MdClose, MdSave } from 'react-icons/md'
 
 // Actions
-import { setStateUsername } from '../../../../actions/user'
-import { showSnackbar } from '../../../../actions/snackbar'
+import { setStateUsername } from 'actions/user'
+import { showSnackbar } from 'actions/snackbar'
 
 const SettingsProfileUsername = (props) => {
     const [username, setUsername] = useState('')

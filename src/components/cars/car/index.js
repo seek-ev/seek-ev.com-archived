@@ -1,10 +1,10 @@
 import React from 'react'
 
 // Components
-import { CarPictures } from '../../car/car-pictures'
+import { CarPictures } from 'components/car/car-pictures'
 import { UserCarInfo } from './car-info'
-import { CarVersions } from '../../car/car-versions'
-import { UserCarDetails } from '../../cars/car/car-details'
+import { CarVersions } from 'components/car/car-versions'
+import { UserCarDetails } from 'components/cars/car/car-details'
 
 const UserCarComponent = (props) => {
     const onDetailsProcessing = async (e) => {

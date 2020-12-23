@@ -6,7 +6,7 @@ import axios from 'axios'
 import './search.sass'
 
 // Actions
-import { showSnackbar } from '../../../../../actions/snackbar'
+import { showSnackbar } from 'actions/snackbar'
 
 const OwnedCarAddModalSearch = (props) => {
     const [found, setFound] = useState([])

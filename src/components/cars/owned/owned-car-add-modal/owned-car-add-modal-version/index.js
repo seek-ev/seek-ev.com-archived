@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react'
 import './version.sass'
 
 // Components
-import { Select } from '../../../../basic/select'
-import { Button } from '../../../../basic/button'
+import { Select } from 'components/basic/select'
+import { Button } from 'components/basic/button'
 
 const OwnedCarAddModalVersion = (props) => {
     const [versions, setVersions] = useState([])
