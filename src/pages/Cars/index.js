@@ -7,15 +7,13 @@ import { Redirect } from 'react-router-dom'
 import './cars.sass'
 
 // Components
-import { Cars } from 'components/pages/cars'
 import { Navbar } from 'components/navbar'
+import { Cars } from 'components/pages/cars'
+import { Button } from 'components/basic/button'
 import { OwnedCars } from 'components/pages/cars/owned'
 
 // Actions
 import { showSnackbar } from 'actions/snackbar'
-
-// Icons
-import { MdAddCircle } from 'react-icons/md'
 
 class UserCars extends React.Component {
     constructor(props) {
@@ -83,20 +81,20 @@ class UserCars extends React.Component {
                     <div className="user-cars">
                         <div className="user-cars-header">
                             <div className="cars-title">Added by you</div>
-                            <div className="cars-add">
-                                <MdAddCircle onClick={() => this.setState({ redirect: '/cars/new' })} />
-                            </div>
                         </div>
                         <Cars cars={this.state.cars} />
+                        <div className="new-button">
+                            <Button primary text="new" onClick={() => this.setState({ redirect: '/cars/new' })} />
+                        </div>
                     </div>
                     <div className="user-cars-owned">
                         <div className="user-cars-header">
                             <div className="cars-title">Owned by you</div>
-                            <div className="cars-add">
-                                <MdAddCircle onClick={() => this.setState({ show: true })} />
-                            </div>
                         </div>
                         <OwnedCars owned={this.state.owned} removeVersion={this.removeOwned} show={this.state.show} close={this.close} add={this.addOwned} />
+                        <div className="new-button">
+                            <Button primary text="add" onClick={() => this.setState({ show: true })} />
+                        </div>
                     </div>
                 </div>
                 <div className={`${this.state.loading ? 'cars-loading' : 'cars-hidden'}`}></div>
