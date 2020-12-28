@@ -8,7 +8,7 @@ const BrandCar = ({ car }) => {
     return (
         <Link to={`/${car.model}`} className="brand-car-link">
             <div className="brand-car">
-                <div className="brand-car-picture">
+                <div className={`brand-car-picture ${car.pictures.length === 0 ? 'brand-car-no-picture' : ''}`}>
                     <img src={car.pictures.length > 0 ? car.pictures[0].url : '/se_dark.png'} onError={(e) => { e.target.onerror = null; e.target.src = '/se_dark.png' }} alt={`car-${car.id}`} />
                 </div>
                 <div className="brand-car-info">
