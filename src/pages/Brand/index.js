@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Helmet } from 'react-helmet'
 import { connect } from 'react-redux'
 
 // Styles
@@ -32,8 +33,6 @@ class Brand extends React.Component {
                 this.props.showSnackbar(err, 'error')
             })
 
-        if (this.state.brand.name) document.title = this.state.brand.name
-
         this._ismounted = true
 
         this.setState({ loading: false })
@@ -49,19 +48,17 @@ class Brand extends React.Component {
                     this.props.showSnackbar(err, 'error')
                 })
 
-            if (this.state.brand.name) document.title = this.state.brand.name
-
             this.setState({ loading: false })
         }
-    }
-
-    componentWillUnmount() {
-        document.title = 'Seek EV'
     }
 
     render() {
         return (
             <div className="container container-brand">
+                <Helmet>
+                    <title>{this.state.brand && this.state.brand.name ? this.state.brand.name : 'Brand not found'}</title>
+                    <meta name="description" content={this.state.brand && this.state.brand.description ? this.state.brand.description : ''} />
+                </Helmet>
                 <Navbar />
                 {Object.keys(this.state.brand).length > 0 && !this.state.loading ? <BrandContainer brand={this.state.brand} />
                     : !this.state.loading ?
