@@ -11,7 +11,7 @@ const BrandDetails = ({ description, website, areaServed, headquarters }) => {
             </div>
             <div className="brand-details-footer">
                 <div className={`${website ? 'brand-details-footer-item' : 'brand-hidden'}`}>
-                    Website: <a href={!(/^(http|https):\/\//.test(website)) ? `http://${website}` : website}>{website.replace(/^(http|https):\/\//, '').replace('www.', '')}</a>
+                    Website: <a href={!(/^(http|https):\/\//.test(website)) ? `http://${website}` : website}>{website ? website.replace(/^(http|https):\/\//, '').replace('www.', '') : ''}</a>
                 </div>
 
                 <div className={`${areaServed ? 'brand-details-footer-item' : 'brand-hidden'}`}>
