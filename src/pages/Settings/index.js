@@ -44,10 +44,6 @@ class Settings extends React.Component {
         document.title = `Settings - ${this.state.item.charAt(0).toUpperCase() + this.state.item.slice(1)}`
     }
 
-    componentWillUnmount() {
-        document.title = 'Seek EV'
-    }
-
     onItemChange(item) {
         document.title = `Settings - ${item.charAt(0).toUpperCase() + item.slice(1)}`
         this.setState({ item: item })

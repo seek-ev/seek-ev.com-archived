@@ -67,10 +67,6 @@ class User extends React.Component {
         }
     }
 
-    componentWillUnmount() {
-        document.title = 'Seek EV'
-    }
-
     onItemChange(item) {
         this.setState({ item })
     }
