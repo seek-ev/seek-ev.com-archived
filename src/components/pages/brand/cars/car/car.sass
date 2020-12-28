@@ -10,6 +10,7 @@
     @media only screen and (max-width: 500px)
         width: 100%
         max-width: 100%
+        margin: 6px 0
 
 .brand-car
     color: #000
@@ -44,6 +45,7 @@
         height: 100%
         width: 100%
         display: flex
+        overflow: hidden
         padding: 10px 10px 10px 12px
         flex-direction: row
         justify-content: space-between
@@ -53,8 +55,10 @@
     .brand-car-info-detail
         font-size: 18px
         opacity: 0.7
+        overflow: hidden
+        white-space: nowrap
+        text-overflow: ellipsis
     .brand-car-info-detail-model
-        max-width: 130px
         font-size: 18px
         font-weight: 500
         overflow: hidden
@@ -62,5 +66,6 @@
         text-overflow: ellipsis
     .brand-car-info-left
         display: flex
+        overflow: hidden
         flex-direction: column
         justify-content: space-between
