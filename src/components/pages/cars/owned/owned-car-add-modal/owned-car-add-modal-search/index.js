@@ -55,7 +55,7 @@ const OwnedCarAddModalSearch = ({ setCar }) => {
                 {found.map((value) => {
                     return <div onClick={() => chooseCar(value)} className='car-search-dropdown-item' key={value.id}>
                         <div className="car-search-info">
-                            <span className="car-search-text">{value.brand.name + ' ' + value.model}</span>
+                            <span className="car-search-text">{value.brand.shortName + ' ' + value.model}</span>
                         </div>
                     </div>
                 })}

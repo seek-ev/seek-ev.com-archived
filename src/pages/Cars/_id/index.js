@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
@@ -57,7 +58,12 @@ class UserCar extends React.Component {
     render() {
         return (
             <div className="container">
+                <Helmet>
+                    <title>Your own {Object.keys(this.state.car).length > 0 ? this.state.car.brand.shortName + ' ' + this.state.car.model : ''}</title>
+                </Helmet>
+
                 <Navbar />
+
                 <div className={`${!this.state.loading && this.state.car.user && this.state.car.user.username === this.props.username ? 'user-car-container' : 'user-car-hidden'}`}>
                     <div className="user-car-header">
                         <UserCarComponent car={this.state.car} onCarProcessing={this.handleProcessing} />
