@@ -58,6 +58,10 @@ class Brand extends React.Component {
                 <Helmet>
                     <title>{this.state.brand && this.state.brand.name ? this.state.brand.name : 'Brand not found'}</title>
                     <meta name="description" content={this.state.brand && this.state.brand.description ? this.state.brand.description : ''} />
+
+                    {this.state.brand && this.state.brand.name ? <meta property="og:title" content={this.state.brand.name} /> : ''}
+                    {this.state.brand && this.state.brand.description ? <meta property="og:description" content={this.state.brand.description} /> : ''}
+                    {this.state.brand && this.state.brand.avatar ? <meta property="og:image" content={this.state.brand.avatar.url} /> : ''}
                 </Helmet>
                 <Navbar />
                 {Object.keys(this.state.brand).length > 0 && !this.state.loading ? <BrandContainer brand={this.state.brand} />

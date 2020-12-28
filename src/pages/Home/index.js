@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
+import { Helmet } from 'react-helmet'
 
 // Styles
 import './home.sass'
@@ -126,6 +127,14 @@ class Home extends React.Component {
   render() {
     return (
       <div className='container'>
+        <Helmet>
+          <title>Seek EV</title>
+          <meta name="description" content="Seek EV is a place where you can find everything about every existing electric vehicle" />
+
+          <meta property="og:title" content="Seek EV" />
+          <meta property="og:title" content="Seek EV is a place where you can find everything about every existing electric vehicle" />
+        </Helmet>
+
         <Navbar />
         <div className="cars-header">
           <div className="cars-searchbar">
