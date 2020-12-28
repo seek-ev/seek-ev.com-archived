@@ -25,7 +25,7 @@ const Select = (props) => {
               props.value ? option[props.value] : option.value ? option.value : option.id ? option.id : option
             }
           >
-            {option.name ? option.name : props.display ? option[props.display] : option}
+            {props.display ? option[props.display] : option.name ? option.name : option}
           </option>
         ))
         : ''}

@@ -60,7 +60,7 @@ class Home extends React.Component {
     })
 
     await axios.get('/brands').then(res => {
-      this.setState({ brands: [{ id: 'none', value: 'id', name: 'All brands' }, ...res.data] })
+      this.setState({ brands: [{ id: 'none', value: 'id', name: 'All brands', shortName: 'All brands' }, ...res.data] })
     }).catch(err => {
       this.props.showSnackbar(err, 'error')
     })
@@ -148,7 +148,7 @@ class Home extends React.Component {
             </div>
             <div className="cars-filter">
               <div className="cars-filter-title">Brands</div>
-              <Select name="brand" value="name" disabled={this.state.loading} onChange={this.handleBrandChange} options={this.state.brands} />
+              <Select name="brand" value="name" display="shortName" disabled={this.state.loading} onChange={this.handleBrandChange} options={this.state.brands} />
             </div>
           </div>
         </div>
