@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
@@ -76,7 +77,12 @@ class UserCars extends React.Component {
 
         return (
             <div className="container">
+                <Helmet>
+                    <title>Your cars</title>
+                </Helmet>
+
                 <Navbar />
+
                 <div className={`${!this.state.loading ? 'cars-content' : 'cars-hidden'}`}>
                     <div className="user-cars">
                         <div className="user-cars-header">

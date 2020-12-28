@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Helmet } from 'react-helmet'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
@@ -110,7 +111,12 @@ class NewCar extends React.Component {
 
         return (
             <div className="container">
+                <Helmet>
+                    <title>New car?</title>
+                </Helmet>
+
                 <Navbar />
+
                 <div className={`${this.state.loading ? 'new-car-hidden' : 'new-car-container'}`}>
                     <NewHeader categories={this.state.categories} brands={this.state.brands} modelChanged={this.modelChanged} yearsChanged={this.yearsChanged} categoryChanged={this.categoryChanged} brandChanged={this.brandChanged} picChanged={this.picChanged} />
                     <div className="new-car-submit">
