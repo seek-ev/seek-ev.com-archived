@@ -35,6 +35,7 @@ class NewCar extends React.Component {
         this.modelChanged = this.modelChanged.bind(this)
         this.yearsChanged = this.yearsChanged.bind(this)
         this.brandChanged = this.brandChanged.bind(this)
+        this.conceptChanged = this.conceptChanged.bind(this)
         this.categoryChanged = this.categoryChanged.bind(this)
     }
 
@@ -63,6 +64,10 @@ class NewCar extends React.Component {
     async brandChanged(e) {
         await this.setState({ car: { ...this.state.car, brand: parseInt(e.value) } })
         await this.disabled()
+    }
+
+    async conceptChanged(e) {
+        await this.setState({ car: { ...this.state.car, concept: e.checked } })
     }
 
     async picChanged(pic) {
@@ -118,7 +123,7 @@ class NewCar extends React.Component {
                 <Navbar />
 
                 <div className={`${this.state.loading ? 'new-car-hidden' : 'new-car-container'}`}>
-                    <NewHeader categories={this.state.categories} brands={this.state.brands} modelChanged={this.modelChanged} yearsChanged={this.yearsChanged} categoryChanged={this.categoryChanged} brandChanged={this.brandChanged} picChanged={this.picChanged} />
+                    <NewHeader categories={this.state.categories} brands={this.state.brands} modelChanged={this.modelChanged} yearsChanged={this.yearsChanged} categoryChanged={this.categoryChanged} brandChanged={this.brandChanged} picChanged={this.picChanged} conceptChanged={this.conceptChanged} />
                     <div className="new-car-submit">
                         <Button text="Create" raise primary onClick={() => this.createCar()} disabled={this.state.disabled} />
                     </div>

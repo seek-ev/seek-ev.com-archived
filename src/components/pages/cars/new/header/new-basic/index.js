@@ -25,6 +25,10 @@ const NewBasic = (props) => {
         props.brandChange(e)
     }
 
+    const onConceptChange = (e) => {
+        props.conceptChange(e)
+    }
+
     return (
         <div className="new-header-basic">
             <div className="new-header-basic-row">
@@ -48,6 +52,13 @@ const NewBasic = (props) => {
                 <div className="new-header-basic-select">
                     <span>Car brand (ex. Tesla, Mercedes)</span>
                     <Select name="brand" onChange={onBrandChange} options={props.brands} />
+                </div>
+            </div>
+
+            <div className="new-header-basic-row">
+                <div className="new-header-basic-input-checkbox">
+                    <span>Is it a concept car?</span>
+                    <Input type="checkbox" name="category" onChange={onConceptChange} options={props.categories} />
                 </div>
             </div>
         </div>
