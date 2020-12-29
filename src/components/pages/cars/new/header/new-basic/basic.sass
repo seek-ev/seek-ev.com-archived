@@ -8,7 +8,8 @@
 .new-header-basic-row
     display: flex
     flex-direction: row
-    @media only screen and (max-width: $max-desktop)
+    justify-content: space-between
+    @media only screen and (max-width: $max-medium)
         flex-direction: column
 
 .new-header-basic-input
@@ -19,6 +20,19 @@
         font-weight: 500
     @media only screen and (max-width: $max-medium)
         margin: 0
+
+.new-header-basic-input-checkbox
+    display: flex
+    max-width: 250px
+    span
+        white-space: nowrap
+        margin: 0 8px 3px 0
+    input
+        -ms-transform: scale(2)
+        -moz-transform: scale(2)
+        -webkit-transform: scale(2)
+        -o-transform: scale(2)
+        transform: scale(2)
 
 .new-header-basic-select
     width: 260px

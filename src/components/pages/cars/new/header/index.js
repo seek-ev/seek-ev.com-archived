@@ -29,13 +29,17 @@ const NewHeader = (props) => {
         props.picChanged(pic)
     }
 
+    const conceptChange = (e) => {
+        props.conceptChanged(e)
+    }
+
     return (
         <div className="new-header">
             <div className="new-header-left">
                 <NewPicture pictureChange={pictureChange} />
             </div>
             <div className="new-header-right">
-                <NewBasic categories={props.categories} brands={props.brands} modelChange={carModel} yearsChange={yearsChange} categoryChange={categoryChange} brandChange={brandChange} />
+                <NewBasic categories={props.categories} brands={props.brands} modelChange={carModel} yearsChange={yearsChange} categoryChange={categoryChange} brandChange={brandChange} conceptChange={conceptChange} />
             </div>
         </div>
     )
