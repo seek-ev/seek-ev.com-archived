@@ -5,11 +5,10 @@ import {
   Route
 } from "react-router-dom"
 
-
 // Pages
 import Car from 'pages/Car'
 import ToS from 'pages/ToS'
-import Home from 'pages/Home'
+import { Home } from 'pages/Home'
 import User from 'pages/User'
 import Login from 'pages/Login'
 import Brand from 'pages/Brand'

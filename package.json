@@ -19,7 +19,8 @@
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -49,5 +50,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "resolutions": {
+    "styled-components": "^5"
   }
 }
