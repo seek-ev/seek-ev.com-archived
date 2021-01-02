@@ -6,28 +6,28 @@ import {
 } from "react-router-dom"
 
 // Pages
-import Car from 'pages/Car'
-import ToS from 'pages/ToS'
-import { Home } from 'pages/Home'
-import { UserPage } from 'pages/User'
-import Login from 'pages/Login'
-import Brand from 'pages/Brand'
+import Car from 'pages/car'
+import ToS from 'pages/terms'
+import { Home } from 'pages/home'
+import { UserPage } from 'pages/user'
+import Login from 'pages/login'
+import Brand from 'pages/brand'
 import NotFound from 'pages/404'
-import UserCars from 'pages/Cars'
-import NewCar from 'pages/Cars/New'
-import UserCar from 'pages/Cars/_id'
-import Register from 'pages/Register'
-import Settings from 'pages/Settings'
-import UserRequests from 'pages/Requests'
-import ResetConfirm from 'pages/ResetConfirm'
-import ResetPassword from 'pages/ResetPassword'
-import ResetSuccess from 'pages/ResetPassword/Success'
-import ResetConfirmSuccess from 'pages/ResetConfirm/Success'
+import UserCars from 'pages/cars'
+import NewCar from 'pages/cars/new'
+import UserCar from 'pages/cars/_id'
+import Register from 'pages/register'
+import Settings from 'pages/settings'
+import UserRequests from 'pages/requests'
+import ResetConfirm from 'pages/resetconfirm'
+import ResetPassword from 'pages/resetpassword'
+import ResetSuccess from 'pages/resetpassword/success'
+import ResetConfirmSuccess from 'pages/resetconfirm/ruccess'
 
 // Components
 import { Snackbar } from 'components/notifications/snackbar'
-import { PublicRoute } from 'Routes/Public'
-import { PrivateRoute } from 'Routes/Private'
+import { PublicRoute } from 'routes/public'
+import { PrivateRoute } from 'routes/private'
 
 class App extends React.Component {
   render() {
