@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 
 // Styles
-import './nav_menu.sass'
+import { Menu, Icon, DropMenu, MenuItem, Logout } from './styles'
 
 // Icons
 import { MdArrowDropDownCircle } from "react-icons/md"
@@ -11,14 +11,13 @@ import { MdArrowDropDownCircle } from "react-icons/md"
 // Actions
 import { logoutUser } from 'actions/auth'
 
-
 const NavMenu = () => {
     const [redirect, setRedirect] = useState(null)
     const dispatch = useDispatch()
 
     const showDrop = (e) => {
-        if (document.getElementsByClassName('nav-dropmenu')[0] && document.getElementsByClassName('nav-dropmenu')[0].style.display !== 'block') document.getElementsByClassName('nav-dropmenu')[0].style.display = 'block'
-        else if (document.getElementsByClassName('nav-dropmenu')[0]) document.getElementsByClassName('nav-dropmenu')[0].style.display = 'none'
+        if (document.getElementById('nav-dropmenu') && document.getElementById('nav-dropmenu').style.display !== 'block') document.getElementById('nav-dropmenu').style.display = 'block'
+        else if (document.getElementById('nav-dropmenu')) document.getElementById('nav-dropmenu').style.display = 'none'
     }
 
     const wrapperRef = useRef(null)
@@ -28,8 +27,8 @@ const NavMenu = () => {
         useEffect(() => {
             function handleClickOutside(e) {
                 if (ref.current && !ref.current.contains(e.target)) {
-                    if (document.getElementsByClassName('nav-dropmenu')[0]) {
-                        document.getElementsByClassName('nav-dropmenu')[0].style.display = 'none'
+                    if (document.getElementById('nav-dropmenu')) {
+                        document.getElementById('nav-dropmenu').style.display = 'none'
                     }
                 }
             }
@@ -51,27 +50,27 @@ const NavMenu = () => {
     }
 
     return (
-        <div className="nav-menu" ref={wrapperRef}>
-            <div className="nav-menu-icon" onClick={showDrop} >
+        <Menu ref={wrapperRef}>
+            <Icon onClick={showDrop} >
                 <MdArrowDropDownCircle />
-            </div>
+            </Icon>
 
-            <div className="nav-dropmenu">
+            <DropMenu id="nav-dropmenu">
                 <Link to="/requests">
-                    <div className="nav-menu-item">Your Requests</div>
+                    <MenuItem>Your Requests</MenuItem>
                 </Link>
 
                 <Link to="/cars">
-                    <div className="nav-menu-item">Your Cars</div>
+                    <MenuItem>Your Cars</MenuItem>
                 </Link>
 
                 <Link to="/settings">
-                    <div className="nav-menu-item">Settings</div>
+                    <MenuItem>Settings</MenuItem>
                 </Link>
 
-                <div className="nav-menu-item log-out" onClick={logout}>Log out</div>
-            </div>
-        </div>
+                <Logout onClick={logout}>Log out</Logout>
+            </DropMenu>
+        </Menu>
     )
 }
 

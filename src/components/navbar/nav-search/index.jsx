@@ -1,22 +1,21 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
 
 // Icons
 import { MdClose } from 'react-icons/md'
 
+// Styles
+import { Wrapper, Input, Dropdown, DropdownItem, Info, InfoImg, SearchText, SearchDescription, HistoryIcon } from './styles'
+
 // Actions
 import { showSnackbar } from 'actions/snackbar'
-
-// Styles
-import './searchbar.sass'
 
 const SearchBar = () => {
     const [results, setResults] = useState([{ text: 'Nothing here yet', disabled: true }])
     const history = JSON.parse(localStorage.getItem('s_history'))
+    const [show, setShow] = useState(false)
     const dispatch = useDispatch()
-    const show = false
 
     const wrapperRef = useRef(null)
     useOutsideAlerter(wrapperRef)
@@ -36,15 +35,11 @@ const SearchBar = () => {
         useEffect(() => {
             function handleClickOutside(e) {
                 if (ref.current && !ref.current.contains(e.target)) {
-                    if (document.getElementsByClassName('search-dropdown')[0]) {
-                        document.getElementsByClassName('search-dropdown')[0].className = 'search-dropdown-hidden'
-                    }
+                    setShow(false)
                 }
 
                 if (ref.current && ref.current.contains(e.target)) {
-                    if (document.getElementsByClassName('search-dropdown-hidden')[0]) {
-                        document.getElementsByClassName('search-dropdown-hidden')[0].className = 'search-dropdown'
-                    }
+                    setShow(true)
                 }
             }
 
@@ -122,30 +117,34 @@ const SearchBar = () => {
             }
         }
 
-        document.getElementsByClassName('search-input')[0].value = ''
+        document.getElementById('nav-search-input').value = ''
         e.persist()
     }
 
     return (
-        <div className="search-bar" ref={wrapperRef}>
-            <input className="search-input" placeholder="Search" onChange={onSearchChange} autoComplete="off" />
+        <Wrapper ref={wrapperRef}>
+            <Input id="nav-search-input" placeholder="Search" onChange={onSearchChange} autoComplete="off" />
 
-            <div className={results.length > 0 && show ? 'search-dropdown' : 'search-dropdown-hidden'}>
+            {results.length > 0 && show ? <Dropdown >
                 {results.map((value) => {
-                    return <Link className={'search-dropdown-item' + (value.disabled ? ' search-disabled ' : '') + (value.history ? ' search-history' : '')} onClick={saveHistory} to={`/${value.model ? value.model : value.shortName ? 'b/' + value.shortName : value.username ? 'u/' + value.username : ''}`} key={(value.id ? value.id : 0) + (value.shortName ? value.shortName : value.model ? value.model : value.username ? value.username : value.text)} >
-                        <div className="search-info">
-                            <img className={(!value.disabled ? 'search-avatar' : 'search-avatar-hidden') + (value.username ? ' search-avatar-round' : '')} src={value.brand ? value.brand.avatar ? value.brand.avatar.url : 'se_dark.png' : value.avatar ? value.avatar.url : '/se_dark.png'} onError={(e) => { e.target.onerror = null; e.target.src = '/se_dark.png' }} alt={value.name} />
-                            <span className="search-text">{value.model ? value.model : value.shortName ? value.shortName : value.username ? value.username : value.text}</span>
-                        </div>
+                    return <DropdownItem
+                        disabled={value.disabled}
+                        history={value.history}
+                        onClick={saveHistory}
+                        to={`/${value.model ? value.model : value.shortName ? 'b/' + value.shortName : value.username ? 'u/' + value.username : ''}`}
+                        key={(value.id ? value.id : 0) + (value.shortName ? value.shortName : value.model ? value.model : value.username ? value.username : value.text)}
+                    >
+                        <Info className="search-info">
+                            {value.disabled ? '' : <InfoImg round={value.username} src={value.brand ? value.brand.avatar ? value.brand.avatar.url : 'se_dark.png' : value.avatar ? value.avatar.url : '/se_dark.png'} onError={(e) => { e.target.onerror = null; e.target.src = '/se_dark.png' }} alt={value.name} />}
+                            <SearchText className="search-text">{value.model ? value.model : value.shortName ? value.shortName : value.username ? value.username : value.text}</SearchText>
+                        </Info>
 
-                        <span className={(value.disabled ? 'search-desc-hidden' : 'search-desc')}>{value.model ? 'Car' : value.username ? 'User' : 'Brand'}</span>
-                        <div className={(value.history ? 'search-icon' : 'search-desc-hidden')} onClick={clearHistory}>
-                            <MdClose />
-                        </div>
-                    </Link>
+                        {value.disabled ? '' : <SearchDescription className={(value.disabled ? 'search-desc-hidden' : 'search-desc')}>{value.model ? 'Car' : value.username ? 'User' : 'Brand'}</SearchDescription>}
+                        {value.history ? <HistoryIcon onClick={clearHistory}><MdClose /></HistoryIcon> : ''}
+                    </DropdownItem>
                 })}
-            </div>
-        </div>
+            </Dropdown> : ''}
+        </Wrapper>
     )
 }
 
