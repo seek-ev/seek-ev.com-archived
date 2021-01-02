@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 // Styles
-import './login_form.sass'
+import { Form, Buttons, FormButton, LoginInput } from './styles'
 
 // Components
 import { Input } from 'components/basic/input'
@@ -23,24 +23,24 @@ const LoginForm = ({ disabled, emailError, passwordError, onEmailChange, onPassw
     }
 
     return (
-        <form onSubmit={onSubmit}>
-            <div className="login-input">
+        <Form onSubmit={onSubmit}>
+            <LoginInput>
                 <Input name="email" disabled={disabled} error={emailError} onChange={handleEmailInputChange} placeholder="Email" autoComplete="email" />
-            </div>
-            <div className="login-input">
+            </LoginInput>
+            <LoginInput>
                 <Input name="password" disabled={disabled} error={passwordError} onChange={handlePasswordInputChange} placeholder="Password" type="password" autoComplete="current-password" />
-            </div>
-            <div className="form-buttons">
-                <div className="form-button">
+            </LoginInput>
+            <Buttons>
+                <FormButton>
                     <Link to="/register">
                         <Button text="register" disabled={disabled} clean />
                     </Link>
-                </div>
-                <div className="form-button">
+                </FormButton>
+                <FormButton>
                     <Button text="login" disabled={disabled} primary type="submit" handleClick={handleSubmit} />
-                </div>
-            </div>
-        </form>
+                </FormButton>
+            </Buttons>
+        </Form>
     )
 }
 
