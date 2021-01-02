@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 // Styles
-import './register_form.sass'
+import { Form, FormButton, FormText, FormInput } from './styles'
 
 // Components
 import { Input } from 'components/basic/input'
@@ -31,31 +31,29 @@ const RegisterForm = (props) => {
     }
 
     return (
-        <form onSubmit={props.onSubmit}>
-            <div className="register-input">
+        <Form onSubmit={props.onSubmit}>
+            <FormInput>
                 <Input name="username" disabled={props.disabled} error={props.usernameError} onChange={handleUsernameInputChange} placeholder="Username" autoComplete="none" />
-            </div>
-            <div className="register-input">
+            </FormInput>
+            <FormInput>
                 <Input name="email" disabled={props.disabled} error={props.emailError} onChange={handleEmailInputChange} placeholder="Email" autoComplete="email" />
-            </div>
-            <div className="register-input">
+            </FormInput>
+            <FormInput>
                 <Input name="password" disabled={props.disabled} error={props.passwordError} onChange={handlePasswordInputChange} placeholder="Password" type="password" autoComplete="new-password" />
-            </div>
-            <div className="register-input">
+            </FormInput>
+            <FormInput>
                 <Input name="repeatPassword" disabled={props.disabled} error={props.repeatPasswordError} onChange={handlePasswordRepeatInputChange} placeholder="Repeat password" type="password" autoComplete="new-password" />
-            </div>
-            <div className="register-text">
+            </FormInput>
+            <FormText>
                 By creating account on this website you accept our <Link to="/terms">Terms of Service</Link>.
-            </div>
-            <div className="form-buttons">
-                <div className="form-button">
-                    <Button text="register" disabled={props.disabled} primary type="submit" handleClick={handleSubmit} />
-                </div>
-            </div>
-            <div className="register-text">
+            </FormText>
+            <FormButton className="Form-button">
+                <Button text="register" disabled={props.disabled} primary type="submit" handleClick={handleSubmit} />
+            </FormButton>
+            <FormText>
                 Already have one? <Link to="/login">Log in here</Link>.
-            </div>
-        </form>
+            </FormText>
+        </Form>
     )
 }
 
