@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Styles
-import './reset_form.sass'
+import { Form, FormButtons, FormButton, FormInput } from './styles'
 
 // Components
 import { Input } from 'components/basic/input'
@@ -18,16 +18,16 @@ const ResetForm = ({ disabled, onSubmit, onEmailChange, emailError }) => {
     }
 
     return (
-        <form onSubmit={onSubmit}>
-            <div className="reset-input">
+        <Form onSubmit={onSubmit}>
+            <FormInput>
                 <Input name="email" disabled={disabled} error={emailError} onChange={handleEmailInputChange} placeholder="Your account email" autoComplete="email" />
-            </div>
-            <div className="reset-form-buttons">
-                <div className="reset-form-button">
+            </FormInput>
+            <FormButtons>
+                <FormButton>
                     <Button text="Reset" disabled={disabled} primary type="submit" handleClick={handleSubmit} />
-                </div>
-            </div>
-        </form>
+                </FormButton>
+            </FormButtons>
+        </Form>
     )
 }
 
