@@ -20,7 +20,7 @@ class Brand extends React.Component {
         this.state = {
             brand: {},
             currentBrand: '',
-            loading: false
+            loading: true
         }
     }
 

@@ -9,7 +9,7 @@ import {
 import Car from 'pages/Car'
 import ToS from 'pages/ToS'
 import { Home } from 'pages/Home'
-import User from 'pages/User'
+import { UserPage } from 'pages/User'
 import Login from 'pages/Login'
 import Brand from 'pages/Brand'
 import NotFound from 'pages/404'
@@ -37,7 +37,7 @@ class App extends React.Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/terms" component={ToS} />
           <Route exact path="/b/:name" component={Brand} />
-          <Route exact path="/u/:username" component={User} />
+          <Route exact path="/u/:username" component={UserPage} />
           <PublicRoute exact path="/login" component={Login} />
           <PrivateRoute exact path="/cars" component={UserCars} />
           <PrivateRoute exact path="/cars/new" component={NewCar} />

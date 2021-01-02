@@ -1,13 +1,12 @@
 import React from 'react'
 
-// Styles
-import './avatar.sass'
+import { Wrapper } from './styles'
 
 const UserAvatar = ({ avatar }) => {
     return (
-        <div className="user-avatar">
+        <Wrapper>
             <img src={avatar ? avatar.url : '/se_dark.png'} onError={(e) => { e.target.onerror = null; e.target.src = '/se_dark.png' }} alt="user-avatar" />
-        </div>
+        </Wrapper>
     )
 }
 

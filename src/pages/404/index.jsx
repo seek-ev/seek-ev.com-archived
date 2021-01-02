@@ -9,12 +9,12 @@ const NotFound = () => {
     const location = useLocation()
 
     return (
-        <Wrapper className="not-found">
+        <Wrapper>
             <Helmet>
                 <title>Page not found</title>
                 <meta name="description" content="Page not found" />
             </Helmet>
-            <Title className="not-found-title">404</Title>
+            <Title>404</Title>
             <div>
                 Page <code>{location.pathname}</code> not found
             </div>
