@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Styles
-import './input.sass'
+import { Wrapper, SInput, ErrorMessage } from './styles'
 
 const Input = (props) => {
   function handleChange(e) {
@@ -9,18 +9,15 @@ const Input = (props) => {
   }
 
   return (
-    <div className='s-input'>
-      <input
+    <Wrapper className='s-input'>
+      <SInput
         value={props.value}
         onChange={handleChange}
-        className={
-          'seek-input' +
-          (props.raise ? ' raise-input' : '') +
-          (props.border ? ' border-input' : '') +
-          (props.error ? ' error-input' : '') +
-          (props.valid ? ' valid-input' : '') +
-          (props.round ? ' round-input' : '')
-        }
+        raise={props.raise}
+        border={props.border}
+        error={props.error}
+        valid={props.valid}
+        round={props.round}
         name={props.name}
         type={props.type}
         placeholder={props.placeholder}
@@ -29,8 +26,8 @@ const Input = (props) => {
         autoComplete={props.autoComplete}
       />
 
-      <div className='error-message'>{props.error}</div>
-    </div>
+      <ErrorMessage className='error-message'>{props.error}</ErrorMessage>
+    </Wrapper>
   )
 }
 

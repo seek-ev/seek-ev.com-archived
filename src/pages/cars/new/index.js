@@ -117,7 +117,7 @@ class NewCar extends React.Component {
         return (
             <div className="container">
                 <Helmet>
-                    <title>New car?</title>
+                    <title>New car? Yes!</title>
                 </Helmet>
 
                 <Navbar />
