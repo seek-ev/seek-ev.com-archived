@@ -1,8 +1,5 @@
 import styled from 'styled-components/macro'
 
-// Variables
-import { colors } from 'assets/variables'
-
 const Form = styled.form`
     display: flex;
     flex-direction: column;

@@ -7,7 +7,7 @@ import {
 
 // Pages
 import Car from 'pages/car'
-import ToS from 'pages/terms'
+
 import { Home } from 'pages/home'
 import { UserPage } from 'pages/user'
 import Login from 'pages/login'
@@ -18,6 +18,7 @@ import NewCar from 'pages/cars/new'
 import UserCar from 'pages/cars/_id'
 import Register from 'pages/register'
 import Settings from 'pages/settings'
+import { TermsPage } from 'pages/terms'
 import UserRequests from 'pages/requests'
 import ResetConfirm from 'pages/resetconfirm'
 import ResetPassword from 'pages/resetpassword'
@@ -35,7 +36,7 @@ class App extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/terms" component={ToS} />
+          <Route exact path="/terms" component={TermsPage} />
           <Route exact path="/b/:name" component={Brand} />
           <Route exact path="/u/:username" component={UserPage} />
           <PublicRoute exact path="/login" component={Login} />
