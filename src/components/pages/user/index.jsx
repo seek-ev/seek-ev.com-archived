@@ -10,7 +10,7 @@ import { Username } from 'components/pages/user/username'
 import { DetailsMenu } from 'components/pages/user/details/menu'
 import { DetailsCars } from 'components/pages/user/details/cars'
 
-const User = ({ item, user, loading, onItemChange }) => {
+const User = ({ item, user, onItemChange }) => {
     return (
         <Wrapper>
             <Header>
