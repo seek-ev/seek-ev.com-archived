@@ -22,7 +22,7 @@ import UserRequests from 'pages/requests'
 import ResetConfirm from 'pages/resetconfirm'
 import ResetPassword from 'pages/resetpassword'
 import ResetSuccess from 'pages/resetpassword/success'
-import ResetConfirmSuccess from 'pages/resetconfirm/ruccess'
+import ResetConfirmSuccess from 'pages/resetconfirm/success'
 
 // Components
 import { Snackbar } from 'components/notifications/snackbar'
