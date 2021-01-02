@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Styles
-import './reset_form.sass'
+import { Form, FormButtons, FormButton, FormInput } from './styles'
 
 // Components
 import { Input } from 'components/basic/input'
@@ -22,19 +22,19 @@ const ResetConfirmForm = ({ disabled, onSubmit, onPasswordChange, onRepeatPasswo
     }
 
     return (
-        <form onSubmit={onSubmit}>
-            <div className="reset-confirm-input">
+        <Form onSubmit={onSubmit}>
+            <FormInput>
                 <Input name="password" type="password" disabled={disabled} error={passwordError} onChange={handlePasswordChange} placeholder="New password" autoComplete="new-password" />
-            </div>
-            <div className="reset-confirm-input">
+            </FormInput>
+            <FormInput>
                 <Input name="passwordRepeat" type="password" disabled={disabled} error={passwordRepeatError} onChange={handleRepeatPasswordChange} placeholder="Repeat new password" autoComplete="new-password" />
-            </div>
-            <div className="reset-confirm-form-buttons">
-                <div className="reset-confirm-form-button">
+            </FormInput>
+            <FormButtons>
+                <FormButton>
                     <Button text="Update" disabled={disabled} primary type="submit" handleClick={handleSubmit} />
-                </div>
-            </div>
-        </form>
+                </FormButton>
+            </FormButtons>
+        </Form>
     )
 }
 

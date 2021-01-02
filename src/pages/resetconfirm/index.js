@@ -91,7 +91,7 @@ class Reset extends React.Component {
         return (
             <div className="reset-confirm-container">
                 <Link to="/">
-                    <img className="reset-confirm-logo" src="se_dark.png" alt="dark-logo" />
+                    <img className="reset-confirm-logo" src="/se_dark.png" alt="dark-logo" />
                 </Link>
                 <div className="reset-confirm-title">
                     Set your new password
