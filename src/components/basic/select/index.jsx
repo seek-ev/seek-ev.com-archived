@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Styles
-import './select.sass'
+import { Wrapper } from './styles'
 
 const Select = (props) => {
   function handleChange(e) {
@@ -10,11 +10,11 @@ const Select = (props) => {
   }
 
   return (
-    <select
+    <Wrapper
       name={props.name}
       onChange={handleChange}
       disabled={props.disabled}
-      className={props.raise ? 'raise-select ' : ''}
+      raise={props.raise}
     >
       {props.options
         ? props.options.map((option, index) => (
@@ -29,7 +29,7 @@ const Select = (props) => {
           </option>
         ))
         : ''}
-    </select>
+    </Wrapper>
   )
 }
 
