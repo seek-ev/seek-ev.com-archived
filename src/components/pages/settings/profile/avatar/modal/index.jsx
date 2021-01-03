@@ -77,7 +77,7 @@ const AvatarModal = ({ handleClose, show, avatar }) => {
 
                         {loading ? <Loading /> : ''}
                     </Avatar>
-                    <ModalButton className="modal-button">
+                    <ModalButton>
                         <Button text="Save" primary raise onClick={uploadAvatar} disabled={loading} />
                     </ModalButton>
                 </AvatarContent>

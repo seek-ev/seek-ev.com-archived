@@ -134,12 +134,12 @@ const SearchBar = () => {
                         to={`/${value.model ? value.model : value.shortName ? 'b/' + value.shortName : value.username ? 'u/' + value.username : ''}`}
                         key={(value.id ? value.id : 0) + (value.shortName ? value.shortName : value.model ? value.model : value.username ? value.username : value.text)}
                     >
-                        <Info className="search-info">
+                        <Info>
                             {value.disabled ? '' : <InfoImg round={value.username} src={value.brand ? value.brand.avatar ? value.brand.avatar.url : 'se_dark.png' : value.avatar ? value.avatar.url : '/se_dark.png'} onError={(e) => { e.target.onerror = null; e.target.src = '/se_dark.png' }} alt={value.name} />}
-                            <SearchText className="search-text">{value.model ? value.model : value.shortName ? value.shortName : value.username ? value.username : value.text}</SearchText>
+                            <SearchText>{value.model ? value.model : value.shortName ? value.shortName : value.username ? value.username : value.text}</SearchText>
                         </Info>
 
-                        {value.disabled ? '' : <SearchDescription className={(value.disabled ? 'search-desc-hidden' : 'search-desc')}>{value.model ? 'Car' : value.username ? 'User' : 'Brand'}</SearchDescription>}
+                        {value.disabled ? '' : <SearchDescription>{value.model ? 'Car' : value.username ? 'User' : 'Brand'}</SearchDescription>}
                         {value.history ? <HistoryIcon onClick={clearHistory}><MdClose /></HistoryIcon> : ''}
                     </DropdownItem>
                 })}

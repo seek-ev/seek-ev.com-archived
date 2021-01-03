@@ -9,7 +9,7 @@ const Input = (props) => {
   }
 
   return (
-    <Wrapper className='s-input'>
+    <Wrapper>
       <SInput
         value={props.value}
         onChange={handleChange}
@@ -26,7 +26,7 @@ const Input = (props) => {
         autoComplete={props.autoComplete}
       />
 
-      <ErrorMessage className='error-message'>{props.error}</ErrorMessage>
+      <ErrorMessage>{props.error}</ErrorMessage>
     </Wrapper>
   )
 }

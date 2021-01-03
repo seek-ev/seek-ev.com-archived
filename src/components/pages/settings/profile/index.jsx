@@ -11,10 +11,10 @@ import { SettingsProfileUsername } from './username'
 const SettingsProfile = ({ user }) => {
     return (
         <Profile>
-            <ProfileTitle className="settings-profile-title">
+            <ProfileTitle>
                 Your profile
             </ProfileTitle>
-            <Header className="settings-header">
+            <Header>
                 <ProfileAvatar avatar={user.avatar} />
 
                 <SettingsProfileUsername username={user.username} />

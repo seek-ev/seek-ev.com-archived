@@ -29,7 +29,7 @@ const HomeWrapper = ({ cars, brands, categories, loading, loaded, handleSearchCh
             </Cars> : ''}
 
             {(cars.length === 0 && (loaded && !loading)) ? <NotFound>
-                No cars found <MdBatteryCharging60 className="not-found-icon" />
+                No cars found <MdBatteryCharging60 />
             </NotFound> : ''}
 
             {loading || !loaded ? <Loading /> : ''}

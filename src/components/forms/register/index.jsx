@@ -47,7 +47,7 @@ const RegisterForm = (props) => {
             <FormText>
                 By creating account on this website you accept our <Link to="/terms">Terms of Service</Link>.
             </FormText>
-            <FormButton className="Form-button">
+            <FormButton>
                 <Button text="register" disabled={props.disabled} primary type="submit" handleClick={handleSubmit} />
             </FormButton>
             <FormText>

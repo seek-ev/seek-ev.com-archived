@@ -5,9 +5,9 @@ import { Logo, Image, Brand } from './style'
 
 export const TermsLogo = () => {
     return (
-        <Logo to="/" className="tos-logo">
+        <Logo to="/">
             <Image src="/se_dark.png" alt="tos_logo" />
-            <Brand className="tos-logo-brand">
+            <Brand>
                 SEEK EV
             </Brand>
         </Logo>

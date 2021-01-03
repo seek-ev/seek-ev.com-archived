@@ -10,7 +10,7 @@ const SettingsMenu = ({ onChange, item }) => {
     }
 
     return (
-        <Menu className="settings-menu">
+        <Menu>
             <MenuItem id="focus" chosen={item === 'profile'} onClick={() => onItemChange('profile')}>
                 Profile
             </MenuItem>

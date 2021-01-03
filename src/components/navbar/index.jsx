@@ -18,23 +18,23 @@ const Navbar = () => {
 
     return (
         <Wrapper>
-            <NavLeft className="nav-left">
+            <NavLeft>
                 <Link to="/">
                     <NavLogo />
                 </Link>
             </NavLeft>
 
-            <NavMiddle className="nav-middle">
+            <NavMiddle>
                 <SearchBar />
             </NavMiddle>
 
             {auth && auth.isLogged === true ?
-                <NavRight className={auth && auth.isLogged === true ? 'nav-right' : 'nav-hidden'}>
+                <NavRight>
                     <NavProfile avatar={user ? user.avatar : null} username={user ? user.username : null} />
                     <NavMenu />
                 </NavRight> :
-                <NavRight className={auth && auth.isLogged === true ? 'nav-hidden' : 'nav-right'}>
-                    <Link to="/register" className="nav-hidden-medium"><Button text="Register" clean /></Link>
+                <NavRight>
+                    <Link to="/register"><Button text="Register" clean /></Link>
                     <Link to="/login"><Button text="Login" primary /></Link>
                 </NavRight>
             }
