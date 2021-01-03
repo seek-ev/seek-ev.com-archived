@@ -1,10 +1,10 @@
 import React, { useState, useRef } from 'react'
 
+// Styles
+import { Avatar, AvatarImg, AvatarIcon } from './styles'
+
 // Icons
 import { MdModeEdit } from 'react-icons/md'
-
-// Styles
-import './avatar.sass'
 
 // Components
 import { AvatarModal } from './modal'
@@ -26,18 +26,18 @@ const ProfileAvatar = ({ avatar }) => {
     }
 
     return (
-        <div className="profile-avatar">
+        <Avatar>
             <label htmlFor="file-input">
-                <img className="profile-avatar-img" src={avatar ? avatar.url : 'se_dark.png'} onError={(e) => { e.target.onerror = null; e.target.src = '/se_dark.png' }} alt="profile_avatar" />
-                <div className="profile-avatar-icon">
+                <AvatarImg src={avatar ? avatar.url : 'se_dark.png'} onError={(e) => { e.target.onerror = null; e.target.src = '/se_dark.png' }} alt="profile_avatar" />
+                <AvatarIcon>
                     <MdModeEdit />
-                </div>
+                </AvatarIcon>
             </label>
 
             <input id="file-input" name="new-avatar" type="file" accept="image/png, image/jpeg, image/gif" onChange={onAvatarChange} ref={avatarInput} />
 
             <AvatarModal show={show} handleClose={hideModal} avatar={avatarState} />
-        </div>
+        </Avatar>
     )
 }
 

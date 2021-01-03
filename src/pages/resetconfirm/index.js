@@ -95,7 +95,7 @@ class Reset extends React.Component {
                 </Link>
                 <div className="reset-confirm-title">
                     Set your new password
-            </div>
+                </div>
                 <div className="reset-form">
                     <ResetConfirmForm disabled={this.state.disabled} passwordError={this.state.passwordError} passwordRepeatError={this.state.repeatPasswordError} onPasswordChange={this.onPasswordChange} onRepeatPasswordChange={this.onPasswordRepeatChange} onSubmit={this.onSubmit} />
                 </div>

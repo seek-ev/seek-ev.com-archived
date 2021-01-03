@@ -3,7 +3,17 @@ import { useDispatch } from 'react-redux'
 import axios from 'axios'
 
 // Styles
-import './password.sass'
+import {
+    Wrapper,
+    PasswordTitle,
+    Passwd,
+    PasswdIcon,
+    PasswordForm,
+    FormButtons,
+    FormButton,
+    LoadingWrapper,
+    Loading
+} from './styles'
 
 // Icons
 import { MdModeEdit } from 'react-icons/md'
@@ -87,41 +97,44 @@ const SettingsPassword = () => {
     }
 
     return (
-        <div className="settings-password">
-            <div className={editing ? 'settings-hidden' : 'settings-password-title'}>
-                Your password
-            </div>
-            <div className={editing ? 'settings-password-title' : 'settings-hidden'}>
+        <Wrapper>
+            {editing ? <PasswordTitle>
                 Update your password
-            </div>
-            <div className={editing ? 'settings-hidden' : 'settings-passwd'}>
+            </PasswordTitle> : <PasswordTitle>
+                    Your password
+            </PasswordTitle>}
+
+            {editing ? ' ' : <Passwd>
                 **************
-                <div className="settings-password-icon">
-                    <MdModeEdit className={editing ? 'settings-hidden' : ''} onClick={() => setEditing(true)} />
-                </div>
-            </div>
-            <div className={editing ? 'settings-editing' : 'settings-hidden'}>
-                <form onSubmit={updatePassword}>
+                <PasswdIcon>
+                    <MdModeEdit onClick={() => setEditing(true)} />
+                </PasswdIcon>
+            </Passwd>}
+
+            {editing ?
+                <PasswordForm onSubmit={updatePassword}>
                     <Input name="current_password" placeholder="Current password" onChange={onCurrentPasswordChange} error={errors.current} type="password" autoComplete="current-password" />
 
                     <Input name="new_password" placeholder="New password" onChange={onNewPasswordChange} error={errors.new} type="password" autoComplete="new-password" />
 
                     <Input name="repeat_password" placeholder="Repeat new password" onChange={onRepeatPasswordChange} error={errors.repeat} type="password" autoComplete="new-password" />
 
-                    <div className="settings-editing-buttons">
-                        <div className="settings-editing-button">
+                    <FormButtons>
+                        <FormButton>
                             <Button text="Cancel" onClick={cancelEditing} />
-                        </div>
-                        <div className="settings-editing-button">
+                        </FormButton>
+                        <FormButton>
                             <Button text="Update" primary type="submit" disabled={(passwords.current.length < 8 || passwords.new.length < 8 || passwords.repeat.length < 8) || (errors.current || errors.new || errors.repeat)} />
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div className={loading ? 'loading' : ''}>
-                <div className={loading ? 'loader' : ''}></div>
-            </div>
-        </div>
+                        </FormButton>
+                    </FormButtons>
+                </PasswordForm>
+                : ''}
+
+            {loading ? <LoadingWrapper>
+                <Loading />
+            </LoadingWrapper>
+                : ''}
+        </Wrapper>
     )
 }
 

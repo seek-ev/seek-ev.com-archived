@@ -13,6 +13,9 @@ const NotFound = () => {
             <Helmet>
                 <title>Page not found</title>
                 <meta name="description" content="Page not found" />
+
+                <meta property="og:title" content="Page not found" />
+                <meta property="og:description" content="Page not found" />
             </Helmet>
             <Title>404</Title>
             <div>

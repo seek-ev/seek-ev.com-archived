@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import axios from 'axios'
 
 // Styles
-import './modal.sass'
+import { Modal, ModalContent, Header, HeaderTitle, Close, AvatarContent, Avatar, ModalButton, Loading } from './styles'
 
 // Icons
 import { MdClose } from 'react-icons/md'
@@ -16,7 +16,6 @@ import { setAvatar } from 'actions/user'
 import { showSnackbar } from 'actions/snackbar'
 
 const AvatarModal = ({ handleClose, show, avatar }) => {
-    const showHideClassName = show ? "avatar-modal display-block" : "avatar-modal display-none"
     const [avatarUrl, setAvatarUrl] = useState(null)
     const [loading, setLoading] = useState(false)
     const dispatch = useDispatch()
@@ -61,29 +60,29 @@ const AvatarModal = ({ handleClose, show, avatar }) => {
     }
 
     return (
-        <div className={showHideClassName}>
-            <section className="avatar-modal-main">
-                <div className="avatar-modal-header">
-                    <div className="avatar-modal-header-title">
+        <Modal show={show}>
+            <ModalContent>
+                <Header>
+                    <HeaderTitle>
                         Upload new avatar
-                    </div>
-                    <div className="avatar-modal-close">
-                        <MdClose className={loading ? 'loading-disabled' : ''} onClick={() => handleClose()} />
-                    </div>
-                </div>
+                    </HeaderTitle>
+                    <Close disabled={loading}>
+                        <MdClose onClick={() => handleClose()} />
+                    </Close>
+                </Header>
 
-                <div className="modal-avatar-content">
-                    <div className="modal-avatar">
-                        <img src={avatarUrl || ''} alt="new_avatar" className={loading ? 'loading-opacity' : ''} />
+                <AvatarContent>
+                    <Avatar opacity={loading}>
+                        <img src={avatarUrl || ''} alt="new_avatar" />
 
-                        <div className={loading ? 'modal-loading' : ''}></div>
-                    </div>
-                    <div className="modal-button">
+                        {loading ? <Loading /> : ''}
+                    </Avatar>
+                    <ModalButton className="modal-button">
                         <Button text="Save" primary raise onClick={uploadAvatar} disabled={loading} />
-                    </div>
-                </div>
-            </section>
-        </div>
+                    </ModalButton>
+                </AvatarContent>
+            </ModalContent>
+        </Modal>
     )
 }
 

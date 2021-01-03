@@ -3,13 +3,13 @@ import { useDispatch } from 'react-redux'
 import axios from 'axios'
 
 // Styles
-import './username.sass'
+import { Username, UsernameInput, Icon, CloseIcon, SaveIcon } from './styles'
 
 // Components
 import { Input } from 'components/basic/input'
 
 // Icons
-import { MdModeEdit, MdClose, MdSave } from 'react-icons/md'
+import { MdModeEdit } from 'react-icons/md'
 
 // Actions
 import { setStateUsername } from 'actions/user'
@@ -54,19 +54,19 @@ const SettingsProfileUsername = ({ username }) => {
     }
 
     return (
-        <div className="settings-username-container">
-            <div className="settings-username">
-                <div className="settings-username-input">
-                    <Input className="settings-input" name='username' type="text" placeholder="Username" autoComplete='off' value={usernameState || ''} onChange={onUsernameChange} disabled={!editing} error={error} />
-                </div>
+        <Username>
+            <UsernameInput>
+                <Input className="settings-input" name='username' type="text" placeholder="Username" autoComplete='off' value={usernameState || ''} onChange={onUsernameChange} disabled={!editing} error={error} />
+            </UsernameInput>
 
-                <div className="settings-username-icon">
-                    <MdModeEdit className={editing ? 'editing-hidden' : ''} onClick={() => setEditing(true)} />
-                    <MdClose className={editing ? 'icon-close' : 'editing-hidden'} onClick={() => cancelEditing()} />
-                    <MdSave className={editing ? 'icon-save' : 'editing-hidden'} onClick={() => saveUsername()} />
-                </div>
-            </div>
-        </div>
+            {editing ? <Icon>
+                <CloseIcon onClick={() => cancelEditing()} />
+                <SaveIcon onClick={() => saveUsername()} />
+            </Icon>
+                : <Icon>
+                    <MdModeEdit onClick={() => setEditing(true)} />
+                </Icon>}
+        </Username>
     )
 }
 
