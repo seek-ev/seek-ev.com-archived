@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Styles
-import './header.sass'
+import { Wrapper, Background, HeaderRow } from './styles'
 
 // Components
 import { BrandTitle } from './title'
@@ -10,20 +10,15 @@ import { BrandDetails } from './details'
 
 const BrandHeader = ({ back, avatar, name, founded, description, website, areaServed, headquarters }) => {
     return (
-        <div className="brand-header">
-            <div className={`brand-header-background ${back ? 'back' : 'no-back'}`} style={{
-                backgroundImage: `url('${back ? back.url : ''}')`,
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center'
-            }}>
-                <div className="brand-header-row">
+        <Wrapper>
+            <Background back={back}>
+                <HeaderRow>
                     <BrandAvatar avatar={avatar} />
                     <BrandTitle name={name} founded={founded} back={back} />
-                </div>
-            </div>
+                </HeaderRow>
+            </Background>
             <BrandDetails description={description} website={website} areaServed={areaServed} headquarters={headquarters} />
-        </div>
+        </Wrapper>
     )
 }
 

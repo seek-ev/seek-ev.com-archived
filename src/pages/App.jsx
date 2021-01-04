@@ -11,7 +11,7 @@ import Car from 'pages/car'
 import { Home } from 'pages/home'
 import { UserPage } from 'pages/user'
 import Login from 'pages/login'
-import Brand from 'pages/brand'
+import { BrandPage } from 'pages/brand'
 import NotFound from 'pages/404'
 import UserCars from 'pages/cars'
 import NewCar from 'pages/cars/new'
@@ -37,7 +37,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/terms" component={TermsPage} />
-          <Route exact path="/b/:name" component={Brand} />
+          <Route exact path="/b/:name" component={BrandPage} />
           <Route exact path="/u/:username" component={UserPage} />
           <PublicRoute exact path="/login" component={Login} />
           <PrivateRoute exact path="/cars" component={UserCars} />

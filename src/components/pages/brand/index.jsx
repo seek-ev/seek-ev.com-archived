@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Styles
-import './brand.sass'
+import { Wrapper } from './styles'
 
 // Components
 import { BrandHeader } from './header'
@@ -9,7 +9,7 @@ import { BrandCars } from './cars'
 
 const BrandContainer = ({ brand }) => {
     return (
-        <div className={`brand-landing ${brand.background ? 'brand-background' : 'brand-no-background'}`}>
+        <Wrapper background={brand.background}>
             <BrandHeader
                 back={brand.background}
                 avatar={brand.avatar}
@@ -21,7 +21,7 @@ const BrandContainer = ({ brand }) => {
                 headquarters={brand.headquarters} />
 
             {brand.cars && brand.cars.length > 0 ? <BrandCars cars={brand.cars} /> : ''}
-        </div>
+        </Wrapper>
     )
 }
 

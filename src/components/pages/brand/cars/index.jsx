@@ -1,19 +1,19 @@
 import React from 'react'
 
 // Styles
-import './cars.sass'
+import { Wrapper, Title, List } from './styles'
 
 // Components
 import { BrandCar } from './car'
 
 const BrandCars = ({ cars }) => {
     return (
-        <div className="brand-cars">
-            <div className="brand-cars-title">Brand cars</div>
-            <div className="brand-cars-list">
+        <Wrapper>
+            <Title>Brand cars</Title>
+            <List>
                 {cars.map((c, i) => <BrandCar car={c} key={i} />)}
-            </div>
-        </div>
+            </List>
+        </Wrapper>
     )
 }
 
