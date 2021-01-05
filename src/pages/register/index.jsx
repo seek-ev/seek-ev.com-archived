@@ -21,7 +21,7 @@ const RegisterPage = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [redirect, setRedirect] = useState(null)
-    const [disabled, setDisabled] = useState(true)
+    const [disabled, setDisabled] = useState(false)
     const [repeatPassword, setRepeatPassword] = useState('')
     const dispatch = useDispatch()
 
