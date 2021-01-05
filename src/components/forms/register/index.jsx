@@ -1,8 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 // Styles
-import { Form, FormButton, FormText, FormInput } from './styles'
+import { Form, FormButton, FormText, FormInput, FormLink } from './styles'
 
 // Components
 import { Input } from 'components/basic/input'
@@ -45,13 +44,13 @@ const RegisterForm = (props) => {
                 <Input name="repeatPassword" disabled={props.disabled} error={props.repeatPasswordError} onChange={handlePasswordRepeatInputChange} placeholder="Repeat password" type="password" autoComplete="new-password" />
             </FormInput>
             <FormText>
-                By creating account on this website you accept our <Link to="/terms">Terms of Service</Link>.
+                By creating account on this website you accept our <FormLink disabled={props.disabled} to="/terms">Terms of Service</FormLink>.
             </FormText>
             <FormButton>
                 <Button text="register" disabled={props.disabled} primary type="submit" handleClick={handleSubmit} />
             </FormButton>
             <FormText>
-                Already have one? <Link to="/login">Log in here</Link>.
+                Already have one? <FormLink disabled={props.disabled} to="/login">Log in here</FormLink>.
             </FormText>
         </Form>
     )
