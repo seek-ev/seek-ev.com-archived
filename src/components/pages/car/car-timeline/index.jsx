@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
-// Style
-import './timeline.sass'
+
+// Styles
+import { Wrapper, HeaderWrapper, Header, Title, HeaderSelect, NoneTimeline } from './styles'
 
 // Components
 import { Select } from 'components/basic/select'
@@ -26,23 +27,21 @@ const CarTimeline = (props) => {
     }
 
     return (
-        <div className="car-timeline">
-            <div className={timeline && timeline.length > 0 ? '' : 'car-timeline-hidden'}>
-                <div className="car-timeline-header">
-                    <div className="car-timeline-header-title">
-                        Choose production year
-                </div>
-                    <div className="car-timeline-header-select">
-                        <Select name="timeline" options={timeline} display="year" value="id" onChange={onTimelineChange} />
-                    </div>
-                </div>
+        <Wrapper className="car-timeline">
+            {timeline && timeline.length > 0 ? <HeaderWrapper> <Header className="car-timeline-header">
+                <Title className="car-timeline-header-title">
+                    Choose production year
+                    </Title>
+                <HeaderSelect className="car-timeline-header-select">
+                    <Select name="timeline" options={timeline} display="year" value="id" onChange={onTimelineChange} />
+                </HeaderSelect>
+            </Header>
                 <CarVersions versions={disTimeline} year={year} />
-            </div>
-
-            <div className={timeline && timeline.length === 0 ? 'car-timeline-none' : 'car-timeline-hidden'}>
-                We don't have any details about this car
-            </div>
-        </div>
+            </HeaderWrapper> : <NoneTimeline>
+                    We don't have any details about this car
+            </NoneTimeline>
+            }
+        </Wrapper >
     )
 }
 

@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react'
 
 // Styles
-import './spec.sass'
+import {
+    Wrapper,
+    Title,
+    Header,
+    HeaderItem,
+    Details
+} from './styles'
 
 // Components
 import { SpecRange } from './range'
@@ -21,20 +27,20 @@ const VersionSpec = (props) => {
     }, [props.spec])
 
     return (
-        <div className='car-version-spec'>
-            <div className="car-version-spec-title">Specification:</div>
-            <div className="car-version-spec-header">
-                <div className='car-version-spec-header-item'>
+        <Wrapper>
+            <Title>Specification:</Title>
+            <Header>
+                <HeaderItem>
                     <span>Drive train:</span> {spec.driveTrain}
-                </div>
-                <div className={`${spec.engines ? 'car-version-spec-header-item' : 'car-version-item-hidden'}`}>
+                </HeaderItem>
+                {spec.engines ? <HeaderItem>
                     <span>Motors:</span> {spec.engines ? spec.engines : ''}
-                </div>
-                <div className='car-version-spec-header-item'>
+                </HeaderItem> : ''}
+                <HeaderItem>
                     <span>0-60 mph:</span> {spec.acceleration}s
-                </div>
-            </div>
-            <div className="car-version-spec-details">
+                </HeaderItem>
+            </Header>
+            <Details>
                 <SpecRange range={spec.range} />
                 <SpecEnergyUsage energyUsage={spec.energyUsage} />
                 <SpecEngine engine={spec.engine} />
@@ -43,8 +49,8 @@ const VersionSpec = (props) => {
                 <SpecEfficiency efficiency={spec.efficiency} />
                 <SpecCapacity capacity={spec.capacity} />
                 <SpecBattery battery={spec.battery} />
-            </div>
-        </div>
+            </Details>
+        </Wrapper>
     )
 }
 

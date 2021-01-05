@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 // Styles
-import './version.sass'
+import { Wrapper, Title, Description, Details } from './styles'
 
 // Components
 import { VersionSpec } from './spec'
@@ -14,15 +14,15 @@ const CarVersion = (props) => {
     }, [props.version])
 
     return (
-        <div className="car-version">
-            <div className="car-version-title">
+        <Wrapper>
+            <Title>
                 {version.name}
-            </div>
-            <div className="car-version-description">{version.description}</div>
-            <div className='car-version-details'>
+            </Title>
+            <Description>{version.description}</Description>
+            <Details>
                 <VersionSpec spec={version.spec} />
-            </div>
-        </div >
+            </Details>
+        </Wrapper>
     )
 }
 

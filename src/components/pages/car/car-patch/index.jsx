@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 // Styles
-import './icon.sass'
+import { Wrapper, Icon } from './styles'
 
 // Icons
 import { MdEdit } from 'react-icons/md'
@@ -19,12 +19,12 @@ const CarPatch = (props) => {
     }
 
     return (
-        <div className={`${auth.isLogged ? 'car-patch' : 'car-hidden'}`}>
+        <Wrapper logged={auth.isLogged}>
             <CarPatchForm show={show} onClick={hide} carId={props.carId} />
-            <div className="car-patch-icon" onClick={() => setShow(!show)}>
+            <Icon onClick={() => setShow(!show)}>
                 <MdEdit />
-            </div>
-        </div>
+            </Icon>
+        </Wrapper>
     )
 }
 

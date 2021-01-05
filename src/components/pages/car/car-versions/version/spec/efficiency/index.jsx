@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
+// Styles
+import { SpecItem, SpecItemContentTitle, SpecItemContent, SpecItemContentItem } from '../styles'
+
 const SpecEfficiency = (props) => {
     const [efficiency, setEfficiency] = useState({})
 
@@ -8,19 +11,19 @@ const SpecEfficiency = (props) => {
     }, [props.efficiency])
 
     return (
-        <div className={`${props.efficiency ? 'car-version-spec-item' : 'car-version-item-hidden'}`}>
-            <div className="car-version-spec-item-title">
+        <SpecItem show={props.efficiency}>
+            <SpecItemContentTitle>
                 Efficiency
-            </div>
-            <div className="car-version-spec-item-content">
-                <div className="car-version-spec-item-content-item">
+            </SpecItemContentTitle>
+            <SpecItemContent>
+                <SpecItemContentItem>
                     <span>Miles per galon:</span> {efficiency.mpg}
-                </div>
-                <div className="car-version-spec-item-content-item">
+                </SpecItemContentItem>
+                <SpecItemContentItem>
                     <span>Kilometers per liter:</span> {efficiency.kpl}
-                </div>
-            </div>
-        </div>
+                </SpecItemContentItem>
+            </SpecItemContent>
+        </SpecItem>
     )
 }
 

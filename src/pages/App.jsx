@@ -6,8 +6,7 @@ import {
 } from "react-router-dom"
 
 // Pages
-import Car from 'pages/car'
-
+import { CarPage } from 'pages/car'
 import { Home } from 'pages/home'
 import { UserPage } from 'pages/user'
 import Login from 'pages/login'
@@ -50,7 +49,7 @@ class App extends React.Component {
           <PublicRoute exact path="/reset-password/success" component={ResetSuccess} />
           <PublicRoute exact path="/reset/success" component={ResetConfirmSuccess} />
           <PublicRoute path="/reset" component={ResetConfirm} />
-          <Route exact path="/:model" component={Car} />
+          <Route exact path="/:model" component={CarPage} />
           <Route path='*' component={NotFound} />
         </Switch>
         <Snackbar />
