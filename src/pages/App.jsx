@@ -19,7 +19,7 @@ import { RegisterPage } from 'pages/register'
 import { SettingsPage } from 'pages/settings'
 import { TermsPage } from 'pages/terms'
 import { RequestsPage } from 'pages/requests'
-import ResetConfirm from 'pages/reset-confirm'
+import { ResetConfirmPage } from 'pages/reset-confirm'
 import { ResetPasswordPage } from 'pages/reset-password'
 import ResetSuccess from 'pages/reset-password/success'
 import ResetConfirmSuccess from 'pages/reset-confirm/success'
@@ -48,7 +48,7 @@ class App extends React.Component {
           <PublicRoute exact path="/reset-password" component={ResetPasswordPage} />
           <PublicRoute exact path="/reset-password/success" component={ResetSuccess} />
           <PublicRoute exact path="/reset/success" component={ResetConfirmSuccess} />
-          <PublicRoute path="/reset" component={ResetConfirm} />
+          <PublicRoute path="/reset" component={ResetConfirmPage} />
           <Route exact path="/:model" component={CarPage} />
           <Route path='*' component={NotFound} />
         </Switch>
