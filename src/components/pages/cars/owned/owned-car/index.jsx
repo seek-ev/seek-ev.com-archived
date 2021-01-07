@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 
 // Styles
-import './owned_car.sass'
+import { Wrapper, CarButton } from './styles'
 
 // Components
 import { OwnedCarRemoveModal } from './owned-car-remove-modal'
 
-// Icons
-import { MdClose } from 'react-icons/md'
+
 
 const OwnedCar = (props) => {
     const [remove, setRemove] = useState(false)
@@ -21,13 +20,13 @@ const OwnedCar = (props) => {
     }
 
     return (
-        <div className="owned-car">
+        <Wrapper>
             <span>
                 {`${props.car.version.timeline.year} ${props.car.version.timeline.car.brand.name} ${props.car.version.timeline.car.model} - ${props.car.version.name}`}
             </span>
-            <MdClose className="owned-car-button" onClick={() => setRemove(true)} />
+            <CarButton onClick={() => setRemove(true)} />
             <OwnedCarRemoveModal show={remove} version={props.car.id} close={close} remove={removeCar} />
-        </div>
+        </Wrapper>
     )
 }
 

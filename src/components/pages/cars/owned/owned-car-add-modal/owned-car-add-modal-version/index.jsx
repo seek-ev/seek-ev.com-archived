@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 // Styles
-import './version.sass'
+import { Wrapper, VersionButton } from './styles'
 
 // Components
 import { Select } from 'components/basic/select'
@@ -27,12 +27,12 @@ const OwnedCarAddModalVersion = (props) => {
     }, [props.versions])
 
     return (
-        <div className="choose-version">
+        <Wrapper>
             <Select name='owned-version' options={versions} onChange={onVersionChange} />
-            <div className="choose-version-button">
+            <VersionButton>
                 <Button text="Add" primary disabled={!version} onClick={add} />
-            </div>
-        </div>
+            </VersionButton>
+        </Wrapper>
     )
 }
 

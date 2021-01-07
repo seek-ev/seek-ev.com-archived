@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import axios from 'axios'
 
 // Styles
-import './timeline.sass'
+import { Wrapper, Timeline, TimelineButton, TimelineButtonMr, TimelineError, ChooseError, Loading } from './styles'
 
 // Components
 import { Select } from 'components/basic/select'
@@ -13,7 +13,7 @@ import { Button } from 'components/basic/button'
 import { showSnackbar } from 'actions/snackbar'
 
 const OwnedCarAddModalTimeline = (props) => {
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     const [timeline, setTimeline] = useState({})
     const [car, setCar] = useState({})
     const dispatch = useDispatch()
@@ -33,10 +33,10 @@ const OwnedCarAddModalTimeline = (props) => {
     }
 
     useEffect(() => {
-        setLoading(true)
-
         // Fetch chosen car
         const fetchCar = async () => {
+            await setLoading(true)
+
             await axios.get(`/cars/id/${props.car.id}`).then(res => {
                 if (res.data.timeline.length > 0) setTimeline(res.data.timeline[0])
                 setCar(res.data)
@@ -44,36 +44,41 @@ const OwnedCarAddModalTimeline = (props) => {
                 setCar(null)
                 dispatch(showSnackbar(err, 'error'))
             })
+
+            await setLoading(false)
         }
 
         if (props.car.id) fetchCar()
-        setLoading(false)
     }, [props.car, dispatch])
 
     return (
-        <div className="chosen-car">
-            <div className={`${loading ? 'chosen-loading' : 'cars-hidden'}`}>
+        <Wrapper className="chosen-car">
+            {loading ? <Loading>
                 <div></div>
                 <div></div>
                 <div></div>
-            </div>
-            <div className={`${(!loading && car) && (car.timeline && car.timeline.length > 0) ? 'choose-timeline' : 'cars-hidden'}`}>
-                <Select name="owned-timeline" options={car.timeline} display="year" value="id" onChange={onTimelineChange} />
-                <span className={`${timeline.versions && timeline.versions.length === 0 ? 'chosen-timeline-error' : 'cars-hidden'}`}>Ops, this car doesn't have versions from {timeline.year}</span>
-                <div className="choose-timeline-button">
-                    <div className="choose-timeline-button-mr">
-                        <Button text="Go back" onClick={previousStep} />
-                    </div>
-                    <Button text="Next" onClick={nextStep} primary disabled={timeline.versions && timeline.versions.length === 0} />
-                </div>
-            </div>
-            <div className={`${!loading && car.timeline && car.timeline.length === 0 ? 'choose-error' : 'cars-hidden'}`}>
+            </Loading> : ''}
+
+            {(!loading && car) && (car.timeline && car.timeline.length > 0) ?
+                <Timeline>
+                    <Select name="owned-timeline" options={car.timeline} display="year" value="id" onChange={onTimelineChange} />
+                    {timeline.versions && timeline.versions.length === 0 ? <TimelineError>Ops, this car doesn't have versions from {timeline.year}</TimelineError> : ''}
+                    <TimelineButton>
+                        <TimelineButtonMr>
+                            <Button text="Go back" onClick={previousStep} />
+                        </TimelineButtonMr>
+                        <Button text="Next" onClick={nextStep} primary disabled={timeline.versions && timeline.versions.length === 0} />
+                    </TimelineButton>
+                </Timeline>
+                : ''}
+
+            {!loading && (car.timeline && car.timeline.length === 0) ? <ChooseError>
                 Unfortunately this car doesn't have a timeline
-                <div className="choose-timeline-button">
+                <TimelineButton>
                     <Button text="Go back" onClick={previousStep} />
-                </div>
-            </div>
-        </div >
+                </TimelineButton>
+            </ChooseError> : ''}
+        </Wrapper>
     )
 }
 

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import axios from 'axios'
 
 // Styles
-import './search.sass'
+import { Wrapper, SearchInput, Dropdown, DropdownItem, Desc } from './styles'
 
 // Actions
 import { showSnackbar } from 'actions/snackbar'
@@ -48,19 +48,21 @@ const OwnedCarAddModalSearch = ({ setCar }) => {
     }
 
     return (
-        <div className="owned-car-add-modal-search" ref={carSearchRef}>
-            <input className="car-search-input" placeholder="Type here" onChange={search} autoComplete="off" />
+        <Wrapper ref={carSearchRef}>
+            <SearchInput className="car-search-input" placeholder="Type here" onChange={search} autoComplete="off" />
 
-            <div className={found.length > 0 ? 'car-search-dropdown' : 'car-search-dropdown-hidden'}>
-                {found.map((value) => {
-                    return <div onClick={() => chooseCar(value)} className='car-search-dropdown-item' key={value.id}>
-                        <div className="car-search-info">
-                            <span className="car-search-text">{value.brand.shortName + ' ' + value.model}</span>
-                        </div>
-                    </div>
-                })}
-            </div>
-        </div>
+            {found.length > 0 ?
+                <Dropdown>
+                    {found.map((value) => {
+                        return <DropdownItem onClick={() => chooseCar(value)} key={value.id}>
+                            <Desc>
+                                <span>{value.brand.shortName + ' ' + value.model}</span>
+                            </Desc>
+                        </DropdownItem>
+                    })}
+                </Dropdown>
+                : ''}
+        </Wrapper>
     )
 }
 

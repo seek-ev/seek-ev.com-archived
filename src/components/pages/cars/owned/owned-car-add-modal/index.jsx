@@ -3,7 +3,8 @@ import { useDispatch } from 'react-redux'
 import axios from 'axios'
 
 // Styles
-import './modal.sass'
+import { Wrapper, ModalContent, Header, HeaderClose, LoadingWrapper } from './styles'
+import { Loading } from './owned-car-add-modal-timeline/styles'
 
 // Icons
 import { MdClose } from 'react-icons/md'
@@ -17,7 +18,6 @@ import { OwnedCarAddModalTimeline } from './owned-car-add-modal-timeline'
 import { showSnackbar } from 'actions/snackbar'
 
 const OwnedCarAddModal = ({ show, close, add }) => {
-    const showHideClassName = show ? "owned-car-add-modal display-block" : "owned-car-add-modal display-none"
     const [loading, setLoading] = useState(false)
     const [timeline, setTimeline] = useState(null)
     const [versions, setVersions] = useState([])
@@ -56,25 +56,29 @@ const OwnedCarAddModal = ({ show, close, add }) => {
         close()
     }
 
-
     return (
-        <div className={showHideClassName}>
-            <div className={`${!loading ? 'owned-car-modal-add-content' : 'cars-hidden'}`}>
-                <div className="owned-car-modal-add-header">
-                    {step === 0 ? 'Find your car' : step === 1 ? 'Choose production year' : 'Choose version'}
-                    <div className="owned-car-modal-add-header-close" onClick={() => close()}>
-                        <MdClose />
-                    </div>
-                </div>
-                {step === 0 ?
-                    <OwnedCarAddModalSearch setCar={chosePropCar} />
-                    : step === 1 ? <OwnedCarAddModalTimeline car={choseCar} setVersions={setPropsVersions} setStep={setStep} />
-                        : <OwnedCarAddModalVersion versions={versions} add={addCar} />}
-            </div>
-            <div className={`${loading ? 'owned-car-modal-add-loading' : 'cars-hidden'}`}>
-                <div className='modal-loading'></div>
-            </div>
-        </div>
+        <Wrapper display={true}>
+            {loading ? <LoadingWrapper>
+                <Loading>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </Loading>
+            </LoadingWrapper> :
+                <ModalContent>
+                    <Header>
+                        {step === 0 ? 'Find your car' : step === 1 ? 'Choose production year' : 'Choose version'}
+                        <HeaderClose onClick={() => close()}>
+                            <MdClose />
+                        </HeaderClose>
+                    </Header>
+                    {step === 0 ?
+                        <OwnedCarAddModalSearch setCar={chosePropCar} />
+                        : step === 1 ? <OwnedCarAddModalTimeline car={choseCar} setVersions={setPropsVersions} setStep={setStep} />
+                            : <OwnedCarAddModalVersion versions={versions} add={addCar} />}
+                </ModalContent>
+            }
+        </Wrapper>
     )
 }
 

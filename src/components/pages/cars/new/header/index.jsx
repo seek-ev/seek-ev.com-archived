@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Styles
-import './header.sass'
+import { Wrapper, HeaderLeft, HeaderRight } from './styles'
 
 // Components
 import { NewPicture } from './new-picture'
@@ -34,14 +34,14 @@ const NewHeader = (props) => {
     }
 
     return (
-        <div className="new-header">
-            <div className="new-header-left">
+        <Wrapper>
+            <HeaderLeft>
                 <NewPicture pictureChange={pictureChange} />
-            </div>
-            <div className="new-header-right">
+            </HeaderLeft>
+            <HeaderRight>
                 <NewBasic categories={props.categories} brands={props.brands} modelChange={carModel} yearsChange={yearsChange} categoryChange={categoryChange} brandChange={brandChange} conceptChange={conceptChange} />
-            </div>
-        </div>
+            </HeaderRight>
+        </Wrapper>
     )
 }
 
