@@ -18,7 +18,7 @@ import UserCar from 'pages/cars/_id'
 import { RegisterPage } from 'pages/register'
 import { SettingsPage } from 'pages/settings'
 import { TermsPage } from 'pages/terms'
-import UserRequests from 'pages/requests'
+import { RequestsPage } from 'pages/requests'
 import ResetConfirm from 'pages/resetconfirm'
 import ResetPassword from 'pages/resetpassword'
 import ResetSuccess from 'pages/resetpassword/success'
@@ -44,7 +44,7 @@ class App extends React.Component {
           <PrivateRoute exact path="/cars/:id" component={UserCar} />
           <PublicRoute exact path="/register" component={RegisterPage} />
           <PrivateRoute exact path="/settings" component={SettingsPage} />
-          <PrivateRoute exact path="/requests" component={UserRequests} />
+          <PrivateRoute exact path="/requests" component={RequestsPage} />
           <PublicRoute exact path="/reset-password" component={ResetPassword} />
           <PublicRoute exact path="/reset-password/success" component={ResetSuccess} />
           <PublicRoute exact path="/reset/success" component={ResetConfirmSuccess} />
