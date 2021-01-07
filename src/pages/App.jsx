@@ -19,10 +19,10 @@ import { RegisterPage } from 'pages/register'
 import { SettingsPage } from 'pages/settings'
 import { TermsPage } from 'pages/terms'
 import { RequestsPage } from 'pages/requests'
-import ResetConfirm from 'pages/resetconfirm'
-import ResetPassword from 'pages/resetpassword'
-import ResetSuccess from 'pages/resetpassword/success'
-import ResetConfirmSuccess from 'pages/resetconfirm/success'
+import ResetConfirm from 'pages/reset-confirm'
+import { ResetPasswordPage } from 'pages/reset-password'
+import ResetSuccess from 'pages/reset-password/success'
+import ResetConfirmSuccess from 'pages/reset-confirm/success'
 
 // Components
 import { Snackbar } from 'components/notifications/snackbar'
@@ -45,7 +45,7 @@ class App extends React.Component {
           <PublicRoute exact path="/register" component={RegisterPage} />
           <PrivateRoute exact path="/settings" component={SettingsPage} />
           <PrivateRoute exact path="/requests" component={RequestsPage} />
-          <PublicRoute exact path="/reset-password" component={ResetPassword} />
+          <PublicRoute exact path="/reset-password" component={ResetPasswordPage} />
           <PublicRoute exact path="/reset-password/success" component={ResetSuccess} />
           <PublicRoute exact path="/reset/success" component={ResetConfirmSuccess} />
           <PublicRoute path="/reset" component={ResetConfirm} />
