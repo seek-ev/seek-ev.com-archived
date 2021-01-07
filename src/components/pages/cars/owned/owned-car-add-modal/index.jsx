@@ -57,7 +57,7 @@ const OwnedCarAddModal = ({ show, close, add }) => {
     }
 
     return (
-        <Wrapper display={true}>
+        <Wrapper display={show}>
             {loading ? <LoadingWrapper>
                 <Loading>
                     <div></div>

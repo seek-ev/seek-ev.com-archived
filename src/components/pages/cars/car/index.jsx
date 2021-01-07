@@ -1,5 +1,8 @@
 import React from 'react'
 
+// Variables
+import { Wrapper, Header, HeaderInfo } from './styles'
+
 // Components
 import { CarPictures } from 'components/pages/car/car-pictures'
 import { UserCarInfo } from './car-info'
@@ -12,16 +15,16 @@ const UserCarComponent = ({ car, onCarProcessing }) => {
     }
 
     return (
-        <div className="user-car-component">
-            <div className="user-car-header">
-                <div className="user-car-header-info">
+        <Wrapper>
+            <Header>
+                <HeaderInfo>
                     <CarPictures pictures={car.pictures} />
                     <UserCarInfo brand={car.brand} productionYears={car.productionYears} category={car.category} concept={car.concept} />
-                </div>
+                </HeaderInfo>
                 <UserCarDetails verified={car.verified} onProcessing={onDetailsProcessing} />
-            </div>
+            </Header>
             <CarVersions versions={car.versions} />
-        </div>
+        </Wrapper>
     )
 }
 

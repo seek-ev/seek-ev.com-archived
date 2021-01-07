@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 const ModalContent = styled.div`
     position: fixed;
     background: #fff;
-    width: 320px;
+    width: 350px;
     height: auto;
     top: 50%;
     left: 50%;
@@ -23,7 +23,11 @@ const ModalContent = styled.div`
 
 const Header = styled.div``
 
-const Buttons = styled.div``
+const Buttons = styled.div`
+    display: flex;
+    margin: 6px 0 0;
+    justify-content: flex-end;
+`
 
 const ButtonMl = styled.div`
     margin: 0 0 0 6px;

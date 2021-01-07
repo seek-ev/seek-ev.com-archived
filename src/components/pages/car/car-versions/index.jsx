@@ -17,26 +17,23 @@ const CarVersions = (props) => {
 
     return (
         <Wrapper>
-            <Versions>
-                {versions.length === 1 ? '' : <Title>Choose version</Title>}
-                {versions.length === 1 ? '' : <VersionSelect>
-                    {versions.map((v, index) => {
-                        return <VersionButton chosen={version === index} key={v.id} onClick={() => setVersion(index)}>{v.name}</VersionButton>
-                    })}
-                </VersionSelect>}
+            {versions.length > 1 ?
+                <Versions>
+                    <Title>Choose version</Title>
+                    <VersionSelect>
+                        {versions.map((v, index) => {
+                            return <VersionButton chosen={version === index} key={v.id} onClick={() => setVersion(index)}>{v.name}</VersionButton>
+                        })}
+                    </VersionSelect>
 
-                <Item>
-                    <CarVersion version={versions[version]} />
-                </Item>
-            </Versions>
-
-            {
-                versions.length === 0 ? <None>
+                    <Item>
+                        <CarVersion version={versions[version]} />
+                    </Item>
+                </Versions> :
+                <None>
                     We don't have any details about this car {props.year ? `from ${props.year}` : ''}
-                </None>
-                    : ''
-            }
-        </Wrapper >
+                </None>}
+        </Wrapper>
     )
 }
 

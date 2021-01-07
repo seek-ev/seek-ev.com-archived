@@ -1,5 +1,8 @@
 import React from 'react'
 
+// Styles
+import { Wrapper } from './styles'
+
 // Components
 import { OwnedCar } from './owned-car'
 import { OwnedCarAddModal } from './owned-car-add-modal'
@@ -18,13 +21,14 @@ const OwnedCars = ({ owned, show, removeVersion, close, add }) => {
     }
 
     return (
-        <div className="user-owned-cars">
-            <div className={owned.length > 0 ? '' : 'cars-hidden'}>{owned.map(o => {
+        <Wrapper className="user-owned-cars">
+            {owned.map(o => {
                 return <OwnedCar car={o} key={o.id} remove={remove} show={show} />
-            })}</div>
-            <div className={owned.length === 0 ? '' : 'cars-hidden'}>Do you own a car? Add it to your profile!</div>
+            })}
+
+            {owned.length === 0 ? 'Do you own a car? Add it to your profile!' : ''}
             <OwnedCarAddModal show={show} close={closeModal} add={addCar} />
-        </div>
+        </Wrapper>
     )
 }
 

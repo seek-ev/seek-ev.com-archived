@@ -19,10 +19,17 @@ const Wrapper = styled.div`
     -webkit-box-shadow: 0px 1px 8px -1px rgba(0,0,0, 0.12);
 `
 
+const WrapperRow = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+`
+
 const CarButton = styled(MdClose)`
     color: ${colors.error};
     cursor: pointer;
     font-size: 26px;
 `
 
-export { Wrapper, CarButton }
+export { Wrapper, WrapperRow, CarButton }

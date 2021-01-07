@@ -31,7 +31,7 @@ const OwnedCarRemoveModal = ({ show, version, close, remove }) => {
     }
 
     return (
-        <Wrapper show={true}>
+        <Wrapper show={show}>
             {!loading ?
                 <ModalContent>
                     <Header>Are you sure that you want to remove this car from owned?</Header>
