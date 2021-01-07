@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { useParams, Redirect } from 'react-router-dom'
 
 // Styles
-import './details.sass'
+import { Wrapper, Verified, VerifiedIcon, RemoveButton, Modal, ModalContent, ModalText, ModalButtons } from './styles'
 
 // Components
 import { Button } from 'components/basic/button'
@@ -39,29 +39,30 @@ const UserCarDetails = ({ verified, onProcessing }) => {
     }
 
     return (
-        <div className="user-car-details">
-            <div className={`user-car-details-verified ${verified ? 'verified' : 'unverified'}`}>
+        <Wrapper className="user-car-details">
+            <Verified display={verified}>
                 {verified ? 'Verified' : 'Unverified'}
-                <div className={`${verified ? 'user-car-details-verified-icon' : 'user-car-hidden'}`}>
+                {verified ? <VerifiedIcon>
                     <MdDone />
-                </div>
-                <div className={`${!verified ? 'user-car-details-verified-icon' : 'user-car-hidden'}`}>
-                    <MdClear />
-                </div>
-            </div>
-            <div className={`user-car-details-remove-button ${verified ? 'user-car-hidden' : ''}`}>
+                </VerifiedIcon> : <VerifiedIcon>
+                        <MdClear />
+                    </VerifiedIcon>}
+            </Verified>
+
+            {verified ? '' : <RemoveButton>
                 <Button text="Remove" raise error onClick={() => setModal(true)} />
-            </div>
-            <div className={`${modal ? 'user-car-details-modal user-car-details-modal-block' : 'user-car-hidden'}`}>
-                <div className="user-car-details-modal-content">
-                    <div className="user-car-details-modal-text">This action is irreversible are you sure?</div>
-                    <div className="user-car-details-modal-buttons">
+            </RemoveButton>}
+
+            <Modal display={modal}>
+                <ModalContent>
+                    <ModalText>This action is irreversible are you sure?</ModalText>
+                    <ModalButtons>
                         <Button text="No" error onClick={() => setModal(false)} />
                         <Button text="Yes" primary onClick={removeCar} />
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </ModalButtons>
+                </ModalContent>
+            </Modal>
+        </Wrapper>
     )
 }
 

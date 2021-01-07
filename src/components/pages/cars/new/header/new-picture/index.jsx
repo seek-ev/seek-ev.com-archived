@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 
 // Styles
-import './picture.sass'
+import { Wrapper, Image, NewButton } from './styles'
 
 // Icons
 import { MdImage, MdEdit } from 'react-icons/md'
@@ -24,14 +24,13 @@ const NewPicture = ({ pictureChange }) => {
     }
 
     return (
-        <div className={`new-picture ${pic ? 'remove-new-border' : ''}`}>
-            <img src={pic ? pic : ''} alt="new_picture" className={pic ? '' : 'hide-new'} />
-            <div className={`new-picture-button ${pic ? 'new-primary' : ''}`} onClick={() => picture.current.click()}>
-                <MdImage className={`${pic ? 'hide-new' : ''}`} />
-                <MdEdit className={`${pic ? '' : 'hide-new'}`} />
+        <Wrapper pic={pic}>
+            {pic ? <Image src={pic ? pic : ''} alt="new_picture" /> : ''}
+            <NewButton pic={pic} onClick={() => picture.current.click()}>
+                {pic ? <MdEdit /> : <MdImage />}
                 <input ref={picture} onChange={upload} type="file" id="new_pic" name="new_pic" accept="image/png, image/jpeg" />
-            </div>
-        </div>
+            </NewButton>
+        </Wrapper>
     )
 }
 
