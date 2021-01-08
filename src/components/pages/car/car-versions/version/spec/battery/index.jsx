@@ -12,25 +12,26 @@ const SpecBattery = (props) => {
 
     return (
         <SpecItem show={props.battery}>
-            <SpecItemContentTitle className="car-version-spec-item-title">
+            <SpecItemContentTitle>
                 Battery
             </SpecItemContentTitle>
-            <SpecItemContentRow className="car-version-spec-item-content-row">
-                <VersionMarginRight className="version-mr-12">
-                    <SpecItemContentItem className="car-version-spec-item-content-item">
+            <SpecItemContentRow>
+                <VersionMarginRight >
+                    <SpecItemContentItem>
                         <span>Capacity:</span> {battery.capacity}kw
                     </SpecItemContentItem>
-                    <SpecItemContentItem className="car-version-spec-item-content-item">
+                    <SpecItemContentItem>
                         <span>Usable:</span> {battery.usableCapacity}kw
                     </SpecItemContentItem>
                 </VersionMarginRight>
                 <VersionNoMaring>
-                    <SpecItemContentItem className={`${battery.type ? 'car-version-spec-item-content-item' : 'car-version-item-hidden'}`}>
+                    {battery.type ? <SpecItemContentItem>
                         <span>Type:</span> {battery.type}
-                    </SpecItemContentItem>
-                    <SpecItemContentItem className={`${battery.cooling ? 'car-version-spec-item-content-item' : 'car-version-item-hidden'}`}>
+                    </SpecItemContentItem> : ''}
+
+                    {battery.cooling ? <SpecItemContentItem>
                         <span>Cooling:</span> {battery.cooling}
-                    </SpecItemContentItem>
+                    </SpecItemContentItem> : ''}
                 </VersionNoMaring>
             </SpecItemContentRow>
         </SpecItem>

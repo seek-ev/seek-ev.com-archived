@@ -105,7 +105,7 @@ const NewCarPage = () => {
     }
 
     return (
-        <Container className="container">
+        <Container>
             <Helmet>
                 <title>New car? Yes!</title>
             </Helmet>

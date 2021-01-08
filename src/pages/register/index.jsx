@@ -144,7 +144,7 @@ const RegisterPage = () => {
     }
 
     return (
-        <Wrapper className="register-container">
+        <Wrapper>
             <Helmet>
                 <title>Register</title>
 

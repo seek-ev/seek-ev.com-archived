@@ -21,7 +21,7 @@ const OwnedCars = ({ owned, show, removeVersion, close, add }) => {
     }
 
     return (
-        <Wrapper className="user-owned-cars">
+        <Wrapper>
             {owned.map(o => {
                 return <OwnedCar car={o} key={o.id} remove={remove} show={show} />
             })}

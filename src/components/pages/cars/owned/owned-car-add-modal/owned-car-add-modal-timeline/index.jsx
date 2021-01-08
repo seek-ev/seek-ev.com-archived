@@ -52,7 +52,7 @@ const OwnedCarAddModalTimeline = (props) => {
     }, [props.car, dispatch])
 
     return (
-        <Wrapper className="chosen-car">
+        <Wrapper>
             {loading ? <Loading>
                 <div></div>
                 <div></div>

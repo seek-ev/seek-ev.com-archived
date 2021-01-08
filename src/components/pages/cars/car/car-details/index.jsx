@@ -39,7 +39,7 @@ const UserCarDetails = ({ verified, onProcessing }) => {
     }
 
     return (
-        <Wrapper className="user-car-details">
+        <Wrapper>
             <Verified verified={verified}>
                 {verified ? 'Verified' : 'Unverified'}
                 {verified ? <VerifiedIcon>

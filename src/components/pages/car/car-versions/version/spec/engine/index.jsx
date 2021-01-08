@@ -16,7 +16,7 @@ const SpecEngine = (props) => {
                 Engine
             </SpecItemContentTitle>
             <SpecItemContentRow>
-                <VersionMarginRight className="version-mr-12">
+                <VersionMarginRight>
                     <SpecItemContentItem>
                         <span>Power in kw:</span> {engine.kw}
                     </SpecItemContentItem>

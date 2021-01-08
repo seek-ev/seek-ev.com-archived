@@ -27,12 +27,12 @@ const CarTimeline = (props) => {
     }
 
     return (
-        <Wrapper className="car-timeline">
-            {timeline && timeline.length > 0 ? <HeaderWrapper> <Header className="car-timeline-header">
-                <Title className="car-timeline-header-title">
+        <Wrapper>
+            {timeline && timeline.length > 0 ? <HeaderWrapper> <Header>
+                <Title>
                     Choose production year
                     </Title>
-                <HeaderSelect className="car-timeline-header-select">
+                <HeaderSelect>
                     <Select name="timeline" options={timeline} display="year" value="id" onChange={onTimelineChange} />
                 </HeaderSelect>
             </Header>

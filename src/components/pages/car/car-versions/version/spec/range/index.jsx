@@ -16,7 +16,7 @@ const SpecRange = (props) => {
                 Range
             </SpecItemContentTitle>
             <SpecItemContentRow>
-                <VersionMarginRight className="version-mr-12">
+                <VersionMarginRight>
                     <SpecItemContentItem>
                         <span>EPA Km:</span> {range.epa.km}
                     </SpecItemContentItem>
