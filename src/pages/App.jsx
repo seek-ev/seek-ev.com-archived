@@ -12,7 +12,7 @@ import { UserPage } from 'pages/user'
 import { LoginPage } from 'pages/login'
 import { BrandPage } from 'pages/brand'
 import NotFound from 'pages/404'
-import UserCars from 'pages/cars'
+import { CarsPage } from 'pages/cars'
 import { NewCarPage } from 'pages/cars/new'
 import { UserCarPage } from 'pages/cars/_id'
 import { RegisterPage } from 'pages/register'
@@ -39,7 +39,7 @@ class App extends React.Component {
           <Route exact path="/b/:name" component={BrandPage} />
           <Route exact path="/u/:username" component={UserPage} />
           <PublicRoute exact path="/login" component={LoginPage} />
-          <PrivateRoute exact path="/cars" component={UserCars} />
+          <PrivateRoute exact path="/cars" component={CarsPage} />
           <PrivateRoute exact path="/cars/new" component={NewCarPage} />
           <PrivateRoute exact path="/cars/:id" component={UserCarPage} />
           <PublicRoute exact path="/register" component={RegisterPage} />
