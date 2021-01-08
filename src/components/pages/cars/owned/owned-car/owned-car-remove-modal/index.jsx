@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import axios from 'axios'
 
 // Styles
-import { Wrapper, ModalContent, Header, Buttons, ButtonMl, LoadingWrapper } from './styles'
+import { Wrapper, ModalContent, Header, Buttons, ButtonMl, LoadingWrapper, Loading } from './styles'
 
 // Components
 import { Button } from 'components/basic/button'
@@ -44,7 +44,7 @@ const OwnedCarRemoveModal = ({ show, version, close, remove }) => {
                 </ModalContent>
                 :
                 <LoadingWrapper>
-                    <div className='modal-loading'></div>
+                    <Loading />
                 </LoadingWrapper>
             }
 
