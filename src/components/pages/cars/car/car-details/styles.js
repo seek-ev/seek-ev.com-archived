@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 
 // Assets
-import { maxSize } from 'assets/variables'
+import { maxSize, colors } from 'assets/variables'
 
 const Wrapper = styled.div`
     display: flex;
@@ -24,6 +24,8 @@ const Verified = styled.div`
     @media only screen and (max-width: ${maxSize.medium}) {
         justify-content: center; 
     }
+
+    ${props => props.verified ? `color: ${colors.primary};` : `color: ${colors.error};`}
 `
 
 const VerifiedIcon = styled.div`
