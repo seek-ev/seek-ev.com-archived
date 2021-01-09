@@ -28,6 +28,9 @@ const LoginPage = () => {
     const onSubmit = async (e) => {
         e.preventDefault()
 
+        if (!email) return await setEmailError('Email is required')
+        if (!password) return await setPasswordError('Password is required')
+
         // Validate before submitting
         await handleEmailValidation()
         await handlePasswordValidation()
