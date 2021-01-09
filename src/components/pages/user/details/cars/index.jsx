@@ -16,7 +16,7 @@ const DetailsCars = (props) => {
     return (
         <Wrapper>
             {cars.length > 0 ? <Cars>{cars.map((c) => <DetailsCar car={c} key={c.id} />)}</Cars>
-                : <NotFound>User haven't added any cars yet</NotFound>}
+                : <NotFound>User doesn't own any cars</NotFound>}
         </Wrapper>
     )
 }

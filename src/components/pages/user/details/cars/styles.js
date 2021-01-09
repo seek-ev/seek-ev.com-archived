@@ -44,6 +44,7 @@ const Cars = styled.div``
 const NotFound = styled.div`
     width: 100%;
     text-align: center;
+    margin: 4px 0 0;
     font-size: 17px;
     font-weight: 500;
     font-family: 'Roboto', sans-serif;
