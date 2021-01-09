@@ -109,7 +109,7 @@ const DropdownItem = styled(Link)`
         }
     }
 
-    ${props => props.disabled ? `
+    ${props => props.$disabled ? `
         color: #747474 !important;
         pointer-events: none;
 
@@ -122,11 +122,11 @@ const DropdownItem = styled(Link)`
         }
     ` : ''}
 
-    ${props => props.history ? `
+    ${props => props.$history ? `
         font-size: 12px;
         font-weight: 500;
         padding: 4px 4px;
-    ` : '`'}
+    ` : ''}
 `
 
 const Info = styled.div`

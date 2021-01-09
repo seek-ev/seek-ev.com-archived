@@ -59,15 +59,16 @@ const SearchBar = () => {
     }
 
     const saveHistory = (e) => {
-        if (e.currentTarget.children[1] && e.currentTarget.children[1].className === 'search-desc') {
+        if (e.currentTarget.children[1] && e.currentTarget.children[1].innerText) {
             const type = e.currentTarget.children[1].innerText
             const path = e.currentTarget.pathname
             const id = path.replace(('/b'), '').replace('/u', '').replace('/', '')
             const name = e.currentTarget.children[0].children[1].innerText
             const history = JSON.parse(localStorage.getItem('s_history'))
             let avatar
+            console.log((e.currentTarget.children[0].children[0]))
 
-            if (e.currentTarget.children[0].children[0].className === 'search-avatar' && e.currentTarget.children[0].children[0].currentSrc) avatar = e.currentTarget.children[0].children[0].currentSrc
+            if (e.currentTarget.children[0].children[0] && e.currentTarget.children[0].children[0].currentSrc) avatar = e.currentTarget.children[0].children[0].currentSrc
             else if (e.currentTarget.children[0].children[0].className.split(' ')) avatar = e.currentTarget.children[0].children[0].currentSrc
             else avatar = 'se_dark.png'
 
@@ -128,8 +129,8 @@ const SearchBar = () => {
             {results.length > 0 && show ? <Dropdown >
                 {results.map((value) => {
                     return <DropdownItem
-                        disabled={value.disabled}
-                        history={value.history}
+                        $disabled={value.disabled}
+                        $history={value.history}
                         onClick={saveHistory}
                         to={`/${value.model ? value.model : value.shortName ? 'b/' + value.shortName : value.username ? 'u/' + value.username : ''}`}
                         key={(value.id ? value.id : 0) + (value.shortName ? value.shortName : value.model ? value.model : value.username ? value.username : value.text)}
