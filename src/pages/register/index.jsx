@@ -35,108 +35,114 @@ const RegisterPage = () => {
     const onSubmit = async (e) => {
         e.preventDefault()
 
-        // Validate before submitting
-        await handleUsernameValidation()
-        await handleEmailValidation()
-        await handlePasswordValidation()
-        await handleRepeatPasswordValidation()
 
-        if (!usernameError && !emailError && !passwordError && !repeatPasswordError) {
-            await setDisabled(true)
+        if (!username) return await setUsernameError('Username required')
+        if (!email) return await setEmailError('Email required')
+        if (!password) return await setPasswordError('Password required')
+        if (!repeatPassword) return await setRepeatPasswordError('You have to repeat your password')
 
-            await axios.post('/users', {
-                username,
-                email,
-                password
-            }).then(async () => {
-                await axios.post('/auth/login/tester', { email, password }, { withCredentials: true }).then(res => {
-                    setRedirect('/')
-                    dispatch(loginUser(res.data.data, res.data.access_token))
-                    dispatch(showSnackbar('Welcome to Seek EV!', 'success'))
-                }).catch(err => {
-                    dispatch(showSnackbar(err, 'error'))
-                })
-            }).catch(async err => {
-                // Check if error includes username/email
-                if (err.response) {
-                    console.log(err.response.error)
-                    if (err.response.data.error.includes('Username')) {
-                        setUsernameError('Username already taken')
-                    }
+        if (usernameError) return
+        if (emailError) return
+        if (passwordError) return
+        if (repeatPasswordError) return
 
-                    if (err.response.data.error.includes('Email')) {
-                        setEmailError('Email already taken')
-                    }
-                }
-                await setDisabled(false)
-                await dispatch(showSnackbar(err, 'error'))
+        await setDisabled(true)
+
+        await axios.post('/users', {
+            username,
+            email,
+            password
+        }).then(async () => {
+            await axios.post('/auth/login/tester', { email, password }, { withCredentials: true }).then(res => {
+                setRedirect('/')
+                dispatch(loginUser(res.data.data, res.data.access_token))
+                dispatch(showSnackbar('Welcome to Seek EV!', 'success'))
+            }).catch(err => {
+                dispatch(showSnackbar(err, 'error'))
             })
-        }
+        }).catch(async err => {
+            // Check if error includes username/email
+            if (err.response) {
+                if (err.response.data.error.includes('Username')) {
+                    setUsernameError('Username already taken')
+                }
+
+                if (err.response.data.error.includes('Email')) {
+                    setEmailError('Email already taken')
+                }
+            }
+
+            await setDisabled(false)
+            await dispatch(showSnackbar(err, 'error'))
+        })
+
     }
 
     const onUsernameChange = async (e) => {
         await setUsername(e)
-        await handleUsernameValidation()
+        await handleUsernameValidation(e)
     }
 
     const onEmailChange = async (e) => {
         await setEmail(e)
-        await handleEmailValidation()
+        await handleEmailValidation(e)
     }
 
     const onPasswordChange = async (e) => {
         await setPassword(e)
-        await handlePasswordValidation()
+        await handlePasswordValidation(e)
     }
 
     const onRepeatPasswordChange = async (e) => {
         await setRepeatPassword(e)
-        await handleRepeatPasswordValidation()
+        await handleRepeatPasswordValidation(e)
     }
 
-    const handleUsernameValidation = () => {
+    async function handleUsernameValidation(name) {
         const reg = new RegExp(/[^\x20-\x7E]+/g)
-        if (reg.test(username)) {
-            setUsernameError('Remove invalid characters')
+        if (await reg.test(name)) {
+            return await setUsernameError('Remove invalid characters')
         } else {
-            setUsernameError(false)
+            await setUsernameError(false)
         }
 
-        if (username.length < 4) setUsernameError('Username too short')
+        if (name.length < 4) return await setUsernameError('Username too short')
     }
 
-    const handleEmailValidation = () => {
+    async function handleEmailValidation(em) {
         const reg = new RegExp((/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/))
-        if (!reg.test(email)) {
-            setEmailError('Incorrect email')
+        if (!reg.test(em)) {
+            return setEmailError('Incorrect email')
         } else {
             setEmailError(false)
         }
 
-        if (email.length < 6) setEmailError('Email is required')
+        if (em.length < 6) return setEmailError('Email is required')
     }
 
-    const handlePasswordValidation = () => {
+    async function handlePasswordValidation(passwd) {
         const reg = new RegExp(/[A-Z]+/)
 
-        if (password.length < 8) {
-            setPasswordError("Too short, at least 8 characters")
+        if (passwd.length < 8) {
+            return setPasswordError("Too short, at least 8 characters")
         } else {
             setPasswordError(false)
-            if (!reg.test(password)) {
-                setPasswordError('Missing at least one capital letter')
+            if (!reg.test(passwd)) {
+                return setPasswordError('Missing at least one capital letter')
             } else {
                 setPasswordError(false)
             }
         }
     }
 
-    const handleRepeatPasswordValidation = () => {
-        if (repeatPassword !== password) {
-            setRepeatPasswordError("Passwords doesn't match")
+    async function handleRepeatPasswordValidation(rep) {
+        if (rep !== password) {
+            return setRepeatPasswordError("Passwords doesn't match")
         } else {
             setRepeatPasswordError(false)
         }
+
+        if (rep.length < 8) return setRepeatPasswordError('You have to repeat your password')
     }
 
     if (redirect) {

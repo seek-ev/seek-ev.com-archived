@@ -8,25 +8,26 @@ import { Input } from 'components/basic/input'
 import { Button } from 'components/basic/button'
 
 const RegisterForm = (props) => {
-    const handleSubmit = (e) => {
-        props.onSubmit(e.target)
-        e.preventDefault()
+    const handleSubmit = async (e) => {
+        await props.onSubmit(e.target)
+        await e.preventDefault()
     }
 
-    const handleUsernameInputChange = (e) => {
-        props.onUsernameChange(e.value)
+    const handleUsernameInputChange = async (e) => {
+        console.log(e.value)
+        await props.onUsernameChange(e.value)
     }
 
-    const handleEmailInputChange = (e) => {
-        props.onEmailChange(e.value)
+    const handleEmailInputChange = async (e) => {
+        await props.onEmailChange(e.value)
     }
 
-    const handlePasswordInputChange = (e) => {
-        props.onPasswordChange(e.value)
+    const handlePasswordInputChange = async (e) => {
+        await props.onPasswordChange(e.value)
     }
 
-    const handlePasswordRepeatInputChange = (e) => {
-        props.onRepeatPasswordChange(e.value)
+    const handlePasswordRepeatInputChange = async (e) => {
+        await props.onRepeatPasswordChange(e.value)
     }
 
     return (
