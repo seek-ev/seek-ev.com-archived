@@ -1,23 +1,23 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 
 // Component
 import { Input } from 'components/basic/input'
 
 describe('Input Component', () => {
-    it('Render input with proper class', () => {
+    it('Render input correctly', () => {
         const input = shallow(<Input />)
-        expect(input.find('.seek-input')).toHaveLength(1)
+        expect(input).toMatchSnapshot()
     })
 
     it('Display placeholder', () => {
-        const input = shallow(<Input placeholder="test" />)
+        const input = mount(<Input placeholder="test" />)
         expect(input.find('input').html()).toMatch('placeholder="test"')
     })
 
     it('onChange event', () => {
         const mockCallback = jest.fn()
-        const input = shallow(<Input onChange={mockCallback} />)
+        const input = mount(<Input onChange={mockCallback} />)
         input.find('input').simulate('change', { target: 'value' })
         expect(mockCallback).toBeCalledWith('value')
     })
@@ -64,17 +64,17 @@ describe('Input Component', () => {
     })
 
     it('Valid props', () => {
-        const input = shallow(<Input valid />)
-        expect(input.find('.valid-input')).toHaveLength(1)
+        const input = mount(<Input valid />)
+        expect(input.find('input')).toHaveStyleRule('border', '2px solid rgba(30, 211, 93, 0.9)')
     })
 
     it('Round props', () => {
-        const input = shallow(<Input round />)
-        expect(input.find('.round-input')).toHaveLength(1)
+        const input = mount(<Input round />)
+        expect(input).toHaveStyleRule('border-radius', '16px')
     })
 
     it('Required props', () => {
-        const input = shallow(<Input required />)
+        const input = mount(<Input required />)
         expect(input.find('input').html()).toMatch('required')
     })
 })
