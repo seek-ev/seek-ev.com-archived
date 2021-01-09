@@ -3,10 +3,7 @@ import { useDispatch } from 'react-redux'
 import axios from 'axios'
 
 // Styles
-import { Username, UsernameInput, Icon, CloseIcon, SaveIcon } from './styles'
-
-// Components
-import { Input } from 'components/basic/input'
+import { Username, UsernameInput, Icon, CloseIcon, SaveIcon, SettingsInput } from './styles'
 
 // Icons
 import { MdModeEdit } from 'react-icons/md'
@@ -39,11 +36,13 @@ const SettingsProfileUsername = ({ username }) => {
     }
 
     const saveUsername = async () => {
-        if (username === currentUsername) return setError('Mate, that\'s already your username')
+        console.log(usernameState.length)
+        if (usernameState.length < 4) return setError('Oops, at least 4 letters mate')
+        if (usernameState === currentUsername) return setError('Mate, that\'s already your username')
 
-        await axios.patch('/users', { username }).then(res => {
-            setCurrentUsername(username)
-            dispatch(setStateUsername(username))
+        await axios.patch('/users', { usernameState }).then(res => {
+            setCurrentUsername(usernameState)
+            dispatch(setStateUsername(usernameState))
             dispatch(showSnackbar('Username changed', 'success'))
         }).catch(err => {
             setUsername(currentUsername)
@@ -56,7 +55,7 @@ const SettingsProfileUsername = ({ username }) => {
     return (
         <Username>
             <UsernameInput>
-                <Input className="settings-input" name='username' type="text" placeholder="Username" autoComplete='off' value={usernameState || ''} onChange={onUsernameChange} disabled={!editing} error={error} />
+                <SettingsInput name='username' type="text" placeholder="Username" autoComplete='off' value={usernameState || ''} onChange={onUsernameChange} disabled={!editing} error={error} />
             </UsernameInput>
 
             {editing ? <Icon>

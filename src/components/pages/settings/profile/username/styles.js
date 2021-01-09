@@ -3,6 +3,9 @@ import styled from 'styled-components/macro'
 // Variables
 import { maxSize, colors } from 'assets/variables'
 
+// Components
+import { Input } from 'components/basic/input'
+
 // Icons
 import { MdClose, MdSave } from 'react-icons/md'
 
@@ -29,9 +32,6 @@ const UsernameInput = styled.div`
     margin: 10px 0 0;
     font-weight: 500;
 
-    .settings-input {
-        background-image: none !important
-    }
 `
 const Icon = styled.div`
     margin: 0 6px;
@@ -44,8 +44,12 @@ const CloseIcon = styled(MdClose)`
 `
 
 const SaveIcon = styled(MdSave)`
-    color: ${colors.primary}
+    color: ${colors.primary};
+`
+
+const SettingsInput = styled(Input)`
+  background-image: none !important;
 `
 
 
-export { Username, UsernameTitle, UsernameInput, Icon, CloseIcon, SaveIcon }
+export { Username, UsernameTitle, UsernameInput, Icon, CloseIcon, SaveIcon, SettingsInput }
