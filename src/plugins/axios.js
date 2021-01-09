@@ -28,6 +28,8 @@ axios.interceptors.response.use(
             return Promise.reject(error)
         }
 
+        if (error.response.status === 401 && originalRequest.url === '/auth/reset-confirm') return Promise.reject('Token expired')
+
         if (
             error.response.status === 401 &&
             originalRequest.url === '/auth/refresh'

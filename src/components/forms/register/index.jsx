@@ -14,7 +14,6 @@ const RegisterForm = (props) => {
     }
 
     const handleUsernameInputChange = async (e) => {
-        console.log(e.value)
         await props.onUsernameChange(e.value)
     }
 

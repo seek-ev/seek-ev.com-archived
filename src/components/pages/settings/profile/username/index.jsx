@@ -36,7 +36,6 @@ const SettingsProfileUsername = ({ username }) => {
     }
 
     const saveUsername = async () => {
-        console.log(usernameState.length)
         if (usernameState.length < 4) return setError('Oops, at least 4 letters mate')
         if (usernameState === currentUsername) return setError('Mate, that\'s already your username')
 

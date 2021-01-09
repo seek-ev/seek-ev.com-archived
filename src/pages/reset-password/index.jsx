@@ -30,13 +30,12 @@ const ResetPasswordPage = () => {
 
         if (!emailError && email.length > 6) {
             setDisabled(true)
-
             await axios.post(`/auth/reset/${email}`).then(res => {
                 dispatch(showSnackbar('Email successfully sent', 'success'))
                 setRedirect('/reset-password/success')
             }).catch(err => {
                 setDisabled(false)
-                dispatch(showSnackbar(err.response ? err.response.data.message ? err.response.data.message : err.response.data : err.toString(), 'error'))
+                dispatch(showSnackbar(err, 'error'))
             })
         }
     }

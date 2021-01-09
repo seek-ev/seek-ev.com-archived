@@ -66,7 +66,6 @@ const SearchBar = () => {
             const name = e.currentTarget.children[0].children[1].innerText
             const history = JSON.parse(localStorage.getItem('s_history'))
             let avatar
-            console.log((e.currentTarget.children[0].children[0]))
 
             if (e.currentTarget.children[0].children[0] && e.currentTarget.children[0].children[0].currentSrc) avatar = e.currentTarget.children[0].children[0].currentSrc
             else if (e.currentTarget.children[0].children[0].className.split(' ')) avatar = e.currentTarget.children[0].children[0].currentSrc

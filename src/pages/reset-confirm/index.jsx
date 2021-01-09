@@ -33,13 +33,11 @@ const ResetConfirmPage = () => {
     const onSubmit = async (e) => {
         e.preventDefault()
 
-        // Validate before submitting
-        await handlePasswordValidation()
-        await handleRepeatPasswordValidation()
+        if (!password) return await setPasswordError('Password is required')
+        if (!repeatPassword) return await setRepeatPasswordError('You have to repeat your password!')
 
-        if ((!passwordError && !repeatPasswordError) && (password.length > 8 && repeatPassword.length > 8)) {
+        if (!passwordError && !repeatPasswordError) {
             setDisabled(true)
-
             await axios.post(`/auth/reset-confirm`, {
                 password: password
             },
@@ -52,29 +50,29 @@ const ResetConfirmPage = () => {
                     setRedirect('/reset/success')
                 }).catch(err => {
                     setDisabled(false)
-                    dispatch(showSnackbar((err.response && err.response.status === 401) ? 'Token expired' : err, 'error'))
+                    dispatch(showSnackbar(err, 'error'))
                 })
         }
     }
 
     const onPasswordChange = async (e) => {
         await setPassword(e)
-        await handlePasswordValidation()
+        await handlePasswordValidation(e)
     }
 
     const onPasswordRepeatChange = async (e) => {
         await setRepeatPassword(e)
-        await handleRepeatPasswordValidation()
+        await handleRepeatPasswordValidation(e)
     }
 
-    const handlePasswordValidation = () => {
+    const handlePasswordValidation = (passwd) => {
         const reg = new RegExp(/[A-Z]+/)
 
-        if (password.length < 8) {
+        if (passwd.length < 8) {
             setPasswordError("Too short, at least 8 characters")
         } else {
             setPasswordError(false)
-            if (!reg.test(password)) {
+            if (!reg.test(passwd)) {
                 setPasswordError('Missing at least one capital letter')
             } else {
                 setPasswordError(false)
@@ -82,12 +80,14 @@ const ResetConfirmPage = () => {
         }
     }
 
-    const handleRepeatPasswordValidation = () => {
-        if (repeatPassword !== password) {
-            setRepeatPasswordError("Passwords doesn't match")
+    const handleRepeatPasswordValidation = async (rep) => {
+        if (rep !== password) {
+            await setRepeatPasswordError("Passwords doesn't match")
         } else {
-            setRepeatPasswordError(false)
+            await setRepeatPasswordError(false)
         }
+
+        if (rep.length < 8) return setRepeatPasswordError('You have to repeat your password')
     }
 
     if (redirect) {
@@ -100,7 +100,7 @@ const ResetConfirmPage = () => {
                 <title>Confirm password reset</title>
             </Helmet>
 
-            <ResetConfirm disabled={disabled} passwordError={passwordError} passwordRepeatError={repeatPasswordError} onPasswordChange={onPasswordChange} onPasswordRepeatChange={onPasswordRepeatChange} onSubmit={onSubmit} />
+            <ResetConfirm disabled={disabled} passwordError={passwordError} repeatPasswordError={repeatPasswordError} onPasswordChange={onPasswordChange} onPasswordRepeatChange={onPasswordRepeatChange} onSubmit={onSubmit} />
         </Wrapper>
     )
 }

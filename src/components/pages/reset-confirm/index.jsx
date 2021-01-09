@@ -16,7 +16,7 @@ const ResetConfirm = ({ disabled, passwordError, repeatPasswordError, onPassword
                 Set your new password
             </Title>
             <Form>
-                <ResetConfirmForm disabled={disabled} passwordError={passwordError} passwordRepeatError={repeatPasswordError} onPasswordChange={onPasswordChange} onRepeatPasswordChange={onPasswordRepeatChange} onSubmit={onSubmit} />
+                <ResetConfirmForm disabled={disabled} passwordError={passwordError} repeatPasswordError={repeatPasswordError} onPasswordChange={onPasswordChange} onRepeatPasswordChange={onPasswordRepeatChange} onSubmit={onSubmit} />
             </Form>
         </Container>
     )
