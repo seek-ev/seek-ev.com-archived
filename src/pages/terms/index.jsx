@@ -13,7 +13,7 @@ const TermsPage = () => {
         <Wrapper>
             <Helmet>
                 <title>Terms of Service</title>
-                <description>Seek EV Terms of Service</description>
+                <meta property="description" content="Seek EV Terms of Service" />
 
                 <meta property="og:title" content="Terms of Service" />
                 <meta property="og:description" content="Seek EV Terms of Service" />

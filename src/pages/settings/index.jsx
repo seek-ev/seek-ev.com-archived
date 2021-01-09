@@ -49,7 +49,7 @@ const SettingsPage = () => {
         <Wrapper>
             <Helmet>
                 <title>{`Settings - ${item.charAt(0).toUpperCase() + item.slice(1)}`}</title>
-                <description>Your settings</description>
+                <meta property="description" content="Your settings" />
 
                 <meta property="og:title" content="Settings" />
                 <meta property="og:description" content="Your settings" />
