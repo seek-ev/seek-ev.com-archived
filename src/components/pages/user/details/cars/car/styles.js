@@ -70,7 +70,7 @@ const InfoWrapper = styled.div`
     height: 100%;
     width: 100%;
     display: flex;
-    padding: 10px 10px 10px 16px;
+    padding: 10px 10px 4px 10px;
     flex-direction: row;
     justify-content: space-between;
     font-family: 'Roboto', sans-serif;
@@ -86,6 +86,8 @@ const Info = styled.div`
     justify-content: space-between;
 `
 
+const InfoDetails = styled.div``
+
 const Detail = styled.div`
     font-size: 18px;
     opacity: 0.7;
@@ -97,7 +99,8 @@ const Model = styled.div`
 `
 
 const Category = styled.div`
-    color: ${colors.primary}
+    font-size:20px;
+    color: ${colors.primary};
 `
 
-export { DetailsLink, Wrapper, Picture, InfoWrapper, Info, Detail, Model, Category }
+export { DetailsLink, Wrapper, Picture, InfoWrapper, Info, InfoDetails, Detail, Model, Category }

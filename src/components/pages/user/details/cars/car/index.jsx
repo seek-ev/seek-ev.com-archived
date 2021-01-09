@@ -1,28 +1,28 @@
 import React from 'react'
 
 // Styles
-import { DetailsLink, Wrapper, Picture, InfoWrapper, Info, Detail, Model, Category } from './styles'
+import { DetailsLink, Wrapper, Picture, InfoWrapper, Info, InfoDetails, Detail, Model, Category } from './styles'
 
 const DetailsCar = ({ car }) => {
     return (
-        <DetailsLink to={`/${car.model}`} >
+        <DetailsLink to={`/${car.version.timeline.car.model}`} >
             <Wrapper>
                 <Picture>
-                    <img src={car.pictures.length > 0 ? car.pictures[0].url : '/se_dark.png'} onError={(e) => { e.target.onerror = null; e.target.src = '/se_dark.png' }} alt={`car-${car.id}`} />
+                    <img src={car.version.timeline.car.pictures.length > 0 ? car.version.timeline.car.pictures[0].url : '/se_dark.png'} onError={(e) => { e.target.onerror = null; e.target.src = '/se_dark.png' }} alt={`car-${car.id}`} />
                 </Picture>
                 <InfoWrapper>
                     <Info>
-                        <div>
+                        <InfoDetails>
                             <Model>
-                                {car.model}
+                                {car.version.timeline.car.model} {car.version.name}
                             </Model>
                             <Detail>
-                                {car.productionYears}
+                                {car.version.timeline.year}
                             </Detail>
-                        </div>
-                        {car.category ? <Category>{car.category.name}</Category> : ''}
+                        </InfoDetails>
+                        {car.version.timeline.car.category ? <Category>{car.version.timeline.car.category.name}</Category> : ''}
                     </Info>
-                    {car.brand ? <Detail>{car.brand.shortName}</Detail> : ''}
+                    {car.version.timeline.car.brand ? <Detail>{car.version.timeline.car.brand.shortName}</Detail> : ''}
                 </InfoWrapper>
             </Wrapper>
         </DetailsLink>

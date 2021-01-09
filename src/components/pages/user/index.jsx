@@ -22,7 +22,7 @@ const User = ({ item, user, onItemChange }) => {
             </Header>
             <Details>
                 <DetailsMenu baseItem={item} itemChange={onItemChange} />
-                <DetailsCars cars={user.cars} />
+                <DetailsCars cars={user.ownedCars} />
             </Details>
         </Wrapper>
     )
