@@ -15,7 +15,7 @@ import { UserCarComponent } from 'components/pages/cars/car'
 import { showSnackbar } from 'actions/snackbar'
 
 const UserCarPage = () => {
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     const [processing, setProcessing] = useState(false)
     const user = useSelector(state => state.user)
     const [car, setCar] = useState({})

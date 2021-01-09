@@ -16,11 +16,11 @@ import { User } from 'components/pages/user'
 import { showSnackbar } from 'actions/snackbar'
 
 const UserPage = () => {
-    const [user, setUser] = useState({})
-    const [item, setItem] = useState('cars')
     const [loading, setLoading] = useState(true)
-    const params = useParams()
+    const [item, setItem] = useState('cars')
+    const [user, setUser] = useState({})
     const dispatch = useDispatch()
+    const params = useParams()
 
     const onItemChange = (item) => {
         setItem(item)
