@@ -40,7 +40,7 @@ const Avatar = styled.div`
     }
 
     :hover ${AvatarIcon} {
-        opacity: 1
+        opacity: 1;
     }
 `
 

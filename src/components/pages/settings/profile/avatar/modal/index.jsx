@@ -72,7 +72,7 @@ const AvatarModal = ({ handleClose, show, avatar }) => {
                 </Header>
 
                 <AvatarContent>
-                    <Avatar opacity={loading}>
+                    <Avatar opa={loading}>
                         <img src={avatarUrl || ''} alt="new_avatar" />
 
                         {loading ? <Loading /> : ''}

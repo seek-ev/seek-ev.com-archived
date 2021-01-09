@@ -51,7 +51,7 @@ const Close = styled.div`
     font-size: 28px;
     color: ${colors.error};
 
-    ${props => props.disabled ? 'pointer-events: none' : ''}
+    ${props => props.disabled ? 'pointer-events: none;' : ''}
 `
 
 const AvatarContent = styled.div`
@@ -70,11 +70,8 @@ const Avatar = styled.div`
         height: 100%;
         object-fit: cover;
         border-radius: 50%;   
+        opacity: ${props => props.opa ? '0.7' : '1'};
     }
-
-    ${props => props.opacity ? `
-        img { opacity: 0.7; }
-    ` : ''}
 `
 
 const ModalButton = styled.div`
