@@ -6,7 +6,7 @@ const Wrapper = styled.div`
 `
 
 const SInput = styled.input`
-  width: 100%;
+    width: 100%;
     outline: none;
     font-size: 16px;
     font-weight: 500;
@@ -156,7 +156,7 @@ const SInput = styled.input`
         }
     ` : ''}
 
-    ${props => props.valid ? 'border: 2px solid rgba(30, 211, 93, 0.9)' : ''}
+    ${props => props.valid ? 'border: 2px solid rgba(30, 211, 93, 0.9);' : ''}
 
     ${props => props.round ? `
         padding: 7px 9px;

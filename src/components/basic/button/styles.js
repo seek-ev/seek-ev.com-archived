@@ -115,7 +115,7 @@ const Wrapper = styled.button`
         }
     ` : ''}
 
-    ${props => props.round ? 'border-radius: 16px' : ''}
+    ${props => props.round ? 'border-radius: 16px;' : ''}
 `
 
 export { Wrapper }
