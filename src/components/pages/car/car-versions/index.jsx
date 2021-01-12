@@ -17,7 +17,7 @@ const CarVersions = (props) => {
 
     return (
         <Wrapper>
-            {versions.length > 1 ?
+            {versions.length > 0 ?
                 <Versions>
                     <Title>Choose version</Title>
                     <VersionSelect>
