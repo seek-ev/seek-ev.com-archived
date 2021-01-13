@@ -17,7 +17,7 @@ const Home = () => {
   const [cars, setCars] = useState([])
   const [allCars, setAllCars] = useState([])
   const [stateFilters, setFilters] = useState([{ text: 'all', type: 'model' }, { text: 'all', type: 'category' }, { text: 'all', type: 'brand' }])
-  const [brands, setBrands] = useState([{ id: 'none', value: 'id', name: 'All brands' }])
+  const [brands, setBrands] = useState([{ id: 'none', value: 'id', name: 'All brands', shortName: 'All brands' }])
   const [categories, setCategories] = useState([{ id: 'none', value: 'id', name: 'All categories' }])
   const [loading, setLoading] = useState(false)
   const [loaded, setLoaded] = useState(false)
