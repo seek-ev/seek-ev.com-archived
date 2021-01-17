@@ -18,24 +18,24 @@ const SpecEnergyUsage = (props) => {
             <SpecItemContentRow>
                 <VersionMarginRight>
                     {energyUsage.mi ? <SpecItemContentItem>
-                        <span>Per mi:</span> {energyUsage.mi}wh
+                        {energyUsage.mi}<span> wh per mile</span>
                     </SpecItemContentItem>
                         : ''}
                     {energyUsage.km ? <SpecItemContentItem>
-                        <span>Per km:</span> {energyUsage.km}wh
+                        {energyUsage.km}<span> wh per km</span>
                     </SpecItemContentItem>
                         : ''}
                 </VersionMarginRight>
                 <VersionNoMaring>
                     <SpecItemContentItem>
-                        <span>Per 100 mi:</span> {energyUsage.mi_100}wh
+                        {energyUsage.mi_100 > 999 ? energyUsage.mi_100 / 1000 : energyUsage.mi_100}<span>{energyUsage.mi_100 > 999 ? ' kWh' : ' wh'} per 100 miles</span>
                     </SpecItemContentItem>
                     <SpecItemContentItem>
-                        <span>Per 100 km:</span> {energyUsage.km_100}wh
+                        {energyUsage.km_100 > 999 ? energyUsage.km_100 / 1000 : energyUsage.km_100}<span>{energyUsage.km_100 > 999 ? ' kWh' : ' wh'} per 100 km</span>
                     </SpecItemContentItem>
                 </VersionNoMaring>
             </SpecItemContentRow>
-        </SpecItem>
+        </SpecItem >
     )
 }
 
