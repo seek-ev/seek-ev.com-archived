@@ -16,8 +16,8 @@ const SpecChargingSpeeds = (props) => {
                 Charging Speeds
             </SpecItemContentTitle>
             <SpecItemContent>
-                {chargingSpeeds.avarage ? <SpecItemContentItem>
-                    <span>Avarage:</span> {chargingSpeeds.avarage}kw
+                {chargingSpeeds.average ? <SpecItemContentItem>
+                    <span>Average:</span> {chargingSpeeds.average}kw
                 </SpecItemContentItem> : ''}
                 <SpecItemContentItem>
                     <span>Max:</span> {chargingSpeeds.max}kw
