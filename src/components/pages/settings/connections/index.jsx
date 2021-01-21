@@ -68,7 +68,7 @@ const SettingsConnections = ({ params }) => {
         }
 
         fetchConnections()
-    }, [params, dispatch])
+    }, [params, dispatch, history])
 
     const onLoading = (loading, revoked) => {
         const fetchConnectionsRevoked = async () => {
