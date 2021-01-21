@@ -39,8 +39,8 @@ const LoginPage = () => {
             setDisabled(true)
 
             await axios.post('/auth/login/tester', { email: email, password: password }, { withCredentials: true }).then(async res => {
-                setRedirect('/')
                 dispatch(loginUser(res.data.data, res.data.access_token))
+                setRedirect('/home')
             }).catch(err => {
                 setDisabled(false)
                 dispatch(showSnackbar(err, 'error'))

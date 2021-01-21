@@ -54,8 +54,8 @@ const RegisterPage = () => {
             password
         }).then(async () => {
             await axios.post('/auth/login/tester', { email, password }, { withCredentials: true }).then(res => {
-                setRedirect('/')
                 dispatch(loginUser(res.data.data, res.data.access_token))
+                setRedirect('/home')
                 dispatch(showSnackbar('Welcome to Seek EV!', 'success'))
             }).catch(err => {
                 dispatch(showSnackbar(err, 'error'))

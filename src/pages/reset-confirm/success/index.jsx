@@ -3,7 +3,7 @@ import React from 'react'
 // Styles
 import { Container, HomeLink, Logo, SuccessTitle, SuccessTitleP, SuccessLink } from '../styles'
 
-const ResetSuccess = () => {
+const ResetConfirmSuccess = () => {
     return (
         <Container>
             <HomeLink to="/">
@@ -18,4 +18,4 @@ const ResetSuccess = () => {
     )
 }
 
-export default ResetSuccess
+export { ResetConfirmSuccess }
