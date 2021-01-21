@@ -8,7 +8,7 @@ const PublicRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={(props) => (
         store.getState().auth.isLogged === false
             ? <Component {...props} />
-            : <Redirect to='/' />
+            : <Redirect to='/home' />
     )} />
 )
 

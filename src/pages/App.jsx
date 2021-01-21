@@ -18,6 +18,7 @@ import { UserCarPage } from 'pages/cars/_id'
 import { RegisterPage } from 'pages/register'
 import { SettingsPage } from 'pages/settings'
 import { TermsPage } from 'pages/terms'
+import { LandingPage } from 'pages/landing'
 import { RequestsPage } from 'pages/requests'
 import { ResetConfirmPage } from 'pages/reset-confirm'
 import { ResetPasswordPage } from 'pages/reset-password'
@@ -34,7 +35,8 @@ class App extends React.Component {
     return (
       <Router>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <PublicRoute exact path="/" component={LandingPage} />
+          <PrivateRoute exact path="/home" component={Home} />
           <Route exact path="/terms" component={TermsPage} />
           <Route exact path="/b/:name" component={BrandPage} />
           <Route exact path="/u/:username" component={UserPage} />
