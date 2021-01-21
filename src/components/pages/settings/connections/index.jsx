@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
+
 
 // Styles
 import {
@@ -29,6 +31,7 @@ const SettingsConnections = ({ params }) => {
     const [loading, setLoading] = useState(false)
     const [loadingConnections, setLoadingConnections] = useState(false)
     const dispatch = useDispatch()
+    const history = useHistory()
 
     useEffect(() => {
         const fetchConnections = async () => {
@@ -53,6 +56,9 @@ const SettingsConnections = ({ params }) => {
             }
 
             if (paramsProp[1].includes('error=')) dispatch(showSnackbar('Connection declined', 'error'))
+
+            // Remove query after request
+            history.push({ search: '' })
 
             setLoading(false)
         }
