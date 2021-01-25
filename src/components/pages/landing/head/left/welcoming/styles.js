@@ -7,14 +7,15 @@ const Wrapper = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
 `
 
 const ShowTitle = keyframes`
     0% {
-        transform: translate3d(0px, -50px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+        transform: translate3d(-50px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
         transform-style: preserve-3d;
+        visibility: visible;
         opacity: 0;
     }
 
@@ -22,13 +23,12 @@ const ShowTitle = keyframes`
         transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
         transform-style: preserve-3d;
         opacity: 1;
-        visibility: visible;
     }
 `
 
 const ShowDesc = keyframes`
     0% {
-        transform: translate3d(0px, 40px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+        transform: translate3d(-50px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
         transform-style: preserve-3d;
         opacity: 0;
     }
@@ -37,24 +37,27 @@ const ShowDesc = keyframes`
         transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
         transform-style: preserve-3d;
         opacity: 1;
-        visibility: visible;
     }
 `
 
 const Title = styled.div`
-    font-size: 32px;
-    animation-fill-mode: forwards;
-    font-family: 'Varela', sans-serif;
+    opacity: 0;
+    font-size: 42px;
+    font-weight: 600;
+    font-family: 'Comfortaa', cursive;
     animation: 0.9s 0.3s 1 ${ShowTitle};
+    animation-fill-mode: forwards;
 `
 
 const SubTitle = styled.div`
-    margin: 2px 0 0;
-    font-size: 18px;
+    opacity: 0;
+    margin: 2px 0 0 6px;
+    font-size: 24px;
+    font-weight: 300;
     color: ${colors.primary};
-    animation-fill-mode: forwards;
+    font-family: 'Comfortaa', cursive;
     animation: 0.6s 0.3s 1 ${ShowDesc};
-    font-family: 'Varela', sans-serif;
+    animation-fill-mode: forwards;
 `
 
 export { Wrapper, Title, SubTitle }

@@ -1,17 +1,21 @@
 import React from 'react'
 
 // Styles
-import { Wrapper } from './styles'
+import { Wrapper, Top } from './styles'
 
 // Components
-import { LandingLogo } from './logo'
-import { Welcoming } from './welcoming'
+import { Left } from './left'
+import { Right } from './right'
+import { Bottom } from './bottom'
 
 const Head = () => {
     return (
         <Wrapper>
-            <LandingLogo />
-            <Welcoming />
+            <Top>
+                <Left />
+                <Right />
+            </Top>
+            <Bottom />
         </Wrapper>
     )
 }

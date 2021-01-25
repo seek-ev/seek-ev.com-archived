@@ -1,11 +1,15 @@
 import styled from 'styled-components/macro'
 
 const Wrapper = styled.div`
-    height: 20vh;
     display: flex;
-    padding: 42px 0 0;
-    flex-direction:column;
+    flex-direction: column;
+`
+
+const Top = styled.div`
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
 `
 
-export { Wrapper }
+export { Wrapper, Top }
