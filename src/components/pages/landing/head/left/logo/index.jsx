@@ -6,7 +6,7 @@ import { Wrapper, Logo } from './styles'
 const LandingLogo = () => {
     return (
         <Wrapper>
-            <Logo src="/se_dark.png" alt="landing_logo" />
+            <Logo src="/se.png" alt="landing_logo" />
         </Wrapper>
     )
 }

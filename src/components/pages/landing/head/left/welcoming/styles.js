@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components/macro'
 
 // Variables
-import { colors } from 'assets/variables'
+import { colors, maxSize } from 'assets/variables'
 
 const Wrapper = styled.div`
     width: 100%;
@@ -9,6 +9,11 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    font-family: 'Comfortaa', cursive;
+
+    @media only screen and (max-width: ${maxSize.medium}) {
+        align-items: center;
+    }
 `
 
 const ShowTitle = keyframes`
@@ -44,9 +49,21 @@ const Title = styled.div`
     opacity: 0;
     font-size: 42px;
     font-weight: 600;
-    font-family: 'Comfortaa', cursive;
     animation: 0.9s 0.3s 1 ${ShowTitle};
     animation-fill-mode: forwards;
+
+    @media only screen and (max-width: ${maxSize.medium}) {
+        font-size: 38px;
+    }
+
+    @media only screen and (max-width: 600px) and (orientation: landscape) {
+        font-size: 24px;
+    }
+
+    @media only screen and (max-width: 400px) {
+        font-size: 28px;
+        margin: 0 12px;
+    }
 `
 
 const SubTitle = styled.div`
@@ -55,9 +72,20 @@ const SubTitle = styled.div`
     font-size: 24px;
     font-weight: 300;
     color: ${colors.primary};
-    font-family: 'Comfortaa', cursive;
     animation: 0.6s 0.3s 1 ${ShowDesc};
     animation-fill-mode: forwards;
+
+    @media only screen and (max-width: ${maxSize.medium}) {
+        font-size: 20px;
+    }
+
+    @media only screen and (max-width: 600px) and (orientation: landscape) {
+        font-size: 14px;
+    }
+
+    @media only screen and (max-width: 400px) {
+        font-size: 16px;
+    }
 `
 
 export { Wrapper, Title, SubTitle }

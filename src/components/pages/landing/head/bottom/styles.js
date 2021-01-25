@@ -4,10 +4,16 @@ import styled, { keyframes } from 'styled-components/macro'
 import { BsArrowDown } from 'react-icons/bs'
 
 const Wrapper = styled.div`
-    height: 10vh;
+    bottom: 24px;
     width: 100vw;
     padding: 24px 0 0;
+    position: absolute;
     text-align: center;
+
+    
+    @media only screen and (max-width: 600px) {
+        bottom: 16px;
+    }
 `
 
 const Appear = keyframes`
