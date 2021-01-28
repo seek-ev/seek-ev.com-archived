@@ -28,10 +28,9 @@ const Logo = styled.img`
     animation: 1s linear .5s ${ShowLogo};
     animation-fill-mode: forwards;
 
-    @media only screen and (max-width: ${maxSize.medium}) {
+    @media only screen and (max-width: ${maxSize.desktop}) {
         width: 84px;
     }
-
     
     @media only screen and (max-width: 600px) and (orientation: landscape) {
       width: 54px;

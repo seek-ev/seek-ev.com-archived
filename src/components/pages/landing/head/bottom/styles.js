@@ -11,7 +11,7 @@ const Wrapper = styled.div`
     text-align: center;
 
     
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 450px) {
         bottom: 16px;
     }
 `
