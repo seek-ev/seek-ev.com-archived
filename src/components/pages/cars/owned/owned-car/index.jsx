@@ -8,7 +8,7 @@ import { OwnedCarRemoveModal } from './owned-car-remove-modal'
 
 
 
-const OwnedCar = (props) => {
+const OwnedCar = ({ car, removeProps }) => {
     const [remove, setRemove] = useState(false)
 
     const close = () => {
@@ -16,18 +16,18 @@ const OwnedCar = (props) => {
     }
 
     const removeCar = (id) => {
-        props.remove(id)
+        removeProps(id)
     }
 
     return (
         <Wrapper>
             <WrapperRow>
                 <span>
-                    {`${props.car.version.timeline.year} ${props.car.version.timeline.car.brand.name} ${props.car.version.timeline.car.model} - ${props.car.version.name}`}
+                    {`${car.version.timeline.year} ${car.version.timeline.car.brand.name} ${car.version.timeline.car.model} - ${car.version.name}`}
                 </span>
                 <CarButton onClick={() => setRemove(true)} />
             </WrapperRow>
-            <OwnedCarRemoveModal show={remove} version={props.car.id} close={close} remove={removeCar} />
+            <OwnedCarRemoveModal show={remove} version={car.id} close={close} remove={removeCar} />
         </Wrapper>
     )
 }

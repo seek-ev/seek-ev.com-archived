@@ -28,12 +28,9 @@ const CarsPage = () => {
         const fetchData = async () => {
             await setLoading(true)
 
-            await axios.get('/users/@me/cars/owned').then(res => {
-                setOwned(res.data)
-            }).catch(err => dispatch(showSnackbar(err, 'error')))
-
             await axios.get('/users/@me/cars').then(res => {
-                setCars(res.data)
+                setOwned(res.data)
+                console.log(res.data)
             }).catch(err => dispatch(showSnackbar(err, 'error')))
 
             await setLoading(false)
@@ -44,7 +41,7 @@ const CarsPage = () => {
 
 
     const fetchOwned = async () => {
-        await axios.get('/users/@me/cars/owned').then(res => {
+        await axios.get('/users/@me/cars').then(res => {
             setOwned(res.data)
         }).catch(err => dispatch(showSnackbar(err, 'error')))
     }
@@ -80,15 +77,6 @@ const CarsPage = () => {
 
             {loading ? <Loading></Loading> :
                 <Wrapper>
-                    <UserCars>
-                        <Header>
-                            <Title>Added by you</Title>
-                        </Header>
-                        <Cars cars={cars} />
-                        <NewButton>
-                            <Button primary text="new" onClick={() => setRedirect('/cars/new')} />
-                        </NewButton>
-                    </UserCars>
                     <Owned>
                         <Header>
                             <Title>Owned by you</Title>

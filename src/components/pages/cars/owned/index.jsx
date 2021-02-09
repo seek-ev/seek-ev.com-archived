@@ -23,7 +23,7 @@ const OwnedCars = ({ owned, show, removeVersion, close, add }) => {
     return (
         <Wrapper>
             {owned.map(o => {
-                return <OwnedCar car={o} key={o.id} remove={remove} show={show} />
+                return <OwnedCar car={o} key={o.id} removeProps={remove} show={show} />
             })}
 
             {owned.length === 0 ? 'Do you own a car? Add it to your profile!' : ''}
