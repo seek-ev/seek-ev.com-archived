@@ -1,21 +1,19 @@
 import React from 'react'
 
 // Styles
-import { Wrapper, Top } from './styles'
+import { Wrapper } from './styles'
 
 // Components
-import { Left } from './left'
-import { Right } from './right'
-import { Bottom } from './bottom'
+import { Nav } from './nav'
+import { Illu } from './illu'
+import { Welcome } from './welcome'
 
 const Head = () => {
     return (
         <Wrapper>
-            <Top>
-                <Left />
-                <Right />
-            </Top>
-            <Bottom />
+            <Nav />
+            <Welcome />
+            <Illu />
         </Wrapper>
     )
 }

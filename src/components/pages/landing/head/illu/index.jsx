@@ -3,7 +3,7 @@ import React from 'react'
 // Styles
 import { Wrapper, Illustration } from './styles'
 
-const Right = () => {
+const Illu = () => {
     return (
         <Wrapper>
             <Illustration src="/ln/undraw_p4cu.svg" alt="illu_main" />
@@ -11,4 +11,4 @@ const Right = () => {
     )
 }
 
-export { Right }
+export { Illu }

@@ -4,10 +4,11 @@ import styled, { keyframes } from 'styled-components/macro'
 import { maxSize } from 'assets/variables'
 
 const Wrapper = styled.div`
-    text-align: left;
+    margin: 0 56px;
+    text-align: center;
 
-    @media only screen and (max-width: ${maxSize.medium}) {
-       text-align: center;
+    @media only screen and (max-width: 400px) {
+        margin: 0 30px;
     }
 `
 
@@ -24,20 +25,20 @@ const ShowLogo = keyframes`
 
 const Logo = styled.img`
     opacity: 0;
-    width: 94px;
+    width: 64px;
     animation: 1s linear .5s ${ShowLogo};
     animation-fill-mode: forwards;
 
     @media only screen and (max-width: ${maxSize.desktop}) {
-        width: 84px;
+        width: 56px;
     }
     
     @media only screen and (max-width: 600px) and (orientation: landscape) {
-      width: 54px;
+      width: 34px;
     }
 
     @media only screen and (max-width: 400px) {
-        width: 64px;
+        width: 46px;
     }
 `
 

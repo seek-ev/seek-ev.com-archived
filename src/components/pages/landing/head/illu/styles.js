@@ -5,13 +5,21 @@ import { maxSize } from 'assets/variables'
 
 const Wrapper = styled.div`
     display: flex;
+    margin: 94px 0;
     display: inline-block;
-    margin: auto 8vw auto 0;
     flex-direction: row;
     justify-content: space-between;
 
+    @media only screen and (max-width: ${maxSize.desktop}) {
+        margin: 5vh 0;
+    }
+
     @media only screen and (max-width: ${maxSize.medium}) and (orientation: portrait) {
-        margin: 24px auto;
+        margin: 56px auto;
+    }
+
+    @media only screen and (max-width: ${maxSize.medium}) and (orientation: landscape) {
+        margin: 0 auto;
     }
 `
 
@@ -28,7 +36,7 @@ const ShowIllu = keyframes`
 
 const Illustration = styled.img`
     opacity: 0;
-    height: 500px;
+    height: 400px;
     animation: 1s linear .5s ${ShowIllu};
     animation-fill-mode: forwards;
 
