@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "set PORT=5000 && react-scripts start",
+    "dev": "cross-env PORT=5000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -26,6 +26,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "cross-env": "^7.0.3",
     "cz-conventional-changelog": "3.3.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",

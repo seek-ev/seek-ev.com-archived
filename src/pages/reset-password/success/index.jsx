@@ -17,4 +17,4 @@ const ResetSuccess = () => {
     )
 }
 
-export default ResetSuccess
+export { ResetSuccess }
