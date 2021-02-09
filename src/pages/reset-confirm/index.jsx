@@ -43,7 +43,7 @@ const ResetConfirmPage = () => {
             },
                 {
                     headers: {
-                        'Authorization': token
+                        'Authorization': `Bearer ${token}`
                     }
                 }).then(res => {
                     dispatch(showSnackbar('Email successfully sent', 'success'))

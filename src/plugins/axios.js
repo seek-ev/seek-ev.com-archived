@@ -8,7 +8,7 @@ axios.defaults.baseURL = process.env.NODE_ENV === 'development' ? 'http://localh
 
 axios.interceptors.request.use((config) => {
     const token = store.getState().auth.token
-    if (token) config.headers.common['Authorization'] = token
+    if (token) config.headers.common['Authorization'] = `Bearer ${token}`
     return config
 })
 
@@ -44,7 +44,7 @@ axios.interceptors.response.use(
                 .post('/auth/refresh', {}, { withCredentials: true })
                 .then((res) => {
                     store.dispatch(setNewToken(res.data.access_token))
-                    originalRequest.headers['Authorization'] = res.data.access_token
+                    originalRequest.headers['Authorization'] = `Bearer ${res.data.access_token} `
                     return axios(originalRequest)
                 })
         }
