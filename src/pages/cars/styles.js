@@ -22,16 +22,6 @@ const Wrapper = styled.div`
     }
 `
 
-const UserCars = styled.div`
-    margin: 0 12px 0 0;
-    width: 50%;
-
-    @media only screen and (max-width: ${maxSize.medium}) {
-        margin: 0;
-        width: 100%;
-    }
-`
-
 const Header = styled.div`
     width: 100%;
     display: flex;
@@ -49,12 +39,11 @@ const NewButton = styled.div`
     width: auto;
     margin: 4px 0;
     text-align: right;
-
 `
 
 const Owned = styled.div`
     margin: 0 0 0 12px;
-    width: 50%;
+    width: 100%;
 
     @media only screen and (max-width: ${maxSize.medium}) {
         margin: 12px 0 0;
@@ -128,4 +117,4 @@ const Loading = styled.div`
     }
 `
 
-export { Container, Wrapper, UserCars, Header, Title, NewButton, Owned, Loading }
+export { Container, Wrapper, Header, Title, NewButton, Owned, Loading }

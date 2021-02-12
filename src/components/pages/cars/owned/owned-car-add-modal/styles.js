@@ -13,7 +13,7 @@ const Wrapper = styled.div`
     background: rgba(0, 0, 0, 0.6);
     font-family: 'Roboto', sans-serif;
 
-    ${props => props.display ? 'display: block;' : 'display: none;'}
+    ${props => props.show ? 'display: block;' : 'display: none;'}
 `
 
 const ModalContent = styled.div`

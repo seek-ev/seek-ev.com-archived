@@ -25,7 +25,7 @@ const ModalContent = styled.div`
     top: 50%;
     left: 50%;
     border-radius: 7px;
-    padding: 10px 12px 0px;
+    padding: 10px 6px 0px 12px;
     font-size: 22px;
     transform: translate(-50%,-50%);
     box-shadow: 0 8px 24px 0px rgba(0,0,0, .14);
@@ -37,8 +37,12 @@ const Header = styled.div``
 
 const Buttons = styled.div`
     display: flex;
-    margin: 6px 0 0;
+    margin: 8px 0 0;
     justify-content: flex-end;
+
+    button {
+        margin: 0 0 6px;
+    }
 `
 
 const ButtonMl = styled.div`

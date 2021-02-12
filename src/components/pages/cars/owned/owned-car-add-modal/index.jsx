@@ -39,7 +39,7 @@ const OwnedCarAddModal = ({ show, close, add }) => {
     const addCar = async (version) => {
         await setLoading(true)
 
-        await axios.post('/users/@me/cars/owned', {
+        await axios.post('/users/@me/cars', {
             versionId: version, carId: choseCar.id, timelineId: timeline
         }).then(res => {
             add(res.data)
@@ -57,7 +57,7 @@ const OwnedCarAddModal = ({ show, close, add }) => {
     }
 
     return (
-        <Wrapper display={show}>
+        <Wrapper show={show}>
             {loading ? <LoadingWrapper>
                 <Loading>
                     <div></div>

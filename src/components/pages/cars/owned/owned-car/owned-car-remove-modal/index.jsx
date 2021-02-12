@@ -18,7 +18,7 @@ const OwnedCarRemoveModal = ({ show, version, close, remove }) => {
     const removeVersion = async () => {
         setLoading(true)
 
-        await axios.delete(`/users/@me/cars/owned/${version}`).then(res => {
+        await axios.delete(`/users/@me/cars/${version}`).then(res => {
             dispatch(showSnackbar('Success', 'success'))
             setLoading(false)
             close()
@@ -47,8 +47,6 @@ const OwnedCarRemoveModal = ({ show, version, close, remove }) => {
                     <Loading />
                 </LoadingWrapper>
             }
-
-
         </Wrapper>
     )
 }
