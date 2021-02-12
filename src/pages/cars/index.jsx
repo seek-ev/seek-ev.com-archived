@@ -2,14 +2,12 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import { useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom'
 
 // Styles
-import { Container, Wrapper, UserCars, Header, Title, NewButton, Owned, Loading } from './styles'
+import { Container, Wrapper, Header, Title, NewButton, Owned, Loading } from './styles'
 
 // Components
 import { Navbar } from 'components/navbar'
-import { Cars } from 'components/pages/cars'
 import { Button } from 'components/basic/button'
 import { OwnedCars } from 'components/pages/cars/owned'
 
@@ -17,11 +15,9 @@ import { OwnedCars } from 'components/pages/cars/owned'
 import { showSnackbar } from 'actions/snackbar'
 
 const CarsPage = () => {
-    const [redirect, setRedirect] = useState(null)
     const [loading, setLoading] = useState(true)
     const [show, setShow] = useState(false)
     const [owned, setOwned] = useState([])
-    const [cars, setCars] = useState([])
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -30,7 +26,6 @@ const CarsPage = () => {
 
             await axios.get('/users/@me/cars').then(res => {
                 setOwned(res.data)
-                console.log(res.data)
             }).catch(err => dispatch(showSnackbar(err, 'error')))
 
             await setLoading(false)
@@ -61,10 +56,6 @@ const CarsPage = () => {
 
     const close = async () => {
         await setShow(false)
-    }
-
-    if (redirect) {
-        return <Redirect push to={redirect} />
     }
 
     return (

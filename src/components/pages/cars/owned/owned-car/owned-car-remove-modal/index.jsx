@@ -47,8 +47,6 @@ const OwnedCarRemoveModal = ({ show, version, close, remove }) => {
                     <Loading />
                 </LoadingWrapper>
             }
-
-
         </Wrapper>
     )
 }
