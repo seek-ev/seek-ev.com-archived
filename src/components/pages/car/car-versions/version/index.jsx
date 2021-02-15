@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react'
 
 // Styles
-import { Wrapper, Title, Description, Details } from './styles'
-
-// Components
-import { VersionSpec } from './spec'
+import { Wrapper, Title, Description } from './styles'
 
 const CarVersion = (props) => {
-    const [version, setVersion] = useState({ spec: {} })
+    const [version, setVersion] = useState({})
 
     useEffect(() => {
         if (props.version) setVersion(props.version)
@@ -18,12 +15,9 @@ const CarVersion = (props) => {
             <Title>
                 {version.name}
             </Title>
-            <Description>{version.description}</Description>
-            <Details>
-                <VersionSpec spec={version.spec} />
-            </Details>
+            {version.description ? <Description>{version.description}</Description> : ''}
         </Wrapper>
     )
 }
 
-export { CarVersion }   
+export { CarVersion }
