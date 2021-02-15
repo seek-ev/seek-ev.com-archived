@@ -11,6 +11,7 @@ import { CarPage } from 'pages/car'
 import { NotFound } from 'pages/404'
 import { CarsPage } from 'pages/cars'
 import { UserPage } from 'pages/user'
+import { TestsPage } from 'pages/tests'
 import { TermsPage } from 'pages/terms'
 import { LoginPage } from 'pages/login'
 import { BrandPage } from 'pages/brand'
@@ -37,8 +38,9 @@ class App extends React.Component {
           <Route exact path="/terms" component={TermsPage} />
           <Route exact path="/b/:name" component={BrandPage} />
           <Route exact path="/u/:username" component={UserPage} />
-          <PublicRoute exact path="/login" component={LoginPage} />
           <PrivateRoute exact path="/cars" component={CarsPage} />
+          <PublicRoute exact path="/login" component={LoginPage} />
+          <PrivateRoute exact path="/tests" component={TestsPage} />
           <PublicRoute exact path="/register" component={RegisterPage} />
           <PrivateRoute exact path="/settings" component={SettingsPage} />
           <PublicRoute exact path="/reset-password" component={ResetPasswordPage} />
