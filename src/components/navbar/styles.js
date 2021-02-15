@@ -53,7 +53,7 @@ const NavRight = styled.div`
     max-width: 40%;
     height: 100%;
     flex-direction: row;
-    align-item: flex-start;
+    align-items: center;
     justify-content: flex-end;
     
     button {
