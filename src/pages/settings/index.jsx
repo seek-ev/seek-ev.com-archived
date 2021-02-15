@@ -50,9 +50,6 @@ const SettingsPage = () => {
             <Helmet>
                 <title>{`Settings - ${item.charAt(0).toUpperCase() + item.slice(1)}`}</title>
                 <meta property="description" content="Your settings" />
-
-                <meta property="og:title" content="Settings" />
-                <meta property="og:description" content="Your settings" />
             </Helmet>
 
             <Navbar />

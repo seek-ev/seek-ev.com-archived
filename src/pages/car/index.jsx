@@ -44,10 +44,6 @@ const CarPage = () => {
             <Helmet>
                 <title>{car.model ? car.model : 'Car not found'}</title>
                 <meta name="description" content={car.brand ? car.brand.description : ''} />
-
-                {car.model ? <meta property="og:title" content={car.model} /> : ''}
-                {car.brand ? <meta property="og:description" content={car.brand.description} /> : ''}
-                {car.pictures && car.pictures.length > 0 ? <meta property="og:image" content={car.pictures[0].url} /> : <meta property="og:image" content={'/se_dark.png'} />}
             </Helmet>
 
             <Navbar />

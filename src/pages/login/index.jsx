@@ -85,8 +85,6 @@ const LoginPage = () => {
         <Wrapper>
             <Helmet>
                 <title>Welcome back!</title>
-
-                <meta property="og:title" content="Log in to Seek EV" />
             </Helmet>
 
             <Login disabled={disabled} emailError={emailError} passwordError={passwordError} onEmailChange={onEmaiLChange} onPasswordChange={onPasswordChange} onSubmit={onSubmit} />

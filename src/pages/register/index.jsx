@@ -153,8 +153,6 @@ const RegisterPage = () => {
         <Wrapper>
             <Helmet>
                 <title>Register</title>
-
-                <meta property="og:title" content="Create Seek EV account" />
             </Helmet>
 
             <Register

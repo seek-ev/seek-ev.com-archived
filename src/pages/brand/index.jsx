@@ -40,10 +40,6 @@ const BrandPage = () => {
             <Helmet>
                 <title>{brand && brand.name ? brand.name : 'Brand not found'}</title>
                 <meta name="description" content={brand && brand.description ? brand.description : ''} />
-
-                {brand && brand.name ? <meta property="og:title" content={brand.name} /> : ''}
-                {brand && brand.description ? <meta property="og:description" content={brand.description} /> : ''}
-                {brand && brand.avatar ? <meta property="og:image" content={brand.avatar.url} /> : ''}
             </Helmet>
 
             <Navbar />
