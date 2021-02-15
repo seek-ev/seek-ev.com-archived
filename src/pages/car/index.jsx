@@ -11,13 +11,17 @@ import { Wrapper, Car, CarNotFound, CarNotFoundLink, CarNotFoundButton, CarNotFo
 import { Navbar } from 'components/navbar'
 import { CarContainer } from 'components/pages/car'
 
-
 // Actions
 import { showSnackbar } from 'actions/snackbar'
+
+// Query strings
+const queryString = require('query-string')
 
 const CarPage = () => {
     const [loading, setLoading] = useState(true)
     const [car, setCar] = useState({})
+    const [timeline, setTimeline] = useState(null)
+    const [version, setVersion] = useState(null)
     const dispatch = useDispatch()
     const location = useLocation()
     const params = useParams()
@@ -35,9 +39,14 @@ const CarPage = () => {
             await setLoading(false)
         }
 
+        const parsed = queryString.parse(location.search)
+
+        if (parsed.timeline) setTimeline(parsed.timeline)
+        if (parsed.version) setVersion(parsed.version)
+
         fetchCar()
 
-    }, [params, dispatch])
+    }, [params, dispatch, location])
 
     return (
         <Wrapper>
@@ -48,7 +57,7 @@ const CarPage = () => {
 
             <Navbar />
 
-            {Object.keys(car).length > 0 && !loading ? <Car><CarContainer car={car} /></Car> : ''}
+            {Object.keys(car).length > 0 && !loading ? <Car><CarContainer car={car} timeline={timeline} version={version} /></Car> : ''}
 
             {Object.keys(car).length === 0 && !loading ? <CarNotFound>
                 <CarNotFoundTitle>404</CarNotFoundTitle>

@@ -8,12 +8,18 @@ import { CarVersion } from './version'
 
 const CarVersions = (props) => {
     const [versions, setVersions] = useState([])
-    const [version, setVersion] = useState(0)
+    const [version, setVersion] = useState(null)
 
     useEffect(() => {
+        if (props.version) {
+            const foundVersion = props.versions.find(v => v.name === props.version)
+            if (foundVersion) setVersion(foundVersion)
+            else setVersion(props.versions[0])
+        } else setVersion(props.versions[0])
+
         if (props.versions && props.versions.length > 0) setVersions(props.versions)
         else if (props.versions) setVersions([])
-    }, [props.versions])
+    }, [props.versions, props.version])
 
     return (
         <Wrapper>
@@ -22,12 +28,12 @@ const CarVersions = (props) => {
                     <Title>Choose version</Title>
                     <VersionSelect>
                         {versions.map((v, index) => {
-                            return <VersionButton chosen={version === index} key={v.id} onClick={() => setVersion(index)}>{v.name}</VersionButton>
+                            return <VersionButton chosen={version.name === v.name} key={v.name} onClick={() => setVersion(v)}>{v.name}</VersionButton>
                         })}
                     </VersionSelect>
 
                     <Item>
-                        <CarVersion version={versions[version]} />
+                        <CarVersion version={version} />
                     </Item>
                 </Versions> :
                 <None>

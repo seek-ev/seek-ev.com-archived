@@ -30,7 +30,10 @@ const OwnedCar = ({ car, removeProps }) => {
     }
 
     return (
-        <Wrapper>
+        <Wrapper to={{
+            pathname: `${car.version.timeline.car.model}`,
+            search: `?timeline=${car.version.timeline.year}&version=${car.version.name}`
+        }}>
             <CarWrapper>
                 <Picture>
                     <img src={car.version.timeline.car.pictures.length > 0 ? car.version.timeline.car.pictures[0].url : '/se_dark.png'} onError={(e) => { e.target.onerror = null; e.target.src = '/se_dark.png' }} alt={`car-${car.id}`} />

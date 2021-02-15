@@ -12,6 +12,7 @@
     "@reduxjs/toolkit": "^1.4.0",
     "axios": "^0.20.0",
     "node-sass": "^4.14.1",
+    "query-strings": "^0.0.1",
     "react": "16.14.0",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",

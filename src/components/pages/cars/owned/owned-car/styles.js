@@ -6,8 +6,13 @@ import { colors, maxSize } from 'assets/variables'
 // Icons
 import { MdClose } from 'react-icons/md'
 
-const Wrapper = styled.div`
+// Components
+import { Link } from 'react-router-dom'
+
+const Wrapper = styled(Link)`
+    color: #000;
     display: flex;
+    text-decoration: none;
 `
 
 const CarButton = styled(MdClose)`

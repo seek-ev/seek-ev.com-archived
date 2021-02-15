@@ -3415,6 +3415,11 @@ check-types@^11.1.1:
   resolved "https://registry.yarnpkg.com/check-types/-/check-types-11.1.2.tgz#86a7c12bf5539f6324eb0e70ca8896c0e38f3e2f"
   integrity sha512-tzWzvgePgLORb9/3a0YenggReLKAIb2owL03H2Xdoe5pKcUyWRSEQ8xfCar8t2SIAuEDwtmx2da1YB52YuHQMQ==
 
+check-valid-url@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/check-valid-url/-/check-valid-url-0.0.2.tgz#938fc545fc90b71edf800f7345bfd36f3aa0a057"
+  integrity sha1-k4/FRfyQtx7fgA9zRb/TbzqgoFc=
+
 cheerio@^1.0.0-rc.3:
   version "1.0.0-rc.3"
   resolved "https://registry.yarnpkg.com/cheerio/-/cheerio-1.0.0-rc.3.tgz#094636d425b2e9c0f4eb91a46c05630c9a1a8bf6"
@@ -9929,6 +9934,13 @@ query-string@^4.1.0:
   dependencies:
     object-assign "^4.1.0"
     strict-uri-encode "^1.0.0"
+
+query-strings@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/query-strings/-/query-strings-0.0.1.tgz#d22bab97c9d39e2267b3b8e5f78592424b3e58cd"
+  integrity sha1-0iurl8nTniJns7jl94WSQks+WM0=
+  dependencies:
+    check-valid-url "0.0.2"
 
 querystring-es3@^0.2.0:
   version "0.2.1"

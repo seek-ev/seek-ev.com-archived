@@ -16,12 +16,18 @@ const CarTimeline = (props) => {
     useEffect(() => {
         if (!props.timeline || props.timeline.length === 0) return
         setTimeline(props.timeline.sort((a, b) => b.year - a.year))
-        setDisTimeline(props.timeline[0].versions)
+        const foundLine = props.timeline.find(t => t.year === parseInt(props.display))
+        if (foundLine) {
+            setYear(foundLine.year)
+            setDisTimeline(foundLine.versions)
+            return
+        }
         setYear(props.timeline[0].year)
-    }, [props.timeline])
+        setDisTimeline(props.timeline[0].versions)
+    }, [props.timeline, props.display])
 
     const onTimelineChange = (e) => {
-        const found = timeline.find(t => t.id === parseInt(e.value))
+        const found = timeline.find(t => t.year === parseInt(e.value))
         setDisTimeline(found.versions)
         setYear(found.year)
     }
@@ -33,10 +39,10 @@ const CarTimeline = (props) => {
                     Choose production year
                     </Title>
                 <HeaderSelect>
-                    <Select name="timeline" options={timeline} display="year" value="id" onChange={onTimelineChange} />
+                    <Select name="timeline" options={timeline} display="year" value="year" onChange={onTimelineChange} selected={props.display} />
                 </HeaderSelect>
             </Header>
-                <CarVersions versions={disTimeline} year={year} />
+                <CarVersions versions={disTimeline} year={year} version={props.version} />
             </HeaderWrapper> : <NoneTimeline>
                     We don't have any details about this car
             </NoneTimeline>

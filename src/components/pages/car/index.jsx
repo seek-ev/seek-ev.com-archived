@@ -10,7 +10,7 @@ import { CarPatch } from './car-patch'
 import { CarPictures } from './car-pictures'
 import { CarTimeline } from './car-timeline'
 
-const CarContainer = ({ car }) => {
+const CarContainer = ({ car, timeline, version }) => {
     return (
         <Wrapper>
             <Header>
@@ -21,7 +21,7 @@ const CarContainer = ({ car }) => {
                 <CarMenu versions={car.versions} />
             </Header>
             <Details>
-                <CarTimeline timeline={car.timeline} />
+                <CarTimeline timeline={car.timeline} display={timeline} version={version} />
             </Details>
             <CarPatch carId={car.id} />
         </Wrapper>

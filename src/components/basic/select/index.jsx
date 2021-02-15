@@ -15,6 +15,7 @@ const Select = (props) => {
       onChange={handleChange}
       disabled={props.disabled}
       raise={props.raise}
+      defaultValue={props.selected ? props.selected : undefined}
     >
       {props.options
         ? props.options.map((option, index) => (
