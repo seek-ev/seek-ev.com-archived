@@ -20,6 +20,7 @@ const Wrapper = styled.div`
     }
 
     button {
+        margin: 4px 0 0;
         align-self: flex-end;
     }
 `

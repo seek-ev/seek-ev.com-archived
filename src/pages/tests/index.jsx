@@ -20,7 +20,7 @@ const TestsPage = () => {
 
     useEffect(() => {
         const fetch = async () => {
-            await axios.get('/users/@me/cars').then(res => setTests(res.data)).catch(err => dispatch(showSnackbar(err, 'error')))
+            await axios.get('/users/@me/tests').then(res => setTests(res.data)).catch(err => dispatch(showSnackbar(err, 'error')))
             await setLoading(false)
         }
 
