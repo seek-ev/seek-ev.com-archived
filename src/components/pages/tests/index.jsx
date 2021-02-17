@@ -15,7 +15,7 @@ const Tests = ({ tests }) => {
 
             {tests.length > 0 ? <TestsList tests={tests} /> : <NoTests>You haven't added any tests yet</NoTests>}
 
-            <Button text="add" primary />
+            <Button text="new" primary />
         </Wrapper>
     )
 }
