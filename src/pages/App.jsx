@@ -18,6 +18,7 @@ import { BrandPage } from 'pages/brand'
 import { LandingPage } from 'pages/landing'
 import { RegisterPage } from 'pages/register'
 import { SettingsPage } from 'pages/settings'
+import { NewTestPage } from 'pages/tests/new'
 import { ResetConfirmPage } from 'pages/reset-confirm'
 import { ResetPasswordPage } from 'pages/reset-password'
 import { ResetSuccess } from 'pages/reset-password/success'
@@ -43,6 +44,7 @@ class App extends React.Component {
           <PrivateRoute exact path="/tests" component={TestsPage} />
           <PublicRoute exact path="/register" component={RegisterPage} />
           <PrivateRoute exact path="/settings" component={SettingsPage} />
+          <PrivateRoute exact path="/tests/new" component={NewTestPage} />
           <PublicRoute exact path="/reset-password" component={ResetPasswordPage} />
           <PublicRoute exact path="/reset-password/success" component={ResetSuccess} />
           <PublicRoute exact path="/reset/success" component={ResetConfirmSuccess} />

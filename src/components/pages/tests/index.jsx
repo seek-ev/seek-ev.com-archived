@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 // Styles
 import { Wrapper, Title, NoTests } from './styles'
@@ -15,7 +16,9 @@ const Tests = ({ tests }) => {
 
             {tests.length > 0 ? <TestsList tests={tests} /> : <NoTests>You haven't added any tests yet</NoTests>}
 
-            <Button text="new" primary />
+            <Link to="/tests/new">
+                <Button text="new" primary />
+            </Link>
         </Wrapper>
     )
 }
