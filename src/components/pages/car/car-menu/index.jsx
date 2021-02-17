@@ -11,7 +11,7 @@ const CarMenu = ({ versions }) => {
 
     return (
         <Wrapper>
-            <Item chosen={item === 'timeline'} onClick={() => setItem('versions')}>
+            <Item chosen={item === 'timeline'} onClick={() => setItem('timeline')}>
                 <ItemColumn>
                     <Title>Timeline</Title>
                     <Description>
