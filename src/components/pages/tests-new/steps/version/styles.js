@@ -1,9 +1,12 @@
 import styled, { keyframes } from 'styled-components/macro'
 
 // Variables
-import { maxSize, colors } from 'assets/variables'
+import { colors } from 'assets/variables'
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+`
 
 const Title = styled.p`
     font-size: 22px;
@@ -11,19 +14,16 @@ const Title = styled.p`
     margin: 8px 0;
 `
 
-const SearchInput = styled.div`
-    max-width: 250px;
+const NoTimeline = styled.div`
+    margin: 4px 0 8px;
 `
 
-const ResultsList = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-
-    @media only screen and (max-width: ${maxSize.medium}) {
-        flex-direction: column;
+const Buttons = styled.div`
+    button {
+        margin: 6px 8px 0 0;
     }
 `
+
 
 const Loading = styled.div`
     margin: 14px auto;
@@ -59,4 +59,4 @@ const Bounce = styled.div`
     ` : ''}
 `
 
-export { Wrapper, Title, SearchInput, ResultsList, Loading, Bounce }
+export { Wrapper, Title, NoTimeline, Buttons, Loading, Bounce }

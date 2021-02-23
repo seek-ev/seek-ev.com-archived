@@ -170,7 +170,7 @@ const ErrorMessage = styled.div`
     font-size: 11px;
     overflow: hidden;
     color: #ed1c46;
-    font-weight: bold;
+    font-weight: 500;
     white-space: nowrap;
     padding: 0px 0 0 4px;
     text-overflow: ellipsis;

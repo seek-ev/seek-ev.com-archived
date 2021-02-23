@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import axios from 'axios'
 
 // Styles
-import { Wrapper, Title, OwnedList } from './styles'
+import { Wrapper, Title, OwnedList, Loading, Bounce } from './styles'
 
 // Components
 import { Result } from './result'
@@ -11,17 +11,24 @@ import { Result } from './result'
 // Actions
 import { showSnackbar } from 'actions/snackbar'
 
-const Owned = () => {
+const Owned = ({ next }) => {
+    const [loading, setLoading] = useState(true)
     const [owned, setOwned] = useState([])
     const dispatch = useDispatch()
 
     useEffect(() => {
         const fetchOwned = async () => {
+            await setLoading(true)
             await axios.get(`/users/@me/cars`).then(res => setOwned(res.data)).catch(err => dispatch(showSnackbar(err, 'error')))
+            await setLoading(false)
         }
 
         fetchOwned()
     }, [dispatch])
+
+    const nextStep = (car) => {
+        next(car)
+    }
 
     return (
         <Wrapper>
@@ -29,11 +36,17 @@ const Owned = () => {
 
             <OwnedList>
                 {owned.map((r) => {
-                    return <Result result={r} key={r.id} />
+                    return <Result result={r} key={r.id} nextStep={nextStep} />
                 })}
             </OwnedList>
 
-            {owned.length === 0 ? 'You haven\'t set any car as owned yet.' : ''}
+            {loading ? <Loading>
+                <Bounce one />
+                <Bounce two />
+                <Bounce />
+            </Loading> : ''}
+
+            {owned.length === 0 && !loading ? 'You haven\'t set any car as owned yet.' : ''}
         </Wrapper>
     )
 }

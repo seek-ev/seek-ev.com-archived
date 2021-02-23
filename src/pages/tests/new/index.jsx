@@ -12,7 +12,7 @@ const NewTestPage = () => {
     return (
         <Wrapper>
             <Helmet>
-                <title>New test</title>
+                <title>Adding new test</title>
             </Helmet>
 
             <Navbar />

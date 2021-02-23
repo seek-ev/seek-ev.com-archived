@@ -7,7 +7,7 @@ import { Wrapper, Pagination, Page } from './styles'
 import { Test } from './test'
 
 const TestsList = ({ tests }) => {
-    const [pages, setPages] = useState(0)
+    const [pages, setPages] = useState(1)
     const [list, setList] = useState([])
     const [page, setPage] = useState(1)
 

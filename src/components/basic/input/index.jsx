@@ -9,7 +9,7 @@ const Input = (props) => {
   }
 
   return (
-    <Wrapper>
+    <Wrapper className={props.className}>
       <SInput
         value={props.value}
         onChange={handleChange}
@@ -24,6 +24,11 @@ const Input = (props) => {
         required={props.required}
         disabled={props.disabled}
         autoComplete={props.autoComplete}
+        min={props.min}
+        max={props.max}
+        maxLength={props.maxlength}
+        minLength={props.minlength}
+        step={props.step}
       />
 
       <ErrorMessage>{props.error}</ErrorMessage>

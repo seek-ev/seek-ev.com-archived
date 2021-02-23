@@ -3,7 +3,15 @@ import styled from 'styled-components/macro'
 // Variables
 import { maxSize } from 'assets/variables'
 
-const Wrapper = styled.div`
+const Wrapper = styled.div``
+
+const Title = styled.p`
+    font-size: 22px;
+    font-weight: 500;
+    margin: 12px 0px 8px;
+`
+
+const Card = styled.div`
     width: 250px;
     border-radius: 8px;
     margin: 0px 14px 8px 0;
@@ -27,11 +35,11 @@ const Background = styled.img`
     }
 `
 
-const ResultTitle = styled.div`
+const CarTitle = styled.div`
     padding: 2px 8px 4px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 `
 
-export { Wrapper, Background, ResultTitle }
+export { Wrapper, Title, Card, Background, CarTitle }

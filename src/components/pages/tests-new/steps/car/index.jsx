@@ -9,11 +9,20 @@ import {
 import { Results } from './results'
 import { Owned } from './owned'
 
-const CarStep = () => {
+const CarStep = ({ nextOwned, nextCar }) => {
+
+    const owned = (car) => {
+        nextOwned(car)
+    }
+
+    const car = (car) => {
+        nextCar(car)
+    }
+
     return (
         <Wrapper>
-            <Owned />
-            <Results />
+            <Owned next={owned} />
+            <Results next={car} />
         </Wrapper>
     )
 }

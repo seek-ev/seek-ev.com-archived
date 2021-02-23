@@ -31,4 +31,5 @@ const ResultTitle = styled.div`
     padding: 2px 8px 4px;
 `
 
+
 export { Wrapper, Background, ResultTitle }
