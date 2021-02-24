@@ -112,11 +112,10 @@ const Home = () => {
   return (
     <Wrapper>
       <Helmet>
-        <title>Seek EV</title>
-        <meta name="description" content="Seek EV is a place where you can find everything about every existing electric vehicle" />
+        <title>Home</title>
 
         <meta property="og:title" content="Seek EV" />
-        <meta property="og:description" content="Seek EV is a place where you can find everything about every existing electric vehicle" />
+        <meta property="og:description" content="Join us on the way to the future" />
         <meta property="og:image" content="https://seekev.s3.eu-central-1.amazonaws.com/assets/se_dark.png" />
       </Helmet>
 
