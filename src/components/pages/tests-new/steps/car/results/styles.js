@@ -3,12 +3,51 @@ import styled, { keyframes } from 'styled-components/macro'
 // Variables
 import { maxSize, colors } from 'assets/variables'
 
+// Icons
+import { MdInfo } from 'react-icons/md'
+
 const Wrapper = styled.div``
 
 const Title = styled.p`
+    margin: 8px 0;
+    display: flex;
     font-size: 22px;
     font-weight: 500;
-    margin: 8px 0;
+    align-items: center;
+`
+
+const Info = styled.div`
+    display: flex;
+    align-items: center;
+    position:relative;
+
+    :before {
+        content: attr(data-text); 
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 100%;
+        margin-left: 7px; 
+        width: 200px;
+        padding: 10px;
+        font-size: 12px;
+        border-radius: 10px;
+        background: #000;
+        color: #fff;
+        text-align: center;
+        display: none;
+    }
+
+    :hover:before {
+        display:block;
+    }
+`
+
+const InfoIcon = styled(MdInfo)`
+    margin: 0 0 0 4px;
+    :hover {
+        color: ${colors.primary};
+    }
 `
 
 const SearchInput = styled.div`
@@ -59,4 +98,4 @@ const Bounce = styled.div`
     ` : ''}
 `
 
-export { Wrapper, Title, SearchInput, ResultsList, Loading, Bounce }
+export { Wrapper, Title, SearchInput, ResultsList, Loading, Bounce, Info, InfoIcon }

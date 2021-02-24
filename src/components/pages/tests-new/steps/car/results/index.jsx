@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import axios from 'axios'
 
 // Styles
-import { Wrapper, Title, SearchInput, ResultsList, Loading, Bounce } from './styles'
+import { Wrapper, Title, SearchInput, ResultsList, Loading, Bounce, Info, InfoIcon } from './styles'
 
 // Components
 import { Result } from './result'
@@ -11,6 +11,7 @@ import { Input } from 'components/basic/input'
 
 // Actions
 import { showSnackbar } from 'actions/snackbar'
+
 
 const Results = ({ next }) => {
     const [results, setResults] = useState([])
@@ -25,7 +26,11 @@ const Results = ({ next }) => {
 
     return (
         <Wrapper>
-            <Title>Find cars</Title>
+            <Title>Find cars
+                <Info data-text="Hey! Remember if you're not a content creator you can only add tests to cars owned by you." >
+                    <InfoIcon />
+                </Info>
+            </Title>
 
             <SearchInput>
                 <Input placeholder="Search for a car" onChange={searchCar} />
