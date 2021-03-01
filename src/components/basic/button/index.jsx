@@ -15,6 +15,8 @@ const Button = (props) => {
       round={props.round}
       onClick={props.onClick}
       disabled={props.disabled}
+      mr={props.mr}
+      ml={props.ml}
     >
       {props.text}
     </Wrapper>

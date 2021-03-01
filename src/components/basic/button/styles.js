@@ -116,6 +116,14 @@ const Wrapper = styled.button`
     ` : ''}
 
     ${props => props.round ? 'border-radius: 16px;' : ''}
+
+    ${props => props.mr ? `
+        margin-right: ${props.mr}px;
+    ` : ''}
+
+    ${props => props.ml ? `
+        margin-left: ${props.ml}px;
+    ` : ''}
 `
 
 export { Wrapper }
