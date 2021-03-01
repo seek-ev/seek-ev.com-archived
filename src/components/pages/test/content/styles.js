@@ -3,23 +3,49 @@ import styled, { keyframes } from 'styled-components/macro'
 // Variables
 import { colors } from 'assets/variables'
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+    width: 100%;
+`
 
-const load1 = keyframes`
-        0%, 80%, 100% {
-            box-shadow: 0 0;
-            height: 4em;
-        }
-        40% {
-            box-shadow: 0 -2em;
-            height: 5em;
-        }
+const Title = styled.p`
+    font-size: 24px;
+    font-weight: 500;
+    margin: 14px 0 0px;
+`
+
+const Buttons = styled.div`
+    display: flex;
+    justify-content: flex-end;
+`
+
+const LoadingWrapper = styled.div`
+    opacity: 0.6;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+const Load = keyframes`
+    0%, 80%, 100% {
+        box-shadow: 0 0;
+        height: 4em;
+    }
+    40% {
+        box-shadow: 0 -2em;
+        height: 5em;
+    }
 `
 
 const Loading = styled.div`
     background: ${colors.primary};
-    -webkit-animation: ${load1} 1s infinite ease-in-out;
-    animation: ${load1} 1s infinite ease-in-out;
+    animation: ${Load} 1s infinite ease-in-out;
     width: 7px;
     height: 20px;
     color: ${colors.primary};
@@ -27,7 +53,6 @@ const Loading = styled.div`
     margin: 88px auto;
     position: relative;
     font-size: 8px;
-    top: 100px;
     -webkit-transform: translateZ(0);
     -ms-transform: translateZ(0);
     transform: translateZ(0);
@@ -37,8 +62,7 @@ const Loading = styled.div`
     &:before,
     &:after {
         background: ${colors.primary};
-        -webkit-animation: ${load1} 1s infinite ease-in-out;
-        animation: ${load1} 1s infinite ease-in-out;
+        animation: ${Load} 1s infinite ease-in-out;
         width: 7px;
         height: 20px;
     }
@@ -60,4 +84,4 @@ const Loading = styled.div`
     }
 `
 
-export { Wrapper, Loading }
+export { Wrapper, Title, Buttons, LoadingWrapper, Loading }

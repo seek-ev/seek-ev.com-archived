@@ -15,6 +15,7 @@ import { TestsPage } from 'pages/tests'
 import { TermsPage } from 'pages/terms'
 import { LoginPage } from 'pages/login'
 import { BrandPage } from 'pages/brand'
+import { TestPage } from 'pages/tests/_id'
 import { LandingPage } from 'pages/landing'
 import { RegisterPage } from 'pages/register'
 import { SettingsPage } from 'pages/settings'
@@ -42,6 +43,7 @@ class App extends React.Component {
           <PrivateRoute exact path="/cars" component={CarsPage} />
           <PublicRoute exact path="/login" component={LoginPage} />
           <PrivateRoute exact path="/tests" component={TestsPage} />
+          <PrivateRoute exact path="/tests/:id" component={TestPage} />
           <PublicRoute exact path="/register" component={RegisterPage} />
           <PrivateRoute exact path="/settings" component={SettingsPage} />
           <PrivateRoute exact path="/tests/new" component={NewTestPage} />

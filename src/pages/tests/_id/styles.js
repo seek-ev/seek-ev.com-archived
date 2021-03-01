@@ -1,9 +1,37 @@
 import styled, { keyframes } from 'styled-components/macro'
 
 // Variables
-import { colors } from 'assets/variables'
+import { colors, maxSize } from 'assets/variables'
+
+// Components
+import { Link } from 'react-router-dom'
 
 const Wrapper = styled.div``
+
+const NotFound = styled.div`
+    display: flex;
+    font-size: 22px;
+    font-weight: 500;
+    text-align: center;
+    flex-direction:column;
+    padding: 124px 10% 0px;
+    color: ${colors.primary};
+
+    @media only screen and (max-width: ${maxSize.medium}) {
+        flex-direction: column;
+        padding: 32px 5% 0px;
+    }
+
+    @media only screen and (min-width: 2300px) {
+        padding: 124px 20% 0px;
+    }
+`
+
+const NotFoundLink = styled(Link)`
+    font-weight: 400;
+    font-size: 18px;
+    color: ${colors.primary};
+`
 
 const load1 = keyframes`
         0%, 80%, 100% {
@@ -60,4 +88,4 @@ const Loading = styled.div`
     }
 `
 
-export { Wrapper, Loading }
+export { Wrapper, NotFound, NotFoundLink, Loading }

@@ -5,14 +5,16 @@ import { maxSize } from 'assets/variables'
 
 // Components
 import Moment from 'react-moment'
+import { Link } from 'react-router-dom'
 
-const Wrapper = styled.div`
+const Wrapper = styled(Link)`
     width: 100%;
     display: flex;
     margin: 6px 0;
     padding: 5px 12px;
     border-radius: 6px;
     flex-direction: row;
+    text-decoration: none;
     justify-content: space-between;
     box-shadow: 1px 3px 6px 2px rgba(0,0,0,0.07);
     -moz-box-shadow: 1px 3px 6px 2px rgba(0,0,0,0.07);
@@ -49,6 +51,7 @@ const Type = styled.div`
 `
 
 const Date = styled(Moment)`
+    color: #080808;
     min-width: 100px;
 `
 
