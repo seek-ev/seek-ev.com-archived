@@ -56,6 +56,10 @@ const NavMenu = () => {
             </Icon>
 
             <DropMenu id="nav-dropmenu">
+                <Link to="/tests">
+                    <MenuItem>Tests</MenuItem>
+                </Link>
+
                 <Link to="/cars">
                     <MenuItem>Cars</MenuItem>
                 </Link>
