@@ -39,13 +39,14 @@ const TestPage = () => {
             <Navbar />
 
             {!loading && test ? <Test test={test} /> :
-                <NotFound>
-                    Test not found
+                loading ? <Loading /> :
+                    <NotFound>
+                        Test not found
                     <NotFoundLink to="/tests">Back</NotFoundLink>
-                </NotFound>
+                    </NotFound>
             }
 
-            {loading ? <Loading /> : ''}
+
         </Wrapper>
     )
 }
