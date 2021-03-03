@@ -58,6 +58,7 @@ const ResultsList = styled.div`
     width: 100%;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 
     @media only screen and (max-width: ${maxSize.medium}) {
         flex-direction: column;
