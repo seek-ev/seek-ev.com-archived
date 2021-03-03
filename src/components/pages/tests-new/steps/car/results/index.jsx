@@ -19,8 +19,16 @@ const Results = ({ next }) => {
     const dispatch = useDispatch()
 
     const searchCar = async (e) => {
+        // Don't send request if input is empty
+        if (e.value.length === 0)
+            return setResults([])
+
         await setLoading(true)
-        await axios.get(`/search/model/${e.value}`).then(res => setResults(res.data)).catch(err => dispatch(showSnackbar(err, 'error')))
+
+        await axios.get(`/search/model/${e.value}`).then(res => {
+            setResults(res.data)
+        }).catch(err => dispatch(showSnackbar(err, 'error')))
+
         await setLoading(false)
     }
 
