@@ -43,10 +43,10 @@ class App extends React.Component {
           <PrivateRoute exact path="/cars" component={CarsPage} />
           <PublicRoute exact path="/login" component={LoginPage} />
           <PrivateRoute exact path="/tests" component={TestsPage} />
+          <PrivateRoute exact path="/tests/new" component={NewTestPage} />
           <PrivateRoute exact path="/tests/:id" component={TestPage} />
           <PublicRoute exact path="/register" component={RegisterPage} />
           <PrivateRoute exact path="/settings" component={SettingsPage} />
-          <PrivateRoute exact path="/tests/new" component={NewTestPage} />
           <PublicRoute exact path="/reset-password" component={ResetPasswordPage} />
           <PublicRoute exact path="/reset-password/success" component={ResetSuccess} />
           <PublicRoute exact path="/reset/success" component={ResetConfirmSuccess} />
