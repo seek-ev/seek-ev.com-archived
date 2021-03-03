@@ -45,7 +45,7 @@ const Results = ({ next }) => {
                         return <Result result={r} key={r.id} next={next} />
                     })}
 
-                    {results.length === 0 ? 'No cars found' : ''}
+                    {results && results.length > 0 ? '' : 'No cars found'}
                 </ResultsList>}
         </Wrapper>
     )

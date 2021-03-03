@@ -8,7 +8,7 @@ import { MdInfo } from 'react-icons/md'
 
 const Wrapper = styled.div``
 
-const Title = styled.p`
+const Title = styled.div`
     margin: 8px 0;
     display: flex;
     font-size: 22px;
