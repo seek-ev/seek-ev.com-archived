@@ -29,21 +29,29 @@ const List = styled.div`
 
 const Create = styled.div`
     display: flex;
-    margin: 2px 0;
+    margin: 4px 0;
     flex-direction: column;
 `
 
-const CreateTitle = styled.div``
+const CreateTitle = styled.div`
+    font-size: 20px;
+    font-weight: 500;
+    margin: 4px 0;
+
+    @media only screen and (max-width: ${maxSize.medium}) {
+        text-align: center;
+    }
+`
 
 const ConnectButton = styled.a`
-    width: 140px;
+    width: 180px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    color: ${colors.dark};
-    padding: 4px 0px;
+    color: #fff;
+    padding: 10px 8px;
     margin: 2px 0;
     font-weight: 500;
     font-size: 17px;
@@ -51,14 +59,18 @@ const ConnectButton = styled.a`
     background-color: $primary;
     font-family: 'Roboto', sans-serif;
 
-    ${props => props.type === 'discord' ? 'background-color: #7289DA;' : ''}
+    ${props => props.discord ? 'background-color: #7289DA;' : ''}
 
-    ${props => props.type === 'patreon' ? 'background-color: #F96854;' : ''}
+    ${props => props.patreon ? 'background-color: #F96854;' : ''}
+
+    @media only screen and (max-width: ${maxSize.medium}) {
+        width: 100%;
+    }
 `
 
 const ConnectIcon = styled.div`
     margin: 4px 6px 0;
-    font-size: 14px;
+    font-size: ${props => props.discord ? '18px' : '16px'};
 `
 
 const LoadingWrapper = styled.div`

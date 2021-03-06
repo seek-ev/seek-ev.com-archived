@@ -98,13 +98,13 @@ const SettingsConnections = ({ params }) => {
             {connections.length === 2 ? '' :
                 <Create>
                     <CreateTitle>
-                        Connect:
+                        Connect
                     </CreateTitle>
                     {connections.some(c => c.type === 'discord')}
-                    {connections.some(c => c.type === 'discord') ? '' : <ConnectButton type="discord" href="https://discord.com/api/oauth2/authorize?client_id=745299401160786010&redirect_uri=https%3A%2F%2Fseek-ev.com%2Fsettings%3Ftype%3Ddiscord&response_type=code&scope=identify%20guilds">
-                        Discord <ConnectIcon><FaDiscord /></ConnectIcon>
+                    {connections.some(c => c.type === 'discord') ? '' : <ConnectButton discord href="https://discord.com/api/oauth2/authorize?client_id=745299401160786010&redirect_uri=https%3A%2F%2Fseek-ev.com%2Fsettings%3Ftype%3Ddiscord&response_type=code&scope=identify%20guilds">
+                        Discord <ConnectIcon discord><FaDiscord /></ConnectIcon>
                     </ConnectButton>}
-                    {connections.some(c => c.type === 'patreon') ? '' : <ConnectButton type="patreon" href="https://www.patreon.com/oauth2/authorize?response_type=code&client_id=gJy5qU6eqaMwRCvtrPW882W9DeGsYSraXkRKWsWDyYsQo38Lu3TmAcHXU-6lFhKi&redirect_uri=https://seek-ev.com/settings?type=patreon&scope=identity">
+                    {connections.some(c => c.type === 'patreon') ? '' : <ConnectButton patreon href="https://www.patreon.com/oauth2/authorize?response_type=code&client_id=gJy5qU6eqaMwRCvtrPW882W9DeGsYSraXkRKWsWDyYsQo38Lu3TmAcHXU-6lFhKi&redirect_uri=https://seek-ev.com/settings?type=patreon&scope=identity">
                         Patreon <ConnectIcon><FaPatreon /></ConnectIcon>
                     </ConnectButton>}
                 </Create>
