@@ -5,7 +5,7 @@ import { DetailsLink, Wrapper, Picture, InfoWrapper, Info, InfoDetails, Detail, 
 
 const DetailsCar = ({ car }) => {
     return (
-        <DetailsLink to={`/${car.version.timeline.car.model}`} >
+        <DetailsLink to={`/${car.version.timeline.car.model}?timeline=${car.version.timeline.year}&version=${car.version.name}`} >
             <Wrapper>
                 <Picture>
                     <img src={car.version.timeline.car.pictures.length > 0 ? car.version.timeline.car.pictures[0].url : '/se_dark.png'} onError={(e) => { e.target.onerror = null; e.target.src = '/se_dark.png' }} alt={`car-${car.id}`} />
