@@ -1,6 +1,9 @@
 import styled from 'styled-components/macro'
 
-const Wrapper = styled.select`
+// Variables
+import { colors } from 'assets/variables'
+
+const Wrapper = styled.div`
     width: 100%;
     border: none;
     outline: none;
@@ -53,4 +56,11 @@ const Wrapper = styled.select`
     ` : ''}
 `
 
-export { Wrapper }
+const Options = styled.div`
+`
+
+const Option = styled.div`
+    ${props => props.selected ? `color: ${colors.primary}` : ''}
+`
+
+export { Wrapper, Options, Option }

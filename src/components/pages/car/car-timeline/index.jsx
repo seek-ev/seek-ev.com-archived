@@ -27,7 +27,7 @@ const CarTimeline = (props) => {
     }, [props.timeline, props.display])
 
     const onTimelineChange = (e) => {
-        const found = timeline.find(t => t.year === parseInt(e.value))
+        const found = timeline.find(t => t.year === parseInt(e))
         setDisTimeline(found.versions)
         setYear(found.year)
     }
@@ -39,7 +39,7 @@ const CarTimeline = (props) => {
                     Choose production year
                     </Title>
                 <HeaderSelect>
-                    <Select name="timeline" options={timeline} display="year" value="year" onChange={onTimelineChange} selected={props.display} />
+                    <Select name="timeline" options={timeline} display="year" value="year" onChange={onTimelineChange} def={props.display} />
                 </HeaderSelect>
             </Header>
                 <CarVersions versions={disTimeline} year={year} version={props.version} />

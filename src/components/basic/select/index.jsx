@@ -1,35 +1,68 @@
-import React from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 
 // Styles
-import { Wrapper } from './styles'
+import { Wrapper, Options, Option } from './styles'
 
-const Select = (props) => {
+const Select = ({ raise, value, display, def, options, onChange, disabled }) => {
+  const [selected, setSelected] = useState(null)
+  const [isOpen, setOpen] = useState(false)
+
+
+  // Set selected item
+  useEffect(() => {
+    if (def && display) return setSelected(options.find(o => o[display].toString() === def))
+    else if (def) return setSelected(options.find(o => o.id === parseInt(def)))
+    else return setSelected(options[0])
+  }, [options, def, display])
+
+  // Use refs to control show and hiding options
+  const useSelectControl = (ref) => {
+    useEffect(() => {
+      function handleClickOutside(e) {
+        if (ref.current && !ref.current.contains(e.target)) {
+          setOpen(false)
+        }
+
+        if (ref.current && ref.current.contains(e.target)) {
+          setOpen(true)
+        }
+      }
+
+      document.addEventListener("mousedown", handleClickOutside)
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside)
+      }
+    }, [ref])
+  }
+
+  const selectRef = useRef(null)
+  useSelectControl(selectRef)
+
+  // Handle change
   function handleChange(e) {
     // onChange prop is required
-    props.onChange(e.target)
+    setSelected(e)
+    setOpen(false)
+    return onChange(value ? e[value] : e)
   }
 
   return (
     <Wrapper
-      name={props.name}
-      onChange={handleChange}
-      disabled={props.disabled}
-      raise={props.raise}
-      defaultValue={props.selected ? props.selected : undefined}
+      ref={selectRef}
+      disabled={disabled}
+      raise={raise}
     >
-      {props.options
-        ? props.options.map((option, index) => (
-          <option
+      {isOpen ? <Options >
+        {options.map((option, index) => (
+          <Option
             key={option.id ? option.id : index}
             hidden={option.hidden}
-            value={
-              props.value ? option[props.value] : option.value ? option.value : option.id ? option.id : option
-            }
+            selected={selected === option}
+            onClick={() => handleChange(option)}
           >
-            {props.display ? option[props.display] : option.name ? option.name : option}
-          </option>
-        ))
-        : ''}
+            {display ? option[display] : option.name ? option.name : option}
+          </Option>
+        ))}</Options> : selected ? <Option selected>{display ? selected[display] : selected.name ? selected.name : selected}</Option> : ''}
     </Wrapper>
   )
 }
