@@ -4,7 +4,7 @@ import styled, { keyframes } from 'styled-components/macro'
 import { colors } from 'assets/variables'
 
 const Wrapper = styled.div`
-width: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
 

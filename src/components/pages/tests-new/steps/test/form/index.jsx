@@ -1,7 +1,4 @@
-import axios from 'axios'
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom'
 
 // Styles
 import { Wrapper, Title, Buttons, LoadingWrapper, Loading } from './styles'
@@ -10,53 +7,29 @@ import { Wrapper, Title, Buttons, LoadingWrapper, Loading } from './styles'
 import { Select } from 'components/basic/select'
 import { Button } from 'components/basic/button'
 
-// Tests forms
-import { Weight } from './weight'
-import { Banana } from './banana'
+// Types
+import { Types } from './types'
 
-// Actions
-import { showSnackbar } from 'actions/snackbar'
+
+// Test options
+const options = [{ value: 'weight', name: 'Weight' }, { value: 'bananaBox', name: 'Banana box' }]
 
 const TestForm = ({ previousStep, car }) => {
-    const [redirect, setRedirect] = useState(null)
     const [loading, setLoading] = useState(false)
     const [submit, setSubmit] = useState(false)
     const [type, setType] = useState('weight')
-    const dispatch = useDispatch()
 
-    const createTest = async (childTest) => {
-        setLoading(true)
-
-        // Set test object values
-        const realTest = { type, test: childTest, version: car.version.id }
-        await axios.post('/tests', realTest).then(res => setRedirect('/tests')).catch(err => {
-            dispatch(showSnackbar(err, 'error'))
-            setLoading(false)
-        })
-    }
-
-    // Test types
-    const TYPES = {
-        weight: <Weight submit={submit} setSubmit={setSubmit} create={createTest} loading={loading} />,
-        bananaBox: <Banana submit={submit} setSubmit={setSubmit} create={createTest} loading={loading} />
-    }
-
-    // Test options
-    const options = [{ value: 'weight', name: 'Weight' }, { value: 'bananaBox', name: 'Banana box' }]
-
-    const chooseType = (e) => {
+    const onTypeChange = (e) => {
         setType(e.value)
         setSubmit(false)
     }
 
-    if (redirect) return <Redirect to={redirect} />
-
     return (
         <Wrapper>
             <Title>Choose test type</Title>
-            <Select options={options} onChange={chooseType} disabled={loading} />
+            <Select options={options} onChange={onTypeChange} disabled={loading} />
 
-            {TYPES[type]}
+            <Types submit={submit} setSubmit={setSubmit} type={type} car={car} loading={loading} setLoading={setLoading} />
 
             <Buttons>
                 <Button text="Back" onClick={() => previousStep(1)} disabled={loading} blue />

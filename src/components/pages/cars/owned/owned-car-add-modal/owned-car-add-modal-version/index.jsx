@@ -12,7 +12,7 @@ const OwnedCarAddModalVersion = (props) => {
     const [version, setVersion] = useState(null)
 
     const onVersionChange = async (e) => {
-        const found = await versions.find(v => v.id === parseInt(e.value))
+        const found = await versions.find(v => v.id === parseInt(e.id))
         await setVersion(found)
     }
 

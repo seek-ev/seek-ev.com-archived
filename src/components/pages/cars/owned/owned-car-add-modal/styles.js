@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 const ModalContent = styled.div`
     position: fixed;
     background: #fff;
-    width: 360px;
+    width: 300px;
     height: auto;
     top: 50%;
     left: 50%;

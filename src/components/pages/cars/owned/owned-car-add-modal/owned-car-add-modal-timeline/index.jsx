@@ -20,7 +20,7 @@ const OwnedCarAddModalTimeline = (props) => {
 
     const onTimelineChange = (e) => {
         if (!car.timeline) return
-        const found = car.timeline.find(c => c.id === parseInt(e.value))
+        const found = car.timeline.find(c => c.id === parseInt(e))
         setTimeline(found)
     }
 

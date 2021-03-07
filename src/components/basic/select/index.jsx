@@ -1,35 +1,75 @@
-import React from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 
 // Styles
-import { Wrapper } from './styles'
+import { Wrapper, Options, Option, Icon } from './styles'
 
-const Select = (props) => {
-  function handleChange(e) {
-    // onChange prop is required
-    props.onChange(e.target)
+// Icons
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md'
+
+const Select = ({ raise, value, display, def, options, onChange, disabled }) => {
+  const [selected, setSelected] = useState(null)
+  const [isOpen, setOpen] = useState(false)
+
+  // Set selected item
+  useEffect(() => {
+    if (def && display) return setSelected(options.find(o => o[display].toString() === def))
+    else if (def) return setSelected(options.find(o => o.id === parseInt(def)))
+    else return setSelected(options[0])
+  }, [options, def, display])
+
+  // Use refs to control showing and hiding options
+  const useSelectControl = (ref) => {
+    useEffect(() => {
+      function handleClickOutside(e) {
+        if (ref.current && !ref.current.contains(e.target)) {
+          setOpen(false)
+        }
+
+        if (ref.current && ref.current.contains(e.target)) {
+          setOpen(true)
+        }
+      }
+
+      document.addEventListener("mousedown", handleClickOutside)
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside)
+      }
+    }, [ref])
+  }
+
+  // Ref
+  const selectRef = useRef(null)
+  useSelectControl(selectRef)
+
+  // Handle change
+  const handleChange = async (e) => {
+    setSelected(e)
+    setOpen(false)
+    return onChange(value ? e[value] : e)
   }
 
   return (
     <Wrapper
-      name={props.name}
-      onChange={handleChange}
-      disabled={props.disabled}
-      raise={props.raise}
-      defaultValue={props.selected ? props.selected : undefined}
+      ref={selectRef}
+      disabled={disabled}
+      raise={raise}
+      isOpen={isOpen}
     >
-      {props.options
-        ? props.options.map((option, index) => (
-          <option
+      {selected ? <Option>{display ? selected[display] : selected.name ? selected.name : selected}</Option> : ''}
+      <Icon>{isOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</Icon>
+
+      {isOpen ? <Options>
+        {options.map((option, index) => (
+          <Option
+            isOpen={isOpen}
             key={option.id ? option.id : index}
             hidden={option.hidden}
-            value={
-              props.value ? option[props.value] : option.value ? option.value : option.id ? option.id : option
-            }
+            selected={selected === option}
+            onClick={() => handleChange(option)}
           >
-            {props.display ? option[props.display] : option.name ? option.name : option}
-          </option>
-        ))
-        : ''}
+            {display ? option[display] : option.name ? option.name : option}
+          </Option>
+        ))}</Options> : ''}
     </Wrapper>
   )
 }
