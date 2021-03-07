@@ -9,7 +9,7 @@ import { Container, Wrapper, Header, Title, NewButton, Owned, Loading } from './
 // Components
 import { Navbar } from 'components/navbar'
 import { Button } from 'components/basic/button'
-import { OwnedCars } from 'components/pages/cars/owned'
+import { OwnedCars } from 'components/pages/cars'
 
 // Actions
 import { showSnackbar } from 'actions/snackbar'
