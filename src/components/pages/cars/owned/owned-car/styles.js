@@ -7,9 +7,9 @@ import { colors, maxSize } from 'assets/variables'
 import { MdClose } from 'react-icons/md'
 
 // Components
-import { Link } from 'react-router-dom'
+import { Button } from 'components/basic/button'
 
-const Wrapper = styled(Link)`
+const Wrapper = styled.div`
     color: #000;
     display: flex;
     text-decoration: none;
@@ -118,10 +118,10 @@ const ColumnWrapper = styled.div`
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-between;
-
-    button {
-        margin: 0 0 3px;
-    }
 `
 
-export { Wrapper, CarButton, CarWrapper, Picture, InfoWrapper, Info, InfoDetails, Detail, Model, Category, ColumnWrapper }
+const RButton = styled(Button)`
+    margin: 0 0 3px;
+`
+
+export { Wrapper, CarButton, CarWrapper, Picture, InfoWrapper, Info, InfoDetails, Detail, Model, Category, ColumnWrapper, RButton }

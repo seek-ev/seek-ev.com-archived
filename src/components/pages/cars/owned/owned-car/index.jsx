@@ -11,11 +11,11 @@ import {
     Category,
     Detail,
     Model,
-    ColumnWrapper
+    ColumnWrapper,
+    RButton
 } from './styles'
 
 // Components
-import { Button } from 'components/basic/button'
 import { OwnedCarRemoveModal } from './owned-car-remove-modal'
 
 const OwnedCar = ({ car, removeProps }) => {
@@ -30,10 +30,7 @@ const OwnedCar = ({ car, removeProps }) => {
     }
 
     return (
-        <Wrapper to={{
-            pathname: `${car.version.timeline.car.model}`,
-            search: `?timeline=${car.version.timeline.year}&version=${car.version.name}`
-        }}>
+        <Wrapper>
             <CarWrapper>
                 <Picture>
                     <img src={car.version.timeline.car.pictures.length > 0 ? car.version.timeline.car.pictures[0].url : '/se_dark.png'} onError={(e) => { e.target.onerror = null; e.target.src = '/se_dark.png' }} alt={`car-${car.id}`} />
@@ -53,7 +50,7 @@ const OwnedCar = ({ car, removeProps }) => {
                     <ColumnWrapper>
                         {car.version.timeline.car.brand ? <Detail>{car.version.timeline.car.brand.shortName}</Detail> : ''}
 
-                        <Button text="Remove" error onClick={() => setRemove(true)} />
+                        <RButton text="Remove" error onClick={() => setRemove(true)} />
                     </ColumnWrapper>
                 </InfoWrapper>
             </CarWrapper>
