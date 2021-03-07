@@ -1,12 +1,14 @@
 import React, { useRef, useState, useEffect } from 'react'
 
 // Styles
-import { Wrapper, Options, Option } from './styles'
+import { Wrapper, Options, Option, Icon } from './styles'
+
+// Icons
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md'
 
 const Select = ({ raise, value, display, def, options, onChange, disabled }) => {
   const [selected, setSelected] = useState(null)
   const [isOpen, setOpen] = useState(false)
-
 
   // Set selected item
   useEffect(() => {
@@ -15,7 +17,7 @@ const Select = ({ raise, value, display, def, options, onChange, disabled }) => 
     else return setSelected(options[0])
   }, [options, def, display])
 
-  // Use refs to control show and hiding options
+  // Use refs to control showing and hiding options
   const useSelectControl = (ref) => {
     useEffect(() => {
       function handleClickOutside(e) {
@@ -35,12 +37,12 @@ const Select = ({ raise, value, display, def, options, onChange, disabled }) => 
     }, [ref])
   }
 
+  // Ref
   const selectRef = useRef(null)
   useSelectControl(selectRef)
 
   // Handle change
-  function handleChange(e) {
-    // onChange prop is required
+  const handleChange = async (e) => {
     setSelected(e)
     setOpen(false)
     return onChange(value ? e[value] : e)
@@ -51,10 +53,15 @@ const Select = ({ raise, value, display, def, options, onChange, disabled }) => 
       ref={selectRef}
       disabled={disabled}
       raise={raise}
+      isOpen={isOpen}
     >
-      {isOpen ? <Options >
+      {selected ? <Option>{display ? selected[display] : selected.name ? selected.name : selected}</Option> : ''}
+      <Icon>{isOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</Icon>
+
+      {isOpen ? <Options>
         {options.map((option, index) => (
           <Option
+            isOpen={isOpen}
             key={option.id ? option.id : index}
             hidden={option.hidden}
             selected={selected === option}
@@ -62,7 +69,7 @@ const Select = ({ raise, value, display, def, options, onChange, disabled }) => 
           >
             {display ? option[display] : option.name ? option.name : option}
           </Option>
-        ))}</Options> : selected ? <Option selected>{display ? selected[display] : selected.name ? selected.name : selected}</Option> : ''}
+        ))}</Options> : ''}
     </Wrapper>
   )
 }

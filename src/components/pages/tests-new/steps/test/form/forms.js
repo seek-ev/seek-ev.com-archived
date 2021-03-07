@@ -13,4 +13,6 @@ const TestInput = styled(Input)`
     margin: 0 7px 0 0;
 `
 
-export { Wrapper, TestInput }
+const TypesWrapper = styled.div``
+
+export { Wrapper, TestInput, TypesWrapper }

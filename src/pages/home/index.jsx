@@ -60,8 +60,8 @@ const Home = () => {
   const handleCategoryChange = async (e) => {
     let items = stateFilters
     let item = items[1]
-    if (e.value === 'All categories') item.text = 'all'
-    else item.text = e.value
+    if (e === 'All categories') item.text = 'all'
+    else item.text = e
     items[1] = item
     await setFilters(items)
     await filter()
@@ -70,8 +70,8 @@ const Home = () => {
   const handleBrandChange = async (e) => {
     let items = stateFilters
     let item = items[2]
-    if (e.value === 'All brands') item.text = 'all'
-    else item.text = e.value
+    if (e === 'All brands') item.text = 'all'
+    else item.text = e
     items[2] = item
     await setFilters(items)
     await filter()
@@ -100,8 +100,6 @@ const Home = () => {
       }).catch(err => {
         dispatch(showSnackbar(err, 'error'))
       })
-
-
     }
 
     fetchData()
