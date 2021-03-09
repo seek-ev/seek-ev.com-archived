@@ -8,15 +8,20 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 124px 10% 0px;
+    padding: 124px 10% 12px;
+
+    @media only screen and (max-width: ${maxSize.large}) {
+        flex-direction: column;
+        padding: 72px 5% 12px;
+    }
 
     @media only screen and (max-width: ${maxSize.medium}) {
         flex-direction: column;
-        padding: 32px 5% 0px;
+        padding: 56px 5% 12px;
     }
 
     @media only screen and (min-width: 2300px) {
-        padding: 124px 20% 0px;
+        padding: 124px 20% 12px;
     }
 
     a {
