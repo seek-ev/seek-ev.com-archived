@@ -1,13 +1,13 @@
 import React from 'react'
 
 // Styles
-import { Wrapper, Model, Concept, ProductionYears, Category } from './styles'
+import { Wrapper, Model, BrandLink, Concept, ProductionYears, Category } from './styles'
 
 const CarInfo = ({ brand, model, productionYears, category, concept }) => {
     return (
         <Wrapper>
             <Model>
-                {brand ? brand.shortName : ''} {model}
+                <BrandLink to={`/b/${brand.shortName}`}>{brand ? brand.shortName : ''}</BrandLink> {model}
             </Model>
 
             <ProductionYears>

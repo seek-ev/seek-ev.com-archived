@@ -3,6 +3,9 @@ import styled from 'styled-components/macro'
 // Variables
 import { maxSize, colors } from 'assets/variables'
 
+// Components
+import { Link } from 'react-router-dom'
+
 const Wrapper = styled.div`
     max-width: 100%;
     display: flex;
@@ -19,6 +22,15 @@ const Wrapper = styled.div`
 const Model = styled.div`
     font-size: 30px;
     font-weight: 500;
+`
+
+const BrandLink = styled(Link)`
+    color: #080808;
+    text-decoration: none;
+
+    :hover {
+        color: ${colors.primary}
+    }
 `
 
 const Concept = styled.div`
@@ -40,4 +52,4 @@ const Category = styled.div`
     font-weight: 400;
 `
 
-export { Wrapper, Model, Concept, ProductionYears, Category }
+export { Wrapper, Model, BrandLink, Concept, ProductionYears, Category }
