@@ -6,7 +6,6 @@ import { Wrapper, Header, HeaderInfo, Details } from './styles'
 // Components
 import { CarInfo } from './car-info'
 import { CarMenu } from './car-menu'
-import { CarPatch } from './car-patch'
 import { CarPictures } from './car-pictures'
 import { CarTimeline } from './car-timeline'
 
@@ -23,7 +22,6 @@ const CarContainer = ({ car, timeline, version }) => {
             <Details>
                 <CarTimeline timeline={car.timeline} display={timeline} version={version} />
             </Details>
-            <CarPatch carId={car.id} />
         </Wrapper>
     )
 }
