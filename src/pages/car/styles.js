@@ -12,7 +12,7 @@ const Car = styled.div`
     padding: 94px 5% 24px;
 
     @media only screen and (max-width: ${maxSize.medium}) {
-        padding: 32px 5% 24px;
+        padding: 72px 5% 24px;
     }
 
     @media only screen and (min-width: 2300px) {
