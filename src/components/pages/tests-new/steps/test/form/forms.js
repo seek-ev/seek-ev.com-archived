@@ -8,7 +8,7 @@ import { Input } from 'components/basic/input'
 
 const Wrapper = styled.div`
     display: flex;
-    padding: 14px 2px 4px;
+    padding: 2px 2px 14px;
     flex-direction: row;
     
     @media only screen and (max-width: ${maxSize.medium}) {
@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 `
 
 const TestInput = styled(Input)`
-    margin: 0 7px 0 0;
+    margin: 6px 7px 0 0;
 `
 
 const TypesWrapper = styled.div``
