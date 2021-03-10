@@ -1,8 +1,17 @@
 import styled from 'styled-components/macro'
 
+// Variables
+import { colors } from 'assets/variables'
+
 const Wrapper = styled.div`
     width: 100%;
     height: 52px;
+    margin: ${props => props.title ? '0 0 8px' : '0px'};
+`
+
+const Title = styled.div`
+    font-size: 12px;
+    color: ${colors.primary};
 `
 
 const SInput = styled.input`
@@ -176,4 +185,4 @@ const ErrorMessage = styled.div`
     text-overflow: ellipsis;
 `
 
-export { Wrapper, SInput, ErrorMessage }
+export { Wrapper, Title, SInput, ErrorMessage }

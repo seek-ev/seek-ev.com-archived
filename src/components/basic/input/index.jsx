@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Styles
-import { Wrapper, SInput, ErrorMessage } from './styles'
+import { Wrapper, Title, SInput, ErrorMessage } from './styles'
 
 const Input = (props) => {
   function handleChange(e) {
@@ -9,7 +9,10 @@ const Input = (props) => {
   }
 
   return (
-    <Wrapper className={props.className}>
+    <Wrapper className={props.className} title={props.title}>
+      {props.title ? <Title>
+        {props.title}
+      </Title> : ''}
       <SInput
         value={props.value}
         onChange={handleChange}
