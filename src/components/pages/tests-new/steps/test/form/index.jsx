@@ -12,12 +12,12 @@ import { Types } from './types'
 
 
 // Test options
-const options = [{ value: 'weight', name: 'Weight' }, { value: 'bananaBox', name: 'Banana box' }]
+const options = [{ value: 'noise', name: 'Noise' }, { value: 'range', name: 'Range' }, { value: 'acceleration', name: 'Acceleration' }, { value: 'weight', name: 'Weight' }, { value: 'bananaBox', name: 'Banana box' }]
 
 const TestForm = ({ previousStep, car }) => {
     const [loading, setLoading] = useState(false)
     const [submit, setSubmit] = useState(false)
-    const [type, setType] = useState('weight')
+    const [type, setType] = useState('noise')
 
     const onTypeChange = (e) => {
         setType(e.value)
