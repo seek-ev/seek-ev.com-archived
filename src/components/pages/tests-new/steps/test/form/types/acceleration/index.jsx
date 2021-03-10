@@ -46,11 +46,11 @@ const Acceleration = ({ submit, setSubmit, create, loading }) => {
 
     return (
         <Wrapper>
-            <TestInput name="tires" placeholder="Tires" value={acceleration.tires || ''} onChange={setProperty} type="text" error={errors.tires} disabled={loading} />
-            <TestInput name="wheelFront" placeholder="Wheel front" value={acceleration.wheelFront || ''} onChange={setProperty} type="text" error={errors.wheelFront} disabled={loading} />
-            <TestInput name="wheelRear" placeholder="Wheel rear" value={acceleration.wheelRear || ''} onChange={setProperty} type="text" error={errors.wheelRear} disabled={loading} />
-            <TestInput name="specTime" placeholder="Spec time" value={acceleration.specTime || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.specTime} disabled={loading} />
-            <TestInput name="test_vs_spec" placeholder="Test vs Spec" value={acceleration.test_vs_spec || ''} onChange={setProperty} type="number" step="1" min="-50" error={errors.test_vs_spec} disabled={loading} />
+            <TestInput title="Tires" name="tires" placeholder="Tires" value={acceleration.tires || ''} onChange={setProperty} type="text" error={errors.tires} disabled={loading} />
+            <TestInput title="Wheel front" name="wheelFront" placeholder="Wheel front" value={acceleration.wheelFront || ''} onChange={setProperty} type="text" error={errors.wheelFront} disabled={loading} />
+            <TestInput title="Wheel rear" name="wheelRear" placeholder="Wheel rear" value={acceleration.wheelRear || ''} onChange={setProperty} type="text" error={errors.wheelRear} disabled={loading} />
+            <TestInput title="Spec time" name="specTime" placeholder="Spec time" value={acceleration.specTime || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.specTime} disabled={loading} />
+            <TestInput title="Test vs spec" name="test_vs_spec" placeholder="Test vs Spec" value={acceleration.test_vs_spec || ''} onChange={setProperty} type="number" step="1" min="-50" error={errors.test_vs_spec} disabled={loading} />
         </Wrapper>
     )
 }

@@ -51,15 +51,15 @@ const Noise = ({ submit, setSubmit, create, loading }) => {
 
     return (
         <Wrapper>
-            <TestInput name="season" placeholder="Season" value={noise.season || ''} onChange={setProperty} type="text" error={errors.season} disabled={loading} />
-            <TestInput name="surface" placeholder="Surface" value={noise.surface || ''} onChange={setProperty} type="text" error={errors.surface} disabled={loading} />
-            <TestInput name="tires" placeholder="Tires" value={noise.tires || ''} onChange={setProperty} type="text" error={errors.tires} disabled={loading} />
-            <TestInput name="wheelFront" placeholder="Wheel front" value={noise.wheelFront || ''} onChange={setProperty} type="text" error={errors.wheelFront} disabled={loading} />
-            <TestInput name="wheelRear" placeholder="Wheel rear" value={noise.wheelRear || ''} onChange={setProperty} type="text" error={errors.wheelRear} disabled={loading} />
-            <TestInput name="80" placeholder="80 kmph" value={noise.velocity['80'] || ''} onChange={setVelocityProperty} type="number" step="1" min="0" error={errors._80} disabled={loading} />
-            <TestInput name="100" placeholder="100 kmph" value={noise.velocity['100'] || ''} onChange={setVelocityProperty} type="number" step="1" min="0" error={errors._100} disabled={loading} />
-            <TestInput name="120" placeholder="120 kmph" value={noise.velocity['120'] || ''} onChange={setVelocityProperty} type="number" step="1" min="0" error={errors._120} disabled={loading} />
-            <TestInput name="aftermarketSoundproofing" placeholder="Aftermarket soundproofing" value={noise.aftermarketSoundproofing || ''} onChange={setProperty} type="checkbox" error={errors.aftermarketSoundproofing} disabled={loading} />
+            <TestInput title="Season" name="season" placeholder="Season" value={noise.season || ''} onChange={setProperty} type="text" error={errors.season} disabled={loading} />
+            <TestInput title="Surface" name="surface" placeholder="Surface" value={noise.surface || ''} onChange={setProperty} type="text" error={errors.surface} disabled={loading} />
+            <TestInput title="Tires" name="tires" placeholder="Tires" value={noise.tires || ''} onChange={setProperty} type="text" error={errors.tires} disabled={loading} />
+            <TestInput title="Wheel front" name="wheelFront" placeholder="Wheel front" value={noise.wheelFront || ''} onChange={setProperty} type="text" error={errors.wheelFront} disabled={loading} />
+            <TestInput title="Wheel rear" name="wheelRear" placeholder="Wheel rear" value={noise.wheelRear || ''} onChange={setProperty} type="text" error={errors.wheelRear} disabled={loading} />
+            <TestInput title="80 kmph" name="_80" placeholder="80 kmph" value={noise.velocity['80'] || ''} onChange={setVelocityProperty} type="number" step="1" min="0" error={errors._80} disabled={loading} />
+            <TestInput title="100 kmph" name="_100" placeholder="100 kmph" value={noise.velocity['100'] || ''} onChange={setVelocityProperty} type="number" step="1" min="0" error={errors._100} disabled={loading} />
+            <TestInput title="120 kmph" name="_120" placeholder="120 kmph" value={noise.velocity['120'] || ''} onChange={setVelocityProperty} type="number" step="1" min="0" error={errors._120} disabled={loading} />
+            <TestInput title="Aftermarked soundproofing" name="aftermarketSoundproofing" placeholder="Aftermarket soundproofing" value={noise.aftermarketSoundproofing || ''} onChange={setProperty} type="checkbox" error={errors.aftermarketSoundproofing} disabled={loading} />
         </Wrapper>
     )
 }

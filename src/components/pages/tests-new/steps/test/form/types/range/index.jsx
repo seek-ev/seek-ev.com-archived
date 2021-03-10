@@ -46,18 +46,18 @@ const Range = ({ submit, setSubmit, create, loading }) => {
 
     return (
         <Wrapper>
-            <TestInput name="season" placeholder="Season" value={range.season || ''} onChange={setProperty} type="text" error={errors.season} disabled={loading} />
-            <TestInput name="surface" placeholder="Surface" value={range.surface || ''} onChange={setProperty} type="text" error={errors.surface} disabled={loading} />
-            <TestInput name="temperature" placeholder="Temperature" value={range.temperature || ''} onChange={setProperty} type="numer" step="1" min="-50" error={errors.temperature} disabled={loading} />
-            <TestInput name="tires" placeholder="Tires" value={range.tires || ''} onChange={setProperty} type="text" error={errors.tires} disabled={loading} />
-            <TestInput name="wheelFront" placeholder="Wheel front" value={range.wheelFront || ''} onChange={setProperty} type="text" error={errors.wheelFront} disabled={loading} />
-            <TestInput name="wheelRear" placeholder="Wheel rear" value={range.wheelRear || ''} onChange={setProperty} type="text" error={errors.wheelRear} disabled={loading} />
-            <TestInput name="averageSpeed" placeholder="Average speed" value={range.averageSpeed || ''} onChange={setProperty} type="number" step="1" min="0" max="300" error={errors.averageSpeed} disabled={loading} />
-            <TestInput name="whPerKm" placeholder="Wh per km" value={range.whPerKm || ''} onChange={setProperty} type="number" step="1" min="0" max="1000" error={errors.whPerKm} disabled={loading} />
-            <TestInput name="batteryCapacity" placeholder="Battery capacity" value={range.batteryCapacity || ''} onChange={setProperty} type="number" step="any" min="0" max="1000" error={errors.batteryCapacity} disabled={loading} />
-            <TestInput name="km" placeholder="Kilometers drove" value={range.km || ''} onChange={setProperty} type="number" step="1" min="0" max="1000" error={errors.km} disabled={loading} />
-            <TestInput name="mi" placeholder="Miles drove" value={range.mi || ''} onChange={setProperty} type="number" step="1" min="0" max="1000" error={errors.mi} disabled={loading} />
-            <TestInput name="rangeWith75Percent" placeholder="Range with 75%" value={range.rangeWith75Percent || ''} onChange={setProperty} type="number" step="1" min="0" max="1000" error={errors.rangeWith75Percent} disabled={loading} />
+            <TestInput title="Season" name="season" placeholder="Season" value={range.season || ''} onChange={setProperty} type="text" error={errors.season} disabled={loading} />
+            <TestInput title="Surface" name="surface" placeholder="Surface" value={range.surface || ''} onChange={setProperty} type="text" error={errors.surface} disabled={loading} />
+            <TestInput title="Temperature" name="temperature" placeholder="Temperature" value={range.temperature || ''} onChange={setProperty} type="numer" step="1" min="-50" error={errors.temperature} disabled={loading} />
+            <TestInput title="Tires" name="tires" placeholder="Tires" value={range.tires || ''} onChange={setProperty} type="text" error={errors.tires} disabled={loading} />
+            <TestInput title="Wheel front" name="wheelFront" placeholder="Wheel front" value={range.wheelFront || ''} onChange={setProperty} type="text" error={errors.wheelFront} disabled={loading} />
+            <TestInput title="Wheel rear" name="wheelRear" placeholder="Wheel rear" value={range.wheelRear || ''} onChange={setProperty} type="text" error={errors.wheelRear} disabled={loading} />
+            <TestInput title="Average speed" name="averageSpeed" placeholder="Average speed" value={range.averageSpeed || ''} onChange={setProperty} type="number" step="1" min="0" max="300" error={errors.averageSpeed} disabled={loading} />
+            <TestInput title="wh per km" name="whPerKm" placeholder="Wh per km" value={range.whPerKm || ''} onChange={setProperty} type="number" step="1" min="0" max="1000" error={errors.whPerKm} disabled={loading} />
+            <TestInput title="Battery capacity" name="batteryCapacity" placeholder="Battery capacity" value={range.batteryCapacity || ''} onChange={setProperty} type="number" step="any" min="0" max="1000" error={errors.batteryCapacity} disabled={loading} />
+            <TestInput title="Km" name="km" placeholder="Kilometers drove" value={range.km || ''} onChange={setProperty} type="number" step="1" min="0" max="1000" error={errors.km} disabled={loading} />
+            <TestInput title="Mi" name="mi" placeholder="Miles drove" value={range.mi || ''} onChange={setProperty} type="number" step="1" min="0" max="1000" error={errors.mi} disabled={loading} />
+            <TestInput title="Range with 75%" name="rangeWith75Percent" placeholder="Range with 75%" value={range.rangeWith75Percent || ''} onChange={setProperty} type="number" step="1" min="0" max="1000" error={errors.rangeWith75Percent} disabled={loading} />
         </Wrapper>
     )
 }

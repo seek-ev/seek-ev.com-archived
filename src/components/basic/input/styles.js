@@ -11,6 +11,7 @@ const Wrapper = styled.div`
 
 const Title = styled.div`
     font-size: 12px;
+    margin: 0 0 0 3px;
     color: ${colors.primary};
 `
 

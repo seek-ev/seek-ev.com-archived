@@ -55,10 +55,10 @@ const Weight = ({ submit, setSubmit, create, loading }) => {
 
     return (
         <Wrapper>
-            <TestInput name="rear" placeholder="Rear" value={weight.rear || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.rear} disabled={loading} />
-            <TestInput name="front" placeholder="Front" value={weight.front || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.front} disabled={loading} />
-            <TestInput name="total" placeholder="Total" value={weight.total || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.total} disabled={loading} />
-            <TestInput name="distribution" placeholder="Distribution (ex. 40/60)" value={weight.distribution || ''} onChange={setProperty} type="string" min="0" maxlength="5" error={errors.distribution} disabled={loading} />
+            <TestInput title="Rear" name="rear" placeholder="Rear" value={weight.rear || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.rear} disabled={loading} />
+            <TestInput title="Front" name="front" placeholder="Front" value={weight.front || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.front} disabled={loading} />
+            <TestInput title="Total" name="total" placeholder="Total" value={weight.total || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.total} disabled={loading} />
+            <TestInput title="Distribution" name="distribution" placeholder="Distribution (ex. 40/60)" value={weight.distribution || ''} onChange={setProperty} type="string" min="0" maxlength="5" error={errors.distribution} disabled={loading} />
         </Wrapper>
     )
 }

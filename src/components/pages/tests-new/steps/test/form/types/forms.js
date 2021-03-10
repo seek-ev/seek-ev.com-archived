@@ -8,18 +8,16 @@ import { Input } from 'components/basic/input'
 
 const Wrapper = styled.div`
     display: flex;
-    padding: 14px 2px 4px;
+    padding: 2px 2px 10px;
     flex-direction: row;
-    flex-wrap: wrap;
+    
+    @media only screen and (max-width: ${maxSize.medium}) {
+        flex-direction: column;
+    }
 `
 
 const TestInput = styled(Input)`
-    margin: 0 7px 0 0;
-    max-width: 200px;
-
-    @media only screen and (max-width: ${maxSize.medium}) {
-       max-width: 100%;
-    }
+    margin: 6px 7px 0 0;
 `
 
 const TypesWrapper = styled.div``
