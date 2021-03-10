@@ -10,6 +10,7 @@ const Wrapper = styled.div`
     display: flex;
     padding: 2px 2px 10px;
     flex-direction: row;
+    flex-wrap: wrap;
     
     @media only screen and (max-width: ${maxSize.medium}) {
         flex-direction: column;
@@ -17,6 +18,7 @@ const Wrapper = styled.div`
 `
 
 const TestInput = styled(Input)`
+    max-width: 200px;
     margin: 6px 7px 0 0;
 `
 
