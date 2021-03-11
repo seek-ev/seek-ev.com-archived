@@ -11,6 +11,7 @@ import { Button } from 'components/basic/button'
 
 // Types components
 import { Noise } from './types/noise'
+import { Range } from './types/range'
 import { Weight } from './types/weight'
 import { Banana } from './types/banana'
 
@@ -42,6 +43,7 @@ const TestContent = ({ content, type }) => {
     // Types
     const TYPES = {
         noise: <Noise test={test} editing={editing} submit={submit} setSubmit={setSubmit} patch={patch} loading={loading} />,
+        range: <Range test={test} editing={editing} submit={submit} setSubmit={setSubmit} patch={patch} loading={loading} />,
         weight: <Weight test={test} editing={editing} submit={submit} setSubmit={setSubmit} patch={patch} loading={loading} />,
         bananaBox: <Banana test={test} editing={editing} submit={submit} setSubmit={setSubmit} patch={patch} loading={loading} />
     }
