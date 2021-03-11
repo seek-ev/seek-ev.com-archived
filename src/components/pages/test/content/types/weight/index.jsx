@@ -71,22 +71,10 @@ const Weight = ({ test, editing, submit, setSubmit, patch, loading }) => {
 
     return (
         <Wrapper>
-            <TInput>
-                Rear
-                <Input name="rear" placeholder="Rear" value={weight.rear || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.rear} disabled={!editing} />
-            </TInput>
-            <TInput>
-                Front
-                <Input name="front" placeholder="Front" value={weight.front || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.front} disabled={!editing} />
-            </TInput>
-            <TInput>
-                Total
-                <Input name="total" placeholder="Total" value={weight.total || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.total} disabled={!editing} />
-            </TInput>
-            <TInput>
-                Weight Distribution
-                <Input name="distribution" placeholder="Distribution (ex. 40/60)" value={weight.distribution || ''} onChange={setProperty} type="string" min="0" maxlength="5" error={errors.distribution} disabled={!editing} />
-            </TInput>
+            <TInput title="Rear" name="rear" placeholder="Rear" value={weight.rear || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.rear} disabled={!editing} />
+            <TInput title="Front" name="front" placeholder="Front" value={weight.front || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.front} disabled={!editing} />
+            <TInput title="Total" name="total" placeholder="Total" value={weight.total || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.total} disabled={!editing} />
+            <TInput title="Distribution" name="distribution" placeholder="Distribution (ex. 40/60)" value={weight.distribution || ''} onChange={setProperty} type="string" min="0" maxlength="5" error={errors.distribution} disabled={!editing} />
         </Wrapper>
     )
 }

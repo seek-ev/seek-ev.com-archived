@@ -64,18 +64,9 @@ const Banana = ({ test, editing, submit, setSubmit, patch, loading }) => {
 
     return (
         <Wrapper>
-            <TInput>
-                Trunk
-                <Input name="trunk" placeholder="Trunk" value={banana.trunk || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.trunk} disabled={loading || !editing} />
-            </TInput>
-            <TInput>
-                Frunk
-                <Input name="frunk" placeholder="Frunk" value={banana.frunk || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.frunk} disabled={loading || !editing} />
-            </TInput>
-            <TInput>
-                With seats folded
-                <Input name="seatsFolded" placeholder="Seats folded" value={banana.seatsFolded || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.seatsFolded} disabled={loading || !editing} />
-            </TInput >
+            <TInput title="Trunk" name="trunk" placeholder="Trunk" value={banana.trunk || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.trunk} disabled={loading || !editing} />
+            <TInput title="Frunk" name="frunk" placeholder="Frunk" value={banana.frunk || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.frunk} disabled={loading || !editing} />
+            <TInput title="Seats folded" name="seatsFolded" placeholder="Seats folded" value={banana.seatsFolded || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.seatsFolded} disabled={loading || !editing} />
         </Wrapper >
     )
 }

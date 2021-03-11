@@ -8,9 +8,9 @@ import { Input } from 'components/basic/input'
 
 const Wrapper = styled.div`
     display: flex;
-    padding: 0px 0px 10px;
-    flex-direction: row;
     flex-wrap: wrap;
+    flex-direction: row;
+    padding: 0px 0px 10px;
 `
 
 const TestInput = styled(Input)`
@@ -25,8 +25,8 @@ const TestInput = styled(Input)`
 const Times = styled.div`
     width: 100%;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    flex-direction: row;
 `
 
 const TypesWrapper = styled.div``
