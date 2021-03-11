@@ -40,12 +40,12 @@ const Weight = ({ submit, setSubmit, create, loading }) => {
             else if (splitted[1] && splitted[1].length >= 3) return setError({ ...errors, [name]: 'Wrongly formatted' })
         }
 
-        if (value < 0) return setError({ ...errors, [name]: 'It has to be a positive number' })
-        else {
+        if (type !== 'number' || value >= 0) {
             const errClone = { ...errors }
             delete errClone[name]
             return setError(errClone)
         }
+        else return setError({ ...errors, [name]: 'It has to be a positive number' })
     }
 
     const setProperty = (e) => {

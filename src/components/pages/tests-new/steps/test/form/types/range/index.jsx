@@ -39,7 +39,7 @@ const Range = ({ submit, setSubmit, create, loading }) => {
 
         // Pass data to parent
         create(range)
-    }, [submit, range, create, errors, setError, setSubmit])
+    }, [submit, range, charging, create, errors, setError, setSubmit])
 
     const validate = async (name, type, value) => {
         if (type !== 'number' || value >= 0) {

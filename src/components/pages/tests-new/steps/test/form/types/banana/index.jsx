@@ -33,17 +33,17 @@ const Banana = ({ submit, setSubmit, create, loading }) => {
     }, [submit, banana, create, errors, setError, setSubmit])
 
 
-    const validate = async (name, value) => {
-        if (value < 0) return setError({ ...errors, [name]: 'It has to be a positive number' })
-        else {
+    const validate = async (name, type, value) => {
+        if (type !== 'number' || value >= 0) {
             const errClone = { ...errors }
             delete errClone[name]
             return setError(errClone)
         }
+        else return setError({ ...errors, [name]: 'It has to be a positive number' })
     }
 
     const setProperty = (e) => {
-        validate(e.name, e.value)
+        validate(e.name, e.type, e.value)
         setBanana({ ...banana, [e.name]: parseInt(e.value) })
     }
 
