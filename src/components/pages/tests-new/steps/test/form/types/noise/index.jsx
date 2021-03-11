@@ -4,7 +4,8 @@ import React, { useState, useEffect } from 'react'
 import { Wrapper, TestInput } from '../forms'
 
 const Noise = ({ submit, setSubmit, create, loading }) => {
-    const [noise, setNoise] = useState({ velocity: {} })
+    const [noise, setNoise] = useState({})
+    const [velocity, setVelocity] = useState({})
     const [errors, setError] = useState({})
 
     useEffect(() => {
@@ -14,8 +15,15 @@ const Noise = ({ submit, setSubmit, create, loading }) => {
         // Errors
         const valid = {}
 
-        // Check if any value is missing
+        // Check if any value is missing in velocity
+        if (!velocity._80) valid._80 = 'Field required'
+
+        // Check if any value is missing in noise
         if (!noise.season) valid.season = 'Field required'
+        if (!noise.surface) valid.surface = 'Field required'
+        if (!noise.tires) valid.tires = 'Field required'
+        if (noise.aftermarketSoundproofing === undefined) setNoise({ ...noise, afterMarketSoundproofing: false })
+
         // Set errors if any occurs
         setError({ ...errors, ...valid })
 
@@ -26,27 +34,28 @@ const Noise = ({ submit, setSubmit, create, loading }) => {
         if (Object.keys(valid).length || Object.keys(errors).length > 0) return
 
         // Pass data to parent
-        //create(noise)
-    }, [submit, noise, create, errors, setError, setSubmit])
+        create(noise)
+    }, [submit, noise, velocity, create, errors, setError, setSubmit])
 
     const validate = async (name, type, value) => {
-        if (type === 'text') return
-        if (value < 0) return setError({ ...errors, [name]: 'It has to be a positive number' })
-        else {
+        if (type !== 'number' || value >= 0) {
             const errClone = { ...errors }
             delete errClone[name]
             return setError(errClone)
         }
+        else return setError({ ...errors, [name]: 'It has to be a positive number' })
     }
 
     const setProperty = (e) => {
         validate(e.name, e.type, e.value)
+        if (e.type === 'checkbox') return setNoise({ ...noise, [e.name]: e.checked })
         setNoise({ ...noise, [e.name]: e.value })
     }
 
     const setVelocityProperty = (e) => {
         validate(e.name, e.type, e.value)
-        return setNoise({ ...noise, velocity: { [e.name]: parseInt(e.value) } })
+        setVelocity({ ...velocity, [e.name]: parseInt(e.value) })
+        return setNoise({ ...noise, velocity: { ...velocity, [e.name]: parseInt(e.value) } })
     }
 
     return (
@@ -56,9 +65,9 @@ const Noise = ({ submit, setSubmit, create, loading }) => {
             <TestInput title="Tires" name="tires" placeholder="Tires" value={noise.tires || ''} onChange={setProperty} type="text" error={errors.tires} disabled={loading} />
             <TestInput title="Wheel front" name="wheelFront" placeholder="Wheel front" value={noise.wheelFront || ''} onChange={setProperty} type="text" error={errors.wheelFront} disabled={loading} />
             <TestInput title="Wheel rear" name="wheelRear" placeholder="Wheel rear" value={noise.wheelRear || ''} onChange={setProperty} type="text" error={errors.wheelRear} disabled={loading} />
-            <TestInput title="80 kmph" name="_80" placeholder="80 kmph" value={noise.velocity['80'] || ''} onChange={setVelocityProperty} type="number" step="1" min="0" error={errors._80} disabled={loading} />
-            <TestInput title="100 kmph" name="_100" placeholder="100 kmph" value={noise.velocity['100'] || ''} onChange={setVelocityProperty} type="number" step="1" min="0" error={errors._100} disabled={loading} />
-            <TestInput title="120 kmph" name="_120" placeholder="120 kmph" value={noise.velocity['120'] || ''} onChange={setVelocityProperty} type="number" step="1" min="0" error={errors._120} disabled={loading} />
+            <TestInput title="80 kmph" name="_80" placeholder="80 kmph" value={velocity._80 || ''} onChange={setVelocityProperty} type="number" step="1" min="0" error={errors._80} disabled={loading} />
+            <TestInput title="100 kmph" name="_100" placeholder="100 kmph" value={velocity._100 || ''} onChange={setVelocityProperty} type="number" step="1" min="0" error={errors._100} disabled={loading} />
+            <TestInput title="120 kmph" name="_120" placeholder="120 kmph" value={velocity._120 || ''} onChange={setVelocityProperty} type="number" step="1" min="0" error={errors._120} disabled={loading} />
             <TestInput title="Aftermarked soundproofing" name="aftermarketSoundproofing" placeholder="Aftermarket soundproofing" value={noise.aftermarketSoundproofing || ''} onChange={setProperty} type="checkbox" error={errors.aftermarketSoundproofing} disabled={loading} />
         </Wrapper>
     )
