@@ -22,4 +22,11 @@ const TInput = styled(Input)`
     }
 `
 
-export { Wrapper, TInput }
+const Times = styled.div`
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+`
+
+export { Wrapper, TInput, Times }

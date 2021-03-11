@@ -14,6 +14,7 @@ import { Noise } from './types/noise'
 import { Range } from './types/range'
 import { Weight } from './types/weight'
 import { Banana } from './types/banana'
+import { Acceleration } from './types/acceleration'
 
 // Actions
 import { showSnackbar } from 'actions/snackbar'
@@ -45,7 +46,8 @@ const TestContent = ({ content, type }) => {
         noise: <Noise test={test} editing={editing} submit={submit} setSubmit={setSubmit} patch={patch} loading={loading} />,
         range: <Range test={test} editing={editing} submit={submit} setSubmit={setSubmit} patch={patch} loading={loading} />,
         weight: <Weight test={test} editing={editing} submit={submit} setSubmit={setSubmit} patch={patch} loading={loading} />,
-        bananaBox: <Banana test={test} editing={editing} submit={submit} setSubmit={setSubmit} patch={patch} loading={loading} />
+        bananaBox: <Banana test={test} editing={editing} submit={submit} setSubmit={setSubmit} patch={patch} loading={loading} />,
+        acceleration: <Acceleration test={test} editing={editing} submit={submit} setSubmit={setSubmit} patch={patch} loading={loading} />
     }
 
     return (
