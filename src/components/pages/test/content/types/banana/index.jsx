@@ -3,9 +3,6 @@ import React, { useState, useEffect } from 'react'
 // Styles
 import { Wrapper, TInput } from '../types'
 
-// Components
-import { Input } from 'components/basic/input'
-
 const Banana = ({ test, editing, submit, setSubmit, patch, loading }) => {
     const [bananaCopy, setCopy] = useState({})
     const [banana, setBanana] = useState({})

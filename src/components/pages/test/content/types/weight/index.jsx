@@ -3,9 +3,6 @@ import React, { useState, useEffect } from 'react'
 // Styles
 import { Wrapper, TInput } from '../types'
 
-// Components
-import { Input } from 'components/basic/input'
-
 const Weight = ({ test, editing, submit, setSubmit, patch, loading }) => {
     const [weightCopy, setCopy] = useState({})
     const [weight, setWeight] = useState({})

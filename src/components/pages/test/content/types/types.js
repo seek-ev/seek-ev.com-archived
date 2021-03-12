@@ -29,4 +29,11 @@ const Times = styled.div`
     flex-direction: row;
 `
 
-export { Wrapper, TInput, Times }
+const Note = styled.div`
+    margin: 14px 0 0;
+    font-weight: 500;
+    align-self: flex-end;
+    font-size: 12px;
+`
+
+export { Wrapper, TInput, Times, Note }
