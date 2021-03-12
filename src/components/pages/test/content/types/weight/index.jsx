@@ -46,31 +46,33 @@ const Weight = ({ test, editing, submit, setSubmit, patch, loading }) => {
         patch(weight)
     }, [submit, weight, patch, errors, setError, setSubmit])
 
-    const validate = async (name, type, value) => {
+    const validate = async (name, type, value, min, max) => {
         if (type === 'text') {
             const splitted = value.split('/')
             if (splitted[0].length >= 3 && splitted.length === 1) return setError({ ...errors, [name]: 'Wrongly formatted' })
             else if (splitted[1] && splitted[1].length >= 3) return setError({ ...errors, [name]: 'Wrongly formatted' })
         }
 
-        if (value < 0) return setError({ ...errors, [name]: 'It has to be a positive number' })
-        else {
-            const errClone = { ...errors }
-            delete errClone[name]
-            return setError(errClone)
+        if (type === 'number') {
+            if (value > max) return setError({ ...errors, [name]: `Maximum number is ${max}` })
+            else if (value < min) return setError({ ...errors, [name]: `Minimum number is ${min}` })
         }
+
+        const errClone = { ...errors }
+        delete errClone[name]
+        return setError(errClone)
     }
 
     const setProperty = (e) => {
-        validate(e.name, e.type, e.value)
-        setWeight({ ...weight, [e.name]: e.type === 'number' ? parseInt(e.value) : e.value })
+        validate(e.name, e.type, e.value, parseInt(e.min), parseInt(e.max))
+        return setWeight({ ...weight, [e.name]: e.type === 'number' ? parseInt(e.value) : e.value })
     }
 
     return (
         <Wrapper>
-            <TInput title="Rear" name="rear" placeholder="Rear" value={weight.rear || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.rear} disabled={!editing} />
-            <TInput title="Front" name="front" placeholder="Front" value={weight.front || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.front} disabled={!editing} />
-            <TInput title="Total" name="total" placeholder="Total" value={weight.total || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.total} disabled={!editing} />
+            <TInput title="Rear" name="rear" placeholder="Rear" value={weight.rear || ''} onChange={setProperty} type="number" step="1" min="0" max="5000" error={errors.rear} disabled={!editing} />
+            <TInput title="Front" name="front" placeholder="Front" value={weight.front || ''} onChange={setProperty} type="number" step="1" min="0" max="5000" error={errors.front} disabled={!editing} />
+            <TInput title="Total" name="total" placeholder="Total" value={weight.total || ''} onChange={setProperty} type="number" step="1" min="0" max="10000" error={errors.total} disabled={!editing} />
             <TInput title="Distribution" name="distribution" placeholder="Distribution (ex. 40/60)" value={weight.distribution || ''} onChange={setProperty} type="string" min="0" maxlength="5" error={errors.distribution} disabled={!editing} />
         </Wrapper>
     )

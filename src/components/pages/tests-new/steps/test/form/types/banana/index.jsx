@@ -33,25 +33,27 @@ const Banana = ({ submit, setSubmit, create, loading }) => {
     }, [submit, banana, create, errors, setError, setSubmit])
 
 
-    const validate = async (name, type, value) => {
-        if (type !== 'number' || value >= 0) {
-            const errClone = { ...errors }
-            delete errClone[name]
-            return setError(errClone)
+    const validate = async (name, type, value, min, max) => {
+        if (type === 'number') {
+            if (value > max) return setError({ ...errors, [name]: `Maximum number is ${max}` })
+            else if (value < min) return setError({ ...errors, [name]: `Minimum number is ${min}` })
         }
-        else return setError({ ...errors, [name]: 'It has to be a positive number' })
+
+        const errClone = { ...errors }
+        delete errClone[name]
+        return setError(errClone)
     }
 
     const setProperty = (e) => {
-        validate(e.name, e.type, e.value)
+        validate(e.name, e.type, e.value, parseInt(e.min), parseInt(e.max))
         setBanana({ ...banana, [e.name]: parseInt(e.value) })
     }
 
     return (
-        <Wrapper>
-            <TestInput title="Trunk" name="trunk" placeholder="Trunk" value={banana.trunk || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.trunk} disabled={loading} />
-            <TestInput title="Frunk" name="frunk" placeholder="Frunk" value={banana.frunk || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.frunk} disabled={loading} />
-            <TestInput title="Seats folded" name="seatsFolded" placeholder="Seats folded" value={banana.seatsFolded || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.seatsFolded} disabled={loading} />
+        <Wrapper margin>
+            <TestInput title="Trunk" name="trunk" placeholder="Trunk" value={banana.trunk || ''} onChange={setProperty} type="number" step="1" min="0" max="10000" error={errors.trunk} disabled={loading} />
+            <TestInput title="Frunk" name="frunk" placeholder="Frunk" value={banana.frunk || ''} onChange={setProperty} type="number" step="1" min="0" max="10000" error={errors.frunk} disabled={loading} />
+            <TestInput title="Seats folded" name="seatsFolded" placeholder="Seats folded" value={banana.seatsFolded || ''} onChange={setProperty} type="number" step="1" min="0" max="10000" error={errors.seatsFolded} disabled={loading} />
         </Wrapper>
     )
 }

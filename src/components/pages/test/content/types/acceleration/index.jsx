@@ -54,43 +54,35 @@ const Acceleration = ({ test, editing, submit, setSubmit, patch, loading }) => {
         patch(acceleration)
     }, [submit, acceleration, times, patch, errors, setError, setSubmit])
 
-    const validate = async (name, type, value) => {
-        if (type !== 'number' || value >= 0) {
-            const errClone = { ...errors }
-            delete errClone[name]
-            return setError(errClone)
+    const validate = async (name, type, value, min, max) => {
+        if (type === 'number') {
+            if (value > max) return setError({ ...errors, [name]: `Maximum number is ${max}` })
+            else if (value < min) return setError({ ...errors, [name]: `Minimum number is ${min}` })
         }
-        else return setError({ ...errors, [name]: 'It has to be a positive number' })
-    }
 
-    const validateTime = (min, max, name, value) => {
-        if (value > max) return setError({ ...errors, [name]: `Maximum number is ${max}` })
-        else if (value < min) return setError({ ...errors, [name]: `Minimum number is ${min}` })
-        else {
-            const errClone = { ...errors }
-            delete errClone[name]
-            return setError(errClone)
-        }
+        const errClone = { ...errors }
+        delete errClone[name]
+        return setError(errClone)
     }
 
     const setProperty = (e) => {
-        validate(e.name, e.type, e.value)
+        validate(e.name, e.type, e.value, parseInt(e.min), parseInt(e.max))
         return setAcceleration({ ...acceleration, [e.name]: e.type === 'number' ? parseInt(e.value) : e.value })
     }
 
     const setTimeProperty = (e) => {
-        validateTime(parseInt(e.min), parseInt(e.max), e.name, e.value)
+        validate(e.name, e.type, e.value, parseInt(e.min), parseInt(e.max))
         setTime({ ...times, [e.name]: parseInt(e.value) })
         return setAcceleration({ ...acceleration, times: { ...times, [e.name]: parseInt(e.value) } })
     }
 
     return (
         <Wrapper>
-            <TInput title="Tires" name="tires" placeholder="Tires" value={acceleration.tires || ''} onChange={setProperty} type="text" error={errors.tires} disabled={loading || !editing} />
-            <TInput title="Wheel front" name="wheelFront" placeholder="Wheel front" value={acceleration.wheelFront || ''} onChange={setProperty} type="text" error={errors.wheelFront} disabled={loading || !editing} />
-            <TInput title="Wheel rear" name="wheelRear" placeholder="Wheel rear" value={acceleration.wheelRear || ''} onChange={setProperty} type="text" error={errors.wheelRear} disabled={loading || !editing} />
-            <TInput title="Spec time (0 - 100km/h)" name="specTime" placeholder="Spec time" value={acceleration.specTime || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.specTime} disabled={loading || !editing} />
-            <TInput title="Test vs Spec" name="test_vs_spec" placeholder="Test vs Spec" value={acceleration.test_vs_spec || ''} onChange={setProperty} type="number" step="1" min="-50" error={errors.test_vs_spec} disabled={loading || !editing} />
+            <TInput title="Tires" name="tires" placeholder="Tires" value={acceleration.tires || ''} onChange={setProperty} type="text" maxlength="50" error={errors.tires} disabled={loading || !editing} />
+            <TInput title="Wheel front" name="wheelFront" placeholder="Wheel front" value={acceleration.wheelFront || ''} onChange={setProperty} type="text" maxlength="15" error={errors.wheelFront} disabled={loading || !editing} />
+            <TInput title="Wheel rear" name="wheelRear" placeholder="Wheel rear" value={acceleration.wheelRear || ''} onChange={setProperty} type="text" maxlength="15" error={errors.wheelRear} disabled={loading || !editing} />
+            <TInput title="Spec time (0 - 100km/h)" name="specTime" placeholder="Spec time" value={acceleration.specTime || ''} onChange={setProperty} type="number" step="1" min="0" max="50" error={errors.specTime} disabled={loading || !editing} />
+            <TInput title="Test vs Spec" name="test_vs_spec" placeholder="Test vs Spec" value={acceleration.test_vs_spec || ''} onChange={setProperty} type="number" step="1" min="-40" max="40" error={errors.test_vs_spec} disabled={loading || !editing} />
 
             <Times>
                 <TInput title="From 0 to 10 km/h" name="_0to10" placeholder="0 to 10 km/h" value={times._0to10 || ''} onChange={setTimeProperty} type="number" step="1" min="0" max="5" error={errors._0to10} disabled={loading || !editing} />

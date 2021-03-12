@@ -10,7 +10,6 @@ import { Button } from 'components/basic/button'
 // Types
 import { Types } from './types'
 
-
 // Test options
 const options = [{ value: 'noise', name: 'Noise' }, { value: 'range', name: 'Range' }, { value: 'acceleration', name: 'Acceleration' }, { value: 'weight', name: 'Weight' }, { value: 'bananaBox', name: 'Banana box' }]
 
@@ -32,7 +31,7 @@ const TestForm = ({ previousStep, car }) => {
             <Types submit={submit} setSubmit={setSubmit} type={type} car={car} loading={loading} setLoading={setLoading} />
 
             <Buttons>
-                <Button text="Back" onClick={() => previousStep(1)} disabled={loading} blue />
+                <Button mr={6} text="Back" onClick={() => previousStep(1)} disabled={loading} blue />
                 <Button text="Create" onClick={() => setSubmit(true)} disabled={submit || loading} primary />
             </Buttons>
 

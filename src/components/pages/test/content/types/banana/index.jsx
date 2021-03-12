@@ -45,25 +45,27 @@ const Banana = ({ test, editing, submit, setSubmit, patch, loading }) => {
         patch(banana)
     }, [submit, banana, patch, errors, setError, setSubmit])
 
-    const validate = async (name, value) => {
-        if (value < 0) return setError({ ...errors, [name]: 'It has to be a positive number' })
-        else {
-            const errClone = { ...errors }
-            delete errClone[name]
-            return setError(errClone)
+    const validate = async (name, type, value, min, max) => {
+        if (type === 'number') {
+            if (value > max) return setError({ ...errors, [name]: `Maximum number is ${max}` })
+            else if (value < min) return setError({ ...errors, [name]: `Minimum number is ${min}` })
         }
+
+        const errClone = { ...errors }
+        delete errClone[name]
+        return setError(errClone)
     }
 
     const setProperty = (e) => {
-        validate(e.name, e.value)
-        setBanana({ ...banana, [e.name]: parseInt(e.value) })
+        validate(e.name, e.type, e.value, parseInt(e.min), parseInt(e.max))
+        return setBanana({ ...banana, [e.name]: parseInt(e.value) })
     }
 
     return (
         <Wrapper>
-            <TInput title="Trunk" name="trunk" placeholder="Trunk" value={banana.trunk || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.trunk} disabled={loading || !editing} />
-            <TInput title="Frunk" name="frunk" placeholder="Frunk" value={banana.frunk || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.frunk} disabled={loading || !editing} />
-            <TInput title="Seats folded" name="seatsFolded" placeholder="Seats folded" value={banana.seatsFolded || ''} onChange={setProperty} type="number" step="1" min="0" error={errors.seatsFolded} disabled={loading || !editing} />
+            <TInput title="Trunk" name="trunk" placeholder="Trunk" value={banana.trunk || ''} onChange={setProperty} type="number" step="1" min="0" max="10000" error={errors.trunk} disabled={loading || !editing} />
+            <TInput title="Frunk" name="frunk" placeholder="Frunk" value={banana.frunk || ''} onChange={setProperty} type="number" step="1" min="0" max="10000" error={errors.frunk} disabled={loading || !editing} />
+            <TInput title="Seats folded" name="seatsFolded" placeholder="Seats folded" value={banana.seatsFolded || ''} onChange={setProperty} type="number" step="1" min="0" max="10000" error={errors.seatsFolded} disabled={loading || !editing} />
         </Wrapper >
     )
 }
