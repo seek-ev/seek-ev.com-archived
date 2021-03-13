@@ -11,6 +11,7 @@ const Wrapper = styled.div`
 
 const Title = styled.div`
     font-size: 12px;
+    margin: 0 0 0 3px;
     color: ${colors.primary};
 `
 
@@ -97,6 +98,15 @@ const SInput = styled.input`
         color: #616161;
         box-shadow: -8px 10px 16px 0px rgba(0,0,0,.08);
     }
+
+    ${props => props.type === 'checkbox' ? `
+        width: auto;
+        -ms-transform: scale(1.3);
+        -moz-transform: scale(1.3);
+        -webkit-transform: scale(1.3);
+        -o-transform: scale(1.3);
+        transform: scale(1.3);
+    ` : ''}
 
     ${props => props.raise ? `
         :focus {

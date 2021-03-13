@@ -27,7 +27,7 @@ const Title = styled.p`
 const Buttons = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
 `
 
 const LoadingWrapper = styled.div`

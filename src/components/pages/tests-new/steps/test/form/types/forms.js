@@ -7,13 +7,16 @@ import { maxSize } from 'assets/variables'
 import { Input } from 'components/basic/input'
 
 const Wrapper = styled.div`
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     padding: 0px 0px 10px;
+
+    ${props => props.margin ? 'margin: 0 0 4px' : ''}
 `
 
-const TInput = styled(Input)`
+const TestInput = styled(Input)`
     max-width: 200px;
     margin: 12px 7px 0 0;
 
@@ -29,11 +32,8 @@ const Times = styled.div`
     flex-direction: row;
 `
 
-const Note = styled.div`
-    margin: 14px 0 0;
-    font-weight: 500;
-    align-self: flex-end;
-    font-size: 12px;
+const TypesWrapper = styled.div`
+    width: 100%;
 `
 
-export { Wrapper, TInput, Times, Note }
+export { Wrapper, TestInput, TypesWrapper, Times }

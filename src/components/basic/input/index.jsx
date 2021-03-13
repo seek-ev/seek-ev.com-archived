@@ -14,6 +14,7 @@ const Input = (props) => {
         {props.title}
       </Title> : ''}
       <SInput
+        id={props.id}
         value={props.value}
         onChange={handleChange}
         raise={props.raise}
@@ -23,6 +24,7 @@ const Input = (props) => {
         round={props.round}
         name={props.name}
         type={props.type}
+        checked={props.checked}
         placeholder={props.placeholder}
         required={props.required}
         disabled={props.disabled}
