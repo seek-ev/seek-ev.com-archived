@@ -99,6 +99,15 @@ const SInput = styled.input`
         box-shadow: -8px 10px 16px 0px rgba(0,0,0,.08);
     }
 
+    ${props => props.type === 'checkbox' ? `
+        width: auto;
+        -ms-transform: scale(1.3);
+        -moz-transform: scale(1.3);
+        -webkit-transform: scale(1.3);
+        -o-transform: scale(1.3);
+        transform: scale(1.3);
+    ` : ''}
+
     ${props => props.raise ? `
         :focus {
             transform: translate(0, -6px);
