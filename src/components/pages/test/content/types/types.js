@@ -5,6 +5,7 @@ import { maxSize } from 'assets/variables'
 
 // Components
 import { Input } from 'components/basic/input'
+import { Checkbox } from 'components/basic/checkbox'
 
 const Wrapper = styled.div`
     display: flex;
@@ -14,6 +15,16 @@ const Wrapper = styled.div`
 `
 
 const TInput = styled(Input)`
+    max-width: 200px;
+    margin: 12px 7px 0 0;
+
+    @media only screen and (max-width: ${maxSize.medium}) {
+        max-width: 100%;
+    }
+`
+
+
+const TCheckbox = styled(Checkbox)`
     max-width: 200px;
     margin: 12px 7px 0 0;
 
@@ -36,4 +47,4 @@ const Note = styled.div`
     font-size: 12px;
 `
 
-export { Wrapper, TInput, Times, Note }
+export { Wrapper, TInput, TCheckbox, Times, Note }

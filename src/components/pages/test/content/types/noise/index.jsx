@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 // Styles
-import { Wrapper, TInput } from '../types'
+import { Wrapper, TInput, TCheckbox } from '../types'
 
 const Noise = ({ test, editing, submit, setSubmit, patch, loading }) => {
     const [velocityCopy, setVelCopy] = useState({})
@@ -89,7 +89,7 @@ const Noise = ({ test, editing, submit, setSubmit, patch, loading }) => {
             <TInput title="80 kmph" name="_80" placeholder="80 kmph" value={velocity._80 || ''} onChange={setVelocityProperty} type="number" step="1" min="0" max="120" error={errors._80} disabled={loading || !editing} />
             <TInput title="100 kmph" name="_100" placeholder="100 kmph" value={velocity._100 || ''} onChange={setVelocityProperty} type="number" step="1" min="0" max="120" error={errors._100} disabled={loading || !editing} />
             <TInput title="120 kmph" name="_120" placeholder="120 kmph" value={velocity._120 || ''} onChange={setVelocityProperty} type="number" step="1" min="0" max="120" error={errors._120} disabled={loading || !editing} />
-            <TInput id="aftermarket" title="Aftermarked soundproofing" name="aftermarketSoundproofing" placeholder="Aftermarket soundproofing" value={noise.aftermarketSoundproofing || true} checked={noise.aftermarketSoundproofing} onChange={setProperty} type="checkbox" error={errors.aftermarketSoundproofing} disabled={loading || !editing} />
+            <TCheckbox title="Aftermarked soundproofing" name="aftermarketSoundproofing" placeholder="Aftermarket soundproofing" checked={noise.aftermarketSoundproofing ? noise.aftermarketSoundproofing : false} onChange={setProperty} type="checkbox" error={errors.aftermarketSoundproofing} disabled={loading || !editing} />
         </Wrapper>
     )
 }
