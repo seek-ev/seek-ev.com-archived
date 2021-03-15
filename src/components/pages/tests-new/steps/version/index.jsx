@@ -45,7 +45,7 @@ const VersionStep = ({ car, previousStep, next }) => {
                 <Bounce />
             </Loading> :
                 timeline.length > 0 ? <VersionSelect timeline={timeline} setVersion={setVersion} /> :
-                    <NoTimeline>{JSON.stringify(loading)} You can't choose this car because it doesn't have timeline added.</NoTimeline>
+                    <NoTimeline>You can't choose this car because it doesn't have timeline added.</NoTimeline>
             }
 
             <Buttons>
