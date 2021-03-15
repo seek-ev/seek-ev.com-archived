@@ -64,15 +64,15 @@ const Weight = ({ test, editing, submit, setSubmit, patch, loading }) => {
     }
 
     const setProperty = (e) => {
-        validate(e.name, e.type, e.value, parseInt(e.min), parseInt(e.max))
-        return setWeight({ ...weight, [e.name]: e.type === 'number' ? parseInt(e.value) : e.value })
+        validate(e.name, e.type, e.value, parseFloat(e.min), parseFloat(e.max))
+        return setWeight({ ...weight, [e.name]: e.type === 'number' ? parseFloat(e.value) : e.value })
     }
 
     return (
         <Wrapper>
-            <TInput title="Rear" name="rear" placeholder="Rear" value={weight.rear || ''} onChange={setProperty} type="number" step="1" min="0" max="5000" error={errors.rear} disabled={!editing} />
-            <TInput title="Front" name="front" placeholder="Front" value={weight.front || ''} onChange={setProperty} type="number" step="1" min="0" max="5000" error={errors.front} disabled={!editing} />
-            <TInput title="Total" name="total" placeholder="Total" value={weight.total || ''} onChange={setProperty} type="number" step="1" min="0" max="10000" error={errors.total} disabled={!editing} />
+            <TInput title="Rear" name="rear" placeholder="Rear" value={weight.rear || ''} onChange={setProperty} type="number" step="0.1" min="0" max="5000" error={errors.rear} disabled={!editing} />
+            <TInput title="Front" name="front" placeholder="Front" value={weight.front || ''} onChange={setProperty} type="number" step="0.1" min="0" max="5000" error={errors.front} disabled={!editing} />
+            <TInput title="Total" name="total" placeholder="Total" value={weight.total || ''} onChange={setProperty} type="number" step="0.1" min="0" max="10000" error={errors.total} disabled={!editing} />
             <TInput title="Distribution" name="distribution" placeholder="Distribution (ex. 40/60)" value={weight.distribution || ''} onChange={setProperty} type="string" min="0" maxlength="5" error={errors.distribution} disabled={!editing} />
         </Wrapper>
     )

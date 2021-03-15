@@ -68,15 +68,15 @@ const Noise = ({ test, editing, submit, setSubmit, patch, loading }) => {
     }
 
     const setProperty = (e) => {
-        validate(e.name, e.type, e.value, parseInt(e.min), parseInt(e.max))
+        validate(e.name, e.type, e.value, parseFloat(e.min), parseFloat(e.max))
         if (e.type === 'checkbox') return setNoise({ ...noise, [e.name]: e.checked })
         return setNoise({ ...noise, [e.name]: e.value })
     }
 
     const setVelocityProperty = (e) => {
-        validate(e.name, e.type, e.value, parseInt(e.min), parseInt(e.max))
-        setVelocity({ ...velocity, [e.name]: parseInt(e.value) })
-        return setNoise({ ...noise, velocity: { ...velocity, [e.name]: parseInt(e.value) } })
+        validate(e.name, e.type, e.value, parseFloat(e.min), parseFloat(e.max))
+        setVelocity({ ...velocity, [e.name]: parseFloat(e.value) })
+        return setNoise({ ...noise, velocity: { ...velocity, [e.name]: parseFloat(e.value) } })
     }
 
     return (
@@ -86,9 +86,9 @@ const Noise = ({ test, editing, submit, setSubmit, patch, loading }) => {
             <TInput title="Tires" name="tires" placeholder="Tires" value={noise.tires || ''} onChange={setProperty} type="text" maxlength="50" error={errors.tires} disabled={loading || !editing} />
             <TInput title="Wheel front" name="wheelFront" placeholder="Wheel front" value={noise.wheelFront || ''} onChange={setProperty} type="text" maxlength="15" error={errors.wheelFront} disabled={loading || !editing} />
             <TInput title="Wheel rear" name="wheelRear" placeholder="Wheel rear" value={noise.wheelRear || ''} onChange={setProperty} type="text" maxlength="15" error={errors.wheelRear} disabled={loading || !editing} />
-            <TInput title="80 kmph" name="_80" placeholder="80 kmph" value={velocity._80 || ''} onChange={setVelocityProperty} type="number" step="1" min="0" max="120" error={errors._80} disabled={loading || !editing} />
-            <TInput title="100 kmph" name="_100" placeholder="100 kmph" value={velocity._100 || ''} onChange={setVelocityProperty} type="number" step="1" min="0" max="120" error={errors._100} disabled={loading || !editing} />
-            <TInput title="120 kmph" name="_120" placeholder="120 kmph" value={velocity._120 || ''} onChange={setVelocityProperty} type="number" step="1" min="0" max="120" error={errors._120} disabled={loading || !editing} />
+            <TInput title="80 kmph" name="_80" placeholder="80 kmph" value={velocity._80 || ''} onChange={setVelocityProperty} type="number" step="0.01" min="0" max="120" error={errors._80} disabled={loading || !editing} />
+            <TInput title="100 kmph" name="_100" placeholder="100 kmph" value={velocity._100 || ''} onChange={setVelocityProperty} type="number" step="0.01" min="0" max="120" error={errors._100} disabled={loading || !editing} />
+            <TInput title="120 kmph" name="_120" placeholder="120 kmph" value={velocity._120 || ''} onChange={setVelocityProperty} type="number" step="0.01" min="0" max="120" error={errors._120} disabled={loading || !editing} />
             <TCheckbox title="Aftermarked soundproofing" name="aftermarketSoundproofing" placeholder="Aftermarket soundproofing" checked={noise.aftermarketSoundproofing ? noise.aftermarketSoundproofing : false} onChange={setProperty} type="checkbox" error={errors.aftermarketSoundproofing} disabled={loading || !editing} />
         </Wrapper>
     )

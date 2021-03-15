@@ -99,6 +99,12 @@ const SInput = styled.input`
         box-shadow: -8px 10px 16px 0px rgba(0,0,0,.08);
     }
 
+    :invalid {
+        font-weight: 500;
+        color: #ed1c46e3;
+        border: 2px solid rgba(237, 28, 70, 0.9);
+    }
+
     ${props => props.type === 'checkbox' ? `
         width: auto;
         -ms-transform: scale(1.3);
