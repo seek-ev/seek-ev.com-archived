@@ -67,7 +67,7 @@ const Range = ({ submit, setSubmit, create, loading }) => {
         <Wrapper margin>
             <TestInput title="Season" name="season" placeholder="Season" value={range.season || ''} onChange={setProperty} type="text" maxlength="10" error={errors.season} disabled={loading} />
             <TestInput title="Surface" name="surface" placeholder="Surface" value={range.surface || ''} onChange={setProperty} type="text" maxlength="10" error={errors.surface} disabled={loading} />
-            <TestInput title="Temperature" name="temperature" placeholder="Temperature" value={range.temperature || ''} onChange={setProperty} type="number" step="1" min="-50" max="70" max="70" error={errors.temperature} disabled={loading} />
+            <TestInput title="Temperature" name="temperature" placeholder="Temperature" value={range.temperature || ''} onChange={setProperty} type="number" step="1" min="-50" max="70" error={errors.temperature} disabled={loading} />
             <TestInput title="Tires" name="tires" placeholder="Tires" value={range.tires || ''} onChange={setProperty} type="text" maxlength="50" error={errors.tires} disabled={loading} />
             <TestInput title="Wheel front" name="wheelFront" placeholder="Wheel front" value={range.wheelFront || ''} onChange={setProperty} type="text" maxlength="15" error={errors.wheelFront} disabled={loading} />
             <TestInput title="Wheel rear" name="wheelRear" placeholder="Wheel rear" value={range.wheelRear || ''} onChange={setProperty} type="text" maxlength="15" error={errors.wheelRear} disabled={loading} />

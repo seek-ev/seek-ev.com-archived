@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 // Styles
-import { Wrapper, TestInput } from '../forms'
+import { Wrapper, TestInput, TestCheckbox } from '../forms'
 
 const Noise = ({ submit, setSubmit, create, loading }) => {
     const [noise, setNoise] = useState({})
@@ -70,7 +70,7 @@ const Noise = ({ submit, setSubmit, create, loading }) => {
             <TestInput title="80 kmph" name="_80" placeholder="80 kmph" value={velocity._80 || ''} onChange={setVelocityProperty} type="number" step="1" min="0" max="120" error={errors._80} disabled={loading} />
             <TestInput title="100 kmph" name="_100" placeholder="100 kmph" value={velocity._100 || ''} onChange={setVelocityProperty} type="number" step="1" min="0" max="120" error={errors._100} disabled={loading} />
             <TestInput title="120 kmph" name="_120" placeholder="120 kmph" value={velocity._120 || ''} onChange={setVelocityProperty} type="number" step="1" min="0" max="120" error={errors._120} disabled={loading} />
-            <TestInput title="Aftermarked soundproofing" name="aftermarketSoundproofing" placeholder="Aftermarket soundproofing" value={noise.aftermarketSoundproofing || ''} onChange={setProperty} type="checkbox" error={errors.aftermarketSoundproofing} disabled={loading} />
+            <TestCheckbox title="Aftermarket soundproofing" name="aftermarketSoundproofing" onChange={setProperty} checked={noise.aftermarketSoundproofing ? noise.aftermarketSoundproofing : false} error={errors.aftermarketSoundproofing} disabled={loading} />
         </Wrapper>
     )
 }
