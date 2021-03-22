@@ -39,7 +39,7 @@ const Wrapper = styled.div`
     }
 `
 
-const Cars = styled.div``
+const List = styled.div``
 
 const NotFound = styled.div`
     width: 100%;
@@ -53,4 +53,4 @@ const NotFound = styled.div`
     }
 `
 
-export { Wrapper, Cars, NotFound }
+export { Wrapper, List, NotFound }

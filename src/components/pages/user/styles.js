@@ -38,11 +38,4 @@ const HeaderDetails = styled.div`
     justify-content: center;
 `
 
-const Details = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-`
-
-export { Wrapper, Header, HeaderDetails, Details }
-
+export { Wrapper, Header, HeaderDetails }

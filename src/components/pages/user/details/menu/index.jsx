@@ -1,21 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 // Styles
-import { Wrapper, Item, ChosenItem, DisabledItem } from './styles'
+import { Wrapper, Item } from './styles'
 
-const DetailsMenu = ({ baseItem, itemChange }) => {
-    const [item, setItem] = useState(baseItem)
-
-    const changeItem = (item) => {
-        itemChange(item)
-        setItem(item)
-    }
-
+const DetailsMenu = ({ item, setItem }) => {
     return (
         <Wrapper>
-            {item === 'cars' ? <ChosenItem>Cars</ChosenItem> : <Item onClick={() => changeItem('cars')}>Cars</Item>}
-            <DisabledItem>Tests</DisabledItem>
-            <DisabledItem>Reviews</DisabledItem>
+            <Item chosen={item === 'cars'} onClick={() => setItem('cars')}>Cars</Item>
+            <Item chosen={item === 'tests'} onClick={() => setItem('tests')}>Tests</Item>
+            <Item disabled>Reviews</Item>
         </Wrapper>
     )
 }

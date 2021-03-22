@@ -19,16 +19,19 @@ const Item = styled.div`
     text-align: center;
     margin: 0 1px;
     padding: 12px 6px 4px;
+    cursor: default;
     font-family: 'Roboto', sans-serif;
+
+    ${props => props.chosen ? `
+    
+    
+    border-bottom: 2px solid #131313;` : ''}
+
+    ${props => props.disabled ? `
+        color: #a3a3a3;
+        border-bottom: none;
+    `
+        : ''}
 `
 
-const ChosenItem = styled(Item)`
-   border-bottom: 2px solid #131313;
-`
-
-const DisabledItem = styled(Item)`
-    color: #a3a3a3;
-    border-bottom: none;
-`
-
-export { Wrapper, Item, ChosenItem, DisabledItem }
+export { Wrapper, Item }
