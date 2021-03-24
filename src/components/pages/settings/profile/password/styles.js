@@ -6,9 +6,10 @@ import { colors } from 'assets/variables'
 const Wrapper = styled.div``
 
 const PasswordTitle = styled.div`
-    color: ${colors.primary};
+    margin: 0 0 2px;
     font-size: 14px;
     font-weight: 500;
+    color: ${colors.primary};
     font-family: 'Roboto', sans-serif;
 `
 

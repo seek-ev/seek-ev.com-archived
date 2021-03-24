@@ -98,20 +98,10 @@ const SettingsPassword = () => {
 
     return (
         <Wrapper>
-            {editing ? <PasswordTitle>
-                Update your password
-            </PasswordTitle> : <PasswordTitle>
-                    Your password
-            </PasswordTitle>}
-
-            {editing ? ' ' : <Passwd>
-                **************
-                <PasswdIcon>
-                    <MdModeEdit onClick={() => setEditing(true)} />
-                </PasswdIcon>
-            </Passwd>}
-
-            {editing ?
+            {editing ? <>
+                <PasswordTitle>
+                    Update your password
+                </PasswordTitle>
                 <PasswordForm onSubmit={updatePassword}>
                     <Input name="current_password" placeholder="Current password" onChange={onCurrentPasswordChange} error={errors.current} type="password" autoComplete="current-password" />
 
@@ -128,7 +118,18 @@ const SettingsPassword = () => {
                         </FormButton>
                     </FormButtons>
                 </PasswordForm>
-                : ''}
+            </> : <>
+                <PasswordTitle>
+                    Your password
+                </PasswordTitle>
+                <Passwd>
+                    **************
+                <PasswdIcon>
+                        <MdModeEdit onClick={() => setEditing(true)} />
+                    </PasswdIcon>
+                </Passwd>
+            </>
+            }
 
             {loading ? <LoadingWrapper>
                 <Loading />
