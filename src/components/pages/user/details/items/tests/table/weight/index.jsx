@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 // Styles
 import { Table, Head, Body, TR } from '../styles'
@@ -23,7 +24,9 @@ const Weight = ({ tests }) => {
                     <td>{t.test.rear}</td>
                     <td>{t.test.total}</td>
                     <td>{t.test.distribution}</td>
-                    <td>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</td>
+                    <Link to={`/${t.version.timeline.car.model}?timeline=${t.version.timeline.year}&version=${t.version.name}`}>
+                        <td>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</td>
+                    </Link>
                 </TR>)}
             </Body>
         </Table>

@@ -42,6 +42,11 @@ const Table = styled.table`
     td {
         white-space: nowrap;
     }
+
+    a {
+        color: #080808;
+        text-decoration: none;
+    }
 `
 
 const Head = styled.thead``
@@ -58,6 +63,10 @@ const Body = styled.tbody`
     :hover {
         color: #fff;
         background-color: ${colors.primary};
+
+        a {
+            color: #fff;
+        }
     }
   }
 `

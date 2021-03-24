@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 // Styles
 import { Table, Head, Body, TR } from '../styles'
@@ -53,7 +54,9 @@ const Range = ({ tests }) => {
                     <td>{t.test.rangeWith75Percent}</td>
                     <td>{t.test.chargingTo75Percent.time}</td>
                     <td>{t.test.chargingTo75Percent.kmPerHour}</td>
-                    <td>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</td>
+                    <Link to={`/${t.version.timeline.car.model}?timeline=${t.version.timeline.year}&version=${t.version.name}`}>
+                        <td>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</td>
+                    </Link>
                 </TR> : '')}
             </Body>
         </Table>

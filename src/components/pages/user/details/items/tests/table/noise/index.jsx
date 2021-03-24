@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 // Styles
 import { Table, Head, Body, TR } from '../styles'
@@ -32,7 +33,9 @@ const Noise = ({ tests }) => {
                         <td>{t.test.wheelFront}</td>
                         <td>{t.test.wheelRear}</td>
                         <td>{t.test.aftermarketSoundproofing ? 'yes' : 'no'}</td>
-                        <td>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</td>
+                        <Link to={`/${t.version.timeline.car.model}?timeline=${t.version.timeline.year}&version=${t.version.name}`}>
+                            <td>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</td>
+                        </Link>
                     </TR> : ''
                 })}
             </Body>

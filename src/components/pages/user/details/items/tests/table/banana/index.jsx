@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 // Styles
 import { Table, Head, Body, TR } from '../styles'
@@ -21,7 +22,9 @@ const Banana = ({ tests }) => {
                     <td>{t.test.frunk}</td>
                     <td>{t.test.trunk}</td>
                     <td>{t.test.seatsFolded}</td>
-                    <td>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</td>
+                    <Link to={`/${t.version.timeline.car.model}?timeline=${t.version.timeline.year}&version=${t.version.name}`}>
+                        <td>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</td>
+                    </Link>
                 </TR>)}
             </Body>
         </Table>
