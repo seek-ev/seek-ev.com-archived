@@ -4,6 +4,7 @@ import React from 'react'
 import { Profile, ProfileTitle, Header, Details, DetailsItem, Title, Email } from './styles'
 
 // Components
+import { ContentUrl } from './content-url'
 import { ProfileAvatar } from './avatar'
 import { SettingsPassword } from './password'
 import { SettingsProfileUsername } from './username'
@@ -21,7 +22,7 @@ const SettingsProfile = ({ user }) => {
             </Header>
 
             <Details>
-                <DetailsItem>
+                <DetailsItem email>
                     <Title>
                         Your email:
                     </Title>
@@ -29,6 +30,11 @@ const SettingsProfile = ({ user }) => {
                         {user.email}
                     </Email>
                 </DetailsItem>
+
+                {user.flags & (1 << 6) ? <DetailsItem>
+                    <ContentUrl contentUrl={user.contentUrl} />
+                </DetailsItem>
+                    : ''}
 
                 <DetailsItem>
                     <SettingsPassword />

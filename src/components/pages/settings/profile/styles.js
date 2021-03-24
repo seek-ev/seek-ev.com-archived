@@ -38,6 +38,8 @@ const Details = styled.div`
 
 const DetailsItem = styled.div`
     margin: 4px 0 8px;
+
+    ${props => props.email ? 'margin: 4px 0 12px;' : ''}
 `
 
 const Title = styled.div`
