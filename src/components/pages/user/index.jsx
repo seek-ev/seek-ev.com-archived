@@ -1,16 +1,15 @@
 import React from 'react'
 
 // Styles
-import { Wrapper, Header, HeaderDetails, Details } from './styles'
+import { Wrapper, Header, HeaderDetails } from './styles'
 
 // Components
+import { Details } from 'components/pages/user/details'
 import { UserAvatar } from 'components/pages/user/avatar'
 import { UserBadges } from 'components/pages/user/badges'
 import { Username } from 'components/pages/user/username'
-import { DetailsMenu } from 'components/pages/user/details/menu'
-import { DetailsCars } from 'components/pages/user/details/cars'
 
-const User = ({ item, user, onItemChange }) => {
+const User = ({ user }) => {
     return (
         <Wrapper>
             <Header>
@@ -20,10 +19,7 @@ const User = ({ item, user, onItemChange }) => {
                     <UserBadges flags={user.flags} />
                 </HeaderDetails>
             </Header>
-            <Details>
-                <DetailsMenu baseItem={item} itemChange={onItemChange} />
-                <DetailsCars cars={user.ownedCars} />
-            </Details>
+            <Details id={user.id} />
         </Wrapper>
     )
 }

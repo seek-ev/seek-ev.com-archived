@@ -3,7 +3,7 @@ import React from 'react'
 // Styles
 import { DetailsLink, Wrapper, Picture, InfoWrapper, Info, InfoDetails, Detail, Model, Category } from './styles'
 
-const DetailsCar = ({ car }) => {
+const Car = ({ car }) => {
     return (
         <DetailsLink to={`/${car.version.timeline.car.model}?timeline=${car.version.timeline.year}&version=${car.version.name}`} >
             <Wrapper>
@@ -29,4 +29,4 @@ const DetailsCar = ({ car }) => {
     )
 }
 
-export { DetailsCar }
+export { Car }

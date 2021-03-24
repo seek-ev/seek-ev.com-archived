@@ -6,16 +6,17 @@ import { Wrapper, Options, Option, Icon } from './styles'
 // Icons
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md'
 
-const Select = ({ raise, value, display, def, options, onChange, disabled }) => {
+const Select = ({ raise, value, display, none, def, options, onChange, disabled }) => {
   const [selected, setSelected] = useState(null)
   const [isOpen, setOpen] = useState(false)
 
   // Set selected item
   useEffect(() => {
+    if (def && none) return setSelected(options.find(o => o === def))
     if (def && display) return setSelected(options.find(o => o[display].toString() === def))
     else if (def) return setSelected(options.find(o => o.id === parseInt(def)))
     else return setSelected(options[0])
-  }, [options, def, display])
+  }, [options, def, display, none])
 
   // Use refs to control showing and hiding options
   const useSelectControl = (ref) => {
