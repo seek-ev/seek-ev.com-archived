@@ -9,7 +9,12 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 124px 20% 24px;
+    padding: 124px 18% 24px;
+    margin: 0 auto;
+
+    @media only screen and (max-width: 1600px) {
+        padding: 124px 9% 24px;
+    }
     
     @media only screen and (max-width: ${maxSize.medium}) {
         align-items: center;

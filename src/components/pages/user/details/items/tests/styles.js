@@ -13,6 +13,7 @@ const NoTests = styled.div`
     font-size: 17px;
     font-weight: 500;
     font-family: 'Roboto', sans-serif;
+    
     @media only screen and (max-width: ${maxSize.medium}) {
         margin: 8px 0;
     }
