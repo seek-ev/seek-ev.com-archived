@@ -27,17 +27,17 @@ import { SettingsConnection } from './connection/index'
 import { showSnackbar } from 'actions/snackbar'
 
 const SettingsConnections = ({ params }) => {
+    const [loadingConnections, setLoadingConnections] = useState(true)
     const [connections, setConnections] = useState([])
     const [loading, setLoading] = useState(false)
-    const [loadingConnections, setLoadingConnections] = useState(false)
     const dispatch = useDispatch()
     const history = useHistory()
 
     useEffect(() => {
         const fetchConnections = async () => {
-            setLoadingConnections(true)
+            await setLoadingConnections(true)
             await axios.get('/users/@me/connections').then(res => setConnections(res.data)).catch(err => dispatch(showSnackbar(err, 'error')))
-            setLoadingConnections(false)
+            await setLoadingConnections(false)
         }
 
         async function saveConnection() {
@@ -87,20 +87,20 @@ const SettingsConnections = ({ params }) => {
                 Your connections
             </ConnectionsTitle>
 
-            {connections.length > 0 ?
-                <List>
-                    {connections.map(c => {
-                        return <SettingsConnection connection={c} key={c.type} onLoading={onLoading} />
-                    })}
-                </List>
-                : <List>No connections yet</List>}
+            {loadingConnections ?
+                <Loading /> : connections.length > 0 ?
+                    <List>
+                        {connections.map(c => {
+                            return <SettingsConnection connection={c} key={c.type} onLoading={onLoading} />
+                        })}
+                    </List>
+                    : <List>No connections yet</List>}
 
-            {connections.length === 2 ? '' :
+            {loadingConnections ? '' : connections.length === 2 ? '' :
                 <Create>
                     <CreateTitle>
                         Connect
                     </CreateTitle>
-                    {connections.some(c => c.type === 'discord')}
                     {connections.some(c => c.type === 'discord') ? '' : <ConnectButton discord href="https://discord.com/api/oauth2/authorize?client_id=745299401160786010&redirect_uri=https%3A%2F%2Fseek-ev.com%2Fsettings%3Ftype%3Ddiscord&response_type=code&scope=identify%20guilds">
                         Discord <ConnectIcon discord><FaDiscord /></ConnectIcon>
                     </ConnectButton>}
@@ -113,8 +113,6 @@ const SettingsConnections = ({ params }) => {
             {loading ? <LoadingWrapper>
                 <Loading></Loading>
             </LoadingWrapper> : ''}
-
-            {loadingConnections ? <Loading></Loading> : ''}
         </Connections >
     )
 }
