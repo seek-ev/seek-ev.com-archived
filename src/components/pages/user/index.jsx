@@ -15,7 +15,7 @@ const User = ({ user }) => {
             <Header>
                 <UserAvatar avatar={user.avatar} />
                 <HeaderDetails>
-                    <Username name={user.username} />
+                    <Username name={user.username} flags={user.flags} url={user.contentUrl} />
                     <UserBadges flags={user.flags} />
                 </HeaderDetails>
             </Header>
