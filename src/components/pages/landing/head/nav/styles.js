@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro'
+import styled, { keyframes } from 'styled-components/macro'
 
 // Variables
 import { maxSize } from 'assets/variables'
@@ -9,14 +9,14 @@ import { Link } from 'react-router-dom'
 const Wrapper = styled.div`
     width: 100%;
     display: flex;
-    position: absolute;
+    position: fixed;
     z-index: 1;
     top: 0px;
     padding: 14px 0 0;
     flex-direction: row;
     margin: 0 0 130px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 
     @media only screen and (max-width: ${maxSize.medium}) and (orientation: portrait) {
         padding: 6px 0 0;
@@ -27,12 +27,30 @@ const Wrapper = styled.div`
     }
 `
 
+const Buttons = styled.div`
+    padding: 0 12px;
+`
+
+const Show = keyframes`
+    0% {
+        visibility: visible;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+`
+
 const LandingButton = styled(Link)`
+    opacity: 0;
     color: #000;
+    margin: 0 8px;
     font-size: 19px;
     position: relative;
     text-decoration: none;
     font-family: 'Varela Round', sans-serif;
+    animation: 1s 2.4s linear ${Show} forwards;
 
     :after{
         content: '';
@@ -58,6 +76,4 @@ const LandingButton = styled(Link)`
     }
 `
 
-
-
-export { Wrapper, LandingButton }
+export { Wrapper, Buttons, LandingButton }

@@ -11,6 +11,7 @@ const dissappear = keyframes`
 
     100% {
         opacity: 0;
+        z-index: 0;
     }
 `
 

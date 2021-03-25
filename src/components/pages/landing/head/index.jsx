@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Styles
-import { Wrapper } from './styles'
+import { Wrapper, Row } from './styles'
 
 // Components
 import { Nav } from './nav'
@@ -12,8 +12,10 @@ const Head = () => {
     return (
         <Wrapper>
             <Nav />
-            <Welcome />
-            <Illu />
+            <Row>
+                <Illu />
+                <Welcome />
+            </Row>
         </Wrapper>
     )
 }
