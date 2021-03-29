@@ -24,6 +24,12 @@ const Cars = styled.div`
     }
 `
 
+const LoadingWrapper = styled.div`
+    width: 100%;
+    height: 120px;
+    padding: 22px;
+`
+
 const Loading = styled.div`
     background: ${colors.primary};
     -webkit-animation: load1 1s infinite ease-in-out;
@@ -32,7 +38,7 @@ const Loading = styled.div`
     height: 20px;
     color: ${colors.primary};
     text-indent: -9999em;
-    margin: 88px auto;
+    margin: 10px auto;
     position: relative;
     font-size: 8px;
     -webkit-transform: translateZ(0);
@@ -104,4 +110,4 @@ const NotFound = styled.div`
     }
 `
 
-export { Wrapper, Cars, Loading, NotFound }
+export { Wrapper, Cars, LoadingWrapper, Loading, NotFound }
