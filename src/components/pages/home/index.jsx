@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Styles
-import { Wrapper, Cars, Loading, NotFound } from './styles'
+import { Wrapper, Cars, LoadingWrapper, Loading, NotFound } from './styles'
 
 // Components
 import { Header } from 'components/pages/home/header'
@@ -10,7 +10,7 @@ import { CarCard } from 'components/pages/home/car-card'
 // Icons
 import { MdBatteryCharging60 } from 'react-icons/md'
 
-const HomeWrapper = ({ cars, brands, categories, loading, loaded, handleSearchChange, handleCategoryChange, handleBrandChange }) => {
+const HomeWrapper = ({ cars, brands, categories, loading, handleSearchChange, handleCategoryChange, handleBrandChange }) => {
     return (
         <Wrapper>
             <Header
@@ -22,17 +22,19 @@ const HomeWrapper = ({ cars, brands, categories, loading, loaded, handleSearchCh
                 handleBrandChange={handleBrandChange}
             />
 
-            {(cars.length > 0) && !loading ? <Cars>
+            {cars.length > 0 ? <Cars>
                 {cars.map((car) => {
                     return <CarCard car={car} key={car.id} />
                 })}
             </Cars> : ''}
 
-            {(cars.length === 0 && (loaded && !loading)) ? <NotFound>
+            {cars.length === 0 && !loading ? <NotFound>
                 No cars found <MdBatteryCharging60 />
             </NotFound> : ''}
 
-            {loading || !loaded ? <Loading /> : ''}
+            {loading ? <LoadingWrapper>
+                <Loading />
+            </LoadingWrapper> : ''}
         </Wrapper>
     )
 }

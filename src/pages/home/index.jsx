@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { Helmet } from 'react-helmet'
+import axios from 'axios'
 
 // Styles
 import { Wrapper } from './styles'
@@ -14,13 +14,14 @@ import { HomeWrapper } from 'components/pages/home'
 import { showSnackbar } from 'actions/snackbar'
 
 const Home = () => {
-  const [cars, setCars] = useState([])
-  const [allCars, setAllCars] = useState([])
   const [stateFilters, setFilters] = useState([{ text: 'all', type: 'model' }, { text: 'all', type: 'category' }, { text: 'all', type: 'brand' }])
   const [brands, setBrands] = useState([{ id: 'none', value: 'id', name: 'All brands', shortName: 'All brands' }])
   const [categories, setCategories] = useState([{ id: 'none', value: 'id', name: 'All categories' }])
-  const [loading, setLoading] = useState(false)
-  const [loaded, setLoaded] = useState(false)
+  const [loading, setLoading] = useState(true)
+  const [position, setPosition] = useState(0)
+  const [allCars, setAllCars] = useState([])
+  const [cars, setCars] = useState([])
+  const [page, setPage] = useState(1)
   const dispatch = useDispatch()
 
   const filter = async () => {
@@ -78,13 +79,41 @@ const Home = () => {
   }
 
   useEffect(() => {
-    setLoading(true)
+    const fetch = async () => {
+      if (cars.length % 20 !== 0) return
+      let resCars = []
+      setLoading(true)
+      await axios.get(`/cars?page=${page + 1}`).then(res => {
+        resCars = [...cars, ...res.data]
+        setPage(page + 1)
+      }).catch(err => dispatch(showSnackbar(err, 'error')))
 
+      setLoading(false)
+      setCars(resCars)
+      setAllCars(resCars)
+    }
+
+    const onScroll = () => {
+      if (loading) return
+      if (document.documentElement.offsetHeight === position) return
+      if ((window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight)) {
+        fetch()
+        setPosition(document.documentElement.offsetHeight)
+      }
+    }
+
+    window.addEventListener("scroll", onScroll)
+
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [setPage, page, cars, position, loading, dispatch])
+
+  useEffect(() => {
     const fetchData = async () => {
-      await axios.get('/cars').then(async res => {
-        await setCars(res.data)
-        await setAllCars(res.data)
-        await setLoaded(true)
+      let resCars = []
+      setLoading(true)
+
+      await axios.get('/cars?page=1').then(res => {
+        resCars = res.data
       }).catch(err => {
         dispatch(showSnackbar(err, 'error'))
       })
@@ -100,11 +129,13 @@ const Home = () => {
       }).catch(err => {
         dispatch(showSnackbar(err, 'error'))
       })
+
+      setLoading(false)
+      setCars(resCars)
+      setAllCars(resCars)
     }
 
     fetchData()
-
-    setLoading(false)
   }, [dispatch])
 
   return (
@@ -124,7 +155,6 @@ const Home = () => {
         brands={brands}
         categories={categories}
         loading={loading}
-        loaded={loaded}
         handleSearchChange={handleSearchChange}
         handleCategoryChange={handleCategoryChange}
         handleBrandChange={handleBrandChange}
