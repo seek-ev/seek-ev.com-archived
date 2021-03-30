@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 // Styles
 import { Wrapper, Buttons, LandingButton } from './styles'
@@ -9,7 +10,9 @@ import { LandingLogo } from './logo'
 const Nav = () => {
     return (
         <Wrapper>
-            <LandingLogo />
+            <Link to="/home">
+                <LandingLogo />
+            </Link>
 
             <Buttons>
                 <LandingButton to="/register">Sign up</LandingButton>
