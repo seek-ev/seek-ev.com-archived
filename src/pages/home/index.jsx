@@ -141,7 +141,7 @@ const Home = () => {
   return (
     <Wrapper>
       <Helmet>
-        <title>Home</title>
+        <title>Home / Seek EV</title>
 
         <meta property="og:title" content="Seek EV" />
         <meta property="og:description" content="Join us on the way to the future" />
