@@ -19,7 +19,7 @@ const Navbar = () => {
     return (
         <Wrapper>
             <NavLeft>
-                <Link to="/">
+                <Link to="/home">
                     <NavLogo />
                 </Link>
             </NavLeft>

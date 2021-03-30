@@ -36,7 +36,7 @@ class App extends React.Component {
       <Router>
         <Switch>
           <PublicRoute exact path="/" component={LandingPage} />
-          <PrivateRoute exact path="/home" component={Home} />
+          <Route exact path="/home" component={Home} />
           <Route exact path="/terms" component={TermsPage} />
           <Route exact path="/b/:name" component={BrandPage} />
           <Route exact path="/u/:username" component={UserPage} />
