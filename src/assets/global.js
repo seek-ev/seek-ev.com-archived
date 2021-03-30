@@ -15,4 +15,8 @@ export const GlobalStyles = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
+
+    ::-webkit-scrollbar {
+      width: 0px;
+    }
 `
