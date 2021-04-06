@@ -10,7 +10,7 @@ const TermsHeader = () => {
                 Seek EV Terms of Service
             </Title>
             <Date>
-                Last modified: November 11, 2020
+                Last modified: April 06, 2021
             </Date>
         </Header>
     )
