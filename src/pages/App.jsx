@@ -16,6 +16,7 @@ import { TermsPage } from 'pages/terms'
 import { LoginPage } from 'pages/login'
 import { BrandPage } from 'pages/brand'
 import { TestPage } from 'pages/tests/_id'
+import { PrivacyPage } from 'pages/privacy'
 import { LandingPage } from 'pages/landing'
 import { RegisterPage } from 'pages/register'
 import { SettingsPage } from 'pages/settings'
@@ -39,6 +40,7 @@ class App extends React.Component {
           <Route exact path="/home" component={Home} />
           <Route exact path="/terms" component={TermsPage} />
           <Route exact path="/b/:name" component={BrandPage} />
+          <Route exact path="/privacy" component={PrivacyPage} />
           <Route exact path="/u/:username" component={UserPage} />
           <PrivateRoute exact path="/cars" component={CarsPage} />
           <PublicRoute exact path="/login" component={LoginPage} />
