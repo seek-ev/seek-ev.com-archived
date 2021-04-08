@@ -44,7 +44,8 @@ const RegisterForm = (props) => {
                 <Input name="repeatPassword" disabled={props.disabled} error={props.repeatPasswordError} onChange={handlePasswordRepeatInputChange} placeholder="Repeat password" type="password" autoComplete="new-password" />
             </FormInput>
             <FormText>
-                By creating account on this website you accept our <FormLink disabled={props.disabled} to="/terms">Terms of Service</FormLink>.
+                By creating account on this website you accept our <FormLink disabled={props.disabled} to="/terms">ToS</FormLink> and
+                <FormLink disabled={props.disabled} to="/privacy"> Privacy Policy</FormLink>.
             </FormText>
             <FormButton>
                 <Button text="register" disabled={props.disabled} primary type="submit" handleClick={handleSubmit} />
