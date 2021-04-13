@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 const Wrapper = styled(Link)`
     color: #000;
     height: 90px;
+    flex: 1 1 auto;
     min-width: 250px;
     max-width: 300px;
     text-decoration: none;
