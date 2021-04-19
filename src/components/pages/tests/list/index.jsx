@@ -26,11 +26,11 @@ const TestsList = ({ tests }) => {
     return (
         <Wrapper>
             {list.map((t, i) => { return <Test test={t} key={t.id} /> })}
-            <Pagination>
+            {pages > 1 ? <Pagination>
                 {Array.from(Array(pages), (e, i) => {
                     return <Page chosen={page === (i)} key={i} onClick={() => changePage(i)}>{i + 1}</Page>
                 })}
-            </Pagination>
+            </Pagination> : ''}
         </Wrapper>
     )
 }
