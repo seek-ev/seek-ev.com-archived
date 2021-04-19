@@ -7,15 +7,15 @@ import { maxSize } from 'assets/variables'
 import { Link } from 'react-router-dom'
 
 const Wrapper = styled.div`
+    top: 0px;
+    z-index: 1;
     width: 100%;
     display: flex;
-    position: fixed;
-    z-index: 1;
-    top: 0px;
-    padding: 14px 0 0;
-    flex-direction: row;
+    position: absolute;
     margin: 0 0 130px;
+    padding: 14px 0 0;
     align-items: center;
+    flex-direction: row;
     justify-content: space-between;
 
     @media only screen and (max-width: ${maxSize.medium}) and (orientation: portrait) {

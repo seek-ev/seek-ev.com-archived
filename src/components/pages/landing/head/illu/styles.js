@@ -8,6 +8,7 @@ const Wrapper = styled.div`
     display: inline-block;
     flex-direction: row;
     justify-content: space-between;
+    margin: 10vh 0;
 
     @media only screen and (max-width: ${maxSize.medium}) and (orientation: landscape) {
         margin: 0 auto;

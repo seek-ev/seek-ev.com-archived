@@ -21,6 +21,7 @@ import { LandingPage } from 'pages/landing'
 import { RegisterPage } from 'pages/register'
 import { SettingsPage } from 'pages/settings'
 import { NewTestPage } from 'pages/tests/new'
+import { MatchCarPage } from 'pages/match-car'
 import { ResetConfirmPage } from 'pages/reset-confirm'
 import { ResetPasswordPage } from 'pages/reset-password'
 import { ResetSuccess } from 'pages/reset-password/success'
@@ -44,6 +45,7 @@ class App extends React.Component {
           <Route exact path="/u/:username" component={UserPage} />
           <PrivateRoute exact path="/cars" component={CarsPage} />
           <PublicRoute exact path="/login" component={LoginPage} />
+          <Route exact path="/match-car" component={MatchCarPage} />
           <PrivateRoute exact path="/tests" component={TestsPage} />
           <PrivateRoute exact path="/tests/new" component={NewTestPage} />
           <PrivateRoute exact path="/tests/:id" component={TestPage} />
