@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 // Styles
-import { Wrapper, Title, Description } from './styles'
+import { Wrapper, Title, Description, Details } from './styles'
 
 const CarVersion = (props) => {
     const [version, setVersion] = useState({})
@@ -16,6 +16,8 @@ const CarVersion = (props) => {
                 {version.name}
             </Title>
             {version.description ? <Description>{version.description}</Description> : ''}
+
+            <Details>Details are coming soon</Details>
         </Wrapper>
     )
 }
