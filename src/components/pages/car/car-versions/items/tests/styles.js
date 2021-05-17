@@ -1,28 +1,12 @@
 import styled, { keyframes } from 'styled-components/macro'
 
 // Variables
-import { maxSize, colors } from 'assets/variables'
+import { colors } from 'assets/variables'
 
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-`
-
-const NoTests = styled.div`
-    width: 100%;
-    text-align: center;
-    margin: 4px 0 0;
-    font-size: 17px;
-    font-weight: 500;
-    font-family: 'Roboto', sans-serif;
-    
-    span {
-        color: ${colors.primary};
-    }
-
-    @media only screen and (max-width: ${maxSize.medium}) {
-        margin: 8px 0;
-    }
+    align-items: ${props => props.loading};
 `
 
 const loadingRing = keyframes`
@@ -34,8 +18,7 @@ const loadingRing = keyframes`
     }
 `
 
-const PageLoading = styled.div`
-    align-self: center;
+const Loading = styled.div`
     display: inline-block;
     position: relative;
     width: 60px;
@@ -65,4 +48,13 @@ const PageLoading = styled.div`
     }
 `
 
-export { Wrapper, NoTests, PageLoading }
+const NotFound = styled.div`
+    margin: 8px 0 0;
+    font-weight: 500;
+
+    span {
+        color: ${colors.primary};
+    }
+`
+
+export { Wrapper, Loading, NotFound }

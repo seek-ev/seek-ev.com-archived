@@ -1,27 +1,27 @@
-import styled, { keyframes } from 'styled-components/macro'
+import styled, {keyframes} from 'styled-components/macro'
 
 // Variables
-import { maxSize, colors } from 'assets/variables'
+import { colors } from 'assets/variables'
 
 const Wrapper = styled.div`
     display: flex;
+    min-width: 100%;
+    margin: 12px 0 0;
+    overflow-x: scroll;
     flex-direction: column;
-`
 
-const NoTests = styled.div`
-    width: 100%;
-    text-align: center;
-    margin: 4px 0 0;
-    font-size: 17px;
-    font-weight: 500;
-    font-family: 'Roboto', sans-serif;
-    
-    span {
-        color: ${colors.primary};
+    ::-webkit-scrollbar {
+        height: 5px;
     }
 
-    @media only screen and (max-width: ${maxSize.medium}) {
-        margin: 8px 0;
+    ::-webkit-scrollbar-track {
+        background: #fff;
+        border-radius: 12px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #222222;
+        border-radius: 24px;
     }
 `
 
@@ -34,7 +34,7 @@ const loadingRing = keyframes`
     }
 `
 
-const PageLoading = styled.div`
+const Loading = styled.div`
     align-self: center;
     display: inline-block;
     position: relative;
@@ -65,4 +65,4 @@ const PageLoading = styled.div`
     }
 `
 
-export { Wrapper, NoTests, PageLoading }
+export { Wrapper, Loading }

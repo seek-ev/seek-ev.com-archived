@@ -24,9 +24,7 @@ const Acceleration = ({ tests }) => {
                     <th>Wheel rear</th>
                     <th>Spec time</th>
                     <th>Test vs Spec</th>
-                    <th>
-                        Car
-                    </th>
+                    <th>Added by</th>
                 </TR>
             </Head>
             <Body>
@@ -47,9 +45,8 @@ const Acceleration = ({ tests }) => {
                     <td>{t.test.wheelRear}</td>
                     <td>{t.test.specTime}</td>
                     <td>{t.test.test_vs_spec}</td>
-                    <TDLink onClick={() => { window.location = `/${t.version.timeline.car.model}?timeline=${t.version.timeline.year}&version=${t.version.name}` }}>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</TDLink>
-                </TR> : '')}
-
+                    <TDLink onClick={() => { window.location = `/u/${t.user.username}` }}>{t.user.username}</TDLink>
+                </TR> : <TR key={t.id} />)}
             </Body>
         </Table>
     )

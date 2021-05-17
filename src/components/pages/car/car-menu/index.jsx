@@ -1,21 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 // Styles
 import { Wrapper, Item, ItemColumn, Title, Description, Icon } from './styles'
 
 // Icons
-import { MdLibraryBooks, MdPeople, MdForum } from 'react-icons/md'
+import { RiTestTubeFill } from 'react-icons/ri'
+import { MdLibraryBooks, MdForum } from 'react-icons/md'
 
-const CarMenu = ({ versions }) => {
-    const [item, setItem] = useState('timeline')
-
+const CarMenu = ({ item, changeItem }) => {
     return (
         <Wrapper>
-            <Item chosen={item === 'timeline'} onClick={() => setItem('timeline')}>
+            <Item chosen={item === 'details'} onClick={() => changeItem('details')}>
                 <ItemColumn>
-                    <Title>Timeline</Title>
+                    <Title>Details</Title>
                     <Description>
-                        Timeline of the car that includes its versions
+                        Car versions with details like range
                     </Description>
                 </ItemColumn>
                 <Icon>
@@ -23,15 +22,15 @@ const CarMenu = ({ versions }) => {
                 </Icon>
             </Item>
 
-            <Item chosen={item === 'tests'} disabled>
+            <Item chosen={item === 'tests'} onClick={() => changeItem('tests')}>
                 <ItemColumn>
-                    <Title>Tests <span>Coming Soon</span></Title>
+                    <Title>Tests</Title>
                     <Description>
                         Tests added by users
                     </Description>
                 </ItemColumn>
                 <Icon>
-                    <MdPeople />
+                    <RiTestTubeFill />
                 </Icon>
             </Item>
 

@@ -42,9 +42,9 @@ const CarTimeline = (props) => {
                     <Select name="timeline" options={timeline} display="year" value="year" onChange={onTimelineChange} def={props.display} />
                 </HeaderSelect>
             </Header>
-                <CarVersions versions={disTimeline} year={year} version={props.version} />
+                <CarVersions item={props.item} versions={disTimeline} year={year} version={props.version} />
             </HeaderWrapper> : <NoneTimeline>
-                    We don't have any details about this car
+                We don't have any details about this car
             </NoneTimeline>
             }
         </Wrapper >

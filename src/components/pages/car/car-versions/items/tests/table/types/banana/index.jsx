@@ -11,9 +11,7 @@ const Banana = ({ tests }) => {
                     <th>Frunk</th>
                     <th>Trunk</th>
                     <th>Seats folded</th>
-                    <th>
-                        Car
-                    </th>
+                    <th>Added by</th>
                 </TR>
             </Head>
             <Body>
@@ -21,7 +19,7 @@ const Banana = ({ tests }) => {
                     <td>{t.test.frunk}</td>
                     <td>{t.test.trunk}</td>
                     <td>{t.test.seatsFolded}</td>
-                    <TDLink onClick={() => { window.location = `/${t.version.timeline.car.model}?timeline=${t.version.timeline.year}&version=${t.version.name}` }}>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</TDLink>
+                    <TDLink onClick={() => { window.location = `/u/${t.user.username}` }}>{t.user.username}</TDLink>
                 </TR>)}
             </Body>
         </Table>

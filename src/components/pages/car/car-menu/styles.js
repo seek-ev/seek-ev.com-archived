@@ -19,12 +19,22 @@ const Item = styled.div`
     height: 32%;
     display: flex;
     cursor: pointer;
+    margin: 0 0 6px;
     padding: 8px 12px;
     border-radius: 7px;
     flex-direction: row;
     transition: all 0.3s ease 0s;
     justify-content: space-between;
     font-family: 'Roboto', sans-serif;
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0, 0.2);
+    -moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0, 0.2);
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0, 0.2);
+
+    :hover {
+        box-shadow: 1px 2px 8px 0px rgba(0,0,0, 0.20);
+        -moz-box-shadow: 1px 2px 8px 0px rgba(0,0,0, 0.20);
+        -webkit-box-shadow: 1px 2px 8px 0px rgba(0,0,0, 0.20);
+    }
 
     ${props => props.chosen ? `
         color: #fff;
@@ -42,6 +52,10 @@ const Item = styled.div`
         box-shadow: none;
         -moz-box-shadow: none;
         -webkit-box-shadow: none;
+
+        :hover {
+            box-shadow: none;
+        }
     ` : ''}
 `
 

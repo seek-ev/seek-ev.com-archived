@@ -19,15 +19,13 @@ const Range = ({ tests }) => {
                     <th>Battery capacity</th>
                     <th>Range with 75%</th>
                     <th colSpan="2">Charging to 75%</th>
-                    <th>
-                        Car
-                    </th>
+                    <th>Added by</th>
                 </TR>
                 <TR>
                     <th colSpan="10"></th>
                     <th>Time</th>
                     <th>Kmph</th>
-                    <th></th>
+                    <th colSpan="2"></th>
                 </TR>
             </Head>
             <Body>
@@ -44,8 +42,8 @@ const Range = ({ tests }) => {
                     <td>{t.test.rangeWith75Percent}</td>
                     <td>{t.test.chargingTo75Percent.time}</td>
                     <td>{t.test.chargingTo75Percent.kmPerHour}</td>
-                    <TDLink onClick={() => { window.location = `/${t.version.timeline.car.model}?timeline=${t.version.timeline.year}&version=${t.version.name}` }}>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</TDLink>
-                </TR> : '')}
+                    <TDLink onClick={() => { window.location = `/u/${t.user.username}` }}>{t.user.username}</TDLink>
+                </TR> : <TR key={t.id} />)}
             </Body>
         </Table>
     )

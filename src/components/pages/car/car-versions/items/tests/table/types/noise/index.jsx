@@ -15,16 +15,14 @@ const Noise = ({ tests }) => {
                     <th>Wheel front</th>
                     <th>Wheel rear</th>
                     <th>Aftermarket soundproofing</th>
-                    <th>
-                        Car
-                    </th>
+                    <th>Added by</th>
                 </TR>
                 <TR>
                     <th colSpan="3"></th>
                     <th>80 km/h</th>
                     <th>100 km/h</th>
                     <th>120 km/h</th>
-                    <th colSpan="3"></th>
+                    <th colSpan="4"></th>
                 </TR>
             </Head>
             <Body>
@@ -39,8 +37,8 @@ const Noise = ({ tests }) => {
                         <td>{t.test.wheelFront}</td>
                         <td>{t.test.wheelRear}</td>
                         <td>{t.test.aftermarketSoundproofing ? 'Yes' : 'No'}</td>
-                        <TDLink onClick={() => { window.location = `/${t.version.timeline.car.model}?timeline=${t.version.timeline.year}&version=${t.version.name}` }}>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</TDLink>
-                    </TR> : ''
+                        <TDLink onClick={() => { window.location = `/u/${t.user.username}` }}>{t.user.username}</TDLink>
+                    </TR> : <TR key={t.id} />
                 })}
             </Body>
         </Table>

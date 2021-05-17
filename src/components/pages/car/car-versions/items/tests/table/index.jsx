@@ -4,13 +4,13 @@ import React from 'react'
 import { Wrapper, Loading } from './styles'
 
 // Components
-import { Noise } from './noise'
-import { Range } from './range'
-import { Weight } from './weight'
-import { Banana } from './banana'
-import { Acceleration } from './acceleration'
+import { Noise } from './types/noise'
+import { Range } from './types/range'
+import { Weight } from './types/weight'
+import { Banana } from './types/banana'
+import { Acceleration } from './types/acceleration'
 
-const Table = ({ tests, type, loading }) => {
+const VersionTable = ({ tests, type, loading }) => {
     const TYPES = {
         noise: <Noise tests={tests} />,
         range: <Range tests={tests} />,
@@ -18,7 +18,6 @@ const Table = ({ tests, type, loading }) => {
         bananaBox: <Banana tests={tests} />,
         acceleration: <Acceleration tests={tests} />
     }
-
     return (
         <Wrapper>
             {loading ?
@@ -26,10 +25,10 @@ const Table = ({ tests, type, loading }) => {
                     <div></div>
                     <div></div>
                     <div></div>
-                </Loading> :
-                TYPES[type]}
+                </Loading>
+                : TYPES[type]}
         </Wrapper>
     )
 }
 
-export { Table }
+export { VersionTable }
