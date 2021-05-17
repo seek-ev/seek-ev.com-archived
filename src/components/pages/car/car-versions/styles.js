@@ -18,7 +18,7 @@ const Versions = styled.div`
 const Title = styled.div`
     font-size: 18px;
     font-weight: 500;
-    padding: 6px 0 2px 4px;
+    padding: 6px 0 4px 4px;
 `
 
 const VersionSelect = styled.div`
@@ -49,7 +49,20 @@ const VersionButton = styled.div`
     ` : ''}
 `
 
-const Item = styled.div``
+const Version = styled.div`
+    padding: 16px 2px 8px;
+`
+
+const VersionTitle = styled.div`
+    font-size: 24px;
+    font-weight: 500;
+`
+
+const VersionDescription = styled.div`
+    font-size: 18px;
+`
+
+const VersionDetails = styled.div``
 
 const None = styled.div`
     width: 100%;
@@ -58,4 +71,4 @@ const None = styled.div`
     text-align: center;
 `
 
-export { Wrapper, Versions, Title, VersionSelect, VersionButton, Item, None }
+export { Wrapper, Versions, Title, VersionSelect, VersionButton, Version, VersionTitle, VersionDescription, VersionDetails, None }

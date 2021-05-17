@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 
 // Styles
-import { Wrapper, Versions, Title, VersionSelect, VersionButton, Item, None } from './styles'
+import { Wrapper, Versions, Title, VersionSelect, VersionButton, Version, VersionTitle, VersionDescription, VersionDetails, None } from './styles'
 
 // Components
-import { CarVersion } from './version'
+import { VersionTests } from './items/tests'
 
 const CarVersions = (props) => {
     const [versions, setVersions] = useState([])
@@ -27,14 +27,20 @@ const CarVersions = (props) => {
                 <Versions>
                     <Title>Choose version</Title>
                     <VersionSelect>
-                        {versions.map((v, index) => {
+                        {versions.map((v) => {
                             return <VersionButton chosen={version.name === v.name} key={v.name} onClick={() => setVersion(v)}>{v.name}</VersionButton>
                         })}
                     </VersionSelect>
 
-                    <Item>
-                        <CarVersion version={version} />
-                    </Item>
+                    <Version>
+                        <VersionTitle>
+                            {version.name}
+                        </VersionTitle>
+                        {version.description ? <VersionDescription>{version.description}</VersionDescription> : ''}
+                    </Version>
+
+                    {props.item === 'details' ? <VersionDetails>Details coming soon</VersionDetails> : ''}
+                    {props.item === 'tests' ? <VersionTests item={props.item} version={version} /> : ''}
                 </Versions> :
                 <None>
                     We don't have any details about this car {props.year ? `from ${props.year}` : ''}

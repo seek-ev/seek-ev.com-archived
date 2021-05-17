@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 // Styles
 import { Wrapper, Button, Pages, Page } from './styles'
@@ -6,9 +6,7 @@ import { Wrapper, Button, Pages, Page } from './styles'
 // Icons
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 
-const Pagination = ({ pages }) => {
-    const [page, setPage] = useState(1)
-
+const Pagination = ({ page, pages, setPage }) => {
     return (
         <Wrapper>
             {pages > 1 ? <Button onClick={() => setPage(page - 1)} disabled={page === 1}>

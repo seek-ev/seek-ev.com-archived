@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // Styles
 import { Wrapper, Header, HeaderInfo, Details } from './styles'
@@ -10,6 +10,8 @@ import { CarPictures } from './car-pictures'
 import { CarTimeline } from './car-timeline'
 
 const CarContainer = ({ car, timeline, version }) => {
+    const [item, setItem] = useState('details')
+
     return (
         <Wrapper>
             <Header>
@@ -17,10 +19,10 @@ const CarContainer = ({ car, timeline, version }) => {
                     <CarPictures pictures={car.pictures} />
                     <CarInfo model={car.model} concept={car.concept} productionYears={car.productionYears} category={car.category} brand={car.brand} createdBy={car.admin ? car.admin : car.user} />
                 </HeaderInfo>
-                <CarMenu versions={car.versions} />
+                <CarMenu item={item} changeItem={setItem} />
             </Header>
             <Details>
-                <CarTimeline timeline={car.timeline} display={timeline} version={version} />
+                <CarTimeline item={item} timeline={car.timeline} display={timeline} version={version} />
             </Details>
         </Wrapper>
     )
