@@ -1,8 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 // Styles
-import { Table, Head, Body, TR } from '../styles'
+import { Table, Head, Body, TR, TDLink } from '../styles'
 
 const Acceleration = ({ tests }) => {
     return (
@@ -31,7 +30,6 @@ const Acceleration = ({ tests }) => {
                 </TR>
             </Head>
             <Body>
-
                 {tests.map(t => t.test.times ? <TR key={t.id}>
                     {t.test.times._0to10 ? <td>{t.test.times._0to10}s</td> : <td></td>}
                     {t.test.times._0to20 ? <td>{t.test.times._0to20}s</td> : <td></td>}
@@ -49,9 +47,7 @@ const Acceleration = ({ tests }) => {
                     <td>{t.test.wheelRear}</td>
                     <td>{t.test.specTime}</td>
                     <td>{t.test.test_vs_spec}</td>
-                    <Link to={`/${t.version.timeline.car.model}?timeline=${t.version.timeline.year}&version=${t.version.name}`}>
-                        <td>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</td>
-                    </Link>
+                    <TDLink onClick={() => { window.location = `/${t.version.timeline.car.model}?timeline=${t.version.timeline.year}&version=${t.version.name}` }}>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</TDLink>
                 </TR> : '')}
 
             </Body>

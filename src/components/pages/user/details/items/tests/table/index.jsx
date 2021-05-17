@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Styles
-import { Wrapper } from './styles'
+import { Wrapper, Loading } from './styles'
 
 // Components
 import { Noise } from './noise'
@@ -10,7 +10,7 @@ import { Weight } from './weight'
 import { Banana } from './banana'
 import { Acceleration } from './acceleration'
 
-const Table = ({ tests, type }) => {
+const Table = ({ tests, type, loading }) => {
     const TYPES = {
         noise: <Noise tests={tests} />,
         range: <Range tests={tests} />,
@@ -21,7 +21,13 @@ const Table = ({ tests, type }) => {
 
     return (
         <Wrapper>
-            {TYPES[type]}
+            {loading ?
+                <Loading>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </Loading> :
+                TYPES[type]}
         </Wrapper>
     )
 }

@@ -1,8 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 // Styles
-import { Table, Head, Body, TR } from '../styles'
+import { Table, Head, Body, TR, TDLink } from '../styles'
 
 const Range = ({ tests }) => {
     return (
@@ -25,16 +24,7 @@ const Range = ({ tests }) => {
                     </th>
                 </TR>
                 <TR>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                    <th colSpan="10"></th>
                     <th>Time</th>
                     <th>Kmph</th>
                     <th></th>
@@ -54,9 +44,7 @@ const Range = ({ tests }) => {
                     <td>{t.test.rangeWith75Percent}</td>
                     <td>{t.test.chargingTo75Percent.time}</td>
                     <td>{t.test.chargingTo75Percent.kmPerHour}</td>
-                    <Link to={`/${t.version.timeline.car.model}?timeline=${t.version.timeline.year}&version=${t.version.name}`}>
-                        <td>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</td>
-                    </Link>
+                    <TDLink onClick={() => { window.location = `/${t.version.timeline.car.model}?timeline=${t.version.timeline.year}&version=${t.version.name}` }}>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</TDLink>
                 </TR> : '')}
             </Body>
         </Table>

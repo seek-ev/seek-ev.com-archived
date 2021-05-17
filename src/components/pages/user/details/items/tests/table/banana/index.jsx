@@ -1,8 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 // Styles
-import { Table, Head, Body, TR } from '../styles'
+import { Table, Head, Body, TR, TDLink } from '../styles'
 
 const Banana = ({ tests }) => {
     return (
@@ -22,9 +21,7 @@ const Banana = ({ tests }) => {
                     <td>{t.test.frunk}</td>
                     <td>{t.test.trunk}</td>
                     <td>{t.test.seatsFolded}</td>
-                    <Link to={`/${t.version.timeline.car.model}?timeline=${t.version.timeline.year}&version=${t.version.name}`}>
-                        <td>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</td>
-                    </Link>
+                    <TDLink onClick={() => { window.location = `/${t.version.timeline.car.model}?timeline=${t.version.timeline.year}&version=${t.version.name}` }}>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</TDLink>
                 </TR>)}
             </Body>
         </Table>

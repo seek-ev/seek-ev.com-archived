@@ -1,8 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 // Styles
-import { Table, Head, Body, TR } from '../styles'
+import { Table, Head, Body, TR, TDLink } from '../styles'
 
 const Weight = ({ tests }) => {
     return (
@@ -24,9 +23,7 @@ const Weight = ({ tests }) => {
                     <td>{t.test.rear}</td>
                     <td>{t.test.total}</td>
                     <td>{t.test.distribution}</td>
-                    <Link to={`/${t.version.timeline.car.model}?timeline=${t.version.timeline.year}&version=${t.version.name}`}>
-                        <td>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</td>
-                    </Link>
+                    <TDLink onClick={() => { window.location = `/${t.version.timeline.car.model}?timeline=${t.version.timeline.year}&version=${t.version.name}` }}>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</TDLink>
                 </TR>)}
             </Body>
         </Table>

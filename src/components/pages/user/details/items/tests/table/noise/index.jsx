@@ -1,8 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 // Styles
-import { Table, Head, Body, TR } from '../styles'
+import { Table, Head, Body, TR, TDLink } from '../styles'
 
 const Noise = ({ tests }) => {
     return (
@@ -20,6 +19,13 @@ const Noise = ({ tests }) => {
                         Car
                     </th>
                 </TR>
+                <TR>
+                    <th colSpan="3"></th>
+                    <th>80 km/h</th>
+                    <th>100 km/h</th>
+                    <th>120 km/h</th>
+                    <th colSpan="3"></th>
+                </TR>
             </Head>
             <Body>
                 {tests.map(t => {
@@ -27,15 +33,13 @@ const Noise = ({ tests }) => {
                         <td>{t.test.tires}</td>
                         <td>{t.test.season}</td>
                         <td>{t.test.surface}</td>
-                        <td>{t.test.velocity._80} km/h</td>
-                        <td>{t.test.velocity._100} km/h</td>
-                        <td>{t.test.velocity._120} km/h</td>
+                        <td>{t.test.velocity._80}dB</td>
+                        <td>{t.test.velocity._100}dB</td>
+                        <td>{t.test.velocity._120}dB</td>
                         <td>{t.test.wheelFront}</td>
                         <td>{t.test.wheelRear}</td>
-                        <td>{t.test.aftermarketSoundproofing ? 'yes' : 'no'}</td>
-                        <Link to={`/${t.version.timeline.car.model}?timeline=${t.version.timeline.year}&version=${t.version.name}`}>
-                            <td>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</td>
-                        </Link>
+                        <td>{t.test.aftermarketSoundproofing ? 'Yes' : 'No'}</td>
+                        <TDLink onClick={() => { window.location = `/${t.version.timeline.car.model}?timeline=${t.version.timeline.year}&version=${t.version.name}` }}>{t.version.timeline.year} {t.version.timeline.car.model} {t.version.name}</TDLink>
                     </TR> : ''
                 })}
             </Body>
