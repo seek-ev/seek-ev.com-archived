@@ -5,20 +5,20 @@ import { Wrapper, Item, ItemColumn, Title, Description, Icon } from './styles'
 
 // Icons
 import { RiTestTubeFill } from 'react-icons/ri'
-import { MdLibraryBooks, MdForum } from 'react-icons/md'
+import { MdDescription, MdForum } from 'react-icons/md'
 
 const CarMenu = ({ item, changeItem }) => {
     return (
         <Wrapper>
-            <Item chosen={item === 'details'} onClick={() => changeItem('details')}>
+            <Item chosen={item === 'details'} disabled>
                 <ItemColumn>
-                    <Title>Details</Title>
+                    <Title>Details <span>Coming Soon</span></Title>
                     <Description>
                         Car versions with details like range
                     </Description>
                 </ItemColumn>
                 <Icon>
-                    <MdLibraryBooks />
+                    <MdDescription />
                 </Icon>
             </Item>
 

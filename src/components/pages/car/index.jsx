@@ -10,7 +10,7 @@ import { CarPictures } from './car-pictures'
 import { CarTimeline } from './car-timeline'
 
 const CarContainer = ({ car, timeline, version }) => {
-    const [item, setItem] = useState('details')
+    const [item, setItem] = useState('tests')
 
     return (
         <Wrapper>

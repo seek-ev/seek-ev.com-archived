@@ -66,7 +66,7 @@ const VersionTests = ({ item, version }) => {
                         <VersionTable tests={tests} type={type} loading={pageLoading} />
                         :
                         <NotFound>No tests of <span>{type}</span> type were found for this version</NotFound>}
-                    {pages > 0 ? <Pagination page={page} pages={pages} setPage={changePage} /> : ''}
+                    {pages > 1 ? <Pagination page={page} pages={pages} setPage={changePage} /> : ''}
                 </>
             }
         </Wrapper>
