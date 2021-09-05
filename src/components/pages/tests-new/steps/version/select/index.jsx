@@ -15,22 +15,23 @@ const VersionSelect = ({ timeline, setVersion }) => {
     }, [timeline, setVersion])
 
     const chooseTimeline = (id) => {
+        if (!id) return
         const found = timeline.find(t => t.id === parseInt(id))
         setTimeline(found)
-        setVersion(found.versions[0].id, found)
+        if (found.versions.length > 0) setVersion(found.versions[0].id, found)
     }
 
     return (
         <Wrapper>
             <Item>
                 Timeline:
-                <Select options={timeline} value="id" display="year" name="timeline" onChange={(t) => chooseTimeline(t.value)} />
+                <Select options={timeline} value="id" display="year" name="timeline" onChange={(t) => chooseTimeline(t)} />
             </Item>
 
             {chosenTimeline ? chosenTimeline.versions.length > 0 ? <Item>
                 Version:
                 <Select options={chosenTimeline.versions} value="id" display="name" name="version" onChange={(v) => setVersion(v.value, chosenTimeline)} />
-            </Item> : <NoVersions>This timeline has no versions, you can't use it.</NoVersions> : ''}
+            </Item> : <NoVersions>This timeline has no versions, you can't choose it.</NoVersions> : ''}
         </Wrapper>
     )
 }
