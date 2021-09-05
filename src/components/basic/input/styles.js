@@ -24,6 +24,7 @@ const SInput = styled.input`
     text-decoration: none;
     box-sizing: border-box;
     border: 2px solid #fff;
+    -webkit-appearance: none;
     padding: 7px 8px 7px 7px;
     transition: all .25s ease;
     font-family: 'Roboto', sans-serif;
@@ -74,7 +75,7 @@ const SInput = styled.input`
         -moz-box-shadow: -8px 10px 16px 0px rgba(0,0,0,.08);
         -webkit-box-shadow: -8px 10px 16px 0px rgba(0,0,0,.08);
     }
-    
+
     :disabled {
         color: #616161;
         opacity: 0.7;
@@ -88,7 +89,7 @@ const SInput = styled.input`
     :disabled:hover::placeholder {
         color: #616161;
     }
-    
+
     ::placeholder:disabled {
         color: #616161;
         font-weight: 500;

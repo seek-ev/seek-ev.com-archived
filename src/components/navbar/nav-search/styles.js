@@ -23,6 +23,7 @@ const Input = styled.input`
     text-decoration: none;
     box-sizing: border-box;
     border: 2px solid #fff;
+    -webkit-appearance: none;
     padding: 7px 8px 7px 6px;
     transition: all .25s ease;
     font-family: 'Roboto', sans-serif;
@@ -58,7 +59,7 @@ const Dropdown = styled.div`
     box-shadow: 0px 2px 6px 0px rgba(0,0,0,.08);
     -moz-box-shadow: 0px 2px 6px 0px rgba(0,0,0,.08);
     -webkit-box-shadow: 0px 2px 6px 0px rgba(0,0,0,.08);
-    
+
     a {
         text-decoration: none;
         color: #080808;

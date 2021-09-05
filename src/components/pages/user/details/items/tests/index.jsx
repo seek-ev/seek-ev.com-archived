@@ -52,7 +52,7 @@ const Tests = ({ id }) => {
             {loading ? <Loading /> : tests.length > 0 ? <>
                 <Header type={type} setType={setType} />
                 <Table tests={tests} type={type} loading={pageLoading} />
-                {pages > 0 ? <Pagination page={page} pages={pages} setPage={changePage} /> : ''}
+                {pages > 1 ? <Pagination page={page} pages={pages} setPage={changePage} /> : ''}
             </> : <>
                 <Header type={type} setType={setType} />
                 <NoTests>
