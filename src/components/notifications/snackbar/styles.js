@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 
 // Variables
-import { colors } from 'assets/variables'
+import { colors, maxSize } from 'assets/variables'
 
 const Wrapper = styled.div`
     left: 50%;
@@ -22,6 +22,12 @@ const Wrapper = styled.div`
     justify-content: space-between;
     font-family: 'Roboto', sans-serif;
 
+    @media only screen and (max-width: ${maxSize.medium}) {
+        width: 100%;
+        max-width: 90%;
+        padding: 14px 12px 14px 12px;
+    }
+
     ${props => props.show ? `
         z-index: 1;
         position: fixed;
@@ -37,7 +43,7 @@ const Wrapper = styled.div`
 
     ${props => props.type === 'success' ? `background-color: ${colors.primary};` :
         props.type === 'error' ? `background-color: ${colors.error};`
-            : 'background-color: #333;'} 
+            : 'background-color: #333;'}
 
     @-webkit-keyframes fadein {
         0% {
