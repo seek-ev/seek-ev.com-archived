@@ -47,10 +47,12 @@ const Filter = styled.div`
 `
 
 const Searchbar = styled.div`
-    width: 20%;
+    width: 100%;
+    max-width: 220px;
 
     @media only screen and (max-width: ${maxSize.desktop}) {
         width: 30%;
+        max-width: none;
     }
     @media only screen and (max-width: ${maxSize.medium}) {
         width: 95%;

@@ -13,7 +13,7 @@ const Header = ({ brands, categories, loading, handleSearchChange, handleCategor
         <Wrapper>
             <Searchbar>
                 <FiltersTitle>Browse cars</FiltersTitle>
-                <Input placeholder="Search cars" disabled={loading} noError={true} onChange={handleSearchChange} />
+                <Input placeholder="Search through cars" disabled={loading} noError={true} onChange={handleSearchChange} />
             </Searchbar>
             <Filters>
                 <Filter>
