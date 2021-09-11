@@ -4,7 +4,15 @@ import { Helmet } from 'react-helmet'
 import { useDispatch } from 'react-redux'
 
 // Styles
-import { Container, Wrapper, Header, Title, NewButton, Owned, Loading } from './styles'
+import { Loading } from 'components/basic/loading/styles.js'
+import {
+    Container,
+    Wrapper,
+    Header,
+    Title,
+    NewButton,
+    Owned
+} from './styles'
 
 // Components
 import { Navbar } from 'components/navbar'

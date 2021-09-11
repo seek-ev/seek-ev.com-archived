@@ -12,14 +12,14 @@ const Wrapper = styled.div`
     align-items: center;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
-    
+
     a {
         color: ${colors.primary};
         font-weight: 500;
         margin: 6px 0;
         text-decoration: none;
-    } 
-     
+    }
+
     code {
         color: ${colors.primary};
         margin: 0px 1px;

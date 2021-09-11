@@ -13,11 +13,11 @@ const Wrapper = styled.div`
     position: fixed;
     text-align: left;
     min-width: 250px;
-    max-width: 400px;
+    max-width: 480px;
     border-radius: 7px;
     visibility: hidden;
-    transform: translate(-50%);
     flex-direction: row;
+    transform: translate(-50%);
     padding: 14px 7px 14px 12px;
     justify-content: space-between;
     font-family: 'Roboto', sans-serif;
@@ -95,7 +95,6 @@ const Wrapper = styled.div`
 `
 
 const SnackText = styled.div`
-    max-width: 300px;
     overflow: hidden;
     text-overflow: ellipsis;
 `

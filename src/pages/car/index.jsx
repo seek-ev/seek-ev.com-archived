@@ -5,7 +5,15 @@ import { useDispatch } from 'react-redux'
 import { Helmet } from 'react-helmet'
 
 // Styles
-import { Wrapper, Car, CarNotFound, CarNotFoundLink, CarNotFoundButton, CarNotFoundTitle, Loading } from './styles'
+import { Loading } from 'components/basic/loading/styles.js'
+import {
+    Wrapper,
+    Car,
+    CarNotFound,
+    CarNotFoundLink,
+    CarNotFoundButton,
+    CarNotFoundTitle
+} from './styles'
 
 // Components
 import { Navbar } from 'components/navbar'
@@ -66,7 +74,7 @@ const CarPage = () => {
             </CarNotFound>
                 : ''}
 
-            {loading ? <Loading></Loading> : ''}
+            {loading ? <Loading /> : ''}
         </Wrapper>
     )
 }

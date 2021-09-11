@@ -60,7 +60,7 @@ const Loading = styled.div`
         top: 0;
         content: '';
     }
-    
+
     &:before {
         left: -1.5em;
         -webkit-animation-delay: -0.32s;
